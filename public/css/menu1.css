@@ -1,0 +1,222 @@
+#nav {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    list-style: none;
+    height: 46px;
+    padding-left: 0;
+}
+
+.level0.nav-1.level-top.first {
+    margin-left: 94px;
+    padding-left: 0;
+}
+
+/* All Levels */
+/* Style consistent throughout all nav levels */
+#nav li {
+    text-align: left;
+}
+
+#nav li.over {
+    z-index: 998;
+}
+
+#nav a,
+#nav a:hover {
+    display: block;
+    line-height: 1.3em;
+    text-decoration: none;
+}
+
+#nav span {
+    display: block;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+#nav li ul span {
+    white-space: nowrap;
+    font-size: 13px;
+}
+
+.all-brands8-4 {
+    column-gap: 100% !important;
+    column-count: 4 !important;
+}
+
+#nav a {
+    float: left;
+}
+
+#nav li.level0>a>span {
+    color: #000;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+#nav>li.over,
+#nav>li:hover,
+#nav>li.active {
+    background-color: white;
+}
+
+@-moz-document url-prefix() {
+    #nav ul.chield>li {
+        width: 60% !important;
+        margin-left: 10%;
+        display: contents !important;
+        padding: 0 10px 0 0;
+    }
+}
+
+#nav ul.chield>li {
+    width: 19%;
+    float: left;
+    display: block;
+    padding: 0 10px 0 0;
+}
+
+#nav .designers6 ul .last ul {
+    -webkit-column-count: 6;
+    -moz-column-count: 6;
+    column-count: 6;
+    -webkit-column-gap: 12em;
+    -moz-column-gap: 12em;
+    column-gap: 12em;
+    display: table-cell;
+    clear: both;
+    float: left;
+    display: inline;
+}
+
+#nav .chield {
+    width: 904px;
+    margin-left: 10px;
+    border: 3px solid #ddd;
+}
+
+/* 1st Level */
+#nav ul li {
+    float: none;
+    margin: 0;
+    padding: 0;
+}
+#nav ul li.last {
+    padding-bottom: 0;
+}
+#nav ul a,
+#nav ul a:hover {
+    float: none;
+    background: none;
+}
+#nav ul a:hover {
+    text-decoration: none;
+    color: #000;
+}
+#nav>li:hover>ul {
+    left: -90px;
+    width: 1200px;
+    display: block;
+    overflow: auto;
+    border: 2px solid #ededed;
+    margin: 0 auto;
+    padding: 20px 0 0 43px;
+}
+/*#nav > li > ul:hover { left:-25px; }*/
+#nav>li>ul>li>a {
+    font-weight: bold;
+    font-family: 'ProximaNova Light';
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+    color: #0d0c0c;
+}
+#nav>li>ul>li>a span {
+    font-size: 14px;
+    color: #4a4a4a;
+    padding: 7px 2px;
+}
+#nav ul li a {
+    font-weight: normal;
+}
+/* 2nd Level */
+#nav li:hover #nav ul,
+#nav div {
+    left: 100px;
+}
+#nav ul,
+#nav div {
+    top: 46px;
+    left: -10000px;
+    padding: 3px 0 15px;
+    background: #fff;
+    font-size: 13px;
+}
+#nav>li>ul>li {
+    /*width: 129px;*/
+    margin: 0 10px 0 0;
+}
+#nav div ul {
+    position: static;
+    width: auto;
+    border: none;
+    padding: 0;
+}
+#nav ul.level0 {
+    position: absolute;
+    z-index: 9999;
+    padding: 20px 15px 15px;
+    max-height: 830px;
+    -moz-column-count: 4;
+    -moz-column-gap: 10px;
+    /* -webkit-column-count: 4; */
+    /* -webkit-column-gap: 10px; */
+    /* column-count: 4; */
+    column-gap: 10px;
+}
+/* ========================== */
+#nav>li>ul>li ul {
+    margin-left: 3px;
+    padding-top: 1px;
+}
+#nav>li>ul>li ul>li {
+    margin: 4px 0 8px 0;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-color: transparent !important;
+    list-style: none;
+    font-size: 14px;
+}
+#nav>li>ul>li ul>li>a {
+    color: #4a4a4a;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+#nav>li>ul>li ul>li>a:hover {
+    text-decoration: none
+}
+#nav>li>ul ul>li:hover,
+#nav>li>ul>li ul>li:hover {
+    background-color: transparent !important;
+}
+/* ========================== */
+/* 3rd+ Level */
+#nav ul ul,
+#nav ul div {
+    top: 5px;
+    padding: 10px 0px 5px;
+}
+/* Show menu */
+#nav li ul.shown-sub,
+#nav li div.shown-sub {
+    left: -1px;
+    z-index: 999;
+}
+#nav li .shown-sub ul.shown-sub,
+#nav li .shown-sub li div.shown-sub {
+    left: 100px;
+}
+
+/********** Navigation > */
+/* ======================================================================================= */

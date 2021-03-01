@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#" xml:lang="ar" lang="ar">
+
+<head>
+    <script type="text/javascript">
+        var slide_on = false;
+
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Pepper's Luxury Closet</title>
+    <meta name="description" content="Pepper's is Egypt's first and only consignment store for Authentic luxury brands! Egypt's First Consignment Boutique bringing you premium designer brands up to 70% off retail price" />
+    <meta name="keywords" content="pre-owned, designer, closet, sell, buy, brands, consignment, authentic, store, premium, closet, boutique" />
+    <meta name="robots" content="INDEX,FOLLOW" />
+    <link rel="icon" href="https://peppersluxury.com/skin/frontend/decostore/default/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="https://peppersluxury.com/skin/frontend/decostore/default/favicon.ico" type="image/x-icon" />
+    <!--[if lt IE 7]>
+    <script type="text/javascript">
+    //<![CDATA[
+        var BLANK_URL = '{{url('public/js')}}/blank.html';
+        var BLANK_IMG = '{{url('public/js')}}/spacer.gif';
+    //]]>
+    </script>
+    <![endif]-->
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{url('public/css')}}/checkbox.min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{url('public')}}/mageinn/nouislider/nouislider.min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{url('public/css')}}/jqtransform.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{url('public/css')}}/styles.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{url('public/css')}}/footer.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{url('public/css')}}/widgets.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{url('public/css/bootstrap.min.css')}}" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{url('public/css')}}/custom.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{url('public/css')}}/priceslider.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{url('public/js/fancybox')}}/jquery.fancybox-1.3.4.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{url('public/css')}}/print.css" media="print" />
+    <link rel="stylesheet" type="text/css" href="{{url('public/css')}}/easyzoom.css" media="screen" />
+    <link href="https://peppersluxury.com/rss/catalog/new/store_id/1/" title="New Products" rel="alternate" type="application/rss+xml" />
+    <link href="https://peppersluxury.com/rss/catalog/special/store_id/1/cid/0/" title="Special Products" mrel="alternate" type="application/rss+xml" />
+    <link href="https://peppersluxury.com/rss/catalog/salesrule/store_id/1/cid/0/" title="Coupons/Discounts" rel="alternate" type="application/rss+xml" />
+    <link rel="stylesheet" type="text/css" href="{{url('public/css')}}/menu1.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="{{url('public/css')}}/app.css" />
+
+    
+
+
+
+    <!--[if lt IE 8]>
+         <link rel="stylesheet" type="text/css" href="{{url('public/css')}}/styles-ie.css" media="all" />
+    <![endif]-->
+        <!--[if lt IE 7]>
+    <script type="text/javascript" src="{{url('public/js')}}/lib/ds-sleight.js"></script>
+    <script type="text/javascript" src="https://peppersluxury.com/skin/frontend/base/default/js/ie6.js"></script>
+    <![endif]-->
+
+    
+</head>

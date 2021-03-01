@@ -1,0 +1,74 @@
+.upper-nav{
+    background: $black;
+    ul{
+        display: flex;
+        width: 100%;
+        margin: 0;
+        justify-content: space-between;
+        li{
+            padding: 10px 0px;
+            a{
+                color: #fff;
+                text-decoration: none;
+                text-transform: uppercase;
+                font-size: 10px;
+                font-family: 'ProximaNova Bold';
+            }
+        }
+    }
+}
+.navbar{
+    background-color: #fff;
+    .navbar-brand img{
+        width: auto;
+        height: 60px;
+    }
+    .nav-item{
+        margin: 0 20px;
+        .nav-link{
+            color: $black;
+        }
+    }
+    .mega-menu{
+        display: none;
+        position: fixed;
+        padding: 20px;
+        border-radius: 4px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        top: 110px;
+        z-index: 9999;
+        height: 60vh;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        background-color: #fff;
+        width: 80%;
+        left: 10%;
+        right: 10%;
+        .main-title{
+            color: $brand;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .sub-items-list{
+            margin-bottom: 25px;
+            li a{
+                color: $grey;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:768px){
+    .upper-nav{
+        ul{
+            flex-direction: column;
+            text-align: center;
+            li{
+                padding:5px;
+            }
+        }
+    }
+}
