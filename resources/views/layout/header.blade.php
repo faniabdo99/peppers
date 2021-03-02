@@ -32,6 +32,8 @@
     <![endif]-->
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{url('public/css')}}/owl/owl.carousel.min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{{url('public/css')}}/owl/owl.theme.default.min.css" media="all" />
     <link rel="stylesheet" type="text/css" href="{{url('public/css')}}/checkbox.min.css" media="all" />
     <link rel="stylesheet" type="text/css" href="{{url('public')}}/mageinn/nouislider/nouislider.min.css" media="all" />
     <link rel="stylesheet" type="text/css" href="{{url('public/css')}}/jqtransform.css" media="all" />
@@ -48,19 +50,5 @@
     <link href="https://peppersluxury.com/rss/catalog/special/store_id/1/cid/0/" title="Special Products" mrel="alternate" type="application/rss+xml" />
     <link href="https://peppersluxury.com/rss/catalog/salesrule/store_id/1/cid/0/" title="Coupons/Discounts" rel="alternate" type="application/rss+xml" />
     <link rel="stylesheet" type="text/css" href="{{url('public/css')}}/menu1.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="{{url('public/css')}}/app.css" />
-
-    
-
-
-
-    <!--[if lt IE 8]>
-         <link rel="stylesheet" type="text/css" href="{{url('public/css')}}/styles-ie.css" media="all" />
-    <![endif]-->
-        <!--[if lt IE 7]>
-    <script type="text/javascript" src="{{url('public/js')}}/lib/ds-sleight.js"></script>
-    <script type="text/javascript" src="https://peppersluxury.com/skin/frontend/base/default/js/ie6.js"></script>
-    <![endif]-->
-
-    
+    <link rel="stylesheet" type="text/css" href="{{url('public/css')}}/app.css" />    
 </head>

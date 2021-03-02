@@ -9,100 +9,30 @@
                     <div class="main">
                         <div class="col-main">
                             <div class="std">
-                                <section class="homepage" style="padding-top: 0px">
+                                <section class="homepage">
                                     <div class="row first-section-slider">
                                         <div class="col-sm-12 col-md-8 col-lg-8">
-                                            <div id="carousel-example-generic" class="carousel slide"
-                                                data-ride="carousel" style="height: auto !important;margin: auto;">
-                                                <!-- Indicators -->
-                                                <ol class="carousel-indicators">
-                                                    <li data-target="#carousel-example-generic" data-slide-to="0"
-                                                        class="active"></li>
-                                                    <li data-target="#carousel-example-generic" data-slide-to="1">
-                                                    </li>
-                                                    <li data-target="#carousel-example-generic" data-slide-to="2">
-                                                    </li>
-                                                    <li data-target="#carousel-example-generic" data-slide-to="3">
-                                                    </li>
-                                                    <li data-target="#carousel-example-generic" data-slide-to="4">
-                                                    </li>
-                                                </ol>
-                                                <!-- Wrapper for slides -->
-                                                <div class="carousel-inner" role="listbox">
-
-                                                    <div class="item active">
-                                                        <img src="https://peppersluxury.com/media/wysiwyg/decostore/homePage/slider1.png"
-                                                            class="img-responsive" alt="">
-
-                                                    </div>
-                                                    <div class="item">
-                                                        <img src="https://peppersluxury.com/media/wysiwyg/decostore/homePage/slider2.png"
-                                                            class="img-responsive" alt="">
-
-                                                    </div>
-                                                    <div class="item">
-                                                        <img src="https://peppersluxury.com/media/wysiwyg/decostore/homePage/slider3.png"
-                                                            class="img-responsive" alt="">
-
-                                                    </div>
-                                                    <div class="item">
-                                                        <img src="https://peppersluxury.com/media/wysiwyg/decostore/homePage/slider4.png"
-                                                            class="img-responsive" alt="">
-
-                                                    </div>
-                                                    <div class="item">
-                                                        <img src="https://peppersluxury.com/media/wysiwyg/decostore/homePage/slider5.png"
-                                                            class="img-responsive" alt="">
-
-                                                    </div>
-                                                </div>
-
-                                                <!-- Controls -->
-                                                <a class="left carousel-control" href="#carousel-example-generic"
-                                                    role="button" data-slide="prev">
-                                                    <span class="glyphicon glyphicon-chevron-left"
-                                                        aria-hidden="true"></span>
-                                                    <span class="sr-only">Previous</span>
-                                                </a>
-                                                <a class="right carousel-control" href="#carousel-example-generic"
-                                                    role="button" data-slide="next">
-                                                    <span class="glyphicon glyphicon-chevron-right"
-                                                        aria-hidden="true"></span>
-                                                    <span class="sr-only">Next</span>
-                                                </a>
-                                            </div>
+                                            <div class="owl-carousel" id="homeage-hero-slider">
+                                                <img src="https://peppersluxury.com/media/wysiwyg/decostore/homePage/slider1.png" class="img-responsive" alt="">
+                                                <img src="https://peppersluxury.com/media/wysiwyg/decostore/homePage/slider2.png" class="img-responsive" alt="">
+                                                <img src="https://peppersluxury.com/media/wysiwyg/decostore/homePage/slider3.png" class="img-responsive" alt="">
+                                                <img src="https://peppersluxury.com/media/wysiwyg/decostore/homePage/slider4.png" class="img-responsive" alt="">
+                                                <img src="https://peppersluxury.com/media/wysiwyg/decostore/homePage/slider5.png" class="img-responsive" alt="">
+                                            </div>                                               
                                         </div>
                                         <div class="col-sm-12 col-md-4 col-lg-4 none">
                                             <a href="https://peppersluxury.com/how-to-sell-with-us">
-                                                <img src="https://peppersluxury.com/media/wysiwyg/decostore/homePage/side-1.png"
-                                                    class="offer-side-slider" alt="">
+                                                <img src="https://peppersluxury.com/media/wysiwyg/decostore/homePage/side-1.png" class="offer-side-slider" alt="">
                                             </a>
-
                                             <a href="https://peppersluxury.com/designers/all-brands/rolex.html">
-                                                <img src="https://peppersluxury.com/media/wysiwyg/decostore/homePage/side-2.png"
-                                                    class="offer-side-slider" alt="">
+                                                <img src="https://peppersluxury.com/media/wysiwyg/decostore/homePage/side-2.png" class="offer-side-slider" alt="">
                                             </a>
                                             <a href="https://peppersluxury.com/accessories.html">
-                                                <img src="https://peppersluxury.com/media/wysiwyg/decostore/homePage/side-3.png"
-                                                    class="offer-side-slider" alt="">
+                                                <img src="https://peppersluxury.com/media/wysiwyg/decostore/homePage/side-3.png" class="offer-side-slider" alt="">
                                             </a>
                                         </div>
                                     </div>
                                 </section>
-
-                                <div class="shop-store">
-                                    <a class="catnew50 " href="https://peppersluxury.com/women.html">Shop Women</a>
-                                    <a class="catnew50 " href="https://peppersluxury.com/men.html">Shop Men</a>
-                                    <a class="catnew50 " href="https://peppersluxury.com/designers/all-brands.html">Shop
-                                        Brands</a>
-                                    <a class="catnew50 " href="https://peppersluxury.com/new-arrivals.html">What's
-                                        New</a>
-                                    <a class="sell-your-items" href="https://peppersluxury.com/how-to-sell-with-us">SELL
-                                        WITH US</a>
-                                    <a class="" href="https://peppersluxury.com/sale.html">Sale</a>
-                                </div>
-
-
                                 <!---- Designers Slider ----->
                                 <div class="top-designer">
                                     <div class="home-top-designer"></div>
@@ -112,10 +42,7 @@
                                             .bx-wrapper {
                                                 max-width: 100% !important;
                                             }
-
                                         </style>
-
-
                                         <ul class="bx-slider">
                                             <li>
                                                 <a

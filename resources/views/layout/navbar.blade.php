@@ -1,3 +1,4 @@
+<div class="dark-overlay"></div>
 <div class="upper-nav">
     <div class="container">
         <div class="row">
