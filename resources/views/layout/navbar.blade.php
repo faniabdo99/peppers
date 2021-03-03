@@ -5,12 +5,11 @@
             <div class="col-12">
                 <ul>
                     <li>
-                        <a href="https://www.facebook.com/PeppersLuxuryCloset/" target="_blank"><i class="fab fa-facebook"></i></a>
-                        <a class="mr-5" href="https://www.instagram.com/peppers_luxury_closet/" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="#" title="Switch Currency to USD"><i class="fas fa-dollar-sign"></i> USD</a>
+                        <a href="#" title="Switch Currency to USD"><i class="fas fa-dollar-sign"></i> USD |</a>
+                        <a href="#" title="Switch Currency to USD"><i class="fas fa-pound-sign"></i> EGP</a>
                     </li>
-                    <li><a href="/authenticity"><i class="fas fa-lock"></i> Authenticity Guaranteed</a></li>
-                    <li><a href="/returns" rel="nofollow"><i class="fas fa-truck"></i> International Shipping</a></li>
+                    <li><a href="{{route('static.authenticity')}}"><i class="fas fa-lock"></i> Authenticity Guaranteed</a></li>
+                    <li><a href="{{route('static.returns')}}"><i class="fas fa-truck"></i> International Shipping</a></li>
                     <li>
                         <a href="/customer/account/login/" rel="nofollow" class="login-link"><i class="fas fa-user"></i> Login | </a>
                         <a href="/customer/account/create/" rel="nofollow" class="register-link">Register</a>

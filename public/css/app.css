@@ -107,3 +107,74 @@ body {
     padding: 5px;
   }
 }
+.static-page {
+  margin-top: 40px;
+}
+.static-page .static-title {
+  color: #c89a4d;
+  font-weight: bold;
+}
+.static-page p, .static-page ul {
+  color: #777;
+}
+
+/* Authenticity Page */
+.static-page.authenticity .nav-tabs {
+  background-color: #ebebeb;
+  padding: 15px;
+  margin-bottom: 0;
+}
+.static-page.authenticity .nav-tabs li {
+  font-size: 1.1em;
+  margin-bottom: 15px;
+  display: block;
+  width: 100%;
+}
+.static-page.authenticity .nav-tabs li a {
+  padding: 10px;
+  color: #000;
+  display: block;
+  border-radius: 0;
+}
+.static-page.authenticity .nav-tabs li a.active {
+  background-color: #c89a4d;
+  color: #fff;
+  font-weight: bold;
+}
+.static-page.authenticity .nav-tabs li:hover {
+  background-color: #d1af73;
+  transition: all ease 0.3s;
+}
+.static-page.authenticity .nav-tabs li:hover a {
+  text-decoration: none;
+}
+.static-page.authenticity .single-auth-item {
+  position: relative;
+  margin-bottom: 15px;
+}
+.static-page.authenticity .single-auth-item p {
+  position: absolute;
+  color: #fff;
+  font-size: 1.2em;
+  margin: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  font-weight: bold;
+}
+.static-page.authenticity .single-auth-item .content-above {
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  font-size: 0.8em;
+  color: #fff;
+  width: 90%;
+}
+
+/* FAQS Page */
+.faqs .main-title, .returns .main-title {
+  font-size: 2.5em;
+  text-align: center;
+}
+.faqs .static-title, .returns .static-title {
+  font-size: 1.5em;
+}

@@ -358,97 +358,27 @@ button.btn.quotation.pull-right {
 
 
 /**** Extra in footer ******/
-.social {
+.footer-social-media {
     width: 100%;
     border-bottom: 1px solid #dfdfdf;
-    float: left;
     border-top: 1px solid #dfdfdf;
-    height: 68px;
-}
-
-.social_icons {
-    padding: 16px 0;
-    margin: 0 auto;
-    width: 300px;
+    padding: 15px 0;
     text-align: center;
 }
-
-.social_icons a {
-    height: 30px;
+.footer-social-media a{
+  color: #2e2e2e;
+  font-size: 1.5em;
+  margin: 0 10px;
 }
-
-.social_icons a,
-.footer_data a.lc-class {
-    background: url(../images/sprites_v0.58.png);
-    background-position-x: 0%;
-    background-position-y: 0%;
-    margin: 0 5px;
-    display: inline-block;
-}
-
-.social_icons a.facebook {
-    background-position: -5px -327px;
-    width: 15px;
-}
-
-.social_icons a.pintrest {
-    background-position: -26px -327px;
-    width: 28px;
-}
-
-.social_icons a.twitter {
-    background-position: -59px -327px;
-    width: 26px;
-}
-
-.social_icons a.icon-social {
-    background-position: -89px -327px;
-    width: 26px;
-}
-
 .footer_data {
-    width: 100%;
-    float: left;
+    padding: 20px 0;
 }
-
-footer .first {
-    float: left;
-    margin-left: 22px;
-    text-align: left;
-}
-
-.second {
-    float: left;
-    margin-left: 44px;
-    text-align: left;
-}
-
-.third {
-    float: left;
-    margin-top: 30px;
-    max-width: 24%;
-    margin-left: 80px;
-    margin-right: 30px;
-    text-align: center;
-}
-
 .third p {
     line-height: 30px;
     display: block;
     margin-right: 10px;
 }
 
-.fourth {
-    width: 353px;
-    float: right;
-    margin-top: 49px;
-    text-align: left;
-    padding-left: 45px;
-}
-
-.footer_data ul {
-    margin-bottom: 0;
-}
 
 footer .first ul,
 .second ul {
@@ -479,14 +409,11 @@ footer .first ul,
 
 .fourth .payment {
     width: 100%;
-    float: left;
-    margin-bottom: 37px;
 }
 
 .deleivery {
-    padding-top: 12px;
+
     width: 100%;
-    float: left;
 }
 
 .fourth p {
@@ -601,14 +528,11 @@ footer .first ul,
 
 .footer_text {
     width: 100%;
-    float: left;
     color: #424242;
     margin-top: 36px;
     text-align: center;
     font-size: 12.89px;
-    margin-bottom: 16px;
-    line-height: 10px;
-    margin-left: -22px;
+
 }
 
 /********* NewsLetter *********/
@@ -934,30 +858,16 @@ footer .first ul,
     min-height: 40px;
     margin-left: 50px;
 }
-
-.sell-item {
-    width: 100%;
-    float: left;
-    height: 278px;
-}
-
 .sell-banner {
     width: 100%;
-    height: 278px;
+    height: auto;
 }
 
 /********* Trends *********/
 .trends {
     width: 100%;
-    float: left;
-    height: 854px;
 }
 
-.latest_trends {
-    width: 276px;
-    float: left;
-    margin-left: 16px;
-}
 
 .editor_picks {
     width: 900px;
@@ -1724,10 +1634,6 @@ footer .first ul,
 .third p.tlc-phone {
     font-size: 13px;
     margin: 5px 0;
-}
-
-.third p.tlc-address {
-    line-height: 18px;
 }
 
 .mobile {
