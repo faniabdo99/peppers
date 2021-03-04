@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="footer">
     <div class="row">
         <div class="col-12">
             <footer class="footer">
@@ -23,19 +23,19 @@
                         </div>
                         <div class="col-lg-4 col-12">
                             <ul>
-                                <li><a href="https://peppersluxury.com//returns">Delivery & returns</a></li>
-                                <li><a href="https://peppersluxury.com//shipping-delivery">Shipping and Delivery</a></li>
+                                <li><a href="{{route('static.returns')}}">Delivery & returns</a></li>
+                                <li><a href="{{route('static.shipping')}}">Shipping and Delivery</a></li>
                                 <li><a href="https://peppersluxury.com//how-to-sell-with-us">How to Sell With Us</a></li>
-                                <li><a href="https://peppersluxury.com//consignment-form">Our Consignment Form</a></li>
+                                <li><a href="{{route('static.consignmentForm')}}">Our Consignment Form</a></li>
                                 <li><a href="https://peppersluxury.com//how-it-works">How It Works</a></li>
                             </ul>
                         </div>
                         <div class="col-lg-4 col-12">
                             <ul>
-                                <li><a href="https://peppersluxury.com//who-we-are">Who We Are</a></li>
-                                <li><a href="https://peppersluxury.com//privacy-policy">Privacy Policy</a></li>
-                                <li><a href="https://peppersluxury.com//careers">Careers</a></li>
-                                <li><a href="https://peppersluxury.com//faqs">FAQs</a></li>
+                                <li><a href="{{route('static.whoWeAre')}}">Who We Are</a></li>
+                                <li><a href="{{route('static.privacy')}}">Privacy Policy</a></li>
+                                <li><a href="{{route('static.careers')}}">Careers</a></li>
+                                <li><a href="{{route('static.faqs')}}">FAQs</a></li>
                                 <li><a href="https://peppersluxury.com//payment-options">Payment Methods</a></li>
                             </ul>
                         </div>

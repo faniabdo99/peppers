@@ -1,73 +1,123 @@
-.static-page{
+.static-page {
     margin-top: 40px;
-    .static-title{
+
+    .static-title {
         color: $brand;
         font-weight: bold;
     }
-    p,ul{
+
+    p,
+    ul {
         color: $grey;
     }
 }
+
 /* Authenticity Page */
-.static-page.authenticity{
-    .nav-tabs{
+.static-page.authenticity {
+    .nav-tabs {
         background-color: $lightgrey;
         padding: 15px;
         margin-bottom: 0;
-        li{
+
+        li {
             font-size: 1.1em;
             margin-bottom: 15px;
             display: block;
             width: 100%;
-            a{
+
+            a {
                 padding: 10px;
                 color: $black;
                 display: block;
                 border-radius: 0;
-                &.active{
+
+                &.active {
                     background-color: $brand;
                     color: #fff;
                     font-weight: bold;
                 }
             }
-            &:hover{
+
+            &:hover {
                 background-color: $brand-hover;
                 transition: all ease 0.3s;
-                a{
+
+                a {
                     text-decoration: none;
                 }
             }
         }
     }
-    .single-auth-item{
+
+    .single-auth-item {
         position: relative;
         margin-bottom: 15px;
-        p{
+
+        p {
             position: absolute;
             color: #fff;
             font-size: 1.2em;
             margin: 20px;
-            background-color: rgba(0,0,0,0.6);
+            background-color: rgba(0, 0, 0, 0.6);
             padding: 10px;
             font-weight: bold;
         }
-        .content-above{
+
+        .content-above {
             position: absolute;
             bottom: 0;
-            background-color: rgba(0,0,0,0.9);
+            background-color: rgba(0, 0, 0, 0.9);
             font-size: 0.8em;
             color: #fff;
             width: 90%;
         }
     }
 }
+
 /* FAQS Page */
-.faqs , .returns{
-    .main-title{
+.faqs,
+.returns-page,
+.shipping-page,
+.privacy-policy,
+.careers {
+    .main-title {
         font-size: 2.5em;
         text-align: center;
     }
-    .static-title{
+    .static-title {
         font-size: 1.5em;
+    }
+}
+
+.consigment-page {
+    .fff {
+        width: 68%;
+        margin: 0 auto;
+        padding-top: 40px;
+    }
+    .fff h1 {
+        text-align: center;
+        font-weight: 300;
+        font-size: 2em;
+        color: #0d0c0c;
+    }
+    .fff h3 {
+        text-transform: uppercase;
+        color: #c8a26e;
+        margin-bottom: 8px;
+        font-size: 18px;
+        font-family: ProximaNova bold;
+        padding-left: 40px;
+        text-align: left;
+    }
+    .fff p {
+        font-size: 15px;
+        line-height: 22px;
+        letter-spacing: .03em;
+        color: #0d0c0c;
+        font-family: 'ProximaNova Light';
+        -webkit-font-smoothing: antialiased;
+        padding-top: 0;
+        text-align: left;
     }
 }

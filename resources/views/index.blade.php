@@ -1,6 +1,6 @@
 @include('layout.header')
-<body>
-    @include('layout.navbar')
+    <body>
+        @include('layout.navbar')
         <section class="mb-5 homepage">
             <div class="container-fluid">
                 <div class="row first-section-slider">
@@ -187,7 +187,7 @@
             </div>
         </section>
         @include('components.newsletter')
-    @include('layout.footer')
-    @include('layout.scripts')
-</body>
+        @include('layout.footer')
+        @include('layout.scripts')
+    </body>
 </html>
