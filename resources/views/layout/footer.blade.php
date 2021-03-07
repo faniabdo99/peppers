@@ -27,7 +27,7 @@
                                 <li><a href="{{route('static.shipping')}}">Shipping and Delivery</a></li>
                                 <li><a href="https://peppersluxury.com//how-to-sell-with-us">How to Sell With Us</a></li>
                                 <li><a href="{{route('static.consignmentForm')}}">Our Consignment Form</a></li>
-                                <li><a href="https://peppersluxury.com//how-it-works">How It Works</a></li>
+                                <li><a href="{{route('static.howItWorks')}}">How It Works</a></li>
                             </ul>
                         </div>
                         <div class="col-lg-4 col-12">
@@ -36,7 +36,7 @@
                                 <li><a href="{{route('static.privacy')}}">Privacy Policy</a></li>
                                 <li><a href="{{route('static.careers')}}">Careers</a></li>
                                 <li><a href="{{route('static.faqs')}}">FAQs</a></li>
-                                <li><a href="https://peppersluxury.com//payment-options">Payment Methods</a></li>
+                                <li><a href="{{route('static.paymentOptions')}}">Payment Methods</a></li>
                             </ul>
                         </div>
                     </div>

@@ -218,3 +218,98 @@ body {
   padding-top: 0;
   text-align: left;
 }
+
+.users-system h1.main-title {
+  text-align: center;
+  margin: 15px 0;
+  background-color: #c89a4d;
+  padding: 20px;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 2em;
+}
+.users-system .peppers-form {
+  border-radius: 4px;
+  width: 60%;
+  margin: auto;
+  background-color: #ebebeb;
+}
+.users-system .peppers-form form {
+  padding: 25px;
+  display: block;
+}
+.users-system .peppers-form label {
+  display: block;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+.users-system .peppers-form input {
+  padding: 10px;
+  border-radius: 4px;
+  border: 0;
+  width: 100%;
+}
+.users-system .peppers-form .submit-btn {
+  display: block;
+  background-color: #c89a4d;
+  padding: 10px;
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+  width: 100%;
+}
+.users-system .peppers-form .account-form-notice {
+  font-size: 1.1em;
+}
+.users-system .peppers-form .account-form-notice a {
+  color: #c89a4d;
+  font-weight: bold;
+}
+.users-system .peppers-form .social-media-icons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  -webkit-padding-start: 0;
+          padding-inline-start: 0;
+  margin-bottom: 0;
+}
+.users-system .peppers-form .social-media-icons li {
+  flex: 1;
+  text-align: center;
+  margin: 10px;
+}
+.users-system .peppers-form .social-media-icons li a {
+  width: 100%;
+  display: block;
+  color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+}
+.users-system .peppers-form .social-media-icons li a:hover {
+  text-decoration: none;
+}
+.users-system .peppers-form .social-media-icons li.facebook a {
+  background-color: #3b5998;
+  transition: 0.3s all ease;
+}
+.users-system .peppers-form .social-media-icons li.facebook a:hover {
+  background-color: #2e467a;
+  transition: 0.3s all ease;
+}
+.users-system .peppers-form .social-media-icons li.google a {
+  background-color: #DB4437;
+  transition: 0.3s all ease;
+}
+.users-system .peppers-form .social-media-icons li.google a:hover {
+  background-color: #bd4136;
+  transition: 0.3s all ease;
+}
+.users-system .peppers-form .social-media-icons li.twitter a {
+  background-color: #00acee;
+  transition: 0.3s all ease;
+}
+.users-system .peppers-form .social-media-icons li.twitter a:hover {
+  background-color: #0f93c7;
+  transition: 0.3s all ease;
+}

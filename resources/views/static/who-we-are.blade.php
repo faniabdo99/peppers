@@ -1,5 +1,4 @@
 @include('layout.header')
-
 <body>
     @include('layout.navbar')
     <section class="static-page shipping-page">
@@ -52,5 +51,4 @@
     @include('layout.footer')
     @include('layout.scripts')
 </body>
-
 </html>

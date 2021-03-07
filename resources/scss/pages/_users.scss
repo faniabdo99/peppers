@@ -1,0 +1,101 @@
+.users-system{
+    h1.main-title{
+        text-align: center;
+        margin: 15px 0;
+        background-color: $brand;
+        padding: 20px;
+        border-radius: 4px;
+        color: #fff;
+        font-weight: bold;
+        font-size: 2em;
+    }
+    .peppers-form{
+        border-radius: 4px;
+        width: 60%;
+        margin: auto;
+        background-color: $lightgrey;
+        form{
+            padding: 25px;
+            display: block;
+        }
+        label{
+            display: block;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        input{
+            padding: 10px;
+            border-radius: 4px;
+            border:0;
+            width: 100%;
+        }
+        .submit-btn{
+            display: block;
+            background-color: $brand;
+            padding: 10px;
+            border:0;
+            border-radius:4px;
+            color: #fff;
+            width: 100%;
+        }
+        .account-form-notice{
+            font-size: 1.1em;
+            a{
+                color: $brand;
+                font-weight: bold;
+            }
+        }
+        .social-media-icons{
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-inline-start: 0;
+            margin-bottom: 0;
+            li{
+                flex: 1;
+                text-align: center;
+                margin: 10px;
+                a{
+                    width: 100%;
+                    display: block;
+                    color:#fff;
+                    padding: 10px;
+                    border-radius: 4px;
+                    &:hover{
+                        text-decoration: none;
+                    }
+                }
+                &.facebook{
+                    a{
+                        background-color: #3b5998;
+                        transition: 0.3s all ease;
+                        &:hover{
+                            background-color: #2e467a;
+                            transition: 0.3s all ease;
+                        }
+                    }
+                }
+                &.google{
+                    a{
+                        background-color: #DB4437;
+                        transition: 0.3s all ease;
+                        &:hover{
+                            background-color: #bd4136;
+                            transition: 0.3s all ease;
+                        }
+                    }
+                }
+                &.twitter{
+                    a{
+                        background-color: #00acee;
+                        transition: 0.3s all ease;
+                        &:hover{
+                            background-color: #0f93c7;
+                            transition: 0.3s all ease;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

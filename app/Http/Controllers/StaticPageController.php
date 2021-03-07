@@ -26,4 +26,10 @@ class StaticPageController extends Controller{
     public function getCareers(){
         return view('static.careers');
     }
+    public function getHowItWorks(){
+        return view('static.how-it-works');
+    }
+    public function getPaymentOptions(){
+        return view('static.payment-options');
+    }
 }
