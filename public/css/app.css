@@ -385,3 +385,10 @@ body {
   background-color: #ebebeb;
   border: 0;
 }
+.user-profile .edit-profile-form .submit-btn {
+  background-color: #c89a4d;
+  padding: 10px;
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+}

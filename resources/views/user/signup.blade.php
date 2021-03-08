@@ -18,7 +18,7 @@
                             <label for="password_confirmation">Password Confirmation</label>
                             <input class="mb-4" type="password" id="password_confirmation" name="password_confirmation" placeholder="Please enter your password again" required>
                             <button class="submit-btn mb-5">Signup</button>
-                            <p class="account-form-notice">Already Have an Account? <a class="">Login</a></p>
+                            <p class="account-form-notice">Already Have an Account? <a href="{{route('user.getLogin')}}">Login</a></p>
                             <ul class="social-media-icons">
                                 <li class="facebook"><a href="{{route('login.social' , 'facebook')}}"><i class="fab fa-facebook"></i> Login By Facebook</a></li>
                                 <li class="google"><a href="{{route('login.social' , 'google')}}"><i class="fab fa-google"></i> Login By Google</a></li>

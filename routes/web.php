@@ -20,6 +20,10 @@ Route::middleware('guest')->group(function () {
     Route::post('signup' , 'UserController@postSignup')->name('user.postSignup');
     Route::get('login' , 'UserController@getLogin')->name('user.getLogin');
     Route::post('login' , 'UserController@postLogin')->name('user.postLogin');
+    Route::get('reset-password' , 'UserController@getResetPage')->name('user.getReset');
+    Route::post('reset-password' , 'UserController@postResetPage')->name('user.postReset');
+    Route::get('choose-password/{email}/{code}' , 'UserController@getChoosePasswordPage')->name('reset.choosePassword.get');
+    Route::post('choose-password/' , 'UserController@postChoosePasswordPage')->name('reset.choosePassword.post');
     //Social Signup System
     Route::get('social-login/{provider}' , 'UserController@redirectToProvider')->name('login.social');
     Route::get('login/{driver}/callback' , 'UserController@handleProviderCallback')->name('login.social.callback');
@@ -28,4 +32,6 @@ Route::middleware('auth')->group(function () {
     Route::get('logout' , 'UserController@logout')->name('logout');
     Route::get('profile' , 'UserController@profile')->name('profile');
     Route::get('profile/edit' , 'UserController@getEdit')->name('profile.getEdit');
+    Route::post('profile/edit' , 'UserController@postEdit')->name('profile.postEdit');
+    Route::get('approve-account/{code}' , 'UserController@getApproveAccount')->name('profile.approve');
 });

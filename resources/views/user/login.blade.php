@@ -14,7 +14,7 @@
                             <label for="password">Password</label>
                             <input class="mb-4" type="password" id="password" name="password" placeholder="Please enter your password" required>
                             <button class="submit-btn mb-5">Login</button>
-                            <p class="account-form-notice">Forgot Your Password? <a class="">Click Here</a></p>
+                            <p class="account-form-notice">Forgot Your Password? <a href="{{route('user.getReset')}}">Click Here</a></p>
                             <ul class="social-media-icons">
                                 <li class="facebook"><a href="{{route('login.social' , 'facebook')}}"><i class="fab fa-facebook"></i> Login By Facebook</a></li>
                                 <li class="google"><a href="{{route('login.social' , 'google')}}"><i class="fab fa-google"></i> Login By Google</a></li>

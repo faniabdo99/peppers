@@ -9,6 +9,7 @@ use Socialite;
 use Image;
 use App\Models\User;
 use App\Mail\WelcomeNewUser;
+use App\Mail\ResetPasswordMail;
 class UserController extends Controller{
     public function getSignup(){
         return view('user.signup');
@@ -95,6 +96,103 @@ class UserController extends Controller{
     }
     public function getEdit(){
         return view('user.edit');
+    }
+    public function postEdit(Request $r){
+        //Validate the request
+        $Rules = [
+            'name' => 'required|min:3|max:255',
+            'phone_number' => 'required|numeric',
+            'zip_code' => 'numeric'
+        ];
+        $Validator = Validator::make($r->all() , $Rules);
+        if($Validator->fails()){
+            return back()->withErrors($Validator->errors()->all());
+        }else{
+            //Update the user
+            $TheUser = User::findOrFail(auth()->user()->id);
+            $TheUser->update($r->all());
+            return back()->withSuccess('Profile updated successfully');
+        }
+    }
+    public function getApproveAccount($code){
+        $TheUser = User::where('code' , $code)->first();
+        if($TheUser){
+            if($TheUser->confirmed){
+            return redirect()->route('profile')->withErrors('Your account is already confirmed');
+            }
+            if($TheUser->email == auth()->user()->email){
+            $TheUser->update(['confirmed' => 1]);
+            return redirect()->route('profile')->withSuccess('Your account has been confirmed, Thanke you');
+            }else{
+            return redirect()->route('profile')->withErrors('Authentication code dosen\'t match, Please follow the link we sent to you via email');
+            }
+        }else{
+            return redirect()->route('profile')->withErrors('Authentication code dosen\'t match, Please follow the link we sent to you via email');
+        }
+    }
+    public function getResetPage(){
+        return view('user.reset');
+    }
+    public function postResetPage(Request $r){
+        //Validation
+        $Rules = [
+            'email' => 'required|email'
+        ];
+        $Validator = Validator::make($r->all() , $Rules);
+        if($Validator->fails()){
+            return back()->withErrors($Validator->errors()->all());
+        }else{
+            //Check if this email exists
+            $TheUser = User::where('email',$r->email)->first();
+            if($TheUser){
+                //Send Reset Email
+                try{
+                    Mail::to($TheUser->email)->send(new ResetPasswordMail($TheUser));
+                }catch(Exception $e){}
+                return back()->withSuccess("Please follow the instruction sent to you via email");
+            }else{
+                return back()->withErrors("This email dosen't exist");
+            }
+        }
+    }
+    public function getChoosePasswordPage($email,$code){
+        $TheUser = User::where('email' , $email)->first();
+        if($TheUser){
+          if(md5($TheUser->code) == $code){
+            //Return the Page
+            return view('user.choose-password' , compact('TheUser'));
+          }else{
+            return redirect()->route('home')->withErrors('Identification code is not valid!');
+          }
+        }else{
+          return redirect()->route('home')->withErrors('This email dose not exist');
+        }
+    }
+    public function postChoosePasswordPage(Request $r){
+        //Validation
+        $Rules = [
+            'user_id' => 'required|numeric',
+            'user_code' => 'required',
+            'password' => 'required|min:5|confirmed',
+        ];
+        $Validator = Validator::make($r->all() , $Rules);
+        if($Validator->fails()){
+            return back()->withErrors($Validator->errors()->all());
+        }else{
+            $TheUser = User::findOrFail($r->user_id);
+            if($TheUser){
+            if(md5($TheUser->code) == $r->user_code){
+                //Update The Passowrd
+                $TheUser->update(['password' => Hash::make($r->password)]);
+                Auth::loginUsingId($TheUser->id);
+                return redirect()->route('profile')->withSuccess('Password Updated');
+            }else{
+                return back()->withErrors('Something went wrong, Please try again');
+            }
+            }else{
+                return back()->withErrors('Something went wrong, Please try again');
+            }
+        }
     }
     public function logout(){
         if(auth()->check()){

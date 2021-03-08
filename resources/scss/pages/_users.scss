@@ -170,5 +170,12 @@
             background-color: $lightgrey;
             border:0;
         }
+        .submit-btn{
+            background-color: $brand;
+            padding: 10px;
+            border:0;
+            border-radius:4px;
+            color: #fff;
+        }
     }
 }
