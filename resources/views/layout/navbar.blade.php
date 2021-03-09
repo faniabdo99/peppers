@@ -10,10 +10,17 @@
                     </li>
                     <li><a href="{{route('static.authenticity')}}"><i class="fas fa-lock"></i> Authenticity Guaranteed</a></li>
                     <li><a href="{{route('static.returns')}}"><i class="fas fa-truck"></i> International Shipping</a></li>
-                    <li>
-                        <a href="/customer/account/login/" rel="nofollow" class="login-link"><i class="fas fa-user"></i> Login | </a>
-                        <a href="/customer/account/create/" rel="nofollow" class="register-link">Register</a>
-                    </li>
+                    @guest
+                        <li>
+                            <a href="{{route('user.getLogin')}}" rel="nofollow" class="login-link"><i class="fas fa-user"></i> Login | </a>
+                            <a href="{{route('user.getSignup')}}" rel="nofollow" class="register-link">Register</a>
+                        </li>
+                    @endguest
+                    @auth
+                        <li>
+                            <a href="{{route('profile')}}" rel="nofollow" class="login-link"><i class="fas fa-user"></i> Welcome, {{auth()->user()->name}}</a>
+                        </li>
+                    @endauth
                 </ul>
             </div>
         </div>

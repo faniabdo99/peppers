@@ -15,5 +15,17 @@ Route::get('payment-options' , 'StaticPageController@getPaymentOptions')->name('
 //Landing Page Stuff
 Route::get('products' , 'ProductsController@getAll')->name('products.landing');
 //User System
-Route::get('signup' , 'UserController@getSignup')->name('user.getSignup');
-Route::post('signup' , 'UserController@postSignup')->name('user.postSignup');
+Route::middleware('guest')->group(function () {
+    Route::get('signup' , 'UserController@getSignup')->name('user.getSignup');
+    Route::post('signup' , 'UserController@postSignup')->name('user.postSignup');
+    Route::get('login' , 'UserController@getLogin')->name('user.getLogin');
+    Route::post('login' , 'UserController@postLogin')->name('user.postLogin');
+    //Social Signup System
+    Route::get('social-login/{provider}' , 'UserController@redirectToProvider')->name('login.social');
+    Route::get('login/{driver}/callback' , 'UserController@handleProviderCallback')->name('login.social.callback');
+});
+Route::middleware('auth')->group(function () {
+    Route::get('logout' , 'UserController@logout')->name('logout');
+    Route::get('profile' , 'UserController@profile')->name('profile');
+    Route::get('profile/edit' , 'UserController@getEdit')->name('profile.getEdit');
+});
