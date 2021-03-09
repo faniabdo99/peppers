@@ -269,7 +269,7 @@ body {
 .users-system .peppers-form .social-media-icons {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   -webkit-padding-start: 0;
           padding-inline-start: 0;
   margin-bottom: 0;
@@ -298,7 +298,7 @@ body {
   transition: 0.3s all ease;
 }
 .users-system .peppers-form .social-media-icons li.google a {
-  background-color: #DB4437;
+  background-color: #db4437;
   transition: 0.3s all ease;
 }
 .users-system .peppers-form .social-media-icons li.google a:hover {
@@ -312,6 +312,11 @@ body {
 .users-system .peppers-form .social-media-icons li.twitter a:hover {
   background-color: #0f93c7;
   transition: 0.3s all ease;
+}
+@media (max-width: 992px) {
+  .users-system .peppers-form .social-media-icons {
+    display: block;
+  }
 }
 
 .user-profile {
@@ -378,7 +383,8 @@ body {
   display: block;
   font-weight: bold;
 }
-.user-profile .edit-profile-form input, .user-profile .edit-profile-form select {
+.user-profile .edit-profile-form input,
+.user-profile .edit-profile-form select {
   width: 100%;
   padding: 10px;
   border-radius: 4px;

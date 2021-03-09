@@ -1,5 +1,5 @@
-.users-system{
-    h1.main-title{
+.users-system {
+    h1.main-title {
         text-align: center;
         margin: 15px 0;
         background-color: $brand;
@@ -9,87 +9,87 @@
         font-weight: bold;
         font-size: 2em;
     }
-    .peppers-form{
+    .peppers-form {
         border-radius: 4px;
         width: 60%;
         margin: auto;
         background-color: $lightgrey;
-        form{
+        form {
             padding: 25px;
             display: block;
         }
-        label{
+        label {
             display: block;
             font-weight: bold;
             font-size: 1.1em;
         }
-        input{
+        input {
             padding: 10px;
             border-radius: 4px;
-            border:0;
+            border: 0;
             width: 100%;
         }
-        .submit-btn{
+        .submit-btn {
             display: block;
             background-color: $brand;
             padding: 10px;
-            border:0;
-            border-radius:4px;
+            border: 0;
+            border-radius: 4px;
             color: #fff;
             width: 100%;
         }
-        .account-form-notice{
+        .account-form-notice {
             font-size: 1.1em;
-            a{
+            a {
                 color: $brand;
                 font-weight: bold;
             }
         }
-        .social-media-icons{
+        .social-media-icons {
             display: flex;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: center;
             padding-inline-start: 0;
             margin-bottom: 0;
-            li{
+            li {
                 flex: 1;
                 text-align: center;
                 margin: 10px;
-                a{
+                a {
                     width: 100%;
                     display: block;
-                    color:#fff;
+                    color: #fff;
                     padding: 10px;
                     border-radius: 4px;
-                    &:hover{
+                    &:hover {
                         text-decoration: none;
                     }
                 }
-                &.facebook{
-                    a{
+                &.facebook {
+                    a {
                         background-color: #3b5998;
                         transition: 0.3s all ease;
-                        &:hover{
+                        &:hover {
                             background-color: #2e467a;
                             transition: 0.3s all ease;
                         }
                     }
                 }
-                &.google{
-                    a{
-                        background-color: #DB4437;
+                &.google {
+                    a {
+                        background-color: #db4437;
                         transition: 0.3s all ease;
-                        &:hover{
+                        &:hover {
                             background-color: #bd4136;
                             transition: 0.3s all ease;
                         }
                     }
                 }
-                &.twitter{
-                    a{
+                &.twitter {
+                    a {
                         background-color: #00acee;
                         transition: 0.3s all ease;
-                        &:hover{
+                        &:hover {
                             background-color: #0f93c7;
                             transition: 0.3s all ease;
                         }
@@ -97,84 +97,90 @@
                 }
             }
         }
+        @media (max-width: 992px) {
+            .social-media-icons {
+                display: block;
+            }
+        }
     }
 }
-.user-profile{
+.user-profile {
     padding: 50px 0;
-    .profile-sidebar{
+    .profile-sidebar {
         background-color: $lightgrey;
         padding: 20px;
         border-radius: 4px;
-        li{
+        li {
             border-left: 0 solid $brand;
             margin-bottom: 15px;
             transition: all ease 0.3s;
-            a{
+            a {
                 color: $black;
                 padding: 0 10px;
                 transition: all ease 0.3s;
-                i{
+                i {
                     color: $brand;
                     margin-right: 10px;
                 }
-                &:hover{
+                &:hover {
                     text-decoration: none;
                 }
             }
-            &:last-child{
+            &:last-child {
                 margin-bottom: 0px;
             }
-            &:hover{
+            &:hover {
                 border-left: 5px solid $brand;
                 transition: all ease 0.3s;
-                a{
+                a {
                     color: $brand;
                     font-weight: bold;
                     transition: all ease 0.3s;
                 }
             }
-            &.active{
+            &.active {
                 border-left: 5px solid $brand;
-                a{
+                a {
                     color: $brand;
                     font-weight: bold;
                 }
             }
         }
     }
-    .profile-orders-statistics{
+    .profile-orders-statistics {
         display: flex;
-        li{
-            flex:1;
+        li {
+            flex: 1;
             margin: 10px;
             background-color: $lightgrey;
             padding: 30px;
             text-align: center;
             border-radius: 4px;
-            i{
+            i {
                 color: $brand;
                 font-size: 2em;
                 margin-bottom: 15px;
             }
         }
     }
-    .edit-profile-form{
-        label{
+    .edit-profile-form {
+        label {
             display: block;
             font-weight: bold;
         }
-        input,select{
+        input,
+        select {
             width: 100%;
             padding: 10px;
             border-radius: 4px;
             background-color: $lightgrey;
-            border:0;
+            border: 0;
         }
-        .submit-btn{
+        .submit-btn {
             background-color: $brand;
             padding: 10px;
-            border:0;
-            border-radius:4px;
+            border: 0;
+            border-radius: 4px;
             color: #fff;
         }
     }

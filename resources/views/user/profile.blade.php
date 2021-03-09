@@ -4,7 +4,7 @@
     <div class="container user-profile">
         <div class="row">
             @include('user.sidebar')
-            <div class="col-9">
+            <div class="col-lg-9 col-sm-12">
                 <p>
                     Hello, <b>{{auth()->user()->name}}</b><br>
                     From your My Account Dashboard you have the ability to view a snapshot of your recent account activity and update your account information. Select a link below to view or edit information.
