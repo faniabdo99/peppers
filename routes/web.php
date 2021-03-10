@@ -35,3 +35,5 @@ Route::middleware('auth')->group(function () {
     Route::post('profile/edit' , 'UserController@postEdit')->name('profile.postEdit');
     Route::get('approve-account/{code}' , 'UserController@getApproveAccount')->name('profile.approve');
 });
+Route::get('product' , 'ProductController@getSingle');
+Route::get('import-brands' , 'StaticPageController@getImport');

@@ -18,7 +18,6 @@
                             <ul class="social-media-icons">
                                 <li class="facebook"><a href="{{route('login.social' , 'facebook')}}"><i class="fab fa-facebook"></i> Login By Facebook</a></li>
                                 <li class="google"><a href="{{route('login.social' , 'google')}}"><i class="fab fa-google"></i> Login By Google</a></li>
-                                <li class="twitter"><a href="{{route('login.social' , 'twitter')}}"><i class="fab fa-twitter"></i> Login By Twitter</a></li>
                             </ul>
                         </form>
                     </div>

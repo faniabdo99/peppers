@@ -40,7 +40,7 @@
     <link rel="stylesheet" type="text/css" href="{{url('public/css')}}/priceslider.css" media="all" />
     <link rel="stylesheet" type="text/css" href="{{url('public/js/fancybox')}}/jquery.fancybox-1.3.4.css" media="all" />
     <link rel="stylesheet" type="text/css" href="{{url('public/css')}}/print.css" media="print" />
-    <link rel="stylesheet" type="text/css" href="{{url('public/css')}}/easyzoom.css" media="screen" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
     <link href="https://peppersluxury.com/rss/catalog/new/store_id/1/" title="New Products" rel="alternate" type="application/rss+xml" />
     <link href="https://peppersluxury.com/rss/catalog/special/store_id/1/cid/0/" title="Special Products" mrel="alternate" type="application/rss+xml" />
     <link href="https://peppersluxury.com/rss/catalog/salesrule/store_id/1/cid/0/" title="Coupons/Discounts" rel="alternate" type="application/rss+xml" />

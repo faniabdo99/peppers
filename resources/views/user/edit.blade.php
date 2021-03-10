@@ -4,7 +4,7 @@
     <div class="container user-profile">
         <div class="row">
             @include('user.sidebar')
-            <div class="col-lg-12 col-sm-12">
+            <div class="col-lg-9 col-sm-12">
                 <form class="edit-profile-form" action="{{route('profile.postEdit')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <label for="name">Full Name *</label>

@@ -1,6 +1,8 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\Imports\BrandsImport;
+use Maatwebsite\Excel\Facades\Excel;
 class StaticPageController extends Controller{
     public function getAutheticity(){
         return view('static.authenticity');
@@ -31,5 +33,9 @@ class StaticPageController extends Controller{
     }
     public function getPaymentOptions(){
         return view('static.payment-options');
+    }
+    public function getImportBrands(){
+        Excel::import(new BrandsImport, 'brands.xlsx');
+        dd("Import Completed");
     }
 }

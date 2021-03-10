@@ -9,26 +9,31 @@
         font-weight: bold;
         font-size: 2em;
     }
+
     .peppers-form {
         border-radius: 4px;
         width: 60%;
         margin: auto;
         background-color: $lightgrey;
+
         form {
             padding: 25px;
             display: block;
         }
+
         label {
             display: block;
             font-weight: bold;
             font-size: 1.1em;
         }
+
         input {
             padding: 10px;
             border-radius: 4px;
             border: 0;
             width: 100%;
         }
+
         .submit-btn {
             display: block;
             background-color: $brand;
@@ -38,57 +43,69 @@
             color: #fff;
             width: 100%;
         }
+
         .account-form-notice {
             font-size: 1.1em;
+
             a {
                 color: $brand;
                 font-weight: bold;
             }
         }
+
         .social-media-icons {
             display: flex;
             align-items: center;
             justify-content: center;
             padding-inline-start: 0;
             margin-bottom: 0;
+
             li {
                 flex: 1;
                 text-align: center;
                 margin: 10px;
+
                 a {
                     width: 100%;
                     display: block;
                     color: #fff;
                     padding: 10px;
                     border-radius: 4px;
+
                     &:hover {
                         text-decoration: none;
                     }
                 }
+
                 &.facebook {
                     a {
                         background-color: #3b5998;
                         transition: 0.3s all ease;
+
                         &:hover {
                             background-color: #2e467a;
                             transition: 0.3s all ease;
                         }
                     }
                 }
+
                 &.google {
                     a {
                         background-color: #db4437;
                         transition: 0.3s all ease;
+
                         &:hover {
                             background-color: #bd4136;
                             transition: 0.3s all ease;
                         }
                     }
                 }
+
                 &.twitter {
                     a {
                         background-color: #00acee;
                         transition: 0.3s all ease;
+
                         &:hover {
                             background-color: #0f93c7;
                             transition: 0.3s all ease;
@@ -97,49 +114,56 @@
                 }
             }
         }
-        @media (max-width: 992px) {
-            .social-media-icons {
-                display: block;
-            }
-        }
+
     }
 }
+
 .user-profile {
     padding: 50px 0;
+
     .profile-sidebar {
         background-color: $lightgrey;
         padding: 20px;
         border-radius: 4px;
+
         li {
             border-left: 0 solid $brand;
             margin-bottom: 15px;
             transition: all ease 0.3s;
+
             a {
                 color: $black;
                 padding: 0 10px;
                 transition: all ease 0.3s;
+
                 i {
                     color: $brand;
                     margin-right: 10px;
                 }
+
                 &:hover {
                     text-decoration: none;
                 }
             }
+
             &:last-child {
                 margin-bottom: 0px;
             }
+
             &:hover {
                 border-left: 5px solid $brand;
                 transition: all ease 0.3s;
+
                 a {
                     color: $brand;
                     font-weight: bold;
                     transition: all ease 0.3s;
                 }
             }
+
             &.active {
                 border-left: 5px solid $brand;
+
                 a {
                     color: $brand;
                     font-weight: bold;
@@ -147,8 +171,10 @@
             }
         }
     }
+
     .profile-orders-statistics {
         display: flex;
+
         li {
             flex: 1;
             margin: 10px;
@@ -156,6 +182,7 @@
             padding: 30px;
             text-align: center;
             border-radius: 4px;
+
             i {
                 color: $brand;
                 font-size: 2em;
@@ -182,6 +209,32 @@
             border: 0;
             border-radius: 4px;
             color: #fff;
+        }
+    }
+}
+@media (max-width: 992px) {
+    .users-system {
+        h1.main-title {
+            font-size: 1.7em;
+        }
+        .peppers-form {
+            width: 100%;
+            .submit-btn {
+                font-size: 1.2em;
+            }
+            .social-media-icons {
+                display: block;
+            }
+        }
+    }
+
+    .user-profile {
+        padding: 15px;
+        .profile-sidebar {
+            padding: 15px;
+        }
+        .profile-orders-statistics {
+            display: block;
         }
     }
 }

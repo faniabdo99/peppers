@@ -68,22 +68,21 @@ class UserController extends Controller{
     public function handleProviderCallback(Request $r , $driver){
         $user = Socialite::driver($driver)->user();
         if(!$user->email){
-            $user->email = 'no@email.com';
+            $user->email = 'no@'.$user->id.'email.com';
         }
         $FindUser = User::where('email' , $user->email)->get();
         if($FindUser->count() == 0){
             //Signup
             $ProfileImage = (isset($user->avatar)) ? $user->avatar : 'user.png';
             $NewUser = User::create([
-            'name' => $user->name,
-            'email' => $user->email,
-            'image' => $ProfileImage,
-            'password' => 'PlaceholderPass',
-            'auth_provider' => $driver,
-            'code' =>  mt_rand(100000, 999999),
-            'confirmed' => 1
+                'name' => $user->name,
+                'email' => $user->email,
+                'image' => $ProfileImage,
+                'password' => 'PlaceholderPass',
+                'auth_provider' => $driver,
+                'code' =>  mt_rand(100000, 999999),
+                'confirmed' => 1
             ]);
-            //Send Welcome Email
             auth()->loginUsingId($NewUser->id);
             return redirect()->route('home');
         }else{

@@ -2,12 +2,7 @@
     <div class="row">
         <div class="col-12">
             <footer class="footer">
-                <div class="footer-social-media">
-                    <a href="https://www.facebook.com/PeppersLuxuryCloset/" rel="nofollow" target="_blank"><i class="fab fa-facebook"></i></a>
-                    <a href="http://www.pinterest.com/peppercloset/" rel="nofollow"target="_blank"><i class="fab fa-pinterest"></i></a>
-                    <a href="https://twitter.com/peppercloset" rel="nofollow" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.instagram.com/peppers_luxury_closet/" rel="nofollow" target="_blank"><i class="fab fa-instagram"></i></a>
-                </div>
+         
                 <div class="footer_data">
                     <div class="row">
                         <div class="col-lg-4 col-12">
@@ -49,6 +44,12 @@
                             <p>Delivery Partners</p><i class="aramex-pn"></i><i class="dhl-pn"></i><img src="https://vignette.wikia.nocookie.net/logopedia/images/a/a6/FedEx.png/revision/latest/scale-to-width-down/640?cb=20121112030619" width="90">
                         </div>
                     </div>
+                </div>
+                <div class="footer-social-media">
+                    <a href="https://www.facebook.com/PeppersLuxuryCloset/" rel="nofollow" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="http://www.pinterest.com/peppercloset/" rel="nofollow"target="_blank"><i class="fab fa-pinterest"></i></a>
+                    <a href="https://twitter.com/peppercloset" rel="nofollow" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/peppers_luxury_closet/" rel="nofollow" target="_blank"><i class="fab fa-instagram"></i></a>
                 </div>
                 <div class="row">
                     <div class="col-12">
