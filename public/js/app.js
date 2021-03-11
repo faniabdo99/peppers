@@ -70,6 +70,29 @@ $('#homepage-most-wanted-slider').owlCarousel({
       items: 5
     }
   }
+}); //Newsletter
+
+$('#submit-newsletter').click(function (e) {
+  var ActionRoute = $(this).data('action');
+  var Data = $(this).parent().serialize();
+  var That = $(this);
+  That.html('<i class="fas fa-spinner fa-spin"></i>'); //Prevent Default Form Beaviour
+
+  e.preventDefault(); //Make the Ajax Request
+
+  $.ajax({
+    'method': 'post',
+    'url': ActionRoute,
+    'data': Data,
+    'success': function success(response) {
+      That.html('Sign Up');
+      $('#show-message').addClass('success').html(response).fadeIn();
+    },
+    'error': function error(response) {
+      $('#show-message').addClass('error').html(response.responseText).fadeIn();
+      That.html('Sign Up');
+    }
+  });
 });
 
 /***/ }),

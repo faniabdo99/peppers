@@ -5,11 +5,11 @@
                 <h2>Subscribe to Our Newsletter</h2>
                 <p>EXCLUSIVE ACCESS TO SALES, DISCOUNTS, NOTIFICATIONS & THE LATEST TRENDS! </p>
                 <div id="newsletter2">
-                    <form action="https://peppersluxury.com/newsletter/subscriber/new/" method="post">
-                        <input type="text" name="email" id="newsletter" placeholder="ENTER YOUR EMAIL HERE" title="Sign up for our newsletter" class="input-text required-entry validate-email" />
-                        <input class="next-btn" title="Sign Up" value="Sign Up" id="" type="submit">
-                        <div id="show-message" style="display: none">&nbsp;</div>
+                    <form>
+                        <input type="text" name="email" id="newsletter" placeholder="ENTER YOUR EMAIL HERE" class="input-text required-entry validate-email" />
+                        <button class="next-btn" id="submit-newsletter" type="submit" data-action="{{route('newsletter.post')}}">Sign Up</button>
                     </form>
+                    <div id="show-message"></div>
                 </div>
             </div>
         </div>

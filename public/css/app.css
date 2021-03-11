@@ -107,6 +107,54 @@ body {
     padding: 5px;
   }
 }
+/********* NewsLetter *********/
+#newslatter {
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 45px;
+}
+#newslatter h2 {
+  font-size: 21.08px;
+  color: #000;
+  margin: 0;
+  font-family: "ProximaNova bold";
+}
+#newslatter p {
+  color: #000;
+  margin: 0;
+  font-weight: 600;
+  padding-top: 24px;
+  font-size: 15.81px;
+}
+#newslatter form {
+  width: 60%;
+  margin: auto;
+  display: flex;
+  padding: 20px 0;
+}
+#newslatter form input {
+  flex: 1;
+  border: 1px solid #000;
+  padding: 15px;
+  letter-spacing: 1px;
+  margin-right: 15px;
+}
+#newslatter form .next-btn {
+  display: inline;
+  width: 100px;
+  background: #c89a4d;
+  border: 0;
+  color: #fff;
+  transition: all ease 0.3s;
+}
+#newslatter form .next-btn:hover {
+  background: #ac833e;
+  transition: all ease 0.3s;
+}
+#newslatter #show-message {
+  display: none;
+}
+
 .static-page {
   margin-top: 40px;
 }
@@ -143,7 +191,7 @@ body {
   font-weight: bold;
 }
 .static-page.authenticity .nav-tabs li:hover {
-  background-color: #d1af73;
+  background-color: #ac833e;
   transition: all ease 0.3s;
 }
 .static-page.authenticity .nav-tabs li:hover a {

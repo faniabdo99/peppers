@@ -535,47 +535,6 @@ footer .first ul,
 
 }
 
-/********* NewsLetter *********/
-#newslatter {
-    text-align: center;
-    text-transform: uppercase;
-    margin-top: 45px;
-}
-
-#newslatter h2 {
-    font-size: 21.08px;
-    color: #000;
-    margin: 0;
-    font-family: 'ProximaNova bold';
-}
-
-#newslatter p {
-    color: #000;
-    margin: 0;
-    font-weight: 600;
-    padding-top: 24px;
-    font-size: 15.81px;
-}
-
-#newslatter input {
-    width: 333px;
-    margin-top: 41px;
-    border: 1px solid #000;
-    padding: 0 9px;
-    height: 30px;
-    letter-spacing: 1px;
-    font-size: 14.81px;
-    margin-right: 4px;
-    text-transform: uppercase;
-}
-
-#newslatter .next-btn {
-    display: inline;
-    width: 100px;
-    background: #c89a4d;
-    border: 0;
-    color: #fff;
-}
 
 /************ Sliders  ************/
 .top-designer {
