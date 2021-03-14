@@ -10,6 +10,8 @@ class CreateProductsTable extends Migration{
             $table->id();
             $table->string('title');
             $table->string('slug');
+            $table->string('status');
+            $table->string('image');
             $table->string('sku');
             $table->string('color');
             $table->string('condition');
@@ -23,8 +25,8 @@ class CreateProductsTable extends Migration{
             $table->integer('depth');
             $table->integer('qty');
             $table->integer('in_stock')->default(1);
-            $table->string('for_geneder')->nullable();
-            $table->string('warehouse');
+            $table->string('for_gender')->nullable();
+            $table->string('store_location');
             $table->text('comments')->nullable();
             $table->integer('brand_id');
             $table->integer('category_id');

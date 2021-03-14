@@ -35,5 +35,12 @@ Route::middleware('auth')->group(function () {
     Route::post('profile/edit' , 'UserController@postEdit')->name('profile.postEdit');
     Route::get('approve-account/{code}' , 'UserController@getApproveAccount')->name('profile.approve');
 });
-Route::get('product' , 'ProductController@getSingle');
+Route::get('products' , 'ProductController@getAll');
+Route::get('product/{slug}' , 'ProductController@getSingle')->name('product.single');
+Route::group(['prefix' => 'admin' , 'middleware' => 'admin'], function(){
+    Route::prefix('products')->group(function(){
+        Route::get('new' , 'ProductController@getNew')->name('admin.products.getNew');
+        Route::post('new' , 'ProductController@postNew')->name('admin.products.postNew');
+    });
+});
 Route::get('import-brands' , 'StaticPageController@getImport');

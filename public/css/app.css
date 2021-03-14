@@ -837,3 +837,24 @@ body {
   width: 10%;
   height: 400px;
 }
+
+/* Sidebar =============================================================================== */
+.all-products-page .filter-section i {
+  color: #c89a4d;
+}
+.all-products-page .filter-section h2 {
+  background-color: #ebebeb;
+  padding: 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+.all-products-page .filter-list-items li {
+  margin-bottom: 10px;
+}
+.all-products-page .filter-list-items li input[type=number] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  color: #000;
+}

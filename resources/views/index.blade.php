@@ -28,50 +28,17 @@
                         <h2 class="sect-title"><span>Top Designers</span></h2>
                         <div class="mwslider">
                             <ul class="owl-carousel" id="homepage-designers-slider">
-                                <li>
-                                    <a
-                                        href="https://peppersluxury.com/designers/all-brands/christian-louboutin.html">
-                                        <img src="https://peppersluxury.com/media/catalog/category/Photos-02.jpg"
-                                            alt="CHRISTIAN LOUBOUTIN">
-                                        <span class="slide-name">CHRISTIAN LOUBOUTIN</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://peppersluxury.com/designers/most-popular/rolex.html">
-                                        <img src="https://peppersluxury.com/media/catalog/category/Photos-03.jpg"
-                                            alt="ROLEX">
-                                        <span class="slide-name">ROLEX</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://peppersluxury.com/designers/most-popular/prada.html">
-                                        <img src="https://peppersluxury.com/media/catalog/category/Photos-01.jpg"
-                                            alt="PRADA">
-                                        <span class="slide-name">PRADA</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="https://peppersluxury.com/designers/most-popular/louis-vuitton.html">
-                                        <img src="https://peppersluxury.com/media/catalog/category/2.jpg"
-                                            alt="LOUIS VUITTON">
-                                        <span class="slide-name">LOUIS VUITTON</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://peppersluxury.com/designers/most-popular/gucci.html">
-                                        <img src="https://peppersluxury.com/media/catalog/category/3.jpg"
-                                            alt="GUCCI">
-                                        <span class="slide-name">GUCCI</span>
-                                    </a>
-                                </li>
+                                @forelse ($FeaturedBrands as $Brand)
                                 <li>
                                     <a href="https://peppersluxury.com/designers/most-popular/chanel.html">
                                         <img src="https://peppersluxury.com/media/catalog/category/4.jpg"
-                                            alt="CHANEL">
-                                        <span class="slide-name">CHANEL</span>
+                                            alt="{{$Brand->title}}">
+                                        <span class="slide-name">{{$Brand->title}}</span>
                                     </a>
                                 </li>
+                                @empty
+                                    
+                                @endforelse
                             </ul>
                         </div>
                     </div>
@@ -110,63 +77,17 @@
                     <div class="col-12">
                         <h2 class="sect-title"><span>Most Wanted</span></h2>
                         <ul class="owl-carousel" id="homepage-most-wanted-slider">
-                            <li>
-                                <a href="https://peppersluxury.com/designers/all-brands/van-cleef-arpels.html">
-                                    <img src="https://peppersluxury.com/media/catalog/category/Van-Cleef-Arpels.jpg"
-                                        alt="VAN CLEEF & ARPELS">
-                                    <span class="slide-name">VAN CLEEF & ARPELS</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://peppersluxury.com/designers/all-brands/christian-louboutin.html">
-                                    <img src="https://peppersluxury.com/media/catalog/category/Photos-02_1.jpg"
-                                        alt="CHRISTIAN LOUBOUTIN">
-                                    <span class="slide-name">CHRISTIAN LOUBOUTIN</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://peppersluxury.com/designers/all-brands/cartier-44.html">
-                                    <img src="https://peppersluxury.com/media/catalog/category/Capture.jpg"
-                                        alt="CARTIER">
-                                    <span class="slide-name">CARTIER</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://peppersluxury.com/designers/most-popular/rolex.html">
-                                    <img src="https://peppersluxury.com/media/catalog/category/Rolex.jpg"
-                                        alt="ROLEX">
-                                    <span class="slide-name">ROLEX</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="https://peppersluxury.com/designers/most-popular/louis-vuitton.html">
-                                    <img src="https://peppersluxury.com/media/catalog/category/Louis-Vuitton.jpg"
-                                        alt="LOUIS VUITTON">
-                                    <span class="slide-name">LOUIS VUITTON</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://peppersluxury.com/designers/most-popular/gucci.html">
-                                    <img src="https://peppersluxury.com/media/catalog/category/Gucci.jpg"
-                                        alt="GUCCI">
-                                    <span class="slide-name">GUCCI</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://peppersluxury.com/designers/most-popular/dior.html">
-                                    <img src="https://peppersluxury.com/media/catalog/category/Dior.jpg"
-                                        alt="DIOR">
-                                    <span class="slide-name">DIOR</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://peppersluxury.com/designers/most-popular/chanel.html">
-                                    <img src="https://peppersluxury.com/media/catalog/category/Chanel.jpg"
-                                        alt="CHANEL">
-                                    <span class="slide-name">CHANEL</span>
-                                </a>
-                            </li>
+                            @forelse ($FeaturedProducts as $Product)
+                                <li>
+                                    <a href="{{route('product.single' , $Product->slug)}}">
+                                        <img src="{{$Product->Thumb}}"
+                                            alt="{{$Product->title}}">
+                                        <span class="slide-name">{{$Product->title}}</span>
+                                    </a>
+                                </li>    
+                            @empty
+                                
+                            @endforelse
                         </ul>
                     </div>
                 </div>

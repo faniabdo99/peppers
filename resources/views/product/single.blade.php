@@ -1,5 +1,4 @@
 @include('layout.header')
-
 <body>
     @include('layout.navbar')
     <div class="product-view">
@@ -12,26 +11,26 @@
                                 <div class="slide-wrap">
                                     <div id="productCarousel" class="carousel slide" data-ride="carousel">
                                         <ol class="carousel-indicators">
-                                          <li data-target="#productCarousel" data-slide-to="0" class="active" style="background-image:url('https://peppersluxury.com/media/catalog/product/cache/1/thumbnail/800x/9df78eab33525d08d6e5fb8d27136e95/S/8/S87_A_2.jpg');"></li>
-                                          <li data-target="#productCarousel" data-slide-to="1"  style="background-image:url('https://peppersluxury.com/media/catalog/product/cache/1/thumbnail/800x/9df78eab33525d08d6e5fb8d27136e95/S/8/S87_A_2.jpg');"></li>
-                                          <li data-target="#productCarousel" data-slide-to="2"  style="background-image:url('https://peppersluxury.com/media/catalog/product/cache/1/thumbnail/800x/9df78eab33525d08d6e5fb8d27136e95/S/8/S87_A_2.jpg');"></li>
+                                            <li data-target="#productCarousel" data-slide-to="0" class="active" style="background-image:url('{{$TheProduct->SmallThumb}}');"></li>
+                                            @forelse ($TheProduct->Gallery as $key => $GalleryItem)
+                                                <li data-target="#productCarousel" data-slide-to="{{$key+1}}" style="background-image:url('{{$GalleryItem->SmallThumb}}');"></li>
+                                            @empty                                                
+                                            @endforelse
                                         </ol>
                                         <div class="carousel-inner">
                                           <div class="carousel-item active">
-                                            <a data-fancybox="gallery" href="https://peppersluxury.com/media/catalog/product/cache/1/thumbnail/800x/9df78eab33525d08d6e5fb8d27136e95/S/8/S87_A_2.jpg">
-                                                <img src="https://peppersluxury.com/media/catalog/product/cache/1/thumbnail/800x/9df78eab33525d08d6e5fb8d27136e95/S/8/S87_A_2.jpg">
+                                            <a data-fancybox="gallery" href="{{$TheProduct->FullSize}}">
+                                                <img src="{{$TheProduct->Thumb}}">
                                             </a>
                                           </div>
-                                          <div class="carousel-item">
-                                            <a data-fancybox="gallery" href="https://peppersluxury.com/media/catalog/product/cache/1/thumbnail/800x/9df78eab33525d08d6e5fb8d27136e95/S/8/S87_A_2.jpg">
-                                                <img src="https://peppersluxury.com/media/catalog/product/cache/1/thumbnail/800x/9df78eab33525d08d6e5fb8d27136e95/S/8/S87_A_2.jpg">
-                                            </a>
-                                          </div>
-                                          <div class="carousel-item">
-                                            <a data-fancybox="gallery" href="https://peppersluxury.com/media/catalog/product/cache/1/thumbnail/800x/9df78eab33525d08d6e5fb8d27136e95/S/8/S87_A_2.jpg">
-                                                <img src="https://peppersluxury.com/media/catalog/product/cache/1/thumbnail/800x/9df78eab33525d08d6e5fb8d27136e95/S/8/S87_A_2.jpg">
-                                            </a>
-                                          </div>
+                                          @forelse ($TheProduct->Gallery as $key => $GalleryItem)
+                                                <div class="carousel-item">
+                                                    <a data-fancybox="gallery" href="{{$GalleryItem->FullSize}}">
+                                                        <img src="{{$GalleryItem->FullSize}}">
+                                                    </a>
+                                                </div>
+                                          @empty                                                
+                                          @endforelse
                                         </div>
                                         <a class="carousel-control-prev" href="#productCarousel" role="button" data-slide="prev">
                                             <i class="fas fa-chevron-left"></i>
@@ -48,26 +47,21 @@
                                 <div class="social_shopping">
                                     <span>Share:</span>
                                     <div class="social_shopping1">
-                                        <a href="http://www.facebook.com/share.php?u=https://peppersluxury.com/black-white-madras-bi-color-tote.html&amp;t=Black/White Madras Bi-Color Tote "
+                                        <a href="http://www.facebook.com/share.php?u={{url()->current()}}"
                                             class="link-facebook faceognal" target="_blank">
                                             <i class="fab fa-facebook"></i>
                                         </a>
                                     </div>
                                     <div class="social_shopping1">
-                                        <a href="https://www.pinterest.com/pin/create/button/?url=https://peppersluxury.com/black-white-madras-bi-color-tote.html&amp;media=https://peppersluxury.com/media/catalog/product/cache/1/thumbnail/800x/9df78eab33525d08d6e5fb8d27136e95/S/8/S87_E_1.jpg&amp;description=Black/White Madras Bi-Color Tote "
+                                        <a href="https://www.pinterest.com/pin/create/button/?url={{url()->current()}}&amp;media={{$TheProduct->FullSize}}&amp;description={{$TheProduct->title}}"
                                             class="faceognal" target="_blank">
                                             <i class="fab fa-pinterest"></i>
                                         </a>
                                     </div>
                                     <div class="social_shopping1">
-                                        <a href="http://twitter.com/share?text=Check out Dior Black/White Madras Bi-Color Tote  at @Pepperscloset&amp;url=https://peppersluxury.com/black-white-madras-bi-color-tote.html"
+                                        <a href="http://twitter.com/share?text=Check out {{$TheProduct->title}} at @Pepperscloset&amp;url={{url()->current()}}"
                                             class="link-twitter faceognal" target="_blank">
                                             <i class="fab fa-twitter"></i>
-                                        </a>
-                                    </div>
-                                    <div class="social_shopping1">
-                                        <a href="https://plus.google.com/share?url=https://peppersluxury.com/black-white-madras-bi-color-tote.html&amp;title=Black/White Madras Bi-Color Tote " class="link-google faceognal" target="_blank">
-                                            <i class="fab fa-google"></i>
                                         </a>
                                     </div>
                                 </div>
@@ -86,12 +80,12 @@
                     <div class="col-md-5">
                         <div class="productCont">
                             <div class="product-name-main">
-                                <h1>Black / White Madras Bi-Color Tote </h1>
-                                <span class="product-code">Product code: <strong>SKU55</strong></span>
+                                <h1>{{$TheProduct->title}}</h1>
+                                <span class="product-code">Product SKU: <strong>{{$TheProduct->sku}}</strong></span>
                             </div>
                             <div class="product-shop">
                                 <p class="no-rating"><a href="#product_tabs_product_review">Be the first to review this product</a></p>
-                                <div class="price-box">900,00 LE</div>
+                                <div class="price-box">{{$TheProduct->price}} LE</div>
                             </div>
                         </div>
                         <div class="product-collateral">
@@ -109,11 +103,7 @@
                             <div class="tab-content">
                                 <div class="product-tabs-content tab-pane fade show active" id="product_tabs_description_contents">
                                     <h2>Details</h2>
-                                    <p>
-                                        Pepper's Luxury Closet guarantees this is an authentic Luxury item or 100% of your money
-                                        back. This item has been carefully inspected by our experts to verify authenticity and
-                                        condition. 
-                                    </p>
+                                    {!! $TheProduct->content !!}
                                 </div>
                                 <div class="product-tabs-content tab-pane fade" id="product_tabs_additional_contents">
                                     <h2>Additional Information</h2>
@@ -121,35 +111,27 @@
                                         <tbody>
                                             <tr>
                                                 <th class="label">Width</th>
-                                                <td class="data">24</td>
+                                                <td class="data">{{$TheProduct->width}} CM</td>
                                             </tr>
                                             <tr>
                                                 <th class="label">Height</th>
-                                                <td class="data">35</td>
+                                                <td class="data">{{$TheProduct->height}} CM</td>
                                             </tr>
                                             <tr>
                                                 <th class="label">Depth</th>
-                                                <td class="data">15</td>
+                                                <td class="data">{{$TheProduct->depth}} CM</td>
                                             </tr>
                                             <tr>
                                                 <th class="label">Color</th>
-                                                <td class="data">BLACK/WHITE</td>
+                                                <td class="data">{{$TheProduct->color}}</td>
                                             </tr>
                                             <tr>
-                                                <th class="label">Gender</th>
-                                                <td class="data">No</td>
+                                                <th class="label">For Gender</th>
+                                                <td class="data">{{$TheProduct->for_gender ?? 'N/A'}}</td>
                                             </tr>
                                             <tr>
                                                 <th class="label">Condition</th>
-                                                <td class="data">Preowned</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="label">Comment</th>
-                                                <td class="data">No</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="label">In Store</th>
-                                                <td class="data">No</td>
+                                                <td class="data">{{$TheProduct->condition}}</td>
                                             </tr>
                                         </tbody>
                                     </table>

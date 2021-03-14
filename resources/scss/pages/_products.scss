@@ -128,3 +128,32 @@
         height: 400px;
     }
 }
+
+
+//All Products Page
+/* Sidebar =============================================================================== */
+.all-products-page{
+    .filter-section{
+        i{
+            color:$brand;
+        }
+        h2{
+            background-color: $lightgrey;
+            padding: 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+    }
+    .filter-list-items{
+        li{
+            margin-bottom: 10px;
+            input[type='number']{
+                display: block;
+                width: 100%;
+                padding: 10px;
+                color:#000;
+            }
+        }
+    }
+}

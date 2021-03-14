@@ -1,0 +1,31 @@
+.btn-brand {
+  background-color: #c89a4d;
+  color: #fff;
+}
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.admin-form .form-group {
+  padding: 10px;
+  margin-bottom: 25px;
+  background-color: #ebebeb;
+  border-radius: 4px;
+}
+.admin-form .form-group h3 {
+  background-color: #c89a4d;
+  color: #fff;
+  border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 15px;
+  font-size: 1.5em;
+  font-weight: bold;
+  font-family: "Raleway", "tahoma";
+}
+.admin-form label {
+  font-weight: bold;
+}
+.admin-form .form-control {
+  margin-bottom: 15px;
+}
