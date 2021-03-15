@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Imports\BrandsImport;
+use App\Imports\CategoriesImport;
 use Maatwebsite\Excel\Facades\Excel;
 class StaticPageController extends Controller{
     public function getAutheticity(){
@@ -37,5 +38,9 @@ class StaticPageController extends Controller{
     public function getImportBrands(){
         Excel::import(new BrandsImport, 'brands.xlsx');
         dd("Import Completed");
+    }
+    public function getImportCategories(){
+        Excel::import(new CategoriesImport, 'categories.xlsx');   
+        dd('categories imported');
     }
 }

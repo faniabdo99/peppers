@@ -858,3 +858,30 @@ body {
   padding: 10px;
   color: #000;
 }
+
+.single-product {
+  height: 420px;
+  margin-bottom: 50px;
+  position: relative;
+}
+.single-product .product-image img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+.single-product .add-to-cart {
+  position: absolute;
+  bottom: 0;
+}
+.single-product .moreinfo .brand-info a {
+  color: #c89a4d;
+  font-weight: bold;
+}
+.single-product .moreinfo .product-name a {
+  color: #000;
+  font-weight: bold;
+}
+.single-product .moreinfo .price {
+  font-size: 1.5em;
+  font-weight: bold;
+}

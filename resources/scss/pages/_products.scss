@@ -157,3 +157,37 @@
         }
     }
 }
+.single-product{
+    height: 420px;
+    margin-bottom: 50px;
+    position: relative;
+    .product-image{
+        img{
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+    }
+    .add-to-cart{
+        position: absolute;
+        bottom: 0;
+    }
+    .moreinfo{
+        .brand-info{
+            a{
+                color: $brand;
+                font-weight: bold;
+            }
+        }
+        .product-name{
+            a{
+                color: $black;
+                font-weight: bold;
+            }
+        }
+        .price{
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+    }
+}

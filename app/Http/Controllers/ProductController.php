@@ -9,8 +9,56 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductImage;
 class ProductController extends Controller{
-    public function getAll(){
-        return view('product.all');
+    public function getAll(Request $r,$filter_type = null,$filter_value = null){
+        if(count($r->all()) > 0){
+            if($r->has('color') && $r->color != ''){
+                $Color = ['color' , $r->color];
+            }else{$Color=['color' , '!=' ,''];}
+            if($r->has('size') && $r->color != ''){
+                $Size = ['size' , $r->size];
+            }else{$Size=['size' , '!=' ,''];}
+            if($r->has('condition') && $r->condition != ''){
+                $Condition = ['condition' , $r->condition];
+            }else{$Condition=['condition' , '!=' ,''];}
+            if($r->has('price_from') && $r->price_from != ''){
+                $PriceFrom = ['price' , '>' , $r->price_from];
+            }else{$PriceFrom=['price' , '>' ,0];}
+            if($r->has('price_to') && $r->price_to != ''){
+                $PriceTo = ['price' , '>' , $r->price_to];
+            }else{$PriceTo=['price' , '<' ,9999999999999];}
+            //There is a filter
+            if(!$filter_type){
+                $AllProducts = Product::where([$Color,$Size,$Condition,$PriceFrom,$PriceTo])->latest()->get();
+                $TheBrand = null;
+            }else{
+                if($filter_type == 'brand'){
+                    $TheBrand = Brand::where('slug' , $filter_value)->first();
+                    if($TheBrand){
+                        $AllProducts = Product::where([$Color,$Size,$Condition,$PriceFrom,$PriceTo])->where('brand_id',$TheBrand->id)->latest()->get();
+                    }else{
+                        $AllProducts = [];
+                    }
+                }
+            }
+        }else{
+            //No Filter
+            if(!$filter_type){
+                $AllProducts = Product::latest()->get();
+                $TheBrand = null;
+            }else{
+                if($filter_type == 'brand'){
+                    $TheBrand = Brand::where('slug' , $filter_value)->first();
+                    if($TheBrand){
+                        $AllProducts = Product::where('brand_id',$TheBrand->id)->get();
+                    }else{
+                        $AllProducts = [];
+                    }
+                }
+            }
+        }
+        $AllColors = Product::pluck('color')->unique();
+        $AllSizes = Product::pluck('size')->unique();
+        return view('product.all', compact('AllProducts' , 'TheBrand' , 'AllColors' , 'AllSizes' , 'r'));
     }
     public function getSingle($slug){
         $TheProduct = Product::where('slug' , $slug)->first();
@@ -75,25 +123,25 @@ class ProductController extends Controller{
             $NewProduct = Product::create($ProductData);
             if(count($r->gallery) > 1){
                 //Resize the image file & upload it (60x60) (650x650)
-                foreach($r->gallery as $Image){
+                foreach($r->gallery as $key => $Image){
                     $img = ImageLib::make($r->image);
                     // backup status
                     $img->backup();
                     // Tiny Thumb
                     $img->fit(60, 60);
-                    $img->save('storage/app/products_gallery/small_thumb/'.strtolower(str_replace(' ' , '-' ,$r->sku)).'.'.$r->image->getClientOriginalExtension());
+                    $img->save('storage/app/products_gallery/small_thumb/'.strtolower(str_replace(' ' , '-' ,$key.$r->sku)).'.'.$r->image->getClientOriginalExtension());
                     $img->reset();
                     // Thumb
                     $img->fit(250, 250);
-                    $img->save('storage/app/products_gallery/thumb/'.strtolower(str_replace(' ' , '-' ,$r->sku)).'.'.$r->image->getClientOriginalExtension());
+                    $img->save('storage/app/products_gallery/thumb/'.strtolower(str_replace(' ' , '-' ,$key.$r->sku)).'.'.$r->image->getClientOriginalExtension());
                     $img->reset();
                     // Full Size
                     $img->fit(650, 650);
-                    $img->save('storage/app/products_gallery/full_size/'.strtolower(str_replace(' ' , '-' ,$r->sku)).'.'.$r->image->getClientOriginalExtension());
+                    $img->save('storage/app/products_gallery/full_size/'.strtolower(str_replace(' ' , '-' ,$key.$r->sku)).'.'.$r->image->getClientOriginalExtension());
                     $img->reset();
                     //Upload to database
                     ProductImage::create([
-                        'image' => strtolower(str_replace(' ' , '-' ,$r->sku)).'.'.$r->image->getClientOriginalExtension(),
+                        'image' => strtolower(str_replace(' ' , '-' ,$key.$r->sku)).'.'.$r->image->getClientOriginalExtension(),
                         'product_id' => $NewProduct->id
                     ]);
                 }

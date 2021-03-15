@@ -30,7 +30,7 @@
                             <ul class="owl-carousel" id="homepage-designers-slider">
                                 @forelse ($FeaturedBrands as $Brand)
                                 <li>
-                                    <a href="https://peppersluxury.com/designers/most-popular/chanel.html">
+                                    <a href="{{route('products', ['brand' , $Brand->slug])}}">
                                         <img src="https://peppersluxury.com/media/catalog/category/4.jpg"
                                             alt="{{$Brand->title}}">
                                         <span class="slide-name">{{$Brand->title}}</span>
@@ -52,17 +52,17 @@
                         <h2 class="sect-title"><span>Latest Trends</span></h2>
                         <div class="row">
                             <div class="col-lg-4 col-12">
-                                <a href="/designers/all-brands/saint-laurent-paris.html" class="d-block">
+                                    <a href="{{route('products' , ['brand' , 'saint-laurent-paris'])}}">
                                     <img class="w-100 max-auto mb-lg-0 mb-3" src="https://peppersluxury.com/media/wysiwyg/decostore/homePage/SaintLaurentParisLatestTrendsEN1529959065.png">
                                 </a>
                             </div>
                             <div class="col-lg-4 col-12">
-                                <a href="/catalogsearch/result/index/q/Chloe/">
+                                <a href="{{route('products' , ['brand' , 'chloe'])}}">
                                     <img class="w-100 max-auto mb-lg-0 mb-3" src="https://peppersluxury.com/media/wysiwyg/decostore/homePage/ChloeEdit_LatesTrends_EN.png">
                                 </a>
                             </div>
                             <div class="col-lg-4 col-12">
-                                <a href="/designers/all-brands/cartier-44.html">
+                                <a href="{{route('products' , ['brand' , 'cartier'])}}">
                                     <img class="w-100 max-auto mb-lg-0 mb-3" src="https://peppersluxury.com/media/wysiwyg/decostore/homePage/Cartier_LatestTrends_EN.png">
                                 </a>
                             </div>

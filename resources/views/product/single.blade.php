@@ -85,7 +85,7 @@
                             </div>
                             <div class="product-shop">
                                 <p class="no-rating"><a href="#product_tabs_product_review">Be the first to review this product</a></p>
-                                <div class="price-box">{{$TheProduct->price}} LE</div>
+                                <div class="price-box">{{$TheProduct->price}}$</div>
                             </div>
                         </div>
                         <div class="product-collateral">

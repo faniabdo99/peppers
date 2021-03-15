@@ -13,7 +13,8 @@ Route::get('careers' , 'StaticPageController@getCareers')->name('static.careers'
 Route::get('how-it-works' , 'StaticPageController@getHowItWorks')->name('static.howItWorks');
 Route::get('payment-options' , 'StaticPageController@getPaymentOptions')->name('static.paymentOptions');
 //Landing Page Stuff
-Route::get('products' , 'ProductsController@getAll')->name('products.landing');
+Route::get('products/{filter_type?}/{filter_value?}' , 'ProductController@getAll')->name('products');
+Route::get('product/{slug}' , 'ProductController@getSingle')->name('product.single');
 //User System
 Route::middleware('guest')->group(function () {
     Route::get('signup' , 'UserController@getSignup')->name('user.getSignup');
@@ -35,12 +36,12 @@ Route::middleware('auth')->group(function () {
     Route::post('profile/edit' , 'UserController@postEdit')->name('profile.postEdit');
     Route::get('approve-account/{code}' , 'UserController@getApproveAccount')->name('profile.approve');
 });
-Route::get('products' , 'ProductController@getAll');
-Route::get('product/{slug}' , 'ProductController@getSingle')->name('product.single');
+
 Route::group(['prefix' => 'admin' , 'middleware' => 'admin'], function(){
     Route::prefix('products')->group(function(){
         Route::get('new' , 'ProductController@getNew')->name('admin.products.getNew');
         Route::post('new' , 'ProductController@postNew')->name('admin.products.postNew');
     });
 });
-Route::get('import-brands' , 'StaticPageController@getImport');
+Route::get('import-brands' , 'StaticPageController@getImportBrands');
+Route::get('import-categories' , 'StaticPageController@getImportCategories');
