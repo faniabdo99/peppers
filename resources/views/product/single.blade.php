@@ -1,4 +1,5 @@
 @include('layout.header')
+
 <body>
     @include('layout.navbar')
     <div class="product-view">
@@ -13,24 +14,24 @@
                                         <ol class="carousel-indicators">
                                             <li data-target="#productCarousel" data-slide-to="0" class="active" style="background-image:url('{{$TheProduct->SmallThumb}}');"></li>
                                             @forelse ($TheProduct->Gallery as $key => $GalleryItem)
-                                                <li data-target="#productCarousel" data-slide-to="{{$key+1}}" style="background-image:url('{{$GalleryItem->SmallThumb}}');"></li>
-                                            @empty                                                
+                                            <li data-target="#productCarousel" data-slide-to="{{$key+1}}" style="background-image:url('{{$GalleryItem->SmallThumb}}');"></li>
+                                            @empty
                                             @endforelse
                                         </ol>
                                         <div class="carousel-inner">
-                                          <div class="carousel-item active">
-                                            <a data-fancybox="gallery" href="{{$TheProduct->FullSize}}">
-                                                <img src="{{$TheProduct->Thumb}}">
-                                            </a>
-                                          </div>
-                                          @forelse ($TheProduct->Gallery as $key => $GalleryItem)
-                                                <div class="carousel-item">
-                                                    <a data-fancybox="gallery" href="{{$GalleryItem->FullSize}}">
-                                                        <img src="{{$GalleryItem->FullSize}}">
-                                                    </a>
-                                                </div>
-                                          @empty                                                
-                                          @endforelse
+                                            <div class="carousel-item active">
+                                                <a data-fancybox="gallery" href="{{$TheProduct->FullSize}}">
+                                                    <img src="{{$TheProduct->Thumb}}">
+                                                </a>
+                                            </div>
+                                            @forelse ($TheProduct->Gallery as $key => $GalleryItem)
+                                            <div class="carousel-item">
+                                                <a data-fancybox="gallery" href="{{$GalleryItem->FullSize}}">
+                                                    <img src="{{$GalleryItem->FullSize}}">
+                                                </a>
+                                            </div>
+                                            @empty
+                                            @endforelse
                                         </div>
                                         <a class="carousel-control-prev" href="#productCarousel" role="button" data-slide="prev">
                                             <i class="fas fa-chevron-left"></i>
@@ -47,20 +48,17 @@
                                 <div class="social_shopping">
                                     <span>Share:</span>
                                     <div class="social_shopping1">
-                                        <a href="http://www.facebook.com/share.php?u={{url()->current()}}"
-                                            class="link-facebook faceognal" target="_blank">
+                                        <a href="http://www.facebook.com/share.php?u={{url()->current()}}" class="link-facebook faceognal" target="_blank">
                                             <i class="fab fa-facebook"></i>
                                         </a>
                                     </div>
                                     <div class="social_shopping1">
-                                        <a href="https://www.pinterest.com/pin/create/button/?url={{url()->current()}}&amp;media={{$TheProduct->FullSize}}&amp;description={{$TheProduct->title}}"
-                                            class="faceognal" target="_blank">
+                                        <a href="https://www.pinterest.com/pin/create/button/?url={{url()->current()}}&amp;media={{$TheProduct->FullSize}}&amp;description={{$TheProduct->title}}" class="faceognal" target="_blank">
                                             <i class="fab fa-pinterest"></i>
                                         </a>
                                     </div>
                                     <div class="social_shopping1">
-                                        <a href="http://twitter.com/share?text=Check out {{$TheProduct->title}} at @Pepperscloset&amp;url={{url()->current()}}"
-                                            class="link-twitter faceognal" target="_blank">
+                                        <a href="http://twitter.com/share?text=Check out {{$TheProduct->title}} at @Pepperscloset&amp;url={{url()->current()}}" class="link-twitter faceognal" target="_blank">
                                             <i class="fab fa-twitter"></i>
                                         </a>
                                     </div>
@@ -91,15 +89,15 @@
                         <div class="product-collateral">
                             <ul class="nav nav-tabs product-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
-                                  <a class="nav-link active" data-toggle="tab" href="#product_tabs_description_contents">Product Description</a>
+                                    <a class="nav-link active" data-toggle="tab" href="#product_tabs_description_contents">Product Description</a>
                                 </li>
                                 <li class="nav-item">
-                                  <a class="nav-link" data-toggle="tab" href="#product_tabs_additional_contents">Additional Informationrmation</a>
+                                    <a class="nav-link" data-toggle="tab" href="#product_tabs_additional_contents">Additional Informationrmation</a>
                                 </li>
                                 <li class="nav-item">
-                                  <a class="nav-link" data-toggle="tab" href="#product_tabs_waranty_contents">Warranty And Returns</a>
+                                    <a class="nav-link" data-toggle="tab" href="#product_tabs_waranty_contents">Warranty And Returns</a>
                                 </li>
-                              </ul>
+                            </ul>
                             <div class="tab-content">
                                 <div class="product-tabs-content tab-pane fade show active" id="product_tabs_description_contents">
                                     <h2>Details</h2>
@@ -161,4 +159,5 @@
     @include('layout.footer')
     @include('layout.scripts')
 </body>
+
 </html>

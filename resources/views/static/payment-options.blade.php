@@ -1,4 +1,5 @@
 @include('layout.header')
+
 <body>
     @include('layout.navbar')
     <section class="static-page shipping-page">
@@ -9,11 +10,11 @@
                     <h2 class="static-title">What Payment Methods Can I Use?</h2>
                     <p>You can pay in a variety of ways, including PayPal, cheque, cash on delivery, wire transfer, and credit card via PayPal (for none Paypal clients)</p>
                     <h2 class="static-title">Wire Transfers/Direct Payment to Savvy Enterpreneurs FZ LLC's Beneficiary&nbsp;Bank:</h2>
-                    <p>CITI BANK N.A.<br/>
-                       IBAN:AE080210000001102070814<br/>
-                       CITI BANK<br/>
-                       Bank Address:&nbsp;MAIN BRANCH<br/>
-                       Swift code: CITIAEAD</p>
+                    <p>CITI BANK N.A.<br />
+                        IBAN:AE080210000001102070814<br />
+                        CITI BANK<br />
+                        Bank Address:&nbsp;MAIN BRANCH<br />
+                        Swift code: CITIAEAD</p>
                     <h2 class="static-title">Credit Card Payments via Paypal for non Clients</h2>
                     <p>If this is the case, the seller will contact you notifying you as well as giving alternative payment options. Please be sure to respond to the email and make payment or your order will be cancelled.</p>
                     <h2 class="static-title">PayPal Payments:</h2>
@@ -28,4 +29,5 @@
     @include('layout.footer')
     @include('layout.scripts')
 </body>
+
 </html>

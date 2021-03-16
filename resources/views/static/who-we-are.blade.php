@@ -33,7 +33,7 @@
                                 more.</p>
                         </div>
                         <div class="col-lg-5 col-12">
-                            <img class="w-100" src="https://peppersluxury.com/media/wysiwyg/luxury_sandal.png" />
+                            <img class="w-100" src="{{url('public/images')}}/static-pages/luxury_sandal.png" />
                         </div>
                     </div>
                     <p>Our Payment plans include:</p>

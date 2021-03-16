@@ -40,7 +40,7 @@ Decostore Magento Theme 2.4
 /* Reset ================================================================================= */
 * { margin:0; padding:0; }
 
-	
+
 body          { font-family: 'ProximaNova Light', sans-serif !important; color:#817e73; text-align:center; background-color: #fff !important; }
 
 img           { border:0; vertical-align:top; }
@@ -108,15 +108,13 @@ ul,ol         { list-style:none; }
 
 
 /* Layout ================================================================================ */
-.wrapper { }
-.page {/* width:1000px; background: white; margin:30px auto; text-align:left;
+/* width:1000px; background: white; margin:30px auto; text-align:left;
 -webkit-box-shadow: 0px 0px 10px #aaa;
 -moz-box-shadow:    0px 0px 10px #aaa;
 box-shadow:         0px 0px 10px #aaa;*/}
 .page-print { background:#fff; padding:25px 30px; text-align:left; }
 .page-empty { background:#fff; padding:20px; text-align:left; }
 .page-popup { background:#fff; padding:25px 30px; text-align:left; }
-.main-container {}
 .main {  min-height:350px; /*margin: 0 0 25px 0; padding:0 30px; */}
 
 /* Base Columns */
@@ -125,12 +123,10 @@ box-shadow:         0px 0px 10px #aaa;*/}
 .col-right { float:right; width:220px; padding:0 0 1px; }
 
 /* 1 Column Layout */
-.col1-layout .main { }
 .col1-layout .col-main { float:none; width:auto; }
 
 /* 2 Columns Layout */
 .col2-left-layout .col-main { float:right; }
-.col2-right-layout .col-main {}
 
 /* 3 Columns Layout */
 .col3-layout .col-main { width:452px; }
@@ -204,7 +200,6 @@ p.control input.radio { margin-right:6px; }
 /*.form-list { width:535px; margin:0 auto; overflow:hidden; }*/
 .form-list li { margin: 0 0 10px; }
 .form-list label { float:initial; color:#555; font-weight:bold; position:relative; z-index:0; margin: 0 0 5px;    font-size: 12px; }
-.form-list label.required {}
 .form-list label.required em { float:right; font-style:normal; color:#eb340a; position:absolute; top:0; right:-7px; }
 .form-list li.control label { float:none; }
 .form-list li.control input.radio,
@@ -302,7 +297,6 @@ p.control input.radio { margin-right:6px; }
 /* Form Validation */
 .validation-advice { clear:both; min-height:13px; margin:3px 0 0; padding-left:13px; font-size:11px; line-height:13px; background:url(../images/validation_advice_bg.png) 2px 3px no-repeat; color:#eb340a; }
 .validation-failed { border:1px solid #eb340a !important; background:#faebe7 !important; }
-.validation-passed {}
 p.required { font-size:11px; text-align:right; color:#EB340A; }
 /* Expiration date and CVV number validation fix */
 .v-fix { float:left; }
@@ -371,7 +365,7 @@ p.required { font-size:11px; text-align:right; color:#EB340A; }
 /* Sorter */
 .sorter { font-size:11px; background:#fff; padding: 4px 8px; }
 .view-mode { float:left; margin: 0 0 0 17px; }
-.link-feed {}
+
 .pages { float: right; }
 .pages ol { display:inline; }
 .pages li { display:inline; font-size:12px; background: white; border: 1px solid #E3E3E3; padding: 2px 0; }
@@ -389,13 +383,11 @@ p.required { font-size:11px; text-align:right; color:#EB340A; }
 /* Toolbar */
 .toolbar { background: #f5f5f5; margin-top: -19px}
 .toolbar .pager { padding: 16px 20px 11px; border:1px solid #e3e3e3; }
-.toolbar .sorter {}
-.toolbar-bottom {}
+
 
 /* Data Table */
 .data-table { width:100%; }
-.data-table tr.odd  { }
-.data-table tr.even { }
+
 .data-table th { padding:2px 15px; font-size:12px; white-space:nowrap; }
 .data-table th.wrap { white-space:normal; }
 .data-table th a { color:#fff; }
@@ -409,8 +401,7 @@ border-radius: 5px; }
 .data-table tfoot { border-bottom:1px solid #d9dde3; }
 .data-table tfoot tr { background-color:#fff !important; }
 .data-table tbody th {    color : #000;  padding: 5px 2px;  font-size: 12px; font-weight:bold; text-transform:none; white-space:normal; }
-.data-table tbody th,
-.data-table tbody td { }
+
 .data-table tfoot strong { font-size:14px; }
 /* Bundle products tables */
 .data-table tbody.odd tr { background:#fff; }
@@ -432,10 +423,10 @@ border-radius: 5px; }
 
 /* Shopping cart total summary row expandable to details */
 tr.summary-total { cursor:pointer; }
-tr.summary-total td {}
+
 tr.summary-total .summary-collapse { float:right; text-align:right; padding-left:20px; background:url(../images/bkg_collapse.gif) 0 4px no-repeat; cursor:pointer; }
 tr.show-details .summary-collapse { background-position:0 -53px; }
-tr.show-details td {}
+
 tr.summary-details td { background-color:#dae1e4; color:#626465; }
 tr.summary-details-first td { border-top:1px solid #d2d8db; }
 tr.summary-details-excluded { font-style:italic; }
@@ -483,10 +474,8 @@ tr.summary-details-excluded { font-style:italic; }
 .links li.last { background:none !important; padding-right:0 !important; }
 
 .link-cart { color:#d62502; }
-.link-wishlist { }
-.link-reorder {}
-.link-compare {}
-.link-print { /*background:url(../images/i_print.gif) 0 2px no-repeat; padding:3px 0 3px 25px;*/ }
+
+ /*background:url(../images/i_print.gif) 0 2px no-repeat; padding:3px 0 3px 25px;*/
 .link-rss { background:url(../images/i_rss.gif) 0 1px no-repeat; padding-left:18px; line-height:14px; white-space:nowrap; }
 .btn-remove { display:block; width:14px; height:13px; font-size:0; line-height:0; background:url(../images/btn_remove.png) 0 0 no-repeat; text-indent:-999em; overflow:hidden; }
 .btn-remove2 { display:block; width:14px; height:13px; font-size:0; line-height:0; background:url(../images/btn_remove.png) 0 0 no-repeat; text-indent:-999em; overflow:hidden; }
@@ -588,21 +577,21 @@ tr.summary-details-excluded { font-style:italic; }
   color: #333;
   text-align: center;
   text-shadow: rgba(255,255,255,0.5) 0px 1px 0px;
-  -webkit-transform: rotate(45deg);
-  -moz-transform:    rotate(45deg);
-  -ms-transform:     rotate(45deg);
-  -o-transform:      rotate(45deg);
+  -webkit-transform:rotate(45deg);
+  -moz-transform:rotate(45deg);
+  -ms-transform:rotate(45deg);
+  -o-transform:rotate(45deg);
   position: relative;
   padding: 7px 0;
   left: -5px;
   top: 15px;
   width: 120px;
   background-color: #BFDC7A;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#BFDC7A), to(#8EBF45)); 
-  background-image: -webkit-linear-gradient(top, #BFDC7A, #8EBF45); 
-  background-image:    -moz-linear-gradient(top, #BFDC7A, #8EBF45); 
-  background-image:     -ms-linear-gradient(top, #BFDC7A, #8EBF45); 
-  background-image:      -o-linear-gradient(top, #BFDC7A, #8EBF45); 
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#BFDC7A), to(#8EBF45));
+  background-image: -webkit-linear-gradient(top, #BFDC7A, #8EBF45);
+  background-image:    -moz-linear-gradient(top, #BFDC7A, #8EBF45);
+  background-image:     -ms-linear-gradient(top, #BFDC7A, #8EBF45);
+  background-image:      -o-linear-gradient(top, #BFDC7A, #8EBF45);
   color: #6a6340;
   -webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
   -moz-box-shadow:    0px 0px 3px rgba(0,0,0,0.3);
@@ -611,7 +600,7 @@ tr.summary-details-excluded { font-style:italic; }
 
 .ribbon-green:before, .ribbon-green:after {
   content: "";
-  border-top:   3px solid #6e8900;   
+  border-top:   3px solid #6e8900;
   border-left:  3px solid transparent;
   border-right: 3px solid transparent;
   position:absolute;
@@ -626,7 +615,6 @@ tr.summary-details-excluded { font-style:italic; }
 }​
 
 /********** < Left Categorys */
-.left-categorys {}
 .block.left-categorys .block-title {     text-align: center;  background-image: none;  background-color: #000;  color: #fff;}
 .block.left-categorys .block-title h2 { font-size: 24px; margin:0; padding:8px 10px;  }
 .left-categorys-container a { display: block; margin:5px 0; padding:0; font-size: 12px;}
@@ -1310,10 +1298,10 @@ button.button.btn-cart span span { color: #fff; }
 /* step two */
 #co-billing-form #billing-new-address-form li label { float: left; }
 #co-billing-form #billing-new-address-form li.fields .field { width: 50%; padding: 3px; }
-#co-billing-form #billing-new-address-form li.fields .input-box, 
+#co-billing-form #billing-new-address-form li.fields .input-box,
 #co-billing-form #billing-new-address-form li.fields .input-box input,
 #co-billing-form #billing-new-address-form li.fields .input-box select,
-#co-billing-form #billing-new-address-form li.wide .input-box, 
+#co-billing-form #billing-new-address-form li.wide .input-box,
 #co-billing-form #billing-new-address-form li.wide .input-box input,
 #co-billing-form #billing-new-address-form li#captcha-input-box-guest_checkout .input-box,
 #co-billing-form #billing-new-address-form li#captcha-input-box-guest_checkout .input-box input { width: 100% !important; }
@@ -1650,7 +1638,7 @@ button.button.btn-cart span span { color: #fff; }
 }
 .header-right ul.social_links li a
 {
-  font-size: 20px;
+    font-size: 20px;
   color: #231f20;
 }
 .header-right ul.social_links li a:hover

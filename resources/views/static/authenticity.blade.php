@@ -53,27 +53,27 @@
                             <div class="row">
                                 <div class="col-lg-4 col-6 single-auth-item">
                                     <p>Date Code</p>
-                                    <img class="w-100" src="//cdn.theluxurycloset.com/themes/gucci/images/authenticity/how-we-check/data-code.jpg" alt="image">
+                                    <img class="w-100" src="{{url('public/images')}}/static-pages/data-code.jpg" alt="image">
                                 </div>
                                 <div class="col-lg-4 col-6 single-auth-item">
                                     <p>Hardware</p>
-                                    <img class="w-100" src="//cdn.theluxurycloset.com/themes/gucci/images/authenticity/how-we-check/hardware.jpg" alt="image">
+                                    <img class="w-100" src="{{url('public/images')}}/static-pages/hardware.jpg" alt="image">
                                 </div>
                                 <div class="col-lg-4 col-6 single-auth-item">
                                     <p>Hallmark Details</p>
-                                    <img class="w-100" src="//cdn.theluxurycloset.com/themes/gucci/images/authenticity/how-we-check/hallmark.jpg" alt="image">
+                                    <img class="w-100" src="{{url('public/images')}}/static-pages/hallmark.jpg" alt="image">
                                 </div>
                                 <div class="col-lg-4 col-6 single-auth-item">
                                     <p>Soles</p>
-                                    <img class="w-100" src="//cdn.theluxurycloset.com/themes/gucci/images/authenticity/how-we-check/soles.jpg" alt="image">
+                                    <img class="w-100" src="{{url('public/images')}}/static-pages/soles.jpg" alt="image">
                                 </div>
                                 <div class="col-lg-4 col-6 single-auth-item">
                                     <p>Authenticity Cards and Information Booklets</p>
-                                    <img class="w-100" src="//cdn.theluxurycloset.com/themes/gucci/images/authenticity/how-we-check/authenticity-card.jpg" alt="image">
+                                    <img class="w-100" src="{{url('public/images')}}/static-pages/authenticity-card.jpg" alt="image">
                                 </div>
                                 <div class="col-lg-4 col-6 single-auth-item">
                                     <p>Gemstone Grading</p>
-                                    <img class="w-100" src="//cdn.theluxurycloset.com/themes/gucci/images/authenticity/how-we-check/gemstone-authenticity.jpg" alt="image">
+                                    <img class="w-100" src="{{url('public/images')}}/static-pages/gemstone-authenticity.jpg" alt="image">
                                     <div class="content-above">All mounted gemstone and diamond grading are
                                         performed without
                                         removing the setting. The grading is done in consistency with GIA standards,
@@ -83,19 +83,19 @@
                                 </div>
                                 <div class="col-lg-4 col-6 single-auth-item">
                                     <p>Watch Movement</p>
-                                    <img class="w-100" src="//cdn.theluxurycloset.com/themes/gucci/images/authenticity/how-we-check/watch-movement-1.jpg" alt="image">
+                                    <img class="w-100" src="{{url('public/images')}}/static-pages/watch-movement-1.jpg" alt="image">
                                 </div>
                                 <div class="col-lg-4 col-6 single-auth-item">
                                     <p>Brand, Care and Composition label</p>
-                                    <img class="w-100" src="//cdn.theluxurycloset.com/themes/gucci/images/authenticity/how-we-check/label.jpg" alt="image">
+                                    <img class="w-100" src="{{url('public/images')}}/static-pages/label.jpg" alt="image">
                                 </div>
                                 <div class="col-lg-4 col-6 single-auth-item">
                                     <p>Decoration Details</p>
-                                    <img class="w-100" src="//cdn.theluxurycloset.com/themes/gucci/images/authenticity/how-we-check/decoratives.jpg" alt="image">
+                                    <img class="w-100" src="{{url('public/images')}}/static-pages/decoratives.jpg" alt="image">
                                 </div>
                                 <div class="col-lg-4 col-6 single-auth-item">
                                     <p>Amendments Made by Sellers</p>
-                                    <img class="w-100" src="https://cdn.theluxurycloset.com/themes/gucci/images/authenticity/how-we-check/amendmants-made-by-seller.jpg" alt="image">
+                                    <img class="w-100" src="{{url('public/images')}}/static-pages/amendmants-made-by-seller.jpg" alt="image">
                                 </div>
                             </div>
                         </div>
