@@ -47,8 +47,6 @@
                 </div>
                 <div class="footer-social-media">
                     <a href="https://www.facebook.com/PeppersLuxuryCloset/" rel="nofollow" target="_blank"><i class="fab fa-facebook"></i></a>
-                    <a href="http://www.pinterest.com/peppercloset/" rel="nofollow"target="_blank"><i class="fab fa-pinterest"></i></a>
-                    <a href="https://twitter.com/peppercloset" rel="nofollow" target="_blank"><i class="fab fa-twitter"></i></a>
                     <a href="https://www.instagram.com/peppers_luxury_closet/" rel="nofollow" target="_blank"><i class="fab fa-instagram"></i></a>
                 </div>
                 <div class="row">
