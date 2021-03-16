@@ -74,7 +74,7 @@
                             <div class="moreinfo">
                                 <h2 class="product-name text-left"><a href="{{route('product.single' , $Product->slug)}}" title="{{$Product->title}}">{{$Product->title}}</a></h2>
                                 <h4 class="brand-info text-left mt-1"><a href="{{route('products' , ['brand' , $Product->Brand->slug])}}">{{$Product->Brand->title}}</a></h4>
-                                <p class="price mt-2">{{$Product->price}}$</p>
+                                <p class="price mt-2">{{convertCurrency($Product->price , 'USD' , getCurrency()['code']) . getCurrency()['symbole']}}</p>
                             </div>
                             <a href="#" class="add-to-cart btn btn-brand d-block w-100 mt-3">Add to Cart</a>
                         </div>

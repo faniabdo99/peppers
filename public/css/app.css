@@ -97,6 +97,9 @@ body {
 .navbar .mega-menu .sub-items-list li a {
   color: #777;
 }
+.navbar .navbar-currency-switcher a.active {
+  color: #c89a4d !important;
+}
 
 @media screen and (max-width: 768px) {
   .upper-nav ul {

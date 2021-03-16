@@ -12,9 +12,9 @@
                                 <div class="slide-wrap">
                                     <div id="productCarousel" class="carousel slide" data-ride="carousel">
                                         <ol class="carousel-indicators">
-                                            <li data-target="#productCarousel" data-slide-to="0" class="active" style="background-image:url('{{$TheProduct->SmallThumb}}');"></li>
+                                                <li data-target="#productCarousel" data-slide-to="0" class="active" style="background-image:url('{{$TheProduct->SmallThumb}}');"></li>
                                             @forelse ($TheProduct->Gallery as $key => $GalleryItem)
-                                            <li data-target="#productCarousel" data-slide-to="{{$key+1}}" style="background-image:url('{{$GalleryItem->SmallThumb}}');"></li>
+                                                <li data-target="#productCarousel" data-slide-to="{{$key+1}}" style="background-image:url('{{$GalleryItem->SmallThumb}}');"></li>
                                             @empty
                                             @endforelse
                                         </ol>
@@ -83,7 +83,7 @@
                             </div>
                             <div class="product-shop">
                                 <p class="no-rating"><a href="#product_tabs_product_review">Be the first to review this product</a></p>
-                                <div class="price-box">{{$TheProduct->price}}$</div>
+                                <div class="price-box">{{convertCurrency($TheProduct->price , 'USD' , getCurrency()['code']) . getCurrency()['symbole']}}</div>
                             </div>
                         </div>
                         <div class="product-collateral">

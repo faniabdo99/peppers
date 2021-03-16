@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 Route::get('/','HomeController@getHomepage')->name('home');
+Route::get('switch-currency/{currency}/{currencyCode}' , 'CurrencyController@setCurrency')->name('currency.switch');
 //Static Pages
 Route::get('authenticity' , 'StaticPageController@getAutheticity')->name('static.authenticity');
 Route::get('faqs' , 'StaticPageController@getFaqs')->name('static.faqs');

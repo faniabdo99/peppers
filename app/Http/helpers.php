@@ -15,4 +15,32 @@ use App\Models\Brand;
             }
         }
     }
+    function getCurrency(){
+        if(session()->has('currency')){
+            if(session()->get('currency') == 'USD'){
+                $CurrencySymbole = '$';
+                $CurrencyCode = 'USD';
+            }elseif(session()->get('currency') == 'EGP'){
+                $CurrencySymbole = '£';
+                $CurrencyCode = 'EGP';
+            }
+        }else{
+        $CurrencySymbole = '£';
+        $CurrencyCode = 'EGP';
+        }
+        return ['symbole' => $CurrencySymbole,'code' => $CurrencyCode];
+    }
+    function convertCurrency($amount , $from , $to){
+        //Check Old Data
+        if($to == 'USD'){
+            return $amount;
+        }
+        $client = new GuzzleHttp\Client();
+        $res = $client->get('https://api.exchangerate.host/convert?from='.$from.'&to='.$to);
+        if($res->getStatusCode() != 200){
+            return "Error !" . $res->getStatusCode();
+        }
+        $ResponseAsArray = json_decode($res->getBody(), true);
+        return sprintf("%.1f",$amount *  $ResponseAsArray['result']);
+    }
 ?>

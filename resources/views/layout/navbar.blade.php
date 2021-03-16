@@ -5,8 +5,8 @@
             <div class="col-12">
                 <ul>
                     <li>
-                        <a href="#" title="Switch Currency to USD"><i class="fas fa-dollar-sign"></i> USD |</a>
-                        <a href="#" title="Switch Currency to USD"><i class="fas fa-pound-sign"></i> EGP</a>
+                        <a href="{{route('currency.switch' , ['USD' ,'$'])}}" title="Switch Currency to USD"><i class="fas fa-dollar-sign"></i> USD |</a>
+                        <a href="{{route('currency.switch' , ['EGP' ,'£'])}}" title="Switch Currency to EGP"><i class="fas fa-pound-sign"></i> EGP</a>
                     </li>
                     <li><a href="{{route('static.authenticity')}}"><i class="fas fa-lock"></i> Authenticity Guaranteed</a></li>
                     <li><a href="{{route('static.returns')}}"><i class="fas fa-truck"></i> International Shipping</a></li>
@@ -536,7 +536,7 @@
 <section class="afterNav">
     <div class="container">
         <p class="mb-0">SIGN UP AND GET AN <span class="offer"> $50 off </span>ON YOUR FIRST ORDER
-            <a href="https://peppersluxury.com/customer/account/create/" class="btn">Sign Up</a>
+            <a href="{{route('user.getSignup')}}" class="btn">Sign Up</a>
         </p>
     </div>
 </section>

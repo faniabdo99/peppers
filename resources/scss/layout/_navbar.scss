@@ -73,6 +73,11 @@
             }
         }
     }
+    .navbar-currency-switcher{
+        a.active{
+            color: $brand !important;
+        }
+    }
 }
 
 @media screen and (max-width:768px){
