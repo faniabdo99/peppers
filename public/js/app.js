@@ -93,6 +93,29 @@ $('#submit-newsletter').click(function (e) {
       That.html('Sign Up');
     }
   });
+}); //Cart system
+
+$('#add-to-cart').click(function () {
+  var That = $(this);
+  var ItemId = $(this).data('id');
+  var UserId = $(this).data('user');
+  var Target = $(this).data('target'); //Change the button to loader
+
+  $(this).html('<i class="fas fa-spinner fa-spin"></i>');
+  $.ajax({
+    url: Target,
+    method: 'post',
+    data: {
+      'product_id': ItemId,
+      'user_id': UserId
+    },
+    success: function success(response) {
+      That.html('<i class="fas fa-check"></i> Added to cart');
+    },
+    error: function error(response) {
+      That.html('<i class="fas fa-cart"></i> Add to cart');
+    }
+  });
 });
 
 /***/ }),

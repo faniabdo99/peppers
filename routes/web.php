@@ -36,6 +36,10 @@ Route::middleware('auth')->group(function () {
     Route::get('profile/edit' , 'UserController@getEdit')->name('profile.getEdit');
     Route::post('profile/edit' , 'UserController@postEdit')->name('profile.postEdit');
     Route::get('approve-account/{code}' , 'UserController@getApproveAccount')->name('profile.approve');
+    Route::get('cart' , 'CartController@getAll')->name('cart.get');
+    Route::get('delete/{id}' , 'CartController@delete')->name('cart.delete');
+    Route::get('checkout' , 'OrderController@getCheckout')->name('checkout.get');
+    Route::post('checkout' , 'OrderController@postCheckout')->name('checkout.post');
 });
 
 Route::group(['prefix' => 'admin' , 'middleware' => 'admin'], function(){

@@ -18,6 +18,9 @@
                     @endguest
                     @auth
                         <li>
+                            <a href="{{route('cart.get')}}" rel="nofollow" class="login-link"><i class="fas fa-shopping-cart"></i> Shopping cart ({{userCartCount(auth()->user()->id)}})</a>
+                        </li>
+                        <li>
                             <a href="{{route('profile')}}" rel="nofollow" class="login-link"><i class="fas fa-user"></i> Welcome, {{auth()->user()->name}}</a>
                         </li>
                     @endauth

@@ -82,8 +82,22 @@
                                 <span class="product-code">Product SKU: <strong>{{$TheProduct->sku}}</strong></span>
                             </div>
                             <div class="product-shop">
-                                <p class="no-rating"><a href="#product_tabs_product_review">Be the first to review this product</a></p>
-                                <div class="price-box">{{convertCurrency($TheProduct->price , 'USD' , getCurrency()['code']) . getCurrency()['symbole']}}</div>
+                                {{-- <p class="no-rating"><a href="#product_tabs_product_review">Be the first to review this product</a></p> --}}
+                                <div class="price-box mb-4">{{convertCurrency($TheProduct->price , 'USD' , getCurrency()['code']) . getCurrency()['symbole']}}</div>
+                                @auth
+                                    @if($TheProduct->CartReady)
+                                        @if(isInUserCart(auth()->user()->id , $TheProduct->id))
+                                            <a class="btn btn-brand"><i class="fas fa-check"></i> Added to Cart</a>
+                                        @else  
+                                            <a class="btn btn-brand" id="add-to-cart" data-target="{{route('cart.add')}}" data-id="{{$TheProduct->id}}" data-user="{{auth()->user()->id}}" href="javascript:;"><i class="fas fa-cart-plus"></i> Add to cart</a>
+                                        @endif
+                                    @else
+                                        <p>This product is not available for sell right now</p>
+                                    @endif
+                                @endauth
+                                @guest
+                                <p>Please <a href="{{route('user.getLogin')}}">Login</a> to add this product to your cart</p>
+                                @endguest
                             </div>
                         </div>
                         <div class="product-collateral">

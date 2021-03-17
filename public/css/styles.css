@@ -1100,67 +1100,6 @@ button.button.btn-cart span span { color: #fff; }
 /* ======================================================================================= */
 
 
-/* Shopping Cart ========================================================================= */
-/* Checkout Types */
-.cart .page-title .checkout-types { display:none !important; }
-.cart .checkout-types .paypal-or { margin:0 8px; line-height:2.3; }
-.cart .totals .checkout-types .paypal-or { clear:both; display:block; padding:8px 55px 0 0; line-height:1.0; font-size:11px; }
-
-/* Shopping Cart Table */
-.cart-table thead td,
-.cart-table thead th { background: url(https://peppersluxury.com/skin/frontend/decostore/default/images/line.jpg) no-repeat center center; }
-.cart-table thead th.cart-th-first { background-position: top left; }
-.cart-table thead th.cart-th-last { background-position: top right; }
-.cart-table th { padding:5px 10px; }
-.cart-table td { padding:4px; }
-.cart-table .product-name { padding-top: 30px; margin:0 0 5px; color:#353535; }
-.cart-table .item-msg { margin:5px 0; font-size:11px; font-weight:bold; color:#df280a; }
-.cart-table tfoot td { padding:10px; }
-.cart-table .btn-continue { margin-right: 15px; }
-.cart-table .btn-remove2 { margin-top: 3px; }
-
-/* Shopping Cart Collateral boxes */
-.cart .cart-collaterals { padding:20px 0 0; }
-.cart .cart-collaterals .col2-set .col-1 { width:222px; }
-.cart .cart-collaterals .col2-set .col-2 { width:655px; background:#e6f7d7; }
-
-.cart .crosssell { background:white; padding:10px; }
-.cart .crosssell h2 { font-size:12px; font-weight:bold; }
-.cart .crosssell .product-image { float:left; width:75px; height:75px; }
-.cart .crosssell .product-details { margin-left:85px; }
-.cart .crosssell .product-name { font-weight:bold; }
-.cart .crosssell li.item { margin:0 0 8px; padding-bottom:5px; border-bottom:1px solid #DDD; }
-.cart .crosssell li.last { border-bottom:0; padding-bottom:0; margin:0; }
-.cart .crosssell .link-compare { font-weight:normal; }
-.cart .no-crosssell { width:100%; overflow:hidden; }
-.cart .no-crosssell img { display:block; margin:0 0 10px; }
-
-/* Discount Codes & Estimate Shipping and Tax Boxes */
-.cart .discount,
-.cart .shipping { margin: 0 0 20px; background:white; }
-.cart .discount h2,
-.totals h2,
-.cart .shipping h2 { font-size: 18px; border-bottom: 1px dotted #DDD; }
-.cart .discount .buttons-set,
-.cart .shipping .buttons-set { margin:10px 0 0; border:0; padding:0; text-align:center; }
-.cart .discount label { font-weight:bold; color:#555; }
-/*.cart .discount .input-box { width:270px; }*/
-.cart .discount input.input-text { width: 286px; }
-
-.cart .shipping p { margin:0 0 3px; }
-.cart .shipping .sp-methods { margin:10px 0 0; padding:6px 0 0; border-top:1px solid #DDD; }
-.cart .shipping .form-list .input-box { width:100%; }
-.cart .shipping .form-list input.input-text { width: 286px; }
-.cart .shipping .form-list select { width: 300px; }
-
-/* Shopping Cart Totals */
-.cart .totals table { float:right; margin:0 0 8px; }
-.cart .totals td { padding:0 0 0 15px; }
-.cart .totals tfoot th strong,
-.cart .totals tfoot td strong { font-size:18px; font-weight:bold; }
-.cart .totals .checkout-types { font-size:13px; padding:4px 0; text-align:right; }
-.cart .totals .checkout-types li { clear:both; margin:0 0 5px; }
-
 
 /* Options Tool Tip */
 .item-options dt { font-weight:bold; font-style:italic; }

@@ -20,4 +20,11 @@ class Product extends Model{
     public function Brand(){
         return $this->belongsTo(Brand::class , 'brand_id');
     }
+    public function getCartReadyAttribute(){
+        if($this->in_stock == 1 && $this->qty > 0 && $this->status == 'Available'){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

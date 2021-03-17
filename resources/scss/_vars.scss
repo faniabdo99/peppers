@@ -4,7 +4,11 @@ $lightgrey: #ebebeb;
 $grey: #777;
 $brand: #c89a4d;
 $brand-hover: #ac833e;
+$danger: #c84c4c;
+$danger-hover: #c94040;
+
 .btn-brand{
     background-color: $brand;
-    color: #fff;
+    color: $black;
+    border-radius: 0;
 }

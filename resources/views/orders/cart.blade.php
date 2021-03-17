@@ -1,0 +1,88 @@
+@include('layout.header')
+<body>
+    @include('layout.navbar')
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="cart mt-5 mb-3">
+                    <h1 class="mb-3">Shopping Cart</h1>
+                    <form action="https://peppersluxury.com/checkout/cart/updatePost/" method="post">
+                        <fieldset>
+                            <table id="shopping-cart-table" class="table table-striped">
+                                <thead>
+                                    <th>Image</th>
+                                    <th>Product Name</th>
+                                    <th>Condition</th>
+                                    <th>Action</th>
+                                    <th>Subtotal</th>
+                                </thead>
+                                <tbody>
+                                    @forelse ($Cart as $CartItem)
+                                    <tr>
+                                        <td>
+                                            <a href="{{route('product.single' , $CartItem->Product->slug)}}" class="product-image">
+                                                <img src="{{$CartItem->Product->Thumb}}" width="75" height="75" alt="{{$CartItem->Product->title}}" />
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <h2 class="product-name">
+                                                <a href="{{route('product.single' , $CartItem->Product->slug)}}">{{$CartItem->Product->title}}</a>
+                                            </h2>
+                                        </td>
+                                        <td>{{$CartItem->Product->condition}}</td>
+                                        <td class="cart-edit">
+                                            {{-- <input value="1" size="4" maxlength="12" /> --}}
+                                            <a href="{{route('cart.delete' , $CartItem->id)}}"><i class="fas fa-trash"></i></a>
+                                        </td>
+                                        <td>{{convertCurrency($CartItem->Product->price , 'USD' , getCurrency()['code']) . getCurrency()['symbole']}}</td>
+                                    </tr>
+                                    @empty
+                                    <tr>
+                                        <td>There is no items in your cart</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    @endforelse
+                                </tbody>
+                            </table>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-9">
+                {{-- <form id="discount-coupon-form" action="https://peppersluxury.com/checkout/cart/couponPost/" method="post">
+                            <div class="discount">
+                                <h2>Discount Codes</h2>
+                                <div class="discount-form">
+                                    <label for="coupon_code">Enter your coupon code if you have one.</label>
+                                    <input type="hidden" name="remove" id="remove-coupone" value="0" />
+                                    <div class="input-box">
+                                        <input class="input-text" id="coupon_code" name="coupon_code" value="" />
+                                    </div>
+                                    <div class="buttons-set">
+                                        <a href="#" class="btn btn-brand">Apply Coupon</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form> --}}
+            </div>
+            <div class="col-lg-3">
+                <a href="{{route('products')}}" class="btn btn-brand d-block mb-2">Continue Shopping</a>
+                {{-- <a href="#" class="btn btn-brand d-block mb-2">Update Shopping Cart</a> --}}
+                <div class="totals">
+                    <p><b>Grand Total:</b> {{convertCurrency($Total , 'USD' , getCurrency()['code']) . getCurrency()['symbole']}}</p>
+                    <p><b>Subtotal:</b> {{convertCurrency($Total , 'USD' , getCurrency()['code']) . getCurrency()['symbole']}}</p>
+                </div>
+                <a href="{{route('checkout.get')}}" class="btn btn-brand d-block">Proceed to Checkout</a>
+            </div>
+        </div>
+    </div>
+    </div>
+    @include('layout.footer')
+    @include('layout.scripts')
+</body>
+</html>

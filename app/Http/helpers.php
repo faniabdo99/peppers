@@ -1,5 +1,6 @@
 <?php 
 use App\Models\Brand;
+use App\Models\Cart;
     function getBrands($featured = null){
         if($featured == 1){
             return Brand::where('is_featured' , 1)->latest()->get();
@@ -42,5 +43,16 @@ use App\Models\Brand;
         }
         $ResponseAsArray = json_decode($res->getBody(), true);
         return sprintf("%.1f",$amount *  $ResponseAsArray['result']);
+    }
+    function isInUserCart($user_id , $product_id){
+        $TheItem = Cart::where('user_id',$user_id)->where('product_id' , $product_id)->where('status' , 'active')->first();
+        if($TheItem){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    function userCartCount($user_id){
+        return Cart::where('user_id',$user_id)->where('status' , 'active')->count();
     }
 ?>

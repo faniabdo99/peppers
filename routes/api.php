@@ -3,3 +3,4 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 Route::post('newsletter' , 'NewsletterController@postNewsletter')->name('newsletter.post');
+Route::post('add-to-cart' , 'CartController@addToCart')->name('cart.add');

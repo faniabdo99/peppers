@@ -1,6 +1,7 @@
 .btn-brand {
   background-color: #c89a4d;
-  color: #fff;
+  color: #000;
+  border-radius: 0;
 }
 
 body {
