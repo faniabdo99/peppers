@@ -51,7 +51,7 @@ $('#homepage-designers-slider').owlCarousel({
       items: 3
     },
     1000: {
-      items: 5
+      items: 4
     }
   }
 });
@@ -67,7 +67,7 @@ $('#homepage-most-wanted-slider').owlCarousel({
       items: 3
     },
     1000: {
-      items: 5
+      items: 4
     }
   }
 }); //Newsletter

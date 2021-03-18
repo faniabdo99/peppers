@@ -271,7 +271,7 @@
                     <input class="mb-3" type="text" name="street_address" id="street_address" placeholder="Please enter your street address" value="{{auth()->user()->street_address}}">
                     <label for="zip_code">ZIP Code</label>
                     <input class="mb-3" type="text" name="zip_code" id="zip_code" placeholder="Please enter your street address" value="{{auth()->user()->zip_code}}">
-                    <button class="submit-btn mb-5">Update Profile</button>
+                    <button class="btn btn-brand mb-5">Update Profile</button>
                 </form>
             </div>
         </div>

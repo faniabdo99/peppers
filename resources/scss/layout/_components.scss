@@ -46,3 +46,22 @@
     }
 }
 
+//Adjust Owl Carusel Next and Prev
+.owl-carousel{
+    position: relative;
+    .owl-nav{
+        top: 50%;
+        font-size: 80px;
+        .owl-prev{
+            position: absolute;
+            left: -5%;
+            top: 50%;
+        }
+        .owl-next{
+            position: absolute;
+            right: -5%;
+            top: 50%;
+        }
+    }
+}
+

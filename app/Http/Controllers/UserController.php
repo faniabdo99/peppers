@@ -193,6 +193,9 @@ class UserController extends Controller{
             }
         }
     }
+    public function getOrders(){
+        return view('user.orders');
+    }
     public function logout(){
         if(auth()->check()){
             Auth::logout();

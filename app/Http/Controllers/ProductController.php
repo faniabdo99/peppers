@@ -29,27 +29,43 @@ class ProductController extends Controller{
             //There is a filter
             if(!$filter_type){
                 $AllProducts = Product::where([$Color,$Size,$Condition,$PriceFrom,$PriceTo])->latest()->get();
-                $TheBrand = null;
+                $TheFilter = null;
             }else{
                 if($filter_type == 'brand'){
-                    $TheBrand = Brand::where('slug' , $filter_value)->first();
-                    if($TheBrand){
-                        $AllProducts = Product::where([$Color,$Size,$Condition,$PriceFrom,$PriceTo])->where('brand_id',$TheBrand->id)->latest()->get();
+                    $TheFilter = Brand::where('slug' , $filter_value)->first();
+                    if($TheFilter){
+                        $AllProducts = Product::where([$Color,$Size,$Condition,$PriceFrom,$PriceTo])->where('brand_id',$TheFilter->id)->latest()->get();
                     }else{
                         $AllProducts = [];
                     }
                 }
-            }
+                if($filter_type == 'category'){
+                    $TheFilter = Category::where('slug' , $filter_value)->first();
+                    if($TheFilter){
+                        $AllProducts = Product::where([$Color,$Size,$Condition,$PriceFrom,$PriceTo])->where('category_id',$TheFilter->id)->latest()->get();
+                    }else{
+                        $AllProducts = [];
+                    }
+                }
+           }
         }else{
             //No Filter
             if(!$filter_type){
                 $AllProducts = Product::latest()->get();
-                $TheBrand = null;
+                $TheFilter = null;
             }else{
                 if($filter_type == 'brand'){
-                    $TheBrand = Brand::where('slug' , $filter_value)->first();
-                    if($TheBrand){
-                        $AllProducts = Product::where('brand_id',$TheBrand->id)->get();
+                    $TheFilter = Brand::where('slug' , $filter_value)->first();
+                    if($TheFilter){
+                        $AllProducts = Product::where('brand_id',$TheFilter->id)->get();
+                    }else{
+                        $AllProducts = [];
+                    }
+                }
+                if($filter_type == 'category'){
+                    $TheFilter = Category::where('slug' , $filter_value)->first();
+                    if($TheFilter){
+                        $AllProducts = Product::where('category_id',$TheFilter->id)->latest()->get();
                     }else{
                         $AllProducts = [];
                     }
@@ -58,7 +74,7 @@ class ProductController extends Controller{
         }
         $AllColors = Product::pluck('color')->unique();
         $AllSizes = Product::pluck('size')->unique();
-        return view('product.all', compact('AllProducts' , 'TheBrand' , 'AllColors' , 'AllSizes' , 'r'));
+        return view('product.all', compact('AllProducts' , 'TheFilter' , 'AllColors' , 'AllSizes' , 'r'));
     }
     public function getSingle($slug){
         $TheProduct = Product::where('slug' , $slug)->first();
