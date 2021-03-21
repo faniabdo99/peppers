@@ -71,24 +71,23 @@
                         within two working days. If you chose to consign with us, we will send your payment within two
                         working days after selling your item.</p>
                     <br>
-                    <form>
-
+                    <form action="{{route('sell.postHowToSellWithUs')}}" method="post" enctype="multipart/form-data">
+                        @csrf
                         <div class="form-group">
-                            <label for="exampleFormControlInput1">SUBMIT YOUR ITEM(S)</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1"
-                                placeholder="Add item description here eg. Prada Medium Classic Flap Sling Bag">
+                            <label for="title">Submit Your Item</label>
+                            <input type="text" class="form-control" name="title" id="title" placeholder="Add item description here eg. Prada Medium Classic Flap Sling Bag" required>
                         </div>
                         <div class="row">
                             <div class="form-group col-4">
-                                <label for="exampleFormControlSelect2">Select Gender</label>
-                                <select class="form-control" id="exampleFormControlSelect2">
+                                <label for="gender">Select Gender</label>
+                                <select class="form-control" name="gender" id="gender" required>
                                     <option>Male</option>
                                     <option>Female</option>
                                 </select>
                             </div>
                             <div class="form-group col-4">
-                                <label for="exampleFormControlSelect3">Select Category</label>
-                                <select class="form-control" id="exampleFormControlSelect3">
+                                <label for="category">Select Category</label>
+                                <select class="form-control select-search" name="category" id="category" required>
                                     <option>Bags</option>
                                     <option>Clothing</option>
                                     <option>Travel</option>
@@ -96,8 +95,8 @@
                                 </select>
                             </div>
                             <div class="form-group col-4">
-                                <label for="exampleFormControlSelect4">Select Item</label>
-                                <select class="form-control select-search" id="exampleFormControlSelect4">
+                                <label for="brand">Select Brand</label>
+                                <select class="form-control select-search" name="brand" id="brand" required>
                                     <option>Armani</option>
                                     <option>Balmain</option>
                                     <option>Bottega Veneta</option>
@@ -109,17 +108,16 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <input type="file" class="" id="customFile" multiple>
-                                    <label class="" for="customFile">Choose file</label>
+                                    <label class="" for="images">Choose file(s)</label>
+                                    <input type="file" class="form-control" name="images[]" id="images" multiple required>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="example-tel-input">Enter Your Phone Number</label>
-                                    <input class="form-control" type="tel" placeholder="+2010000000"
-                                        id="example-tel-input">
+                                    <label for="phone">Enter Your Phone Number</label>
+                                    <input class="form-control" name="phone" type="tel" placeholder="+2010000000" id="phone" required>
                                     <div class="form-check mt-3">
                                         <label class="form-check-label">
-                                            <input class="form-check-input" type="checkbox">I agree to The Pepper's
+                                            <input class="form-check-input" name="toc" type="checkbox" required>I agree to The Pepper's
                                             Closet's <a href="#">Terms & Conditions</a>
                                         </label>
                                     </div>

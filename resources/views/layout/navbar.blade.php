@@ -528,7 +528,7 @@
                 </div>
             </li>
             <li class="nav-item"><a class="nav-link" href="#">WHAT'S NEW</a></li>
-            <li class="nav-item"><a class="nav-link btn btn-brand" href="#">SELL NOW</a></li>
+            <li class="nav-item"><a class="nav-link btn btn-brand" href="{{route('sell.howToSellWithUs')}}">SELL NOW</a></li>
         </ul>
         {{-- <form class="navbar-search form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search Store Here" aria-label="Search">

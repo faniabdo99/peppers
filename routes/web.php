@@ -58,3 +58,4 @@ Route::get('import-categories' , 'StaticPageController@getImportCategories');
 
 // Sell Route
 Route::get('how-to-sell','SellController@getSellWithUs')->name('sell.howToSellWithUs');
+Route::post('how-to-sell','SellController@postSellWithUs')->name('sell.postHowToSellWithUs');
