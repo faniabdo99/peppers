@@ -79,7 +79,31 @@
         }
     }
 }
-
+#added-to-cart-success{
+    display: none;
+    padding: 20px;
+    width: 35%;
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    z-index: 999;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    i{
+        font-size: 2.5em;
+        color: $brand;
+        margin-right: 15px;
+    }
+    ul{
+        display: flex;
+        li{
+            margin-right: 15px;
+            a{
+                display: block;
+            }
+        }
+    }
+}
 @media screen and (max-width:768px){
     .upper-nav{
         ul{

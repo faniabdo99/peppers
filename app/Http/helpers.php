@@ -22,12 +22,12 @@ use App\Models\Cart;
                 $CurrencySymbole = '$';
                 $CurrencyCode = 'USD';
             }elseif(session()->get('currency') == 'EGP'){
-                $CurrencySymbole = '£';
+                $CurrencySymbole = ' L.E';
                 $CurrencyCode = 'EGP';
             }
         }else{
-        $CurrencySymbole = '£';
-        $CurrencyCode = 'EGP';
+            $CurrencySymbole = '$';
+            $CurrencyCode = 'USD';
         }
         return ['symbole' => $CurrencySymbole,'code' => $CurrencyCode];
     }
@@ -42,7 +42,7 @@ use App\Models\Cart;
             return "Error !" . $res->getStatusCode();
         }
         $ResponseAsArray = json_decode($res->getBody(), true);
-        return sprintf("%.1f",$amount *  $ResponseAsArray['result']);
+        return ceil(($amount *  $ResponseAsArray['result']) / 10) * 10;
     }
     function isInUserCart($user_id , $product_id){
         $TheItem = Cart::where('user_id',$user_id)->where('product_id' , $product_id)->where('status' , 'active')->first();

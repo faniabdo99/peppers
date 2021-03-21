@@ -37,7 +37,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto">
             <li class="nav-item">
-                <a class="nav-link mega-menu-trigger" href="javascript:;">WOMEN</a>
+                <a class="nav-link mega-menu-trigger" href="javascript:;">WOMEN <i class="fas fa-chevron-down"></i></a>
                 <div class="mega-menu">
                     <h2 class="mb-4 font-weight-bold">Women Category</h2>
                     <ul class="row">
@@ -273,7 +273,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link mega-menu-trigger" href="#">MEN</a>
+                <a class="nav-link mega-menu-trigger" href="#">MEN <i class="fas fa-chevron-down"></i></a>
                 <div class="mega-menu">
                     <h2 class="mb-4 font-weight-bold">Men</h2>
                     <ul class="row">
@@ -465,7 +465,7 @@
                 <a class="nav-link" href="#">SALE</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link mega-menu-trigger" href="#">DESIGNERS</a>
+                <a class="nav-link mega-menu-trigger" href="#">DESIGNERS <i class="fas fa-chevron-down"></i></a>
                 <div class="mega-menu">
                     <h2 class="mb-4 font-weight-bold">Designers</h2>
                     <ul class="row">
@@ -528,14 +528,15 @@
                 </div>
             </li>
             <li class="nav-item"><a class="nav-link" href="#">WHAT'S NEW</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">SELL NOW</a></li>
+            <li class="nav-item"><a class="nav-link btn btn-brand" href="#">SELL NOW</a></li>
         </ul>
-        <form class="navbar-search form-inline my-2 my-lg-0">
+        {{-- <form class="navbar-search form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search Store Here" aria-label="Search">
             <button class="btn btn-brand my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        </form> --}}
     </div>
 </nav>
+@guest
 <section class="afterNav">
     <div class="container">
         <p class="mb-0">SIGN UP AND GET AN <span class="offer"> $50 off </span>ON YOUR FIRST ORDER
@@ -543,6 +544,7 @@
         </p>
     </div>
 </section>
+@endguest
 @if(session()->has('success'))
     <div class="notification success-notification">
         <div class="notification-icon">
@@ -567,3 +569,20 @@
         </div>
     </div>
 @endif
+<div id="added-to-cart-success">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="col-10">
+                <h4> Item Added to Cart</h4>
+                <p>This item has been added to your shopping cart</p>
+                <ul class="mb-0">
+                    <li><a href="javascript:;" id="close-added-to-cart" class="btn btn-brand">Continue Shopping</a></li>
+                    <li><a href="{{route('cart.get')}}" class="btn btn-brand">Go to Cart</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

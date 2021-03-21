@@ -53,7 +53,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-9">
+            <div class="col-lg-6">
                 {{-- <form id="discount-coupon-form" action="https://peppersluxury.com/checkout/cart/couponPost/" method="post">
                             <div class="discount">
                                 <h2>Discount Codes</h2>
@@ -71,11 +71,21 @@
                         </form> --}}
             </div>
             <div class="col-lg-3">
+                <label class="d-block" for="cart-country">Shipping Country</label>
+                <select class="d-block w-100 p-2" name="country" id="cart-country">
+                    <option value="">Select shipping country</option>
+                    <option value="Egypt">Egypt</option>
+                    <option value="Elsewhere">Elsewhere</option>
+                </select>
+                <input id="cart-total-hidden" hidden value="{{convertCurrency($Total , 'USD' , getCurrency()['code'])}}">
+            </div>
+            <div class="col-lg-3">
                 <a href="{{route('products')}}" class="btn btn-brand d-block mb-2">Continue Shopping</a>
                 {{-- <a href="#" class="btn btn-brand d-block mb-2">Update Shopping Cart</a> --}}
                 <div class="totals">
-                    <p><b>Grand Total:</b> {{convertCurrency($Total , 'USD' , getCurrency()['code']) . getCurrency()['symbole']}}</p>
-                    <p><b>Subtotal:</b> {{convertCurrency($Total , 'USD' , getCurrency()['code']) . getCurrency()['symbole']}}</p>
+                    <p><b>Total:</b> {{convertCurrency($Total , 'USD' , getCurrency()['code']) . getCurrency()['symbole']}}</p>
+                    <p><b>Shipping Total:</b> <span id="shipping-cart">Choose country</span></p>
+                    <p><b>Subtotal:</b> <span id="cart-total">{{convertCurrency($Total , 'USD' , getCurrency()['code'])}}</span>{{getCurrency()['symbole']}}</p>
                 </div>
                 <a href="{{route('checkout.get')}}" class="btn btn-brand d-block">Proceed to Checkout</a>
             </div>
