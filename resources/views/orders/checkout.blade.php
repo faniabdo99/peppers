@@ -279,8 +279,8 @@
                                     </select>                                 
                                 <label for="city">City*</label>
                                 <input type="text" placeholder="Please enter your city" name="city" id="city" required>
-                                <label for="zip_code">Zip/Postal Code*</label>
-                                <input type="text" placeholder="Please enter your zip code" name="zip_code" id="zip_code" required>
+                                <label for="zip_code">Zip/Postal Code</label>
+                                <input type="text" placeholder="Please enter your zip code" name="zip_code" id="zip_code">
                                 <label for="address">Address Line*</label>
                                 <input type="text" placeholder="Please enter your address line" name="address" id="address" required>
                                 <label for="address_2">Address Line 2</label>
@@ -305,11 +305,24 @@
     @include('layout.footer')
     @include('layout.scripts')
     <script>
+        const SiteCurrency = $('meta[name=currency]').attr('content');
+        const SiteExchange = $('meta[name=exchange]').attr('content');
+
         $('#country').change(function(){
-            if($(this).val() == 'Egypt'){
-                $('#shipping-cost-calculator').html('Shipping Cost to '+$(this).val()+' is 5$');
+            if(SiteCurrency == 'USD'){
+                if($(this).val() == 'Egypt'){
+                    $('#shipping-cost-calculator').html('Shipping Cost to '+$(this).val()+' is 5$');
+                }else{
+                    $('#shipping-cost-calculator').html('Shipping Cost to '+$(this).val()+' is 80$');
+                }
             }else{
-                $('#shipping-cost-calculator').html('Shipping Cost to '+$(this).val()+' is 80$');
+                ShippingCostEG = 5*SiteExchange;
+                ShippingCostINT = 80*SiteExchange;
+                if($(this).val() == 'Egypt'){
+                    $('#shipping-cost-calculator').html('Shipping Cost to '+$(this).val()+' is '+ShippingCostEG+' L.E');
+                }else{
+                    $('#shipping-cost-calculator').html('Shipping Cost to '+$(this).val()+' is '+ShippingCostINT+' L.E');
+                }
             }
         });
     </script>

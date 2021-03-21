@@ -24,7 +24,6 @@ class OrderController extends Controller{
             'phone_number' => 'required',
             'country' => 'required',
             'city' => 'required',
-            'zip_code' => 'required',
             'address' => 'required',
             'payment_method' => 'required'
         ];
@@ -97,7 +96,7 @@ class OrderController extends Controller{
                             'phone_number' => $TheOrder->phone_number, 
                             'postal_code' => 12511, 
                             'city' => $TheOrder->city, 
-                            'country' => 'EG', 
+                            'country' => $TheOrder->country, 
                             'state' => 'State',
                             'notes' => $TheOrder->order_notes,
                             'last_name' => ' Nicolas'

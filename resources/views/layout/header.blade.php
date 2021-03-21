@@ -9,6 +9,8 @@
     <meta name="description" content="Pepper's is Egypt's first and only consignment store for Authentic luxury brands! Egypt's First Consignment Boutique bringing you premium designer brands up to 70% off retail price" />
     <meta name="keywords" content="pre-owned, designer, closet, sell, buy, brands, consignment, authentic, store, premium, closet, boutique" />
     <meta name="robots" content="INDEX,FOLLOW" />
+    <meta name="currency" content="{{getCurrency()['code']}}">
+    <meta name="exchange" content="{{convertCurrency(1,'USD','EGP')}}">
     <link rel="icon" href="https://peppersluxury.com/skin/frontend/decostore/default/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="https://peppersluxury.com/skin/frontend/decostore/default/favicon.ico" type="image/x-icon" />
     <!--[if lt IE 7]>

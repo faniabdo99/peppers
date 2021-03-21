@@ -102,6 +102,32 @@ body {
   color: #c89a4d !important;
 }
 
+#added-to-cart-success {
+  display: none;
+  padding: 20px;
+  width: 35%;
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  z-index: 999;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+#added-to-cart-success i {
+  font-size: 2.5em;
+  color: #c89a4d;
+  margin-right: 15px;
+}
+#added-to-cart-success ul {
+  display: flex;
+}
+#added-to-cart-success ul li {
+  margin-right: 15px;
+}
+#added-to-cart-success ul li a {
+  display: block;
+}
+
 @media screen and (max-width: 768px) {
   .upper-nav ul {
     flex-direction: column;
