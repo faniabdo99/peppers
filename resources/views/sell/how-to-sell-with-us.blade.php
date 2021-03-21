@@ -1,0 +1,146 @@
+@include('layout.navbar')
+@include('layout.header')
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+<body>
+    <section class="static-page shipping-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="main-title">Selling and Consignment</h1>
+                    <p>
+                        We, Peppers Luxury Closet believe that every item deserves a second chance. If you have fallen
+                        out of love with
+                        one of your designer items, give it another chance to be preloved by selling it or consigning it
+                        at Peppers.
+                        Through the use of our website, you can now do it from the comfort of your home by simply
+                        following those steps.
+                    </p>
+                    <h2 class="static-title">1. GET A QUOTE</h2>
+                    <p>In order to get a quote, you will be required to answer simple questions about the item you wish
+                        to sell or
+                        consign in order to help us determine its value. Also, you will need to upload a couple of
+                        photos of the items
+                        so we can check its condition.</p>
+
+                    <h2 class="static-title">2. SHIP TO US</h2>
+                    Within 7-10 working days after submitting your item, you will receive a custom quote with two
+                    estimates for each
+                    item.
+                    <h2 class="static-title">DIRECT PURCHASE ESTIMATE</h2>
+                    <p>This is the fastest way to get cash for your item with payment sent within 10 working days upon
+                        receiving your
+                        item.</p>
+
+                    <h2 class="static-title">CONSIGNMENT ESTIMATE.</h2>
+                    <p>This is your estimated payment after we have sold your item (net amount you get in your hands,
+                        and not including
+                        our consignment service fee, which varies from one item to another). <br>
+
+                        After you've reviewed your quote and decide whether you wish to sell your item directly to us or
+                        have us consign
+                        it for you. The next step is to package your item well, print and attach our CONSIGNMENT
+                        AGREEMENT FORM and drop
+                        your package off at our nearest store or send it via courier to: <br>
+
+                        Pepper’s Luxury Closet <br>
+
+                        Karma 1 Mall, Sheikh Zayed City, 6 of October, Giza, Egypt <br>
+
+                        PO BOX 12411 <br>
+
+                        Email: info@peppersluxury.com <br>
+
+                        Phone: 002-01155436626</p>
+                    <h2 class="static-title">3. REVIEW OUR OFFER</h2>
+                    <p>Once we receive your item, we will inspect it and verify its authenticity*. After that we notify
+                        you by email
+                        with our final offer. If you chose to consign with us, we will photograph and merchandise your
+                        item for listing
+                        on our website and notify you when it's sold. <br>
+
+                        If you have a change of heart or not satisfied with our actual offer, we will return the item to
+                        you at our
+                        expense. <br>
+
+                        * Please be sure to only send us authentic items. If we receive and item and it is determined to
+                        not be
+                        authentic by our in-house experts, it will be returned at the seller's expense.</p>
+                    <h2 class="static-title">4. GET PAID</h2>
+                    <p>If you choose to sell your item directly to us, we will send you your payment via check or PayPal
+                        within two working days. If you chose to consign with us, we will send your payment within two
+                        working days after selling your item.</p>
+                    <br>
+                    <form>
+
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">SUBMIT YOUR ITEM(S)</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1"
+                                placeholder="Add item description here eg. Prada Medium Classic Flap Sling Bag">
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-4">
+                                <label for="exampleFormControlSelect2">Select Gender</label>
+                                <select class="form-control" id="exampleFormControlSelect2">
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-4">
+                                <label for="exampleFormControlSelect3">Select Category</label>
+                                <select class="form-control" id="exampleFormControlSelect3">
+                                    <option>Bags</option>
+                                    <option>Clothing</option>
+                                    <option>Travel</option>
+                                    <option>Shoes</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-4">
+                                <label for="exampleFormControlSelect4">Select Item</label>
+                                <select class="form-control select-search" id="exampleFormControlSelect4">
+                                    <option>Armani</option>
+                                    <option>Balmain</option>
+                                    <option>Bottega Veneta</option>
+                                    <option>Bvlgari</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input type="file" class="" id="customFile" multiple>
+                                    <label class="" for="customFile">Choose file</label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="example-tel-input">Enter Your Phone Number</label>
+                                    <input class="form-control" type="tel" placeholder="+2010000000"
+                                        id="example-tel-input">
+                                    <div class="form-check mt-3">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="checkbox">I agree to The Pepper's
+                                            Closet's <a href="#">Terms & Conditions</a>
+                                        </label>
+                                    </div>
+                                    <button type="submit" class="btn btn-brand mt-3 d-block">Submit</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @include('layout.footer')
+    @include('layout.scripts')
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $(".select-search").select2();
+
+    </script>
+</body>
+
+</html>

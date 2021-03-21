@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\SellController;
 use Illuminate\Support\Facades\Route;
 Route::get('/','HomeController@getHomepage')->name('home');
 Route::get('switch-currency/{currency}/{currencyCode}' , 'CurrencyController@setCurrency')->name('currency.switch');
@@ -53,3 +55,6 @@ Route::group(['prefix' => 'admin' , 'middleware' => 'admin'], function(){
 });
 Route::get('import-brands' , 'StaticPageController@getImportBrands');
 Route::get('import-categories' , 'StaticPageController@getImportCategories');
+
+// Sell Route
+Route::get('how-to-sell','SellController@getSellWithUs')->name('sell.howToSellWithUs');
