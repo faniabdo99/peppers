@@ -22,12 +22,12 @@ class SellController extends Controller{
       
         $Validator = Validator::make($r->all(), $Rules);
         if($Validator->fails()){
-            return back($Validator->errors()->first() , 400);
+            return back()->withErrors($Validator->errors()->all());
         }else{
-            //Upload to the datasheet
-            $TheMessageSheetData = $r->all();
-            Sheets::spreadsheet(env('POST_SPREADSHEET_ID'))->sheet('Newsletter')->append([$TheMessageSheetData]);
-            return back('Succesfully' , 200);
+            //Semd the mail to Mai
+
+            //Return resulte
+            return back()->withSuccess('Done');
         }
     }
 }
