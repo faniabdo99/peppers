@@ -7,6 +7,9 @@ use App\Models\Order;
 use App\Models\OrderProduct;
 use App\Models\Product;
 use App\Models\Cart;
+use Mail;
+use App\Mail\OrderPlaceMail;
+
 class OrderController extends Controller{
     public function getCheckout(){
         if(userCartCount(auth()->user()->id) > 0){
@@ -133,13 +136,20 @@ class OrderController extends Controller{
                     return view('orders.pay' , compact('FrameID','PaymentID'));
                 }
                 //Send Order Mail to Admin
+                try{
+                    Mail::to($NewUser->email)->send(new OrderPlaceMail($NewUser));
+                }catch(Exception $e){}
+                
+
                 
                 return redirect()->route('order.complete' , $TheOrder->id);
             }else{
                 return back()->withErrors('Payment method not available')->withInput();
             }
         }
+
     }
+  
     public function getOrderComplete($id){
         $TheOrder = Order::findOrFail($id);
         return view('orders.complete', compact('TheOrder'));
