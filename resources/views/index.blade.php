@@ -15,8 +15,8 @@
                     </div>
                     <div class="col-sm-12 col-md-4 col-lg-4">
                         <a href="https://peppersluxury.com/how-to-sell-with-us"><img src="{{url('public/images')}}/homepage/side-1.png" class="w-100 h-auto mb-2" alt=""></a>
-                        <a href="https://peppersluxury.com/designers/all-brands/rolex.html"><img src="{{url('public/images')}}/homepage/side-2.png" class="w-100 h-auto mb-2" alt=""></a>
-                        <a href="https://peppersluxury.com/accessories.html"><img src="{{url('public/images')}}/homepage/side-3.png" class="w-100 h-auto mb-2" alt=""></a>
+                        <a href="{{route('products' , ['brand' , 'rolex'])}}"><img src="{{url('public/images')}}/homepage/side-2.png" class="w-100 h-auto mb-2" alt=""></a>
+                        <a href="{{route('products' , ['category' , 'accessories'])}}"><img src="{{url('public/images')}}/homepage/side-3.png" class="w-100 h-auto mb-2" alt=""></a>
                     </div>
                 </div>
             </div>
@@ -52,7 +52,7 @@
                         <h2 class="sect-title"><span>Latest Trends</span></h2>
                         <div class="row">
                             <div class="col-lg-4 col-12">
-                                    <a href="{{route('products' , ['brand' , 'saint-laurent-paris'])}}">
+                                <a href="{{route('products' , ['brand' , 'saint-laurent-paris'])}}">
                                     <img class="w-100 max-auto mb-lg-0 mb-3" src="{{url('public/images')}}/homepage/SaintLaurentParisLatestTrendsEN1529959065.png">
                                 </a>
                             </div>

@@ -22,7 +22,7 @@
                             </div>
                             <div class="col-lg-6 col-12">
                                 <label for="phone">Phone*</label>
-                                <input type="number" placeholder="Please enter your phone number" name="phone" id="phone" value="{{auth()->user()->phone_number}}" required>
+                                <input type="number" placeholder="Please enter your phone number" name="phone_number" id="phone" value="{{auth()->user()->phone_number}}" required>
                             </div>
                         </div>
                         <div class="row">
@@ -279,22 +279,20 @@
                                     </select>                                 
                                 <label for="city">City*</label>
                                 <input type="text" placeholder="Please enter your city" name="city" id="city" required>
-                                <label for="zip_code">Zip/Postal Code*</label>
-                                <input type="text" placeholder="Please enter your zip code" name="zip_code" id="zip_code" required>
+                                <label for="zip_code">Zip/Postal Code</label>
+                                <input type="text" placeholder="Please enter your zip code" name="zip_code" id="zip_code">
                                 <label for="address">Address Line*</label>
                                 <input type="text" placeholder="Please enter your address line" name="address" id="address" required>
                                 <label for="address_2">Address Line 2</label>
                                 <input type="text" placeholder="Please enter your address line (optional)" name="address_2" id="address_2">
                                 <label for="order_notes">Additional Informatoin</label>
                                 <textarea name="order_notes" id="order_notes" placeholder="Any additional notes about your order?"></textarea>
-                            </div>
-                        </div>
-                        <div class="row mt-5">
-                            <div class="col-12">
-                                <h5>Payment Method</h5>
+                                <h5>Shipping Cost</h5>
+                                <p id="shipping-cost-calculator">Please choose the country from the dropdown above first.</p>
+                                <h5>Payment Method*</h5>
                                 <ul class="payment-methods">
-                                    <li><input type="radio" name="payment" value="card"> <i class="fas fa-credit-card"></i> Credit/Debit Card</li>
-                                    <li><input type="radio" name="payment" value="cod"> <i class="fas fa-truck"></i> Cash On Delivery</li>
+                                    <li><input type="radio" name="payment_method" value="credit-card"> <i class="fas fa-credit-card"></i> Credit/Debit Card</li>
+                                    <li><input type="radio" name="payment_method" value="cod"> <i class="fas fa-truck"></i> Cash On Delivery</li>
                                 </ul>
                                 <button class="btn btn-brand" type="submit">Complete Purchase</button>
                             </div>
@@ -306,5 +304,27 @@
     </div>
     @include('layout.footer')
     @include('layout.scripts')
+    <script>
+        const SiteCurrency = $('meta[name=currency]').attr('content');
+        const SiteExchange = $('meta[name=exchange]').attr('content');
+
+        $('#country').change(function(){
+            if(SiteCurrency == 'USD'){
+                if($(this).val() == 'Egypt'){
+                    $('#shipping-cost-calculator').html('Shipping Cost to '+$(this).val()+' is 5$');
+                }else{
+                    $('#shipping-cost-calculator').html('Shipping Cost to '+$(this).val()+' is 80$');
+                }
+            }else{
+                ShippingCostEG = 5*SiteExchange;
+                ShippingCostINT = 80*SiteExchange;
+                if($(this).val() == 'Egypt'){
+                    $('#shipping-cost-calculator').html('Shipping Cost to '+$(this).val()+' is '+ShippingCostEG+' L.E');
+                }else{
+                    $('#shipping-cost-calculator').html('Shipping Cost to '+$(this).val()+' is '+ShippingCostINT+' L.E');
+                }
+            }
+        });
+    </script>
 </body>
 </html>

@@ -42,7 +42,7 @@ $('#homepage-designers-slider').owlCarousel({
             items:3
         },
         1000:{
-            items:5
+            items:4
         }
     }
 });
@@ -58,7 +58,7 @@ $('#homepage-most-wanted-slider').owlCarousel({
             items:3
         },
         1000:{
-            items:5
+            items:4
         }
     }
 });
@@ -85,6 +85,9 @@ $('#submit-newsletter').click(function(e){
         }
     });
 });
+$('#close-added-to-cart').click(function(){
+    $('#added-to-cart-success').fadeOut('fast');
+});
 //Cart system
 $('#add-to-cart').click(function(){
     var That = $(this);
@@ -101,10 +104,36 @@ $('#add-to-cart').click(function(){
             'user_id':UserId
         },
         success: function(response){
+            //Show the modal here
+            $('#added-to-cart-success').fadeIn('fast');
             That.html('<i class="fas fa-check"></i> Added to cart');
         },
         error: function(response){
             That.html('<i class="fas fa-cart"></i> Add to cart');
         }
     });
+});
+const OrderCost = parseInt($('#cart-total-hidden').val());
+const SiteCurrency = $('meta[name=currency]').attr('content');
+const SiteExchange = $('meta[name=exchange]').attr('content');
+$('#cart-country').change(function(){
+    if(SiteCurrency == 'USD'){
+        if($(this).val() == 'Egypt'){
+            $('#shipping-cart').html("5$");
+            $('#cart-total').html(OrderCost+5);
+        }else{
+            $('#shipping-cart').html("80$");
+            $('#cart-total').html(OrderCost+80);
+        }
+    }else{
+        if($(this).val() == 'Egypt'){
+            ShippingCostEG = 5*SiteExchange;
+            ShippingCostINT = 80*SiteExchange;
+            $('#shipping-cart').html(ShippingCostEG+" L.E");
+            $('#cart-total').html(OrderCost+ShippingCostEG);
+        }else{
+            $('#shipping-cart').html(ShippingCostINT+" L.E");
+            $('#cart-total').html(OrderCost+ShippingCostINT);
+        }
+    }
 });

@@ -60,8 +60,8 @@
             </div>
             <div class="col-lg-9 col-12">
                 <h1 class="mb-4">All Products 
-                    @if($TheBrand)
-                        in Brand <b>{{$TheBrand->title}}</b>
+                    @if($TheFilter)
+                        in <b>{{$TheFilter->title}}</b>
                     @endif
                     ({{$AllProducts->count()}})</h1>
                 <div class="row">

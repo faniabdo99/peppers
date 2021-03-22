@@ -8,6 +8,7 @@ class CreateOrdersTable extends Migration{
     public function up(){
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->string('tracking_number');
             $table->string('total_amount')->default('0');
             $table->string('is_paid')->default('no');
             $table->string('payment_id')->default('0');
@@ -26,6 +27,7 @@ class CreateOrdersTable extends Migration{
             //Additional Data
             $table->integer('invoice_id')->nullable();
             $table->text('order_notes')->nullable();
+            $table->string('status');
             $table->timestamps();
         });
     }
