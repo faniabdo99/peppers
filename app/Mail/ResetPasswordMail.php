@@ -7,8 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ResetPasswordMail extends Mailable
-{
+class ResetPasswordMail extends Mailable{
     use Queueable, SerializesModels;
     public $EmailData;
     public function __construct($EmailData){
