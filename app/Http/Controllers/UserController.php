@@ -10,6 +10,7 @@ use Image;
 use App\Models\User;
 use App\Mail\WelcomeNewUser;
 use App\Mail\ResetPasswordMail;
+use App\Mail\WelcomeUserSocialMail;
 class UserController extends Controller{
     public function getSignup(){
         return view('user.signup');
@@ -83,6 +84,9 @@ class UserController extends Controller{
                 'code' =>  mt_rand(100000, 999999),
                 'confirmed' => 1
             ]);
+            try{
+                Mail::to($NewUser->email)->send(new WelcomeUserSocialMail($NewUser));
+            }catch(Exception $e){}
             auth()->loginUsingId($NewUser->id);
             return redirect()->route('home');
         }else{

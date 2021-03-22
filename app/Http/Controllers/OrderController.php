@@ -132,6 +132,8 @@ class OrderController extends Controller{
                     $PaymentID = $PaymentToken->token;
                     return view('orders.pay' , compact('FrameID','PaymentID'));
                 }
+                //Send Order Mail to Admin
+                
                 return redirect()->route('order.complete' , $TheOrder->id);
             }else{
                 return back()->withErrors('Payment method not available')->withInput();
