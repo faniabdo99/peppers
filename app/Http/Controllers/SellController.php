@@ -1,13 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator;
 use Mail;
 //Include the mailables
 use App\Mail\SellMail;
-
-
 class SellController extends Controller{
     public function getSellWithUs(){
         return view('sell.how-to-sell-with-us');
@@ -26,7 +23,7 @@ class SellController extends Controller{
         ];
         $Validator = Validator::make($r->all(), $Rules);
         if($Validator->fails()){
-            return back()->withErrors($Validator->errors()->all());
+            return back()->withErrors($Validator->errors()->all())->withInput();
         }else{
             //Validate the images
             $EmailData = $r->except('images');
@@ -34,15 +31,15 @@ class SellController extends Controller{
             if($r->has('images')){
                 $AllowedExt = ['jpg','png','jpeg','bmb','heic','gif'];
                 if(count($r->images) > 5){
-                    return back()->withErrors('You can upload 5 images only');
+                    return back()->withErrors('You can upload 5 images only')->withInput();
                 }
                 foreach ($r->images as $key => $file) {
                     // Check the file type and size
                     if(!in_array($file->getClientOriginalExtension() , $AllowedExt)){
-                      return back()->withErrors('Some Files Are Not Allowed!');
+                      return back()->withErrors('Some Files Are Not Allowed!')->withInput();
                     }
                     if($file->getSize() > 3000000){
-                      return back()->withErrors('Maximum Allowed File Size is 3MB Per File!');
+                      return back()->withErrors('Maximum Allowed File Size is 3MB Per File!')->withInput();
                     }
                     //Uplaod the image to server
                     $ImageName = strtolower(str_replace(' ' , '_' , $r->title.$key)).'.'.$file->getClientOriginalExtension();

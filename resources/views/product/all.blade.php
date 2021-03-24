@@ -76,7 +76,13 @@
                                 <h4 class="brand-info text-left mt-1"><a href="{{route('products' , ['brand' , $Product->Brand->slug])}}">{{$Product->Brand->title}}</a></h4>
                                 <p class="price mt-2">{{convertCurrency($Product->price , 'USD' , getCurrency()['code']) . getCurrency()['symbole']}}</p>
                             </div>
-                            <a href="#" class="add-to-cart btn btn-brand d-block w-100 mt-3">Add to Cart</a>
+                            @auth
+                                @if($Product->CartReady)
+                                    <a class="btn btn-brand" id="add-to-cart" data-target="{{route('cart.add')}}" data-id="{{$Product->id}}" data-user="{{auth()->user()->id}}" href="javascript:;"><i class="fas fa-cart-plus"></i> Add to cart</a>
+                                @else
+                                    <p class="text-danger">{{$Product->status}}</p>
+                                @endif
+                            @endauth
                         </div>
                     </div>
                     @empty

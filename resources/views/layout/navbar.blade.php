@@ -8,6 +8,11 @@
                         <a href="{{route('currency.switch' , ['USD' ,'$'])}}" title="Switch Currency to USD"><i class="fas fa-dollar-sign"></i> USD |</a>
                         <a href="{{route('currency.switch' , ['EGP' ,'£'])}}" title="Switch Currency to EGP"><i class="fas fa-pound-sign"></i> EGP</a>
                     </li>
+                    <li>
+                        <a href="https://www.facebook.com/PeppersLuxuryCloset/" rel="nofollow" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/peppers_luxury_closet/" rel="nofollow" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="tel:00201155436626"><i class="fas fa-phone"></i> +201155436626</a>
+                    </li>
                     <li><a href="{{route('static.authenticity')}}"><i class="fas fa-lock"></i> Authenticity Guaranteed</a></li>
                     <li><a href="{{route('static.returns')}}"><i class="fas fa-truck"></i> International Shipping</a></li>
                     @guest
@@ -17,9 +22,6 @@
                         </li>
                     @endguest
                     @auth
-                        <li>
-                            <a href="{{route('cart.get')}}" rel="nofollow" class="login-link"><i class="fas fa-shopping-cart"></i> Shopping cart ({{userCartCount(auth()->user()->id)}})</a>
-                        </li>
                         <li>
                             <a href="{{route('profile')}}" rel="nofollow" class="login-link"><i class="fas fa-user"></i> Welcome, {{auth()->user()->name}}</a>
                         </li>
@@ -527,13 +529,12 @@
                     </ul>
                 </div>
             </li>
-            <li class="nav-item"><a class="nav-link" href="#">WHAT'S NEW</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{route('products' , 'new')}}">WHAT'S NEW</a></li>
             <li class="nav-item"><a class="nav-link btn btn-brand" href="{{route('sell.howToSellWithUs')}}">SELL NOW</a></li>
+            @auth
+                <li class="nav-item"><a class="nav-link" href="{{route('cart.get')}}"><i class="fas fa-shopping-cart"></i> {{userCartCount(auth()->user()->id)}}</a></li>
+            @endauth
         </ul>
-        {{-- <form class="navbar-search form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search Store Here" aria-label="Search">
-            <button class="btn btn-brand my-2 my-sm-0" type="submit">Search</button>
-        </form> --}}
     </div>
 </nav>
 @guest

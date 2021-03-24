@@ -65,3 +65,48 @@
     }
 }
 
+//Notifications
+.notification{
+    position: fixed;
+    width: 25%;
+    bottom: 15px;
+    right: 15px;
+    z-index: 999;
+    background-color: $lightgrey;
+    display: flex;
+    box-shadow: 0 0 3px rgba(0,0,0,0.5);
+    .notification-icon{
+        background-color: green;
+        font-size: 1.5em;
+        color: #fff;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+    }
+    .notification-content{
+        b{
+            color: green;
+            font-size: 1.3em;
+        }
+        p{
+            margin-bottom:0;
+        }
+        padding: 15px;
+    }
+}
+.success-notification{
+    .notification-icon{
+        background-color: #159415;
+    }
+    .notification-content{
+        b{color: #159415;}
+    }
+}
+.danger-notification{
+    .notification-icon{
+        background-color: #ac2525;
+    }
+    .notification-content{
+        b{color: #ac2525;}
+    }
+}

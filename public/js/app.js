@@ -118,7 +118,7 @@ $('#add-to-cart').click(function () {
       That.html('<i class="fas fa-check"></i> Added to cart');
     },
     error: function error(response) {
-      That.html('<i class="fas fa-cart"></i> Add to cart');
+      That.html('<i class="fas fa-cart-plus"></i> Add to cart');
     }
   });
 });
