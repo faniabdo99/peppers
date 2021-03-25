@@ -29,6 +29,10 @@ Route::middleware('guest')->group(function () {
     Route::post('reset-password' , 'UserController@postResetPage')->name('user.postReset');
     Route::get('choose-password/{email}/{code}' , 'UserController@getChoosePasswordPage')->name('reset.choosePassword.get');
     Route::post('choose-password/' , 'UserController@postChoosePasswordPage')->name('reset.choosePassword.post');
+    //Error Handling Pages
+    Route::get('404', 'ErrorsController@get404Page')->name('user.error.404Page');
+    Route::get('403', 'ErrorsController@get403Page')->name('user.error.403Page');
+    Route::get('500', 'ErrorsController@get500Page')->name('user.error.500Page');
     //Social Signup System
     Route::get('social-login/{provider}' , 'UserController@redirectToProvider')->name('login.social');
     Route::get('login/{driver}/callback' , 'UserController@handleProviderCallback')->name('login.social.callback');
