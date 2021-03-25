@@ -75,35 +75,36 @@
                         @csrf
                         <div class="form-group">
                             <label for="title">Submit Your Item</label>
-                            <input type="text" class="form-control" name="title" id="title" placeholder="Add item description here eg. Prada Medium Classic Flap Sling Bag" required>
+                            <input type="text" class="form-control" name="title" id="title" value="{{old('title') ?? '' }}" placeholder="Add item description here eg. Prada Medium Classic Flap Sling Bag" required>
                         </div>
                         <div class="row">
                             <div class="form-group col-4">
                                 <label for="gender">Select Gender</label>
                                 <select class="form-control" name="gender" id="gender" required>
-                                    <option>Male</option>
-                                    <option>Female</option>
+                                    <option @if(old('gender') == 'male') selected @endif value="male">Male</option>
+                                    <option @if(old('gender') == 'female') selected @endif value="female">Female</option>
                                 </select>
                             </div>
                             <div class="form-group col-4">
                                 <label for="category">Select Category</label>
                                 <select class="form-control select-search" name="category" id="category" required>
-                                    <option>Bags</option>
-                                    <option>Clothing</option>
-                                    <option>Travel</option>
-                                    <option>Shoes</option>
+                                    @forelse (getCategories() as $Category)
+                                        <option @if(old('category') == $Category->title ) selected @endif value="{{$Category->title}}">{{$Category->title}}</option>
+                                    @empty
+                                        
+                                    @endforelse
                                 </select>
                             </div>
                             <div class="form-group col-4">
                                 <label for="brand">Select Brand</label>
                                 <select class="form-control select-search" name="brand" id="brand" required>
-                                    <option>Armani</option>
-                                    <option>Balmain</option>
-                                    <option>Bottega Veneta</option>
-                                    <option>Bvlgari</option>
+                                    @forelse (getAllBrands() as $Brand)
+                                        <option @if(old('brand') == $Brand->title ) selected @endif value="{{$Brand->title}}">{{$Brand->title}}</option>
+                                    @empty
+                                        
+                                    @endforelse
                                 </select>
                             </div>
-
                         </div>
                         <div class="row">
                             <div class="col-12">
@@ -111,18 +112,15 @@
                                     <label class="" for="images">Choose file(s)</label>
                                     <input type="file" class="form-control" name="images[]" id="images" multiple required>
                                 </div>
-
                                 <div class="form-group">
                                     <label for="phone">Enter Your Phone Number</label>
-                                    <input class="form-control" name="phone" type="tel" placeholder="+2010000000" id="phone" required>
+                                    <input class="form-control" name="phone" value="{{ old('phone') ?? ''}}" type="tel" placeholder="+2010000000" id="phone" required>
                                     <div class="form-check mt-3">
                                         <label class="form-check-label">
-                                            <input class="form-check-input" name="toc" type="checkbox" required>I agree to The Pepper's
-                                            Closet's <a href="#">Terms & Conditions</a>
+                                            <input class="form-check-input" name="toc" type="checkbox" required>I agree to The Pepper's Closet's <a href="#">Terms & Conditions</a>
                                         </label>
                                     </div>
                                     <button type="submit" class="btn btn-brand mt-3 d-block">Submit</button>
-
                                 </div>
                             </div>
                         </div>

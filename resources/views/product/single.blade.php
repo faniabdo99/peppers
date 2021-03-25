@@ -67,9 +67,9 @@
                             <div class="easy_ways">
                                 <div class="easy_wys_img">
                                     <ul>
-                                        <li><a class="static_link" href="{{route('static.authenticity')}}" target="_blank"><span class="trust"></span><span class="icon-label">verified<br>authenticity</span></a></li>
-                                        <li><a class="static_link" href="{{route('static.returns')}}" target="_blank"><span class="returns"></span><span class="not-uae icon-label">Hassle-free<br>returns</span></a></li>
-                                        <li><a class="static_link" href="javascript:void(0);"><span class="secure-transaction"></span><span class="icon-label">secure<br>transactions</span></a></li>
+                                        <li><a class="static_link" href="{{route('static.authenticity')}}" target="_blank"><i class="fas fa-check fa-2x mr-1"></i> verified<br>authenticity</a></li>
+                                        <li><a class="static_link" href="{{route('static.returns')}}" target="_blank"><i class="fas fa-truck fa-2x mr-1"></i> Hassle-free<br>returns</a></li>
+                                        <li><a class="static_link" href="javascript:void(0);"><i class="fas fa-lock fa-2x mr-1"></i> secure<br>transactions</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -79,6 +79,7 @@
                         <div class="productCont">
                             <div class="product-name-main">
                                 <h1>{{$TheProduct->title}}</h1>
+                                <p class="font-weight-bold"><a href="{{route('products' , ['brand',$TheProduct->Brand->slug])}}">{{$TheProduct->Brand->title}}</a></p>
                                 <span class="product-code">Product SKU: <strong>{{$TheProduct->sku}}</strong></span>
                             </div>
                             <div class="product-shop">
@@ -92,7 +93,7 @@
                                             <a class="btn btn-brand" id="add-to-cart" data-target="{{route('cart.add')}}" data-id="{{$TheProduct->id}}" data-user="{{auth()->user()->id}}" href="javascript:;"><i class="fas fa-cart-plus"></i> Add to cart</a>
                                         @endif
                                     @else
-                                        <p>This product is not available for sell right now</p>
+                                        <p class="text-danger">{{$TheProduct->status}}</p>
                                     @endif
                                 @endauth
                                 @guest

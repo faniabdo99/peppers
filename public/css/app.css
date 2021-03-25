@@ -203,6 +203,49 @@ body {
   top: 50%;
 }
 
+.notification {
+  position: fixed;
+  width: 25%;
+  bottom: 15px;
+  right: 15px;
+  z-index: 999;
+  background-color: #ebebeb;
+  display: flex;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+.notification .notification-icon {
+  background-color: green;
+  font-size: 1.5em;
+  color: #fff;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+}
+.notification .notification-content {
+  padding: 15px;
+}
+.notification .notification-content b {
+  color: green;
+  font-size: 1.3em;
+}
+.notification .notification-content p {
+  margin-bottom: 0;
+}
+
+.success-notification .notification-icon {
+  background-color: #159415;
+}
+.success-notification .notification-content b {
+  color: #159415;
+}
+
+.danger-notification .notification-icon {
+  background-color: #ac2525;
+}
+.danger-notification .notification-content b {
+  color: #ac2525;
+}
+
 #homeage-hero-slider .owl-nav {
   font-weight: bold;
 }

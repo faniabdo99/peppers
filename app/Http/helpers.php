@@ -1,5 +1,6 @@
 <?php 
 use App\Models\Brand;
+use App\Models\Category;
 use App\Models\Cart;
     function getBrands($featured = null){
         if($featured == 1){
@@ -37,12 +38,12 @@ use App\Models\Cart;
             return $amount;
         }
         $client = new GuzzleHttp\Client();
-        $res = $client->get('https://api.exchangerate.host/convert?from='.$from.'&to='.$to);
+        $res = $client->get('https://v6.exchangerate-api.com/v6/e3dd67417f1967a87f031b47/pair/'.$from.'/'.$to);
         if($res->getStatusCode() != 200){
             return "Error !" . $res->getStatusCode();
         }
         $ResponseAsArray = json_decode($res->getBody(), true);
-        return ceil(($amount *  $ResponseAsArray['result']) / 10) * 10;
+        return ceil(($amount *  $ResponseAsArray['conversion_rate']) / 10) * 10;
     }
     function isInUserCart($user_id , $product_id){
         $TheItem = Cart::where('user_id',$user_id)->where('product_id' , $product_id)->where('status' , 'active')->first();
@@ -54,5 +55,11 @@ use App\Models\Cart;
     }
     function userCartCount($user_id){
         return Cart::where('user_id',$user_id)->where('status' , 'active')->count();
+    }
+    function getCategories(){
+        return Category::latest()->get();
+    }
+    function getAllBrands(){
+        return Brand::latest()->get();
     }
 ?>
