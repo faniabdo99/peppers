@@ -137,11 +137,8 @@ class OrderController extends Controller{
                 }
                 //Send Order Mail to Admin
                 try{
-                    Mail::to($NewUser->email)->send(new OrderPlaceMail($NewUser));
+                    Mail::to('may@pepper.com')->send(new OrderPlaceMail());
                 }catch(Exception $e){}
-                
-
-                
                 return redirect()->route('order.complete' , $TheOrder->id);
             }else{
                 return back()->withErrors('Payment method not available')->withInput();
