@@ -560,10 +560,6 @@ body {
     display: block;
   }
 }
-#page img {
-  width: inherit;
-}
-
 .product-view .product-shop {
   margin: 20px 0;
 }
