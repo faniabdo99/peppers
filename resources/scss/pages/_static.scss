@@ -117,3 +117,22 @@
         text-align: left;
     }
 }
+.error-page{
+    h1{
+        font-size: 5em;
+        font-weight: bold;
+        span{
+            color: $brand;
+        }
+    }
+    h3{
+        font-weight: bolder;
+    }
+    ul.quick-links-list{
+        li{
+            a{
+                color: $black;
+            }
+        }
+    }
+}

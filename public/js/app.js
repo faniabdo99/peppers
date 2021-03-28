@@ -153,9 +153,12 @@ $('#cart-country').change(function () {
 /*!*********************************!*\
   !*** ./resources/scss/app.scss ***!
   \*********************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: expected \"{\".\n    ╷\n232 │ #\n    │  ^\n    ╵\n  resources\\scss\\pages\\_users.scss 232:2  @import\n  resources\\scss\\app.scss 21:9            root stylesheet\n    at processResult (C:\\xampp\\htdocs\\peppers\\node_modules\\webpack\\lib\\NormalModule.js:598:19)\n    at C:\\xampp\\htdocs\\peppers\\node_modules\\webpack\\lib\\NormalModule.js:692:5\n    at C:\\xampp\\htdocs\\peppers\\node_modules\\loader-runner\\lib\\LoaderRunner.js:399:11\n    at C:\\xampp\\htdocs\\peppers\\node_modules\\loader-runner\\lib\\LoaderRunner.js:251:18\n    at context.callback (C:\\xampp\\htdocs\\peppers\\node_modules\\loader-runner\\lib\\LoaderRunner.js:124:13)\n    at C:\\xampp\\htdocs\\peppers\\node_modules\\sass-loader\\dist\\index.js:62:7\n    at Function.call$2 (C:\\xampp\\htdocs\\peppers\\node_modules\\sass\\sass.dart.js:91729:16)\n    at _render_closure1.call$2 (C:\\xampp\\htdocs\\peppers\\node_modules\\sass\\sass.dart.js:80373:12)\n    at _RootZone.runBinary$3$3 (C:\\xampp\\htdocs\\peppers\\node_modules\\sass\\sass.dart.js:27269:18)\n    at _FutureListener.handleError$1 (C:\\xampp\\htdocs\\peppers\\node_modules\\sass\\sass.dart.js:25797:19)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ }),
 
