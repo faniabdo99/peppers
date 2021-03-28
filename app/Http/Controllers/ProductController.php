@@ -149,24 +149,24 @@ class ProductController extends Controller{
             if(count($r->gallery) > 1){
                 //Resize the image file & upload it (60x60) (650x650)
                 foreach($r->gallery as $key => $Image){
-                    $img = ImageLib::make($r->image);
+                    $img = ImageLib::make($Image);
                     // backup status
                     $img->backup();
                     // Tiny Thumb
                     $img->fit(60, 60);
-                    $img->save('storage/app/products_gallery/small_thumb/'.strtolower(str_replace(' ' , '-' ,$key.$r->sku)).'.'.$r->image->getClientOriginalExtension());
+                    $img->save('storage/app/products_gallery/small_thumb/'.strtolower(str_replace(' ' , '-' ,$key.$r->sku)).'.'.$Image->getClientOriginalExtension());
                     $img->reset();
                     // Thumb
                     $img->fit(250, 250);
-                    $img->save('storage/app/products_gallery/thumb/'.strtolower(str_replace(' ' , '-' ,$key.$r->sku)).'.'.$r->image->getClientOriginalExtension());
+                    $img->save('storage/app/products_gallery/thumb/'.strtolower(str_replace(' ' , '-' ,$key.$r->sku)).'.'.$Image->getClientOriginalExtension());
                     $img->reset();
                     // Full Size
                     $img->fit(650, 650);
-                    $img->save('storage/app/products_gallery/full_size/'.strtolower(str_replace(' ' , '-' ,$key.$r->sku)).'.'.$r->image->getClientOriginalExtension());
+                    $img->save('storage/app/products_gallery/full_size/'.strtolower(str_replace(' ' , '-' ,$key.$r->sku)).'.'.$Image->getClientOriginalExtension());
                     $img->reset();
                     //Upload to database
                     ProductImage::create([
-                        'image' => strtolower(str_replace(' ' , '-' ,$key.$r->sku)).'.'.$r->image->getClientOriginalExtension(),
+                        'image' => strtolower(str_replace(' ' , '-' ,$key.$r->sku)).'.'.$Image->getClientOriginalExtension(),
                         'product_id' => $NewProduct->id
                     ]);
                 }

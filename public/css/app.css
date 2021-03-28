@@ -368,6 +368,20 @@ body {
   text-align: left;
 }
 
+.error-page h1 {
+  font-size: 5em;
+  font-weight: bold;
+}
+.error-page h1 span {
+  color: #c89a4d;
+}
+.error-page h3 {
+  font-weight: bolder;
+}
+.error-page ul.quick-links-list li a {
+  color: #000;
+}
+
 .users-system h1.main-title {
   text-align: center;
   margin: 15px 0;

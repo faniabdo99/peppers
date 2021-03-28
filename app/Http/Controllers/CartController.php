@@ -43,6 +43,10 @@ class CartController extends Controller{
                         //The Item is Available (Add to Cart)
                         Cart::create($CartData);
                     }
+                    //Mark Product Sold Out
+                    $Inventory->update([
+                        'status' => 'Sold Out'
+                    ]);
                     return response('Item added to your cart!' , 200);
                 }else{
                     return response('This product is not avilable for sale right now' , 400);
@@ -53,7 +57,13 @@ class CartController extends Controller{
         }
     }
     public function delete($id){
-        Cart::findOrFail($id)->update([
+        $TheCart = Cart::findOrFail($id);
+        //Make the item available agian
+        $TheCart->Product->update([
+            'status' => 'Available'
+        ]);
+        //Remove the item from cart
+        $TheCart->update([
             'status' => 'deleted'
         ]);
         return back()->withSuccess('Item deleted from your cart');

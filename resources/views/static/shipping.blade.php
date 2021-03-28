@@ -22,8 +22,6 @@
                         with no charges whatsoever. If the customer wishes to arrange for an Aramex pick up, the
                         customer should ensure that the packaging is delivery friendly. These inbound consignments are
                         free of charge. Pick up &amp; Delivery is within 24-48 hours for all consignments.</p>
-                    <h2 class="static-title">Outbound Shipping Rates</h2>
-                    <p>Soon ...</p>
                     <h2 class="static-title">Local shipping:</h2>
                     <p>Go with INGEZ.com Ingez is a personalized and affordable service aimed at making a positive
                         impact in the lives of our clients by removing the stress and hassle of running errands in
@@ -35,9 +33,8 @@
                     <p>International buyers will need to pick the Aramex option on the website to place the pick-up
                         service from the address set on omgfancythat.com</p>
                     <p>The shipping chargers are as follows:</p>
-                    <p>- EGP 150 to GCC countries.</p>
-                    <p>- EGP 200 to other Arab countries.</p>
-                    <p>- $ 80 Flat Rate for all other worldwide.</p>
+                    <p>- {{convertCurrency(5,'USD', getCurrency()['code']).getCurrency()['symbole']}} to Egypt.</p>
+                    <p>- {{convertCurrency(80,'USD', getCurrency()['code']).getCurrency()['symbole']}} Flat Rate for all other worldwide.</p>
                 </div>
             </div>
         </div>
