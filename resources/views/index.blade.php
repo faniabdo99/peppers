@@ -14,7 +14,7 @@
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-4 col-lg-4">
-                        <a href="https://peppersluxury.com/how-to-sell-with-us"><img src="{{url('public/images')}}/homepage/side-1.png" class="w-100 h-auto mb-2" alt=""></a>
+                        <a href="{{route('sell.howToSellWithUs')}}"><img src="{{url('public/images')}}/homepage/side-1.png" class="w-100 h-auto mb-2" alt=""></a>
                         <a href="{{route('products' , ['brand' , 'rolex'])}}"><img src="{{url('public/images')}}/homepage/side-2.png" class="w-100 h-auto mb-2" alt=""></a>
                         <a href="{{route('products' , ['category' , 'accessories'])}}"><img src="{{url('public/images')}}/homepage/side-3.png" class="w-100 h-auto mb-2" alt=""></a>
                     </div>
@@ -31,8 +31,7 @@
                                 @forelse ($FeaturedBrands as $Brand)
                                 <li>
                                     <a href="{{route('products', ['brand' , $Brand->slug])}}">
-                                        <img src="{{url('public/images')}}/homepage/4.jpg"
-                                            alt="{{$Brand->title}}">
+                                        <img src="{{url('public/images')}}/homepage/4.jpg" alt="{{$Brand->title}}">
                                         <span class="slide-name">{{$Brand->title}}</span>
                                     </a>
                                 </li>
@@ -78,13 +77,16 @@
                         <h2 class="sect-title"><span>Most Wanted</span></h2>
                         <ul class="owl-carousel" id="homepage-most-wanted-slider">
                             @forelse ($FeaturedProducts as $Product)
-                                <li>
-                                    <a href="{{route('product.single' , $Product->slug)}}">
-                                        <img src="{{$Product->Thumb}}"
-                                            alt="{{$Product->title}}">
-                                        <span class="slide-name">{{$Product->title}}</span>
-                                    </a>
-                                </li>
+                                @if($Product == null)
+                                @else
+                                    <li>
+                                        <a href="{{route('product.single' , $Product->slug)}}">
+                                            <img src="{{$Product->Thumb}}"
+                                                alt="{{$Product->title}}">
+                                            <span class="slide-name">{{$Product->title}}</span>
+                                        </a>
+                                    </li>
+                                @endif
                             @empty
 
                             @endforelse
@@ -98,11 +100,8 @@
                 <div class="row">
                     <div class="col-12">
                         <a href="https://peppersluxury.com/how-to-sell-with-us" class="web">
-                            <img src="{{url('public/images')}}/homepage/SellYourItem.jpg"
-                            class="sell-banner" alt="sell your item en"></a>
-                        <a href="https://peppersluxury.com/how-to-sell-with-us" class="mobile"><img
-                            src="{{url('public/images')}}/homepage/SellYourItemMobile.png"
-                            class="sell-banner" alt="sell your item en"></a>
+                            <img src="{{url('public/images')}}/homepage/SellYourItem.jpg" class="sell-banner" alt="sell your item en"></a>
+                        <a href="https://peppersluxury.com/how-to-sell-with-us" class="mobile"><img src="{{url('public/images')}}/homepage/SellYourItemMobile.png" class="sell-banner" alt="sell your item en"></a>
                     </div>
                 </div>
             </div>
