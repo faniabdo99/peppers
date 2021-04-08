@@ -279,6 +279,32 @@
                 <div class="mega-menu">
                     <h2 class="mb-4 font-weight-bold">Men</h2>
                     <ul class="row">
+                        @forelse(getMainCategories('men') as $Category)
+                            <li class="col-4">
+                                <a class="main-title" href="https://peppersluxury.com/men/watches-48.html">
+                                    <span>{{$Category->title}}</span>
+                                </a>
+                                <ul class="sub-items-list">
+                                    <li class="level2 nav-4-2-1 all-watches4-2-2 first">
+                                        <a href="https://peppersluxury.com/men/watches-48/all-watches-59.html">
+                                            <span>All {{$Category->title}}</span>
+                                        </a>
+                                    </li>
+                                    @forelse($Category->Children as $ChildCategory)
+                                        <li class="level2 nav-4-2-1 all-watches4-2-2 first">
+                                            <a href="https://peppersluxury.com/men/watches-48/all-watches-59.html">
+                                                <span>{{$ChildCategory->title}}</span>
+                                            </a>
+                                        </li>
+                                    @empty
+                                    @endforelse
+                                </ul>
+                            </li>
+                        @empty
+                            <p>There is no categories in the system just yet!</p>
+                        @endforelse
+                    </ul>
+                    <ul class="row">
                         <li class="col-4">
                             <a class="main-title" href="https://peppersluxury.com/men/watches-48.html">
                                 <span>Watches</span>

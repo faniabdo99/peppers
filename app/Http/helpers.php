@@ -56,8 +56,19 @@ use App\Models\Cart;
     function userCartCount($user_id){
         return Cart::where('user_id',$user_id)->where('status' , 'active')->count();
     }
-    function getCategories(){
-        return Category::latest()->get();
+    function getMainCategories($gender = null){
+        if($gender){
+            return Category::where('type' , 'main')->where('gender' , $gender)->latest()->get();
+        }else{
+            return Category::where('type' , 'main')->latest()->get();
+        }
+    }
+    function getCategories($gender = null){
+        if($gender){
+            return Category::where('gender' , $gender)->latest()->get();
+        }else{
+            return Category::latest()->get();
+        }
     }
     function getAllBrands(){
         return Brand::latest()->get();
