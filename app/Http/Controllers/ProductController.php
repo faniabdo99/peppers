@@ -17,6 +17,9 @@ class ProductController extends Controller{
                 $AllProducts = $AllProducts->merge($AllNewProductsTwo);
             }
             return view('product.new', compact('AllProducts'));
+        }elseif($filter_type == 'sale'){
+            $AllProducts = Product::where('status','!=','Hidden')->where('discount_id' , '!=' , null)->get();
+            return view('product.sale', compact('AllProducts'));
         }else{
             if(count($r->all()) > 0){
                 if($r->has('color') && $r->color != ''){

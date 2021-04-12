@@ -99,9 +99,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <a href="https://peppersluxury.com/how-to-sell-with-us" class="web">
+                        <a href="{{route('sell.howToSellWithUs')}}" class="web">
                             <img src="{{url('public/images')}}/homepage/SellYourItem.jpg" class="sell-banner" alt="sell your item en"></a>
-                        <a href="https://peppersluxury.com/how-to-sell-with-us" class="mobile"><img src="{{url('public/images')}}/homepage/SellYourItemMobile.png" class="sell-banner" alt="sell your item en"></a>
+                        <a href="{{route('sell.howToSellWithUs')}}" class="mobile"><img src="{{url('public/images')}}/homepage/SellYourItemMobile.png" class="sell-banner" alt="sell your item en"></a>
                     </div>
                 </div>
             </div>

@@ -4,7 +4,7 @@
     <div class="container all-products-page">
         <div class="row mt-5">
             <div class="col-lg-12 col-12">
-                <h1 class="mb-4">New Products</h1>
+                <h1 class="mb-4">Products On Sale</h1>
                 <div class="row">
                     @forelse ($AllProducts as $Product)
                     <div class="col-lg-3 col-6">
@@ -28,7 +28,7 @@
                     </div>
                     @empty
                     <div class="col-12">
-                        <p>There is no products in this filters</p>
+                        <p>There is no products on sale now, Keep visiting this page for awesome deals</p>
                     </div>
                     @endforelse
                 </div>
