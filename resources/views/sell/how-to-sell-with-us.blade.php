@@ -1,7 +1,8 @@
+@include('layout.header' , [
+    'PageTitle' => 'Sell to Us'
+])
 @include('layout.navbar')
-@include('layout.header')
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-
 <body>
     <section class="static-page shipping-page">
         <div class="container">
@@ -24,9 +25,11 @@
                         so we can check its condition.</p>
 
                     <h2 class="static-title">2. SHIP TO US</h2>
-                    Within 7-10 working days after submitting your item, you will receive a custom quote with two
-                    estimates for each
-                    item.
+                    <p>
+                        Within 7-10 working days after submitting your item, you will receive a custom quote with two
+                        estimates for each
+                        item.
+                    </p>
                     <h2 class="static-title">DIRECT PURCHASE ESTIMATE</h2>
                     <p>This is the fastest way to get cash for your item with payment sent within 10 working days upon
                         receiving your
@@ -117,7 +120,7 @@
                                     <input class="form-control" name="phone" value="{{ old('phone') ?? ''}}" type="tel" placeholder="+2010000000" id="phone" required>
                                     <div class="form-check mt-3">
                                         <label class="form-check-label">
-                                            <input class="form-check-input" name="toc" type="checkbox" required>I agree to The Pepper's Closet's <a href="#">Terms & Conditions</a>
+                                            <input class="form-check-input" name="toc" type="checkbox" required>I agree to The Pepper's Closet's <a href="{{route('static.privacy')}}">Terms & Conditions</a>
                                         </label>
                                     </div>
                                     <button type="submit" class="btn btn-brand mt-3 d-block">Submit</button>

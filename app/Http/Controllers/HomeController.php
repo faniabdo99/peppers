@@ -5,16 +5,9 @@ use App\Models\Product;
 use App\Models\Brand;
 class HomeController extends Controller{
     public function getHomepage(){
-        $FeaturedBrands = Brand::where('is_featured' , 1)->limit(8)->get();
+        $FeaturedBrands = Brand::where('is_featured' , 1)->get();
         //Get the featured products by brand
-        $FeaturedProducts = $FeaturedBrands->map(function($TheBrand){
-            $BrandProduct = Product::where('brand_id' , $TheBrand->id)->first();
-            if($BrandProduct){
-                return $BrandProduct;
-            }else{
-               return null;
-            }
-        });
+        $FeaturedProducts = Product::where('is_featured' , '1')->limit(8)->get();
         return view('index' , compact('FeaturedProducts' , 'FeaturedBrands'));
     }
 }

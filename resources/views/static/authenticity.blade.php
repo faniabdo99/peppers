@@ -1,11 +1,12 @@
-@include('layout.header')
-
+@include('layout.header' , [
+    'PageTitle' => 'Authenticity'
+])
 <body>
     @include('layout.navbar')
     <section class="static-page authenticity">
         <div class="container">
             <div class="row">
-                <div class="col-3">
+                <div class="col-lg-3 col-12">
                     <ul class="nav nav-tabs">
                         <li class="nav-item"><a class="nav-link active" href="#check" data-toggle="tab">How we Check</a>
                         </li>
@@ -13,7 +14,7 @@
                         <li class="mb-0"><a href="{{route('static.faqs')}}">FAQs</a></li>
                     </ul>
                 </div>
-                <div class="col-9">
+                <div class="col-lg-9 col-12">
                     <div class="authenticity-header"></div>
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane fade show active" id="check">

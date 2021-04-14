@@ -55,12 +55,22 @@ body {
   font-family: "ProximaNova Bold";
 }
 
+.navbar-main-header {
+  background: #f3efe4;
+}
+.navbar-main-header .navbar-brand {
+  height: 100px;
+  width: auto;
+  margin: auto;
+  display: block;
+}
+
 .navbar {
   background-color: #fff;
+  padding: 15px;
 }
 .navbar .navbar-brand img {
-  width: auto;
-  height: 60px;
+  display: none;
 }
 .navbar .nav-item {
   margin: 0 20px;
@@ -129,12 +139,51 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+  .upper-nav {
+    display: none;
+  }
   .upper-nav ul {
     flex-direction: column;
     text-align: center;
   }
   .upper-nav ul li {
     padding: 5px;
+  }
+
+  .navbar-main-header {
+    display: none;
+  }
+
+  .navbar {
+    background: #f3efe4;
+    margin-bottom: 15px;
+  }
+  .navbar .navbar-brand img {
+    display: block;
+    height: 50px;
+  }
+  .navbar .nav-item {
+    margin: 0 20px;
+  }
+  .navbar .nav-item .nav-link {
+    color: #000;
+    text-align: center;
+  }
+
+  #added-to-cart-success {
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+  #added-to-cart-success i {
+    font-size: 2em;
+  }
+  #added-to-cart-success ul {
+    display: block;
+  }
+  #added-to-cart-success ul li {
+    margin-bottom: 10px;
   }
 }
 /********* NewsLetter *********/
@@ -246,6 +295,144 @@ body {
   color: #ac2525;
 }
 
+.afterNav {
+  text-align: center;
+  background-color: #f3efe4;
+  padding: 35px;
+  color: #705050;
+  font-size: 14px;
+  text-transform: uppercase;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.afterNav:before {
+  content: "";
+  position: absolute;
+  width: 13% !important;
+  right: 9% !important;
+  height: 2px;
+  background-color: #dec79d;
+  top: 47%;
+  z-index: 0;
+}
+
+.afterNav a {
+  background-color: transparent !important;
+  border: 1px solid #c89d53;
+  border-radius: 19px;
+  font-size: 12px;
+  padding: 4px 12px 2px 12px;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: #c6994e;
+}
+
+.afterNav:after {
+  content: "";
+  position: absolute;
+  width: 13% !important;
+  left: 9% !important;
+  height: 2px;
+  background-color: #dec79d;
+  top: 47%;
+  z-index: 0;
+}
+
+.afterNav .offer {
+  color: #c6994e;
+  font-size: 47px;
+  font-family: "fantasy";
+  font-weight: 400 !important;
+  padding: 0 20px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@media screen and (max-width: 768px) {
+  /********* NewsLetter *********/
+  #newslatter h2 {
+    font-size: 1em;
+  }
+  #newslatter p {
+    font-size: 0.8em;
+    padding-top: 15px;
+  }
+  #newslatter form {
+    width: 100%;
+    padding: 10px 0;
+  }
+  #newslatter form input {
+    flex: 1;
+    border: 1px solid #000;
+    padding: 5px;
+    letter-spacing: 1px;
+    margin-right: 5px;
+  }
+
+  .owl-carousel {
+    position: relative;
+  }
+  .owl-carousel .owl-nav {
+    font-size: 40px;
+  }
+  .owl-carousel .owl-nav .owl-prev {
+    left: 5%;
+  }
+  .owl-carousel .owl-nav .owl-next {
+    right: 5%;
+  }
+
+  .notification {
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+
+  .afterNav {
+    padding: 15px;
+    font-size: 14px;
+    text-transform: uppercase;
+    position: relative;
+  }
+
+  .afterNav:before {
+    content: "";
+    width: 0 !important;
+    left: 0 !important;
+    height: 0px;
+  }
+
+  .afterNav a {
+    background-color: transparent !important;
+    border: 1px solid #c89d53;
+    border-radius: 19px;
+    font-size: 1em;
+    padding: 4px 12px 2px 12px;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: #c6994e;
+  }
+
+  .afterNav:after {
+    content: "";
+    width: 0 !important;
+    left: 0 !important;
+    height: 0px;
+  }
+
+  .afterNav .offer {
+    display: block;
+    color: #c6994e;
+    font-size: 1.5em;
+    font-family: "fantasy";
+    font-weight: 400 !important;
+    padding: 0 20px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
 #homeage-hero-slider .owl-nav {
   font-weight: bold;
 }
@@ -994,6 +1181,15 @@ body {
   font-weight: bold;
 }
 
+@media screen and (max-width: 768px) {
+  .product-view .product-name-main h1 {
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #555555;
+    text-align: left;
+    font-size: 1.5em;
+  }
+}
 /* Shopping Cart ========================================================================= */
 /* Shopping Cart Table */
 .cart thead {
@@ -1024,6 +1220,16 @@ body {
   color: #c84c4c;
 }
 
+@media screen and (max-width: 768px) {
+  /* Shopping Cart ========================================================================= */
+  /* Shopping Cart Table */
+  .cart thead th {
+    font-size: 0.8em;
+  }
+  .cart .product-name a {
+    font-size: 0.8em;
+  }
+}
 .checkout-section {
   background-color: #ebebeb;
   padding: 25px 15px;
@@ -1057,4 +1263,30 @@ body {
 }
 .checkout-section form .payment-methods li input {
   margin-right: 10px;
+}
+
+.contact-us-page .contact-info h2 {
+  font-weight: bold;
+  color: #c89a4d;
+  font-size: 1.7em;
+}
+.contact-us-page .contact-info ul li {
+  margin-bottom: 15px;
+}
+.contact-us-page .contact-info ul li a {
+  color: #000;
+}
+.contact-us-page form label, .contact-us-page form input, .contact-us-page form textarea {
+  display: block;
+}
+.contact-us-page form label {
+  margin-bottom: 0;
+  font-weight: bold;
+}
+.contact-us-page form input, .contact-us-page form textarea {
+  width: 100%;
+  margin-bottom: 25px;
+  padding: 5px;
+  border-radius: 0;
+  border: 1px solid #000;
 }

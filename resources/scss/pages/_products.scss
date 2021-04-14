@@ -191,3 +191,12 @@
         }
     }
 }
+@media screen and (max-width:768px){
+    .product-view .product-name-main h1{
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        color:#555555;
+        text-align: left;
+        font-size: 1.5em;
+    }
+}

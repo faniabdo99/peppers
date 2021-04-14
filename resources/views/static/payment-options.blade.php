@@ -1,4 +1,6 @@
-@include('layout.header')
+@include('layout.header' , [
+    'PageTitle' => 'Payment Options'
+])
 
 <body>
     @include('layout.navbar')

@@ -1,4 +1,6 @@
-@include('layout.header')
+@include('layout.header' , [
+    'PageTitle' => 'All Products'
+])
 <body>
     @include('layout.navbar')
     <div class="container all-products-page">
@@ -80,7 +82,8 @@
                                 @if($Product->CartReady)
                                     <a class="btn btn-brand" id="add-to-cart" data-target="{{route('cart.add')}}" data-id="{{$Product->id}}" data-user="{{auth()->user()->id}}" href="javascript:;"><i class="fas fa-cart-plus"></i> Add to cart</a>
                                 @else
-                                    <p class="text-danger">{{$Product->status}}</p>
+                                    <p class="text-danger mb-0">{{$Product->status}}</p>
+                                    <a class="btn btn-brand" href="{{route('contact.get')}}"><i class="fas fa-cart-plus"></i> Pre Order</a>
                                 @endif
                             @endauth
                         </div>

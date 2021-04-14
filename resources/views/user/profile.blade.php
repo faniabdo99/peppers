@@ -1,4 +1,6 @@
-@include('layout.header')
+@include('layout.header' , [
+    'PageTitle' => 'My Profile'
+])
 <body>
     @include('layout.navbar')
     <div class="container user-profile">

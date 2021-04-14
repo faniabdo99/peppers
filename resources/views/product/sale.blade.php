@@ -1,4 +1,6 @@
-@include('layout.header')
+@include('layout.header' , [
+    'PageTitle' => 'Products on Sale'
+])
 <body>
     @include('layout.navbar')
     <div class="container all-products-page">

@@ -1,4 +1,6 @@
-@include('layout.header')
+@include('layout.header' , [
+    'PageTitle' => 'Error 500 Server Error'
+])
 <body>
     @include('layout.navbar')
     <section class="container p-5 error-page">

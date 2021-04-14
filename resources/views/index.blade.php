@@ -31,7 +31,7 @@
                                 @forelse ($FeaturedBrands as $Brand)
                                 <li>
                                     <a href="{{route('products', ['brand' , $Brand->slug])}}">
-                                        <img src="{{url('public/images')}}/homepage/4.jpg" alt="{{$Brand->title}}">
+                                        <img src="{{$Brand->ImageSrc}}" alt="{{$Brand->title}}">
                                         <span class="slide-name">{{$Brand->title}}</span>
                                     </a>
                                 </li>

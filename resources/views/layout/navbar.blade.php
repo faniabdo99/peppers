@@ -11,7 +11,7 @@
                     <li>
                         <a href="https://www.facebook.com/PeppersLuxuryCloset/" rel="nofollow" target="_blank"><i class="fab fa-facebook"></i></a>
                         <a href="https://www.instagram.com/peppers_luxury_closet/" rel="nofollow" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="tel:00201155436626"><i class="fas fa-phone"></i> +201155436626</a>
+                        <a href="https://wa.me/00201155436626" rel="nofollow" target="_blank"><i class="fas fa-phone"></i> +201155436626</a>
                     </li>
                     <li><a href="{{route('static.authenticity')}}"><i class="fas fa-lock"></i> Authenticity Guaranteed</a></li>
                     <li><a href="{{route('static.returns')}}"><i class="fas fa-truck"></i> International Shipping</a></li>
@@ -31,10 +31,17 @@
         </div>
     </div>
 </div>
+<header class="navbar-main-header">
+    <div class="container-fluid">
+        <div class="col-12">
+            <a href="{{route('home')}}"><img class="navbar-brand" src="{{url('public/images/logo.png')}}" alt="Pepper's Luxury Closet" /></a>
+        </div>
+    </div>
+</header>
 <nav class="navbar navbar-expand-lg">
     <a class="navbar-brand" href="{{route('home')}}"><img src="{{url('public/images/logo.png')}}" alt="Pepper's Luxury Closet" /></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <span class="fas fa-bars"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto">
@@ -44,7 +51,7 @@
                     <h2 class="mb-4 font-weight-bold">Women Category</h2>
                     <ul class="row">
                         @forelse(getMainCategories('women') as $Category)
-                            <li class="col-4">
+                            <li class="col-lg-4 col-12">
                                 <a class="main-title" href="{{route('products' , ['category' , $Category->slug])}}">
                                     <span>{{$Category->title}}</span>
                                 </a>
@@ -76,7 +83,7 @@
                     <h2 class="mb-4 font-weight-bold">Men</h2>
                     <ul class="row">
                         @forelse(getMainCategories('men') as $Category)
-                            <li class="col-4">
+                            <li class="col-lg-4 col-12">
                                 <a class="main-title" href="{{route('products' , ['category' , $Category->slug])}}">
                                     <span>{{$Category->title}}</span>
                                 </a>
@@ -110,7 +117,7 @@
                 <div class="mega-menu">
                     <h2 class="mb-4 font-weight-bold">Designers</h2>
                     <ul class="row">
-                        <li class="col-3">
+                        <li class="col-lg-3 col-12">
                             <a class="main-title" href="https://peppersluxury.com/designers/most-popular.html">
                                 <span>MOST POPULAR</span>
                             </a>
@@ -126,7 +133,7 @@
                                 @endforelse
                             </ul>
                         </li>
-                        <li class="col-3">
+                        <li class="col-lg-3 col-12">
                             <a class="main-title" href="https://peppersluxury.com/designers/all-brands.html">
                                 <span>ALL BRANDS</span>
                             </a>
@@ -141,7 +148,7 @@
                                 @endforelse
                             </ul>
                         </li>
-                        <li class="col-3">
+                        <li class="col-lg-3 col-12">
                             <ul class="sub-items-list">
                                 @forelse (getBrands(3) as $Brand)
                                 <li class="level2 nav-8-2-1 celine8-2-2 first">
@@ -153,7 +160,7 @@
                                 @endforelse
                             </ul>
                         </li>
-                        <li class="col-3">
+                        <li class="col-lg-3 col-12">
                             <ul class="sub-items-list">
                                 @forelse (getBrands(4) as $Brand)
                                 <li class="level2 nav-8-2-1 celine8-2-2 first">
@@ -197,7 +204,7 @@
     </div>
 @endif
 @if ($errors->any())
-    <div class="notification error-notification">
+    <div class="notification danger-notification">
         <div class="notification-icon">
             <i class="fas fa-times"></i>
         </div>

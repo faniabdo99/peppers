@@ -131,6 +131,7 @@ class OrderController extends Controller{
                         ]
                     ]);
                     $PaymentToken = json_decode($PaymentRequest->body());
+                    //Auth Capture Order
                     $FrameID = 154258;
                     $PaymentID = $PaymentToken->token;
                     return view('orders.pay' , compact('FrameID','PaymentID'));

@@ -1,4 +1,6 @@
-@include('layout.header')
+@include('layout.header' , [
+    'PageTitle' => $TheProduct->title
+])
 
 <body>
     @include('layout.navbar')

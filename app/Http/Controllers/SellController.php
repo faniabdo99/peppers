@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validator;
 use Mail;
+use Sheets;
 //Include the mailables
 use App\Mail\SellMail;
 class SellController extends Controller{
@@ -10,7 +11,6 @@ class SellController extends Controller{
         return view('sell.how-to-sell-with-us');
     }
     public function postSellWithUs(Request $r){
-        // dd($r->all());
         //Validate the request
         $Rules = [
             'title' => 'required',
@@ -26,7 +26,7 @@ class SellController extends Controller{
             return back()->withErrors($Validator->errors()->all())->withInput();
         }else{
             //Validate the images
-            $EmailData = $r->except('images');
+            $EmailData = $r->except('images' , '_token');
             $EmailData['images'] = [];
             if($r->has('images')){
                 $AllowedExt = ['jpg','png','jpeg','bmb','heic','gif'];
@@ -48,6 +48,10 @@ class SellController extends Controller{
                 }
                 //Validate the size and ext
             }
+            //Upload to Google Sheets
+            $GSheetData = $EmailData;
+            $GSheetData['images'] = implode("-" , $EmailData['images']);
+            Sheets::spreadsheet(env('POST_SPREADSHEET_ID'))->sheet('SellToUs')->append([$GSheetData]);
             //Send the email
             Mail::to('faniabdo99@gmail.com')->send(new SellMail($EmailData));
             return back()->withSuccess('Succesfully');

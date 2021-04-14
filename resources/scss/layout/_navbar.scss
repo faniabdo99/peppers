@@ -31,11 +31,20 @@
         }
     }
 }
+.navbar-main-header{
+    background: #f3efe4;
+    .navbar-brand{
+        height: 100px;
+        width: auto;
+        margin: auto;
+        display: block;
+    }
+}
 .navbar{
     background-color: #fff;
+    padding: 15px;
     .navbar-brand img{
-        width: auto;
-        height: 60px;
+        display: none;
     }
     .nav-item{
         margin: 0 20px;
@@ -106,11 +115,45 @@
 }
 @media screen and (max-width:768px){
     .upper-nav{
+        display: none;
         ul{
             flex-direction: column;
             text-align: center;
             li{
                 padding:5px;
+            }
+        }
+    }
+    .navbar-main-header{
+        display: none;
+    }
+    .navbar{
+        background: #f3efe4;
+        margin-bottom: 15px;
+        .navbar-brand img{
+            display: block;
+            height: 50px;
+        }
+        .nav-item{
+            margin: 0 20px;
+            .nav-link{
+                color: $black;
+                text-align: center;
+            }
+        }
+    }
+    #added-to-cart-success{
+        width: 100%;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        i{
+            font-size: 2em;
+        }
+        ul{
+            display: block;
+            li{
+                margin-bottom: 10px;
             }
         }
     }

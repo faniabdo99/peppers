@@ -1,11 +1,11 @@
 <?php
-
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
 class Brand extends Model{
     protected $guarded = [];
     use HasFactory;
+    public function getImageSrcAttribute(){
+        return url('storage/app/brands/'.$this->image);
+    }
 }
