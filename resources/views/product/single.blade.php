@@ -29,7 +29,7 @@
                                             @forelse ($TheProduct->Gallery as $key => $GalleryItem)
                                             <div class="carousel-item">
                                                 <a data-fancybox="gallery" href="{{$GalleryItem->FullSize}}">
-                                                    <img src="{{$GalleryItem->FullSize}}">
+                                                    <img src="{{$GalleryItem->Thumb}}">
                                                 </a>
                                             </div>
                                             @empty
