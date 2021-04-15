@@ -1154,6 +1154,10 @@ body {
   color: #000;
 }
 
+.fancybox-container {
+  background: rgba(0, 0, 0, 0.5);
+}
+
 .single-product {
   height: 420px;
   margin-bottom: 50px;
@@ -1289,4 +1293,13 @@ body {
   padding: 5px;
   border-radius: 0;
   border: 1px solid #000;
+}
+
+.sell-form .form-group input:not([type=checkbox]), .sell-form .form-group select, .sell-form .form-group .select2-selection--single {
+  border: 1px solid #ccc;
+  border-radius: 0;
+  height: 37px;
+}
+.sell-form .form-group input:not([type=checkbox]) .select2-selection__rendered, .sell-form .form-group select .select2-selection__rendered, .sell-form .form-group .select2-selection--single .select2-selection__rendered {
+  margin-top: 4px;
 }
