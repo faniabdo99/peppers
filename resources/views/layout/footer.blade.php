@@ -6,9 +6,9 @@
                     <div class="row">
                         <div class="col-lg-4 col-12">
                             <ul class="footer-address">
-                                <li><a href="https://goo.gl/maps/JV33VWA3NiCdKNSKA"><i class="fas fa-map-marker-alt"></i> 45 Mohamed Mazhar, Cairo, Egypt</a></li>
-                                <li><a href="https://goo.gl/maps/JUxw5cjFANp6Bk3W8"><i class="fas fa-map-marker-alt"></i> KARMA 1 Sheikh Zayed, Giza, Egypt</a></li>
-                                <li><a href="https://goo.gl/maps/bDvKK9d37km8Zxqe9"><i class="fas fa-map-marker-alt"></i> Mirage Outlet Mall, close to English School, 1st settlement. Moustafa Kamel Axis, Suez Rd</a></li>
+                                <li><a href="https://g.page/PeppersLuxuryCloset?share" target="_blank"><i class="fas fa-map-marker-alt"></i> 45 Mohamed Mazhar, Cairo, Egypt</a></li>
+                                <li><a href="https://goo.gl/maps/pyfTsVBKmxe63U7W7" target="_blank"><i class="fas fa-map-marker-alt"></i> KARMA 1 Sheikh Zayed, Giza, Egypt</a></li>
+                                <li><a href="https://goo.gl/maps/bDvKK9d37km8Zxqe9" target="_blank"><i class="fas fa-map-marker-alt"></i> Mirage Outlet Mall, close to English School, 1st settlement. Moustafa Kamel Axis, Suez Rd</a></li>
                                 <li><a href="https://wa.me/00201155436626" target="_blank"><i class="fas fa-phone"></i> +201155436626</a></li>
                             </ul>
                         </div>
