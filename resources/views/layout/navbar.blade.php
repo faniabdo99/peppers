@@ -176,7 +176,7 @@
                 </div>
             </li>
             <li class="nav-item"><a class="nav-link" href="{{route('products' , 'new')}}">WHAT'S NEW</a></li>
-            <li class="nav-item"><a class="nav-link btn btn-brand" href="{{route('sell.howToSellWithUs')}}">SELL NOW</a></li>
+            <li class="nav-item"><a class="nav-link btn btn-brand" href="{{route('sell.howToSellWithUs')}}">SELL WITH US</a></li>
             @auth
                 <li class="nav-item"><a class="nav-link" href="{{route('cart.get')}}"><i class="fas fa-shopping-cart"></i> {{userCartCount(auth()->user()->id)}}</a></li>
             @endauth

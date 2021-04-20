@@ -17,7 +17,10 @@
                                         </div>
                                         <ul class="filter-list-items">
                                             @forelse ($AllColors as $Color)
-                                                <li><input type="radio" @if($r->color == $Color) checked @endif name="color" value="{{$Color}}"> {{$Color}}</li>
+                                                @if(strpos($Color , '/'))
+                                                @else
+                                                    <li><input type="radio" @if($r->color == $Color) checked @endif name="color" value="{{$Color}}"> {{ucfirst($Color)}} <span style="display:inline-block;height:15px;width:15px;margin-bottom:-3px;background:{{strtolower($Color)}};border-radius:50px;"></span></li>
+                                                @endif
                                             @empty
                                                 <p>No Colors to show</p>
                                             @endforelse
@@ -74,8 +77,8 @@
                                 <img src="{{$Product->Thumb}}" alt="{{$Product->title}}"/>
                             </a>
                             <div class="moreinfo">
-                                <h2 class="product-name text-left"><a href="{{route('product.single' , $Product->slug)}}" title="{{$Product->title}}">{{$Product->title}}</a></h2>
                                 <h4 class="brand-info text-left mt-1"><a href="{{route('products' , ['brand' , $Product->Brand->slug])}}">{{$Product->Brand->title}}</a></h4>
+                                <h2 class="product-name text-left"><a href="{{route('product.single' , $Product->slug)}}" title="{{$Product->title}}">{{$Product->title}}</a></h2>
                                 <p class="price mt-2">{{convertCurrency($Product->price , 'USD' , getCurrency()['code']) . getCurrency()['symbole']}}</p>
                             </div>
                             @auth

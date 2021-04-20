@@ -62,7 +62,7 @@
                             </div>
                             <div class="col-lg-4 col-12">
                                 <a href="{{route('products' , ['category' , 'handbags'])}}">
-                                    <img class="w-100 max-auto mb-lg-0 mb-3" src="{{url('public/images')}}/homepage/go-yard-latest-trends.jpg">
+                                    <img class="w-100 h-100 max-auto mb-lg-0 mb-3" src="{{url('public/images')}}/homepage/go-yard-latest-trends.jpg">
                                 </a>
                             </div>
                         </div>
@@ -88,7 +88,6 @@
                                     </li>
                                 @endif
                             @empty
-
                             @endforelse
                         </ul>
                     </div>

@@ -1175,10 +1175,11 @@ body {
 .single-product .moreinfo .brand-info a {
   color: #c89a4d;
   font-weight: bold;
+  font-size: 1.1em;
 }
 .single-product .moreinfo .product-name a {
   color: #000;
-  font-weight: bold;
+  font-size: 0.8em;
 }
 .single-product .moreinfo .price {
   font-size: 1.5em;

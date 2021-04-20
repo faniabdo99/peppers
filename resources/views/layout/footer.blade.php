@@ -16,7 +16,7 @@
                             <ul>
                                 <li><a href="{{route('static.returns')}}">Delivery & returns</a></li>
                                 <li><a href="{{route('static.shipping')}}">Shipping and Delivery</a></li>
-                                <li><a href="{{route('sell.howToSellWithUs')}}">How to Sell With Us</a></li>
+                                <li><a href="{{route('sell.howToSellWithUs')}}">Sell With Us</a></li>
                                 <li><a href="{{route('static.consignmentForm')}}">Our Consignment Form</a></li>
                                 <li><a href="{{route('static.howItWorks')}}">How It Works</a></li>
                             </ul>
@@ -33,7 +33,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-6 col-12">
-                            <p>Payment methods</p>
+                            <p>Payment Methods</p>
                             <div class="payment_card_images mb-3"><i class="master-card"></i><i class="visa-card"></i><i class="cash-card"></i><i class="bank-card"></i></div>
                         </div>
                         <div class="col-lg-6 col-12">
