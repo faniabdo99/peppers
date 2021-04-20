@@ -9,7 +9,7 @@
                 <div class="cart mt-5 mb-3">
                     <h1 class="mb-3">Shopping Cart</h1>
                     <form action="https://peppersluxury.com/checkout/cart/updatePost/" method="post">
-                        <table id="shopping-cart-table" class="table table-striped table-responsive">
+                        <table id="shopping-cart-table" class="table table-striped">
                             <thead>
                                 <th>Image</th>
                                 <th>Product Name</th>
@@ -32,7 +32,6 @@
                                     </td>
                                     <td>{{$CartItem->Product->condition}}</td>
                                     <td class="cart-edit">
-                                        {{-- <input value="1" size="4" maxlength="12" /> --}}
                                         <a href="{{route('cart.delete' , $CartItem->id)}}"><i class="fas fa-trash"></i></a>
                                     </td>
                                     <td>{{convertCurrency($CartItem->Product->price , 'USD' , getCurrency()['code']) . getCurrency()['symbole']}}</td>
@@ -73,9 +72,9 @@
             <div class="col-lg-3">
                 <label class="d-block" for="cart-country">Shipping Country</label>
                 <select class="d-block w-100 p-2" name="country" id="cart-country">
-                    <option value="">Select shipping country</option>
+                    <option value="">Select shipping destination</option>
                     <option value="Egypt">Egypt</option>
-                    <option value="Elsewhere">Elsewhere</option>
+                    <option value="Elsewhere">International</option>
                 </select>
                 <input id="cart-total-hidden" hidden value="{{convertCurrency($Total , 'USD' , getCurrency()['code'])}}">
             </div>

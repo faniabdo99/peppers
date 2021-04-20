@@ -141,7 +141,7 @@
                                                 <td class="data">{{$TheProduct->color}}</td>
                                             </tr>
                                             <tr>
-                                                <th class="label">For Gender</th>
+                                                <th class="label">Gender</th>
                                                 <td class="data">{{$TheProduct->for_gender ?? 'N/A'}}</td>
                                             </tr>
                                             <tr>
