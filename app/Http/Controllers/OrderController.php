@@ -103,6 +103,7 @@ class OrderController extends Controller{
                             'last_name' => ' Nicolas'
                         ]
                     ]);
+                    // dd(json_decode($OrderRequest));
                     $PaymobOrderID = json_decode($OrderRequest)->id;
                     //Order Created
                     $PaymentRequest = Http::post('https://accept.paymobsolutions.com/api/acceptance/payment_keys' , [
@@ -129,7 +130,6 @@ class OrderController extends Controller{
                         ]
                     ]);
                     $PaymentToken = json_decode($PaymentRequest->body());
-                    //Auth Capture Order
                     $FrameID = 154258;
                     $PaymentID = $PaymentToken->token;
                     return view('orders.pay' , compact('FrameID','PaymentID'));
