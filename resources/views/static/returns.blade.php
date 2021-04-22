@@ -1,4 +1,6 @@
-@include('layout.header')
+@include('layout.header' , [
+    'PageTitle' => 'Returns'
+])
 
 <body>
     @include('layout.navbar')

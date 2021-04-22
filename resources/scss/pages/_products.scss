@@ -157,6 +157,10 @@
         }
     }
 }
+//Fancybox Product
+.fancybox-container{
+    background: rgba(0,0,0,0.5);
+}
 .single-product{
     height: 420px;
     margin-bottom: 50px;
@@ -177,17 +181,27 @@
             a{
                 color: $brand;
                 font-weight: bold;
+                font-size: 1.1em;
             }
         }
         .product-name{
             a{
                 color: $black;
-                font-weight: bold;
+                font-size: 0.8em;
             }
         }
         .price{
             font-size: 1.5em;
             font-weight: bold;
         }
+    }
+}
+@media screen and (max-width:768px){
+    .product-view .product-name-main h1{
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        color:#555555;
+        text-align: left;
+        font-size: 1.5em;
     }
 }

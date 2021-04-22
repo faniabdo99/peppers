@@ -29,3 +29,17 @@
         }
     }
 }
+@media screen and (max-width:768px){
+    /* Shopping Cart ========================================================================= */
+    /* Shopping Cart Table */
+    .cart {
+        thead{
+            th{
+                font-size: 0.8em;
+            }
+        }
+        .product-name a{
+            font-size: 0.8em;
+        }
+    }
+}

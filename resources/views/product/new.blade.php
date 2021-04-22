@@ -1,4 +1,6 @@
-@include('layout.header')
+@include('layout.header' , [
+    'PageTitle' => 'New Products'
+])
 <body>
     @include('layout.navbar')
     <div class="container all-products-page">
@@ -13,8 +15,8 @@
                                 <img src="{{$Product->Thumb}}" alt="{{$Product->title}}"/>
                             </a>
                             <div class="moreinfo">
-                                <h2 class="product-name text-left"><a href="{{route('product.single' , $Product->slug)}}" title="{{$Product->title}}">{{$Product->title}}</a></h2>
                                 <h4 class="brand-info text-left mt-1"><a href="{{route('products' , ['brand' , $Product->Brand->slug])}}">{{$Product->Brand->title}}</a></h4>
+                                <h2 class="product-name text-left"><a href="{{route('product.single' , $Product->slug)}}" title="{{$Product->title}}">{{$Product->title}}</a></h2>
                                 <p class="price mt-2">{{convertCurrency($Product->price , 'USD' , getCurrency()['code']) . getCurrency()['symbole']}}</p>
                             </div>
                             @auth
@@ -27,7 +29,9 @@
                         </div>
                     </div>
                     @empty
-                    <p>There is no products in this filters</p>
+                    <div class="col-12">
+                        <p>There is no products in this filters</p>
+                    </div>
                     @endforelse
                 </div>
             </div>

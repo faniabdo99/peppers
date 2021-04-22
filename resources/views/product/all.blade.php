@@ -1,4 +1,6 @@
-@include('layout.header')
+@include('layout.header' , [
+    'PageTitle' => 'All Products'
+])
 <body>
     @include('layout.navbar')
     <div class="container all-products-page">
@@ -15,7 +17,10 @@
                                         </div>
                                         <ul class="filter-list-items">
                                             @forelse ($AllColors as $Color)
-                                                <li><input type="radio" @if($r->color == $Color) checked @endif name="color" value="{{$Color}}"> {{$Color}}</li>
+                                                @if(strpos($Color , '/'))
+                                                @else
+                                                    <li><input type="radio" @if($r->color == $Color) checked @endif name="color" value="{{$Color}}"> {{ucfirst($Color)}} <span style="display:inline-block;height:15px;width:15px;margin-bottom:-3px;background:{{strtolower($Color)}};border-radius:50px;"></span></li>
+                                                @endif
                                             @empty
                                                 <p>No Colors to show</p>
                                             @endforelse
@@ -72,15 +77,16 @@
                                 <img src="{{$Product->Thumb}}" alt="{{$Product->title}}"/>
                             </a>
                             <div class="moreinfo">
-                                <h2 class="product-name text-left"><a href="{{route('product.single' , $Product->slug)}}" title="{{$Product->title}}">{{$Product->title}}</a></h2>
                                 <h4 class="brand-info text-left mt-1"><a href="{{route('products' , ['brand' , $Product->Brand->slug])}}">{{$Product->Brand->title}}</a></h4>
+                                <h2 class="product-name text-left"><a href="{{route('product.single' , $Product->slug)}}" title="{{$Product->title}}">{{$Product->title}}</a></h2>
                                 <p class="price mt-2">{{convertCurrency($Product->price , 'USD' , getCurrency()['code']) . getCurrency()['symbole']}}</p>
                             </div>
                             @auth
                                 @if($Product->CartReady)
                                     <a class="btn btn-brand" id="add-to-cart" data-target="{{route('cart.add')}}" data-id="{{$Product->id}}" data-user="{{auth()->user()->id}}" href="javascript:;"><i class="fas fa-cart-plus"></i> Add to cart</a>
                                 @else
-                                    <p class="text-danger">{{$Product->status}}</p>
+                                    <p class="text-danger mb-0">{{$Product->status}}</p>
+                                    <a class="btn btn-brand" href="{{route('contact.get')}}"><i class="fas fa-cart-plus"></i> Pre Order</a>
                                 @endif
                             @endauth
                         </div>

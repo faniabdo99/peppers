@@ -1,4 +1,6 @@
-@include('layout.header')
+@include('layout.header' , [
+    'PageTitle' => 'Shipping and Delivery'
+])
 
 <body>
     @include('layout.navbar')

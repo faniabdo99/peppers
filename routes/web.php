@@ -16,6 +16,8 @@ Route::get('privacy' , 'StaticPageController@getPrivacy')->name('static.privacy'
 Route::get('careers' , 'StaticPageController@getCareers')->name('static.careers');
 Route::get('how-it-works' , 'StaticPageController@getHowItWorks')->name('static.howItWorks');
 Route::get('payment-options' , 'StaticPageController@getPaymentOptions')->name('static.paymentOptions');
+Route::get('contact' , 'ContactController@getContact')->name('contact.get');
+Route::post('contact' , 'ContactController@postContact')->name('contact.post');
 //Landing Page Stuff
 Route::get('products/{filter_type?}/{filter_value?}' , 'ProductController@getAll')->name('products');
 Route::get('product/{slug}' , 'ProductController@getSingle')->name('product.single');
@@ -56,6 +58,7 @@ Route::group(['prefix' => 'admin' , 'middleware' => 'admin'], function(){
 });
 Route::get('import-brands' , 'StaticPageController@getImportBrands');
 Route::get('import-categories' , 'StaticPageController@getImportCategories');
+Route::get('import-products' , 'StaticPageController@getImportProducts');
 
 // Sell Route
 Route::get('how-to-sell','SellController@getSellWithUs')->name('sell.howToSellWithUs');

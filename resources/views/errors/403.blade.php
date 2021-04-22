@@ -1,4 +1,6 @@
-@include('layout.header')
+@include('layout.header' , [
+    'PageTitle' => 'Error 403 Access Forbidden'
+])
 <body>
     @include('layout.navbar')
     <section class="container p-5 error-page">

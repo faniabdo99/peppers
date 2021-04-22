@@ -1,5 +1,6 @@
-@include('layout.header')
-
+@include('layout.header' , [
+    'PageTitle' => 'Careers'
+])
 <body>
     @include('layout.navbar')
     <section class="static-page careers">

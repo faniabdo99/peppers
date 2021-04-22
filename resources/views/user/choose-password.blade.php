@@ -1,4 +1,6 @@
-@include('layout.header')
+@include('layout.header' , [
+    'PageTitle' => 'Update your password'
+])
 <body>
     @include('layout.navbar')
     <div class="container">

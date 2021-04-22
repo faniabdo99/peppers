@@ -1,0 +1,33 @@
+.contact-us-page{
+    .contact-info{
+        h2{
+            font-weight: bold;
+            color: $brand;
+            font-size: 1.7em;
+        }
+        ul{
+            li{
+                margin-bottom: 15px;
+                a{
+                    color: $black;
+                }
+            }
+        }
+    }
+    form{
+        label, input, textarea{
+            display: block;
+        }
+        label{
+            margin-bottom: 0;
+            font-weight: bold;
+        }
+        input, textarea{
+            width: 100%;
+            margin-bottom: 25px;
+            padding: 5px;
+            border-radius: 0;
+            border:1px solid $black;
+        }
+    }
+}

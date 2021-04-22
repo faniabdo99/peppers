@@ -110,3 +110,135 @@
         b{color: #ac2525;}
     }
 }
+.afterNav {
+    text-align: center;
+    background-color: #f3efe4;
+    padding: 35px;
+    color: #705050;
+    font-size: 14.0px;
+    text-transform: uppercase;
+    position: relative;
+    margin-bottom:15px;
+}
+.afterNav:before {
+    content: "";
+    position: absolute;
+    width: 13% !important;
+    right: 9% !important;
+    height: 2px;
+    background-color: #dec79d;
+    top: 47%;
+    z-index: 0;
+}
+
+.afterNav a {
+    background-color: transparent !important;
+    border: 1px solid #c89d53;
+    border-radius: 19px;
+    font-size: 12px;
+    padding: 4px 12px 2px 12px;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: #c6994e;
+}
+.afterNav:after {
+    content: "";
+    position: absolute;
+    width: 13% !important;
+    left: 9% !important;
+    height: 2px;
+    background-color: #dec79d;
+    top: 47%;
+    z-index: 0;
+}
+.afterNav .offer {
+    color: #c6994e;
+    font-size: 47px;
+    font-family: "fantasy";
+    font-weight: 400 !important;
+    padding: 0 20px;
+    display: inline-block;
+    vertical-align: middle;
+}
+@media screen and (max-width:768px){
+    /********* NewsLetter *********/
+    #newslatter {
+        h2 {
+            font-size: 1em;
+        }
+        p {
+            font-size: 0.8em;
+            padding-top: 15px;
+        }
+        form{
+            width: 100%;
+            padding: 10px 0;
+            input{
+                flex:1;
+                border: 1px solid #000;
+                padding: 5px;
+                letter-spacing: 1px;
+                margin-right: 5px;
+            }
+        }
+    }
+
+    //Adjust Owl Carusel Next and Prev
+    .owl-carousel{
+        position: relative;
+        .owl-nav{
+            font-size: 40px;
+            .owl-prev{
+                left: 5%;
+            }
+            .owl-next{
+                right: 5%;
+            }
+        }
+    }
+    //Notifications
+    .notification{
+        width: 100%;
+        bottom: 0;
+        right: 0;
+        left: 0;
+    }
+    .afterNav {
+        padding: 15px;
+        font-size: 14.0px;
+        text-transform: uppercase;
+        position: relative;
+    }
+    .afterNav:before {
+        content: "";
+        width: 0 !important;
+        left: 0 !important;
+        height: 0px;
+    }
+    .afterNav a {
+        background-color: transparent !important;
+        border: 1px solid #c89d53;
+        border-radius: 19px;
+        font-size: 1em;
+        padding: 4px 12px 2px 12px;
+        cursor: pointer;
+        text-transform: uppercase;
+        color: #c6994e;
+    }
+    .afterNav:after {
+        content: "";
+        width: 0 !important;
+        left: 0 !important;
+        height: 0px;
+    }
+    .afterNav .offer {
+        display: block;
+        color: #c6994e;
+        font-size: 1.5em;
+        font-family: "fantasy";
+        font-weight: 400 !important;
+        padding: 0 20px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+}

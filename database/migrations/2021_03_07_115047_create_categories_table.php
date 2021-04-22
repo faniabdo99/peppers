@@ -9,6 +9,7 @@ class CreateCategoriesTable extends Migration{
             $table->string('title');
             $table->string('slug');
             $table->string('type');
+            $table->string('gender')->default('men');
             $table->string('image')->default('category.jpg');
             $table->integer('is_featured')->default(0);
             $table->integer('parent_id')->nullable();

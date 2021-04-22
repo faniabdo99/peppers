@@ -1,4 +1,6 @@
-@include('layout.header')
+@include('layout.header' , [
+    'PageTitle' => $TheProduct->title
+])
 
 <body>
     @include('layout.navbar')
@@ -27,7 +29,7 @@
                                             @forelse ($TheProduct->Gallery as $key => $GalleryItem)
                                             <div class="carousel-item">
                                                 <a data-fancybox="gallery" href="{{$GalleryItem->FullSize}}">
-                                                    <img src="{{$GalleryItem->FullSize}}">
+                                                    <img src="{{$GalleryItem->Thumb}}">
                                                 </a>
                                             </div>
                                             @empty
@@ -139,7 +141,7 @@
                                                 <td class="data">{{$TheProduct->color}}</td>
                                             </tr>
                                             <tr>
-                                                <th class="label">For Gender</th>
+                                                <th class="label">Gender</th>
                                                 <td class="data">{{$TheProduct->for_gender ?? 'N/A'}}</td>
                                             </tr>
                                             <tr>

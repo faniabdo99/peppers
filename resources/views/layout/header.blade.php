@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Pepper's Luxury Closet</title>
-    <meta name="description" content="Pepper's is Egypt's first and only consignment store for Authentic luxury brands! Egypt's First Consignment Boutique bringing you premium designer brands up to 70% off retail price" />
+    <title>Pepper's Luxury Closet - {{$PageTitle ?? 'Buy & Sell 100% Authenticated Luxury Items'}}</title>
+    <meta name="description" content="{{$PageDescription ?? "Pepper's is Egypt's first and only consignment store for Authentic luxury brands! Egypt's First Consignment Boutique bringing you premium designer brands up to 70% off retail price"}}" />
     <meta name="keywords" content="pre-owned, designer, closet, sell, buy, brands, consignment, authentic, store, premium, closet, boutique" />
     <meta name="robots" content="INDEX,FOLLOW" />
     <meta name="currency" content="{{getCurrency()['code']}}">
     <meta name="exchange" content="{{convertCurrency(1,'USD','EGP')}}">
-    <link rel="icon" href="https://peppersluxury.com/skin/frontend/decostore/default/favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="https://peppersluxury.com/skin/frontend/decostore/default/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="{{url('public/icons/favicon.png')}}">  
     <!--[if lt IE 7]>
     <script type="text/javascript">
     //<![CDATA[
@@ -43,9 +42,6 @@
     <link rel="stylesheet" type="text/css" href="{{url('public/js/fancybox')}}/jquery.fancybox-1.3.4.css" media="all" />
     <link rel="stylesheet" type="text/css" href="{{url('public/css')}}/print.css" media="print" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-    <link href="https://peppersluxury.com/rss/catalog/new/store_id/1/" title="New Products" rel="alternate" type="application/rss+xml" />
-    <link href="https://peppersluxury.com/rss/catalog/special/store_id/1/cid/0/" title="Special Products" mrel="alternate" type="application/rss+xml" />
-    <link href="https://peppersluxury.com/rss/catalog/salesrule/store_id/1/cid/0/" title="Coupons/Discounts" rel="alternate" type="application/rss+xml" />
     <link rel="stylesheet" type="text/css" href="{{url('public/css')}}/menu1.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="{{url('public/css')}}/app.css" />    
 </head>

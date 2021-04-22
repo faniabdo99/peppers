@@ -1,4 +1,6 @@
-@include('layout.header')
+@include('layout.header' , [
+    'PageTitle' => 'Who we are'
+])
 <body>
     @include('layout.navbar')
     <section class="static-page shipping-page">
