@@ -32,7 +32,10 @@
                                         </div>
                                         <ul class="filter-list-items">
                                             @forelse ($AllSizes as $Size)
-                                                <li><input type="radio" @if($r->size == $Size) checked @endif name="size" value="{{$Size}}"> {{$Size}}</li>
+                                                @if(is_numeric($Size) || $Size == null)
+                                                @else
+                                                  <li><input type="radio" @if($r->size == $Size) checked @endif name="size" value="{{$Size}}"> {{$Size}}</li>
+                                                @endif
                                             @empty
                                                 <p>No Sizes to show</p>
                                             @endforelse
