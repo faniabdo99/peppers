@@ -64,12 +64,8 @@
                 </div>
             </div>
             <div class="col-lg-9 col-12">
-                <h1 class="mb-4">All Products 
-                    @if($TheFilter)
-                        in <b>{{$TheFilter->title}}</b>
-                    @endif
-                    ({{$AllProducts->count()}})</h1>
-                <div class="row">
+                <h1 class="mb-4">All Products @if($TheFilter) in <b>{{$TheFilter->title}}</b> @endif</h1>
+                <div class="row ajax-products-list">
                     @forelse ($AllProducts as $Product)
                     <div class="col-lg-4 col-6">
                         <div class="single-product">
@@ -82,12 +78,12 @@
                                 <p class="price mt-2">{{convertCurrency($Product->price , 'USD' , getCurrency()['code']) . getCurrency()['symbole']}}</p>
                             </div>
                             @auth
-                                @if($Product->CartReady)
-                                    <a class="btn btn-brand" id="add-to-cart" data-target="{{route('cart.add')}}" data-id="{{$Product->id}}" data-user="{{auth()->user()->id}}" href="javascript:;"><i class="fas fa-cart-plus"></i> Add to cart</a>
-                                @else
-                                    <p class="text-danger mb-0">{{$Product->status}}</p>
-                                    <a class="btn btn-brand" href="{{route('contact.get')}}"><i class="fas fa-cart-plus"></i> Pre Order</a>
-                                @endif
+                            @if($Product->CartReady)
+                            <a class="btn btn-brand" id="add-to-cart" data-target="{{route('cart.add')}}" data-id="{{$Product->id}}" data-user="{{auth()->user()->id}}" href="javascript:;"><i class="fas fa-cart-plus"></i> Add to cart</a>
+                            @else
+                            <p class="text-danger mb-0">{{$Product->status}}</p>
+                            <a class="btn btn-brand" href="{{route('contact.get')}}"><i class="fas fa-cart-plus"></i> Pre Order</a>
+                            @endif
                             @endauth
                         </div>
                     </div>
@@ -95,11 +91,56 @@
                     <p>There is no products in this filters</p>
                     @endforelse
                 </div>
+                @if($AllProducts->count() >= 18)
+                    <div class="col-12 text-center">
+                        <a class="next-link btn-brand btn" href="{{$AllProducts->nextPageUrl()}}">Load More Products</a>
+                    </div>
+                @endif
             </div>
         </div>
     </div>
     @include('layout.footer')
     @include('layout.scripts')
+    <script>
+        var getParams = function (url) {
+            var params = {};
+            var parser = document.createElement('a');
+            parser.href = url;
+            var query = parser.search.substring(1);
+            var vars = query.split('&');
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split('=');
+                params[pair[0]] = decodeURIComponent(pair[1]);
+            }
+            return params;
+        };
+        var ClickCount = 0;
+        $('.next-link').click(function(e){
+            $(this).html('<i class="fas fa-spinner fa-spin"></i>');
+            e.preventDefault();
+            var AjaxParameters = getParams($(this).attr('href'));
+            var AjaxLink = $(this).attr('href').substring('fsd', $(this).attr('href').indexOf("page"))
+            AjaxLink = AjaxLink + 'page=' + (parseInt(AjaxParameters.page)+ClickCount);
+            //Make Ajax Request
+            $.ajax({
+                url: AjaxLink,
+                method: 'get',
+                success: function(response){
+                    //Grab the data and append it to the current div
+                    ClickCount += 1;
+                    if($('.ajax-products-list' , response).html().includes('<p>There is no products in this filters</p>')){
+                        $('.ajax-products-list').append('<div class="col-12"><p class="text-center">You have seen all the products in this filter</p></div>');
+                        $('.next-link').css('display' , 'none');
+                    }else{
+                        $('.ajax-products-list').append($('.ajax-products-list' , response).html());
+                        $('.next-link').html('Load More Products');
+                    }
+                },
+                error:function(response){
+                    $('.ajax-products-list').append("<p class='text-center'>Something went wrong</p>");
+                }
+            });
+        });
+    </script>
 </body>
-
 </html>

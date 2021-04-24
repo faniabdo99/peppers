@@ -1,7 +1,6 @@
 @include('layout.header' , [
     'PageTitle' => $TheProduct->title
 ])
-
 <body>
     @include('layout.navbar')
     <div class="product-view">
@@ -80,8 +79,8 @@
                     <div class="col-md-5">
                         <div class="productCont">
                             <div class="product-name-main">
-                                <h1>{{$TheProduct->title}}</h1>
                                 <p class="font-weight-bold"><a href="{{route('products' , ['brand',$TheProduct->Brand->slug])}}">{{$TheProduct->Brand->title}}</a></p>
+                                <h1>{{$TheProduct->title}}</h1>
                                 <span class="product-code">Product SKU: <strong>{{$TheProduct->sku}}</strong></span>
                             </div>
                             <div class="product-shop">
