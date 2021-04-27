@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h1 class="main-title">Security & Privacy Guarantee</h1>
+                    <h1 class="main-title">Privacy Policy & T&C</h1>
                     <br>
                     <h2>Privacy Policy</h2>
                     <p>We appreciate your concerns regarding how your information is used and consider it a priority to
@@ -22,7 +22,7 @@
                         website uses encryption technology, such as Secure Sockets Layer (SSL), to protect your personal
                         information during data transport. Please note that e-mail is not encrypted and is not
                         considered to be a secure means of transmitting credit card information.</p>
-                    <h2 class="static-title">E-mail Privacy:</h2>
+                    <h2 class="static-title">E-mail Privacy</h2>
                     <p>You will receive promotional e-mails from us only if you have asked to receive them. If you do
                         not want to receive email from us you can click on the unsubscribe link and hit send at the
                         bottom of any email communication sent by us.</p>
@@ -71,6 +71,15 @@
                     <p>We reserve the rights to update this policy at any point in time, all updates shall become effective immediately.</p>
                     <p>Therefore, you should review this policy from time to time when you log on to this website.</p>
                     <h2>Terms & Conditions</h2>
+                    <h2 class="static-title">Website Purchase Agreement:</h2>
+                    <p>
+                        I here by confirm that I’m buying a preowned item from Pepper’s Luxury Closet as am authorized luxury resale reseller, and that I understand that the preowned items sold are unreturnable, non-refundable, and that I can only bring them back to the store to sell on your behalf.
+                        <br>
+                        I understand that im allowed to carefully inspect the item when receiving it to spot any flaws or defects on the spot, and by receiving the item I confirm the purchase and consent that the item is unreturnable.
+                        <br>
+                        I also confirm that I understand that once the seal, wrapping is removed or broken that the item can not be returned.
+                    </p>
+                    <h2>Consignment Agreement</h2>
                     <div class="fff">
                         <p>Receipt Date:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/&nbsp; &nbsp; &nbsp;
                             &nbsp; /<br />Consignment Agreement No.:.........................</p>
@@ -223,7 +232,6 @@
                                         <td>&nbsp;</td>
                                         <td>&nbsp;</td>
                                     </tr>
-
                                 </tbody>
                             </table>
                         </div>
