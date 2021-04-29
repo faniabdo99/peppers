@@ -13,6 +13,51 @@ $('.dark-overlay').click(function(){
     $('body').css('overflow-y' , 'scroll');
     $(this).removeClass('active');
 });
+$('#nav-search-toggler').click(function(){
+    
+});
+$('#search-box').keypress(function(){
+    //Validate the request and clean bad codes
+    var SearchTerm = $('#search-box').val().replace(/[^a-zA-Z0-9\s]/gm, '');
+    $('#navbar-search-results').fadeIn();
+    $('#navbar-search-results').html('<p class="text-center text-white"><i class="fas fa-spinner fa-spin fa-5x"></i></p>');
+    $.ajax({
+        url: '/peppers/api/search',
+        method: 'post',
+        data: {
+            'search' : SearchTerm
+        },
+        success: function(response){
+            $('#navbar-search-results').html('');
+            response.forEach((item) => {
+                $('#navbar-search-results').append(`
+                    <a href="#">
+                        <div class="single-search-result">
+                            <a class="search-result-image" href="#">
+                                <img src="/peppers/storage/app/products/thumb/${item.image}">
+                            </a>
+                            <a class="search-result-data" href="#">
+                                <p>
+                                <b>${item.brand.title}</b>
+                                <br>
+                                    ${item.title}
+                                    <br>
+                                    ${item.price}$
+                                    <br>
+                                    <a class="btn btn-brand mt-3" href="#">Add to Cart</a>
+                                </p>
+                            </a>
+                        </div>
+                    </a>
+                `);
+            });
+            console.log(response);
+        },
+        error: function(data){
+            $('#navbar-search-results').html('<p class="text-center text-white">'+data.responseText+'</p>');
+        }
+    });
+});
 //Homepage Related
 $('#homeage-hero-slider').owlCarousel({
     loop:true,

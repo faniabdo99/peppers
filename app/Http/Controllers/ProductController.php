@@ -177,4 +177,20 @@ class ProductController extends Controller{
             return back()->withSuccess('Product has been added.');
         }
     }
+    public function getSearch(Request $r){
+        //Validate the request
+        $Rules = [
+            'search' => 'required'
+        ];
+        if(empty($r->search) || $r->search == null){
+            return response('The data you entered can not be processed' ,422);
+        }else{
+            $AllProducts = Product::with('Brand')->where('title' , 'LIKE' , '%'.$r->search.'%')->where('status' , '!=' , 'hidden')->get()->toArray();
+            if(count($AllProducts) > 0 ){
+                return response($AllProducts , 200);
+            }else{
+                return response('There is no products matchs your search' , 404);
+            }
+        }
+    }
 }
