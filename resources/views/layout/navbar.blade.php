@@ -177,12 +177,42 @@
             </li>
             <li class="nav-item"><a class="nav-link" href="{{route('products' , 'new')}}">WHAT'S NEW</a></li>
             <li class="nav-item"><a class="nav-link btn btn-brand" href="{{route('sell.howToSellWithUs')}}">SELL WITH US</a></li>
+            <li class="nav-item"><a class="nav-link" href="javascript:;" id="nav-search-toggler"><i class="fas fa-search"></i></a></li>
             @auth
                 <li class="nav-item"><a class="nav-link" href="{{route('cart.get')}}"><i class="fas fa-shopping-cart"></i> {{userCartCount(auth()->user()->id)}}</a></li>
             @endauth
         </ul>
     </div>
 </nav>
+<div class="navbar-search-overlay">
+    <i class="fas fa-times"></i>
+    <div class="search-form-group">
+        <div class="d-flex mb-5">
+            <input type="text" id="search-box" name="search" placeholder="What are you looking for?" required>
+            {{-- <button type="submit"><i class="fas fa-search"></i></button> --}}
+        </div>
+        <div id="navbar-search-results">
+            <a href="#">
+                <div class="single-search-result">
+                    <a class="search-result-image" href="#">
+                        <img src="http://placehold.it/130x130" alt="">
+                    </a>
+                    <a class="search-result-data" href="#">
+                        <p>
+                        <b>Brand Name</b>
+                        <br>
+                            This is the product title 
+                            <br>
+                            120$
+                            <br>
+                            <a class="btn btn-brand mt-3" href="#">Add to Cart</a>
+                        </p>
+                    </a>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
 @guest
 <section class="afterNav">
     <div class="container">

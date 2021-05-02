@@ -21,6 +21,30 @@ $('.dark-overlay').click(function () {
   $('.mega-menu').fadeOut();
   $('body').css('overflow-y', 'scroll');
   $(this).removeClass('active');
+});
+$('#nav-search-toggler').click(function () {});
+$('#search-box').keypress(function () {
+  //Validate the request and clean bad codes
+  var SearchTerm = $('#search-box').val().replace(/[^a-zA-Z0-9\s]/gm, '');
+  $('#navbar-search-results').fadeIn();
+  $('#navbar-search-results').html('<p class="text-center text-white"><i class="fas fa-spinner fa-spin fa-5x"></i></p>');
+  $.ajax({
+    url: '/peppers/api/search',
+    method: 'post',
+    data: {
+      'search': SearchTerm
+    },
+    success: function success(response) {
+      $('#navbar-search-results').html('');
+      response.forEach(function (item) {
+        $('#navbar-search-results').append("\n                    <a href=\"#\">\n                        <div class=\"single-search-result\">\n                            <a class=\"search-result-image\" href=\"#\">\n                                <img src=\"/peppers/storage/app/products/thumb/".concat(item.image, "\">\n                            </a>\n                            <a class=\"search-result-data\" href=\"#\">\n                                <p>\n                                <b>").concat(item.brand.title, "</b>\n                                <br>\n                                    ").concat(item.title, "\n                                    <br>\n                                    ").concat(item.price, "$\n                                    <br>\n                                    <a class=\"btn btn-brand mt-3\" href=\"#\">Add to Cart</a>\n                                </p>\n                            </a>\n                        </div>\n                    </a>\n                "));
+      });
+      console.log(response);
+    },
+    error: function error(data) {
+      $('#navbar-search-results').html('<p class="text-center text-white">' + data.responseText + '</p>');
+    }
+  });
 }); //Homepage Related
 
 $('#homeage-hero-slider').owlCarousel({
