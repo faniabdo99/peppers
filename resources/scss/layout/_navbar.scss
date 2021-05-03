@@ -1,3 +1,16 @@
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: $brand;
+}
+
 .dark-overlay{
     background-color:rgba(0,0,0,0.3);
     height: 100%;
@@ -114,6 +127,7 @@
     }
 }
 .navbar-search-overlay{
+    display: none;
     position: fixed;
     background-color: rgba(0, 0, 0, 0.8);
     height: 100vh;
@@ -165,6 +179,7 @@
             display: flex;
             width: 100%;
             align-items: center;
+            margin-bottom: 15px;
             .search-result-image{
                margin-right: 25px;
                img{

@@ -129,7 +129,6 @@
                                     </a>
                                 </li>
                                 @empty
-                                    
                                 @endforelse
                             </ul>
                         </li>
@@ -185,11 +184,10 @@
     </div>
 </nav>
 <div class="navbar-search-overlay">
-    <i class="fas fa-times"></i>
+    <a href="javascript:;" id="close-search-form"><i class="fas fa-times"></i></a>
     <div class="search-form-group">
         <div class="d-flex mb-5">
             <input type="text" id="search-box" name="search" placeholder="What are you looking for?" required>
-            {{-- <button type="submit"><i class="fas fa-search"></i></button> --}}
         </div>
         <div id="navbar-search-results">
             <a href="#">

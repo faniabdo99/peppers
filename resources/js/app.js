@@ -1,3 +1,8 @@
+var getUrl = window.location;
+var baseUrl = getUrl .protocol + "//" + getUrl.host + "/";
+if(baseUrl.includes('localhost')){
+    baseUrl = baseUrl+'peppers/';
+}
 //Navbar
 $('.mega-menu-trigger').click(function(){
     $('.mega-menu').fadeOut();
@@ -14,15 +19,25 @@ $('.dark-overlay').click(function(){
     $(this).removeClass('active');
 });
 $('#nav-search-toggler').click(function(){
-    
+    //Clear the search form
+    $('#search-box').val('');
+    $('#navbar-search-results').html('').fadeOut();
+    //Show the search form
+    $('.navbar-search-overlay').fadeIn('fast');
+    //Stop the body scroll
+    $('body').css('overflow-y' , 'hidden');
 });
-$('#search-box').keypress(function(){
+$('#close-search-form').click(function(){
+    $('.navbar-search-overlay').fadeOut('fast');
+    $('body').css('overflow-y' , 'scroll');
+});
+$('#search-box').keyup(function(){
     //Validate the request and clean bad codes
     var SearchTerm = $('#search-box').val().replace(/[^a-zA-Z0-9\s]/gm, '');
     $('#navbar-search-results').fadeIn();
     $('#navbar-search-results').html('<p class="text-center text-white"><i class="fas fa-spinner fa-spin fa-5x"></i></p>');
     $.ajax({
-        url: '/peppers/api/search',
+        url: baseUrl+'api/search',
         method: 'post',
         data: {
             'search' : SearchTerm
@@ -31,12 +46,12 @@ $('#search-box').keypress(function(){
             $('#navbar-search-results').html('');
             response.forEach((item) => {
                 $('#navbar-search-results').append(`
-                    <a href="#">
+                    <a href="${baseUrl}/product/${item.slug}">
                         <div class="single-search-result">
-                            <a class="search-result-image" href="#">
-                                <img src="/peppers/storage/app/products/thumb/${item.image}">
+                            <a class="search-result-image" href="${baseUrl}product/${item.slug}">
+                                <img src="${baseUrl}storage/app/products/thumb/${item.image}">
                             </a>
-                            <a class="search-result-data" href="#">
+                            <a class="search-result-data" href="${baseUrl}product/${item.slug}">
                                 <p>
                                 <b>${item.brand.title}</b>
                                 <br>
@@ -44,7 +59,6 @@ $('#search-box').keypress(function(){
                                     <br>
                                     ${item.price}$
                                     <br>
-                                    <a class="btn btn-brand mt-3" href="#">Add to Cart</a>
                                 </p>
                             </a>
                         </div>
