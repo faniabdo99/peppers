@@ -16,6 +16,7 @@
                                             <h2><i class="fas fa-palette"></i> Color</h2>
                                         </div>
                                         <ul class="filter-list-items">
+                                            <li><input type="radio" @if($r->color == '') checked @endif name="color" value=""> ALL COLORS</li>
                                             @forelse ($AllColors as $Color)
                                                 @if(strpos($Color , '/'))
                                                 @else
@@ -31,6 +32,7 @@
                                             <h2><i class="fas fa-ruler-combined"></i>Size</h2>
                                         </div>
                                         <ul class="filter-list-items">
+                                            <li><input type="radio" @if($r->size == '') checked @endif name="size" value=""> All Sizes</li>
                                             @forelse ($AllSizes as $Size)
                                                 @if(is_numeric($Size) || $Size == null)
                                                 @else
@@ -46,8 +48,9 @@
                                             <h2><i class="fas fa-sun"></i> Condition</h2>
                                         </div>
                                         <ul class="filter-list-items">
+                                            <li><input type="radio" @if($r->condition == '') checked @endif name="condition" value=""> All</li>
                                             <li><input type="radio" @if($r->condition == 'New') checked @endif name="condition" value="New"> New</li>
-                                            <li><input type="radio" @if($r->condition == 'Pre Owned') checked @endif name="condition" value="Pre Owned"> Pre Owned</li>
+                                            <li><input type="radio" @if($r->condition == 'Preowned') checked @endif name="condition" value="Preowned"> Preowned</li>
                                         </ul>
                                     </div>
                                     <div class="shop-by-price">
@@ -94,56 +97,84 @@
                     <p>There is no products in this filters</p>
                     @endforelse
                 </div>
-                @if($AllProducts->count() >= 18)
-                    <div class="col-12 text-center">
-                        <a class="next-link btn-brand btn" href="{{$AllProducts->nextPageUrl()}}">Load More Products</a>
-                    </div>
-                @endif
+                <div class="col-12 text-center" id="load-more"></div>
             </div>
         </div>
     </div>
     @include('layout.footer')
     @include('layout.scripts')
     <script>
-        var getParams = function (url) {
-            var params = {};
-            var parser = document.createElement('a');
-            parser.href = url;
-            var query = parser.search.substring(1);
-            var vars = query.split('&');
-            for (var i = 0; i < vars.length; i++) {
-                var pair = vars[i].split('=');
-                params[pair[0]] = decodeURIComponent(pair[1]);
+        // var getParams = function (url) {
+        //     var params = {};
+        //     var parser = document.createElement('a');
+        //     parser.href = url;
+        //     var query = parser.search.substring(1);
+        //     var vars = query.split('&');
+        //     for (var i = 0; i < vars.length; i++) {
+        //         var pair = vars[i].split('=');
+        //         params[pair[0]] = decodeURIComponent(pair[1]);
+        //     }
+        //     return params;
+        // };
+        // var ClickCount = 0;
+        // $('.next-link').click(function(e){
+        //     $(this).html('<i class="fas fa-spinner fa-spin"></i>');
+        //     e.preventDefault();
+        //     var AjaxParameters = getParams($(this).attr('href'));
+        //     var AjaxLink = $(this).attr('href').substring('fsd', $(this).attr('href').indexOf("page"))
+        //     AjaxLink = AjaxLink + 'page=' + (parseInt(AjaxParameters.page)+ClickCount);
+        //     //Make Ajax Request
+        //     $.ajax({
+        //         url: AjaxLink,
+        //         method: 'get',
+        //         success: function(response){
+        //             //Grab the data and append it to the current div
+        //             ClickCount += 1;
+        //             if($('.ajax-products-list' , response).html().includes('<p>There is no products in this filters</p>')){
+        //                 $('.ajax-products-list').append('<div class="col-12"><p class="text-center">You have seen all the products in this filter</p></div>');
+        //                 $('.next-link').css('display' , 'none');
+        //             }else{
+        //                 $('.ajax-products-list').append($('.ajax-products-list' , response).html());
+        //                 $('.next-link').html('Load More Products');
+        //             }
+        //         },
+        //         error:function(response){
+        //             $('.ajax-products-list').append("<p class='text-center'>Something went wrong</p>");
+        //         }
+        //     });
+        // });
+
+
+        //Modern Infinit Scroll
+        var PageElements = $('.ajax-products-list').children();
+        var ScrollCount = 1;
+        //Clear the page
+        $('.ajax-products-list').html('');
+        //Show only 18 as a start
+        PageElements.each(function(index,item){
+            if((ScrollCount * 18) > index){
+                $('.ajax-products-list').append(item);
             }
-            return params;
-        };
-        var ClickCount = 0;
-        $('.next-link').click(function(e){
-            $(this).html('<i class="fas fa-spinner fa-spin"></i>');
-            e.preventDefault();
-            var AjaxParameters = getParams($(this).attr('href'));
-            var AjaxLink = $(this).attr('href').substring('fsd', $(this).attr('href').indexOf("page"))
-            AjaxLink = AjaxLink + 'page=' + (parseInt(AjaxParameters.page)+ClickCount);
-            //Make Ajax Request
-            $.ajax({
-                url: AjaxLink,
-                method: 'get',
-                success: function(response){
-                    //Grab the data and append it to the current div
-                    ClickCount += 1;
-                    if($('.ajax-products-list' , response).html().includes('<p>There is no products in this filters</p>')){
-                        $('.ajax-products-list').append('<div class="col-12"><p class="text-center">You have seen all the products in this filter</p></div>');
-                        $('.next-link').css('display' , 'none');
-                    }else{
-                        $('.ajax-products-list').append($('.ajax-products-list' , response).html());
-                        $('.next-link').html('Load More Products');
-                    }
-                },
-                error:function(response){
-                    $('.ajax-products-list').append("<p class='text-center'>Something went wrong</p>");
-                }
-            });
         });
+        $(window).scroll(function(){
+            var scrollPercent = 100 * $(window).scrollTop()/($(document).height() - $(window).height());
+            //Now , Dedect scroll action and act accordingally
+            if(scrollPercent > 90){
+                $('#load-more').html('<i class="fas fa-spinner fa-spin fa-5x"></i>');
+                ScrollCount = ScrollCount + 1;
+                PageElements.each(function(index,item){
+                    if((ScrollCount * 18) > index){
+                        if(item == ''){
+                            alert('Done.');
+                        }else{
+                            $('.ajax-products-list').append(item);
+                        }
+                    }
+                });
+                $('#load-more').html('');
+            }
+        });
+        
     </script>
 </body>
 </html>

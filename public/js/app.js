@@ -99,6 +99,22 @@ $('#homepage-designers-slider').owlCarousel({
     }
   }
 });
+$('#homepage-new-arrivals-slider').owlCarousel({
+  loop: true,
+  margin: 10,
+  nav: true,
+  responsive: {
+    0: {
+      items: 1
+    },
+    600: {
+      items: 3
+    },
+    1000: {
+      items: 4
+    }
+  }
+});
 $('#homepage-most-wanted-slider').owlCarousel({
   loop: true,
   margin: 10,

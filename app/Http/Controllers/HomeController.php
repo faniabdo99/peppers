@@ -8,6 +8,7 @@ class HomeController extends Controller{
         $FeaturedBrands = Brand::where('is_featured' , 1)->get();
         //Get the featured products by brand
         $FeaturedProducts = Product::where('is_featured' , '1')->limit(8)->get();
-        return view('index' , compact('FeaturedProducts' , 'FeaturedBrands'));
+        $NewArrivals = Product::OrderBy('id' , 'desc')->limit(8)->get();
+        return view('index' , compact('FeaturedProducts' , 'FeaturedBrands','NewArrivals'));
     }
 }
