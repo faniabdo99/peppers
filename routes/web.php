@@ -63,4 +63,6 @@ Route::get('import-products' , 'StaticPageController@getImportProducts');
 // Sell Route
 Route::get('how-to-sell','SellController@getSellWithUs')->name('sell.howToSellWithUs');
 Route::post('how-to-sell','SellController@postSellWithUs')->name('sell.postHowToSellWithUs');
-
+Route::get('personal-shopper','SellController@getPersonalShopper')->name('sell.personalShopper');
+Route::post('personal-shopper','SellController@postPersonalShopper')->name('sell.postPersonalShopper');
+Route::get('test' , 'ProductController@getTest');

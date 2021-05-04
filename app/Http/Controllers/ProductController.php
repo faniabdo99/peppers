@@ -89,8 +89,8 @@ class ProductController extends Controller{
                     }
                 }
             }
-            $AllColors = Product::where('status','!=','Hidden')->pluck('color')->unique();
-            $AllSizes = Product::where('status','!=','Hidden')->pluck('size')->unique();
+            $AllColors = Product::where('status','!=','hidden')->pluck('color')->unique();
+            $AllSizes = Product::where('status','!=','hidden')->pluck('size')->unique();
             $AllProducts = $AllProducts->get();
             return view('product.all', compact('AllProducts' , 'TheFilter' , 'AllColors' , 'AllSizes' , 'r'));
         }
@@ -199,5 +199,10 @@ class ProductController extends Controller{
                 return response('There is no products matchs your search' , 404);
             }
         }
+    }
+
+    public function getTest(){
+        $AllProducts = Product::orderBy('sku')->get();
+        return view('test' , compact('AllProducts'));
     }
 }

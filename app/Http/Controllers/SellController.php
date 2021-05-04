@@ -53,8 +53,30 @@ class SellController extends Controller{
             $GSheetData['images'] = implode("-" , $EmailData['images']);
             Sheets::spreadsheet(env('POST_SPREADSHEET_ID'))->sheet('SellToUs')->append([$GSheetData]);
             //Send the email
-            Mail::to('faniabdo99@gmail.com')->send(new SellMail($EmailData));
+            Mail::to('info@peppersluxury.com')->send(new SellMail($EmailData));
             return back()->withSuccess('Succesfully');
+        }
+    }
+    public function getPersonalShopper(){
+        return view('sell.personal-shopper');
+    }
+    public function postPersonalShopper(Request $r){
+        //Validate the request
+        $Rules = [
+            'link' => 'required|url',
+            'name' => 'required',
+            'phone' => 'required'
+        ];
+        $Validator = Validator::make($r->all() , $Rules);
+        if($Validator->fails()){
+            return back()->withErrors($Validator->errors()->all());
+        }else{
+            //Go to Google Sheets
+            $GSheetData = $r->except('_token');
+            Sheets::spreadsheet(env('POST_SPREADSHEET_ID'))->sheet('PersonalShopper')->append([$GSheetData]);
+            //Send the email
+            // Mail::to('info@peppersluxury.com')->send(new SellMail($EmailData));
+            return back()->withSuccess('Thank you, Our team will get in touch with you');
         }
     }
 }
