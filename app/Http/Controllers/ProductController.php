@@ -25,34 +25,33 @@ class ProductController extends Controller{
 
                 if($r->has('color') && $r->color != ''){
                     $Color = ['color' , $r->color];
-                }else{$Color=['color' , '!=' ,''];}
+                }else{$Color=['color' , '!=' ,'Test'];}
 
                 if($r->has('size') && $r->size != ''){
                     $Size = ['size' , $r->size];
-                }else{$Size=['size' , '!=' ,''];}
+                }else{$Size=['size' , '!=' ,'Test'];}
 
                 if($r->has('condition') && $r->condition != ''){
                     $Condition = ['condition' , $r->condition];
-                }else{$Condition=['condition' , '!=' ,''];}
+                }else{$Condition=['condition' , '!=' ,'Test'];}
 
                 if($r->has('price_from') && $r->price_from != ''){
                     $PriceFrom = ['price' , '>=' , intval($r->price_from)];
-                }else{$PriceFrom=['price' , '=>' ,0];}
+                }else{$PriceFrom=['price' , '>=' ,0];}
 
                 if($r->has('price_to') && $r->price_to != ''){
                     $PriceTo = ['price' , '<=' , intval($r->price_to)];
                 }else{$PriceTo=['price' , '<=' ,9999999999999];}
-                dd($Condition);
                 //There is a filter
                 if(!$filter_type){
-                    $AllProducts = Product::where('status','!=','Hidden')->where([$Color,$Size,$Condition,$PriceFrom,$PriceTo])->latest();
+                    $AllProducts = Product::where('status','!=','hidden')->where([$Color,$Size,$Condition,$PriceFrom,$PriceTo])->latest();
                     $TheFilter = null;
                 }else{
                     if($filter_type == 'brand'){
                         $TheFilter = Brand::where('slug' , $filter_value)->first();
                         if($TheFilter){
                             $Brand = ['brand_id','=',$TheFilter->id];
-                            $AllProducts = Product::where('status','!=','Hidden')->where([$Color,$Size,$Condition,$PriceFrom,$PriceTo,$Brand])->latest();
+                            $AllProducts = Product::where('status','!=','hidden')->where([$Color,$Size,$Condition,$PriceFrom,$PriceTo,$Brand])->latest();
                         }else{
                             $AllProducts = [];
                         }
@@ -60,7 +59,7 @@ class ProductController extends Controller{
                     if($filter_type == 'category'){
                         $TheFilter = Category::where('slug' , $filter_value)->first();
                         if($TheFilter){
-                            $AllProducts = Product::where('status','!=','Hidden')->where([$Color,$Size,$Condition,$PriceFrom,$PriceTo])->where('category_id',$TheFilter->id)->latest();
+                            $AllProducts = Product::where('status','!=','hidden')->where([$Color,$Size,$Condition,$PriceFrom,$PriceTo])->where('category_id',$TheFilter->id)->latest();
                         }else{
                             $AllProducts = [];
                         }
@@ -69,13 +68,13 @@ class ProductController extends Controller{
             }else{
                 //No Filter
                 if(!$filter_type){
-                    $AllProducts = Product::where('status','!=','Hidden')->latest();
+                    $AllProducts = Product::where('status','!=','hidden')->latest();
                     $TheFilter = null;
                 }else{
                     if($filter_type == 'brand'){
                         $TheFilter = Brand::where('slug' , $filter_value)->first();
                         if($TheFilter){
-                            $AllProducts = Product::where('status','!=','Hidden')->where('brand_id',$TheFilter->id);
+                            $AllProducts = Product::where('status','!=','hidden')->where('brand_id',$TheFilter->id);
                         }else{
                             $AllProducts = [];
                         }
@@ -83,7 +82,7 @@ class ProductController extends Controller{
                     if($filter_type == 'category'){
                         $TheFilter = Category::where('slug' , $filter_value)->first();
                         if($TheFilter){
-                            $AllProducts = Product::where('status','!=','Hidden')->where('category_id',$TheFilter->id)->latest();
+                            $AllProducts = Product::where('status','!=','hidden')->where('category_id',$TheFilter->id)->latest();
                         }else{
                             $AllProducts = [];
                         }
