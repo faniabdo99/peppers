@@ -158,7 +158,7 @@ $('#close-added-to-cart').click(function () {
   $('#added-to-cart-success').fadeOut('fast');
 }); //Cart system
 
-$('#add-to-cart').click(function () {
+$(document).on('click', '.add-to-cart', function () {
   var That = $(this);
   var ItemId = $(this).data('id');
   var UserId = $(this).data('user');

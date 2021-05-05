@@ -1283,10 +1283,6 @@ body {
   height: auto;
   margin-bottom: 10px;
 }
-.single-product .add-to-cart {
-  position: absolute;
-  bottom: 0;
-}
 .single-product .moreinfo .brand-info a {
   color: #c89a4d;
   font-weight: bold;

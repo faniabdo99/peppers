@@ -25,15 +25,15 @@ class ProductController extends Controller{
 
                 if($r->has('color') && $r->color != ''){
                     $Color = ['color' , $r->color];
-                }else{$Color=['color' , '!=' ,'TheForbiddenWord'];}
+                }else{$Color=['color' , '!=' ,''];}
 
                 if($r->has('size') && $r->size != ''){
                     $Size = ['size' , $r->size];
-                }else{$Size=['size' , '!=' ,'TheForbiddenWord'];}
+                }else{$Size=['size' , '!=' ,''];}
 
                 if($r->has('condition') && $r->condition != ''){
                     $Condition = ['condition' , $r->condition];
-                }else{$Condition=['condition' , '!=' ,'TheForbiddenWord'];}
+                }else{$Condition=['condition' , '!=' ,''];}
 
                 if($r->has('price_from') && $r->price_from != ''){
                     $PriceFrom = ['price' , '>=' , intval($r->price_from)];
@@ -42,6 +42,7 @@ class ProductController extends Controller{
                 if($r->has('price_to') && $r->price_to != ''){
                     $PriceTo = ['price' , '<=' , intval($r->price_to)];
                 }else{$PriceTo=['price' , '<=' ,9999999999999];}
+                dd($Condition);
                 //There is a filter
                 if(!$filter_type){
                     $AllProducts = Product::where('status','!=','Hidden')->where([$Color,$Size,$Condition,$PriceFrom,$PriceTo])->latest();
@@ -64,7 +65,7 @@ class ProductController extends Controller{
                             $AllProducts = [];
                         }
                     }
-            }
+                }
             }else{
                 //No Filter
                 if(!$filter_type){

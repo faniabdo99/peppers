@@ -83,14 +83,15 @@
                                 <h2 class="product-name text-left"><a href="{{route('product.single' , $Product->slug)}}" title="{{$Product->title}}">{{$Product->title}}</a></h2>
                                 <p class="price mt-2">{{convertCurrency($Product->price , 'USD' , getCurrency()['code']) . getCurrency()['symbole']}}</p>
                             </div>
-                            @auth
-                            @if($Product->CartReady)
-                            <a class="btn btn-brand" id="add-to-cart" data-target="{{route('cart.add')}}" data-id="{{$Product->id}}" data-user="{{auth()->user()->id}}" href="javascript:;"><i class="fas fa-cart-plus"></i> Add to cart</a>
+                            @if(isInUserCart(getUserId() , $Product->id))
+                                <a class="btn btn-brand"><i class="fas fa-check"></i> Added to Cart</a>
                             @else
-                            <p class="text-danger mb-0">{{$Product->status}}</p>
-                            <a class="btn btn-brand" href="{{route('contact.get')}}"><i class="fas fa-cart-plus"></i> Pre Order</a>
+                                @if($Product->CartReady)
+                                    <a class="btn btn-brand add-to-cart" data-target="{{route('cart.add')}}" data-id="{{$Product->id}}" data-user="{{getUserId()}}" href="javascript:;"><i class="fas fa-cart-plus"></i> Add to cart</a>
+                                @else
+                                     <a class="btn btn-brand" href="{{route('contact.get')}}"><i class="fas fa-cart-plus"></i> Pre Order</a>
+                                @endif
                             @endif
-                            @endauth
                         </div>
                     </div>
                     @empty
@@ -174,7 +175,6 @@
                 $('#load-more').html('');
             }
         });
-        
     </script>
 </body>
 </html>

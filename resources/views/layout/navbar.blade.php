@@ -178,9 +178,7 @@
             <li class="nav-item"><a class="nav-link" href="{{route('sell.personalShopper')}}">PERSONAL SHOPPER</a></li>
             <li class="nav-item"><a class="nav-link btn btn-brand" href="{{route('sell.howToSellWithUs')}}">SELL WITH US</a></li>
             <li class="nav-item"><a class="nav-link" href="javascript:;" id="nav-search-toggler"><i class="fas fa-search"></i></a></li>
-            @auth
-                <li class="nav-item"><a class="nav-link" href="{{route('cart.get')}}"><i class="fas fa-shopping-cart"></i> {{userCartCount(auth()->user()->id)}}</a></li>
-            @endauth
+            <li class="nav-item"><a class="nav-link" href="{{route('cart.get')}}"><i class="fas fa-shopping-cart"></i> {{userCartCount(getUserId())}}</a></li>
         </ul>
     </div>
 </nav>
