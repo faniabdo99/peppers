@@ -25,7 +25,7 @@ class ContactController extends Controller{
             //Upload to google sheets
             Sheets::spreadsheet(env('POST_SPREADSHEET_ID'))->sheet('ContactUs')->append([$EmailData]);
             //Send the mail
-            Mail::to('faniabdo99@gmail.com')->send(new ContactUsMail($EmailData));
+            Mail::to('info@peppersluxury.com')->send(new ContactUsMail($EmailData));
             return back()->withSuccess('Your email has been sent, thank you');
         }
     }

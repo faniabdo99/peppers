@@ -1,3 +1,8 @@
+var getUrl = window.location;
+var baseUrl = getUrl .protocol + "//" + getUrl.host + "/";
+if(baseUrl.includes('localhost')){
+    baseUrl = baseUrl+'peppers/';
+}
 //Navbar
 $('.mega-menu-trigger').click(function(){
     $('.mega-menu').fadeOut();
@@ -12,6 +17,60 @@ $('.dark-overlay').click(function(){
     $('.mega-menu').fadeOut();
     $('body').css('overflow-y' , 'scroll');
     $(this).removeClass('active');
+});
+$('#nav-search-toggler').click(function(){
+    //Clear the search form
+    $('#search-box').val('');
+    $('#navbar-search-results').html('').fadeOut();
+    //Show the search form
+    $('.navbar-search-overlay').fadeIn('fast');
+    //Stop the body scroll
+    $('body').css('overflow-y' , 'hidden');
+});
+$('#close-search-form').click(function(){
+    $('.navbar-search-overlay').fadeOut('fast');
+    $('body').css('overflow-y' , 'scroll');
+});
+$('#search-box').keyup(function(){
+    //Validate the request and clean bad codes
+    var SearchTerm = $('#search-box').val().replace(/[^a-zA-Z0-9\s]/gm, '');
+    $('#navbar-search-results').fadeIn();
+    $('#navbar-search-results').html('<p class="text-center text-white"><i class="fas fa-spinner fa-spin fa-5x"></i></p>');
+    $.ajax({
+        url: baseUrl+'api/search',
+        method: 'post',
+        data: {
+            'search' : SearchTerm
+        },
+        success: function(response){
+            $('#navbar-search-results').html('');
+            response.forEach((item) => {
+                $('#navbar-search-results').append(`
+                    <a href="${baseUrl}/product/${item.slug}">
+                        <div class="single-search-result">
+                            <a class="search-result-image" href="${baseUrl}product/${item.slug}">
+                                <img src="${baseUrl}storage/app/products/thumb/${item.image}">
+                            </a>
+                            <a class="search-result-data" href="${baseUrl}product/${item.slug}">
+                                <p>
+                                <b>${item.brand.title}</b>
+                                <br>
+                                    ${item.title}
+                                    <br>
+                                    ${item.price}$
+                                    <br>
+                                </p>
+                            </a>
+                        </div>
+                    </a>
+                `);
+            });
+            console.log(response);
+        },
+        error: function(data){
+            $('#navbar-search-results').html('<p class="text-center text-white">'+data.responseText+'</p>');
+        }
+    });
 });
 //Homepage Related
 $('#homeage-hero-slider').owlCarousel({
@@ -32,6 +91,22 @@ $('#homeage-hero-slider').owlCarousel({
     }
 });
 $('#homepage-designers-slider').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:4
+        }
+    }
+});
+$('#homepage-new-arrivals-slider').owlCarousel({
     loop:true,
     margin:10,
     nav:true,
@@ -90,7 +165,7 @@ $('#close-added-to-cart').click(function(){
     $('#added-to-cart-success').fadeOut('fast');
 });
 //Cart system
-$('#add-to-cart').click(function(){
+$(document).on('click', '.add-to-cart', function() {
     var That = $(this);
     var ItemId = $(this).data('id');
     var UserId = $(this).data('user');

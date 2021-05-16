@@ -21,6 +21,13 @@ Route::post('contact' , 'ContactController@postContact')->name('contact.post');
 //Landing Page Stuff
 Route::get('products/{filter_type?}/{filter_value?}' , 'ProductController@getAll')->name('products');
 Route::get('product/{slug}' , 'ProductController@getSingle')->name('product.single');
+//Orders System
+Route::get('cart' , 'CartController@getAll')->name('cart.get');
+Route::get('delete/{id}' , 'CartController@delete')->name('cart.delete');
+Route::get('checkout' , 'OrderController@getCheckout')->name('checkout.get');
+Route::post('checkout' , 'OrderController@postCheckout')->name('checkout.post');
+Route::get('success/{id}' , 'OrderController@getOrderSuccess')->name('order.success');
+Route::get('complete/{id}' , 'OrderController@getOrderComplete')->name('order.complete');
 //User System
 Route::middleware('guest')->group(function () {
     Route::get('signup' , 'UserController@getSignup')->name('user.getSignup');
@@ -42,12 +49,6 @@ Route::middleware('auth')->group(function () {
     Route::post('profile/edit' , 'UserController@postEdit')->name('profile.postEdit');
     Route::get('orders' , 'UserController@getOrders')->name('orders');
     Route::get('approve-account/{code}' , 'UserController@getApproveAccount')->name('profile.approve');
-    Route::get('cart' , 'CartController@getAll')->name('cart.get');
-    Route::get('delete/{id}' , 'CartController@delete')->name('cart.delete');
-    Route::get('checkout' , 'OrderController@getCheckout')->name('checkout.get');
-    Route::post('checkout' , 'OrderController@postCheckout')->name('checkout.post');
-    Route::get('success/{id}' , 'OrderController@getOrderSuccess')->name('order.success');
-    Route::get('complete/{id}' , 'OrderController@getOrderComplete')->name('order.complete');
 });
 
 Route::group(['prefix' => 'admin' , 'middleware' => 'admin'], function(){
@@ -63,4 +64,6 @@ Route::get('import-products' , 'StaticPageController@getImportProducts');
 // Sell Route
 Route::get('how-to-sell','SellController@getSellWithUs')->name('sell.howToSellWithUs');
 Route::post('how-to-sell','SellController@postSellWithUs')->name('sell.postHowToSellWithUs');
-
+Route::get('personal-shopper','SellController@getPersonalShopper')->name('sell.personalShopper');
+Route::post('personal-shopper','SellController@postPersonalShopper')->name('sell.postPersonalShopper');
+Route::get('test' , 'ProductController@getTest');

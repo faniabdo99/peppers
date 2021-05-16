@@ -70,7 +70,31 @@
                 </div>
             </div>
         </section>
-        <section class="mb-5 most-wanted">
+        <section class="mb-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="sect-title"><span>New Arrivals</span></h2>
+                        <ul class="owl-carousel" id="homepage-new-arrivals-slider">
+                            @forelse ($NewArrivals as $NProduct)
+                                @if($NProduct == null)
+                                @else
+                                    <li>
+                                        <a href="{{route('product.single' , $NProduct->slug)}}">
+                                            <img src="{{$NProduct->Thumb}}"
+                                                alt="{{$NProduct->title}}">
+                                            <span class="slide-name">{{$NProduct->title}}</span>
+                                        </a>
+                                    </li>
+                                @endif
+                            @empty
+                            @endforelse
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mb-5">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -81,8 +105,7 @@
                                 @else
                                     <li>
                                         <a href="{{route('product.single' , $Product->slug)}}">
-                                            <img src="{{$Product->Thumb}}"
-                                                alt="{{$Product->title}}">
+                                            <img src="{{$Product->Thumb}}" alt="{{$Product->title}}">
                                             <span class="slide-name">{{$Product->title}}</span>
                                         </a>
                                     </li>

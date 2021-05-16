@@ -7,7 +7,14 @@
   \*****************************/
 /***/ (() => {
 
-//Navbar
+var getUrl = window.location;
+var baseUrl = getUrl.protocol + "//" + getUrl.host + "/";
+
+if (baseUrl.includes('localhost')) {
+  baseUrl = baseUrl + 'peppers/';
+} //Navbar
+
+
 $('.mega-menu-trigger').click(function () {
   $('.mega-menu').fadeOut(); //Apply Dark Overlay
 
@@ -21,6 +28,42 @@ $('.dark-overlay').click(function () {
   $('.mega-menu').fadeOut();
   $('body').css('overflow-y', 'scroll');
   $(this).removeClass('active');
+});
+$('#nav-search-toggler').click(function () {
+  //Clear the search form
+  $('#search-box').val('');
+  $('#navbar-search-results').html('').fadeOut(); //Show the search form
+
+  $('.navbar-search-overlay').fadeIn('fast'); //Stop the body scroll
+
+  $('body').css('overflow-y', 'hidden');
+});
+$('#close-search-form').click(function () {
+  $('.navbar-search-overlay').fadeOut('fast');
+  $('body').css('overflow-y', 'scroll');
+});
+$('#search-box').keyup(function () {
+  //Validate the request and clean bad codes
+  var SearchTerm = $('#search-box').val().replace(/[^a-zA-Z0-9\s]/gm, '');
+  $('#navbar-search-results').fadeIn();
+  $('#navbar-search-results').html('<p class="text-center text-white"><i class="fas fa-spinner fa-spin fa-5x"></i></p>');
+  $.ajax({
+    url: baseUrl + 'api/search',
+    method: 'post',
+    data: {
+      'search': SearchTerm
+    },
+    success: function success(response) {
+      $('#navbar-search-results').html('');
+      response.forEach(function (item) {
+        $('#navbar-search-results').append("\n                    <a href=\"".concat(baseUrl, "/product/").concat(item.slug, "\">\n                        <div class=\"single-search-result\">\n                            <a class=\"search-result-image\" href=\"").concat(baseUrl, "product/").concat(item.slug, "\">\n                                <img src=\"").concat(baseUrl, "storage/app/products/thumb/").concat(item.image, "\">\n                            </a>\n                            <a class=\"search-result-data\" href=\"").concat(baseUrl, "product/").concat(item.slug, "\">\n                                <p>\n                                <b>").concat(item.brand.title, "</b>\n                                <br>\n                                    ").concat(item.title, "\n                                    <br>\n                                    ").concat(item.price, "$\n                                    <br>\n                                </p>\n                            </a>\n                        </div>\n                    </a>\n                "));
+      });
+      console.log(response);
+    },
+    error: function error(data) {
+      $('#navbar-search-results').html('<p class="text-center text-white">' + data.responseText + '</p>');
+    }
+  });
 }); //Homepage Related
 
 $('#homeage-hero-slider').owlCarousel({
@@ -41,6 +84,22 @@ $('#homeage-hero-slider').owlCarousel({
   }
 });
 $('#homepage-designers-slider').owlCarousel({
+  loop: true,
+  margin: 10,
+  nav: true,
+  responsive: {
+    0: {
+      items: 1
+    },
+    600: {
+      items: 3
+    },
+    1000: {
+      items: 4
+    }
+  }
+});
+$('#homepage-new-arrivals-slider').owlCarousel({
   loop: true,
   margin: 10,
   nav: true,
@@ -99,7 +158,7 @@ $('#close-added-to-cart').click(function () {
   $('#added-to-cart-success').fadeOut('fast');
 }); //Cart system
 
-$('#add-to-cart').click(function () {
+$(document).on('click', '.add-to-cart', function () {
   var That = $(this);
   var ItemId = $(this).data('id');
   var UserId = $(this).data('user');

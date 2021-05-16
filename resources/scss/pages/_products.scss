@@ -172,10 +172,10 @@
             margin-bottom: 10px;
         }
     }
-    .add-to-cart{
-        position: absolute;
-        bottom: 0;
-    }
+    // .add-to-cart{
+    //     position: absolute;
+    //     bottom: 0;
+    // }
     .moreinfo{
         .brand-info{
             a{
@@ -196,6 +196,7 @@
         }
     }
 }
+
 @media screen and (max-width:768px){
     .product-view .product-name-main h1{
         margin-bottom: 20px;

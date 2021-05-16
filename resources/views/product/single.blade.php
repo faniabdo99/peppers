@@ -1,7 +1,6 @@
 @include('layout.header' , [
     'PageTitle' => $TheProduct->title
 ])
-
 <body>
     @include('layout.navbar')
     <div class="product-view">
@@ -80,27 +79,22 @@
                     <div class="col-md-5">
                         <div class="productCont">
                             <div class="product-name-main">
-                                <h1>{{$TheProduct->title}}</h1>
                                 <p class="font-weight-bold"><a href="{{route('products' , ['brand',$TheProduct->Brand->slug])}}">{{$TheProduct->Brand->title}}</a></p>
+                                <h1>{{$TheProduct->title}}</h1>
                                 <span class="product-code">Product SKU: <strong>{{$TheProduct->sku}}</strong></span>
                             </div>
                             <div class="product-shop">
                                 {{-- <p class="no-rating"><a href="#product_tabs_product_review">Be the first to review this product</a></p> --}}
                                 <div class="price-box mb-4">{{convertCurrency($TheProduct->price , 'USD' , getCurrency()['code']) . getCurrency()['symbole']}}</div>
-                                @auth
                                     @if($TheProduct->CartReady)
-                                        @if(isInUserCart(auth()->user()->id , $TheProduct->id))
+                                        @if(isInUserCart(getUserId() , $TheProduct->id))
                                             <a class="btn btn-brand"><i class="fas fa-check"></i> Added to Cart</a>
                                         @else  
-                                            <a class="btn btn-brand" id="add-to-cart" data-target="{{route('cart.add')}}" data-id="{{$TheProduct->id}}" data-user="{{auth()->user()->id}}" href="javascript:;"><i class="fas fa-cart-plus"></i> Add to cart</a>
+                                            <a class="btn btn-brand add-to-cart" data-target="{{route('cart.add')}}" data-id="{{$TheProduct->id}}" data-user="{{getUserId()}}" href="javascript:;"><i class="fas fa-cart-plus"></i> Add to cart</a>
                                         @endif
                                     @else
-                                        <p class="text-danger">{{$TheProduct->status}}</p>
+                                        <a class="btn btn-brand" href="{{route('contact.get')}}"><i class="fas fa-cart-plus"></i> Pre Order</a>
                                     @endif
-                                @endauth
-                                @guest
-                                <p>Please <a href="{{route('user.getLogin')}}">Login</a> to add this product to your cart</p>
-                                @endguest
                             </div>
                         </div>
                         <div class="product-collateral">

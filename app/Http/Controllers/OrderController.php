@@ -11,7 +11,7 @@ use Mail;
 use App\Mail\OrderPlaceMail;
 class OrderController extends Controller{
     public function getCheckout(){
-        if(userCartCount(auth()->user()->id) > 0){
+        if(userCartCount(getUserId()) > 0){
             return view('orders.checkout');
         }else{
             return redirect()->route('home')->withErrors("You don't have anything in your cart!");
@@ -36,7 +36,7 @@ class OrderController extends Controller{
             //Check the payment method value
             $ViablePaymentMethods = ['cod','credit-card'];
             if(in_array($r->payment_method, $ViablePaymentMethods)){
-                $CartItems = Cart::where('user_id', auth()->user()->id)->where('status', 'active')->get();
+                $CartItems = Cart::where('user_id', getUserId())->where('status', 'active')->get();
                 $CartArray = $CartItems->map(function ($item) {
                     return $item->Product->price;
                 })->toArray();
@@ -50,12 +50,12 @@ class OrderController extends Controller{
                 }else{
                     $OrderData['total_shipping_cost'] = 80;
                 }
-                $OrderData['user_id'] = auth()->user()->id;
+                $OrderData['user_id'] = getUserId();
                 $OrderData['tracking_number'] = mt_rand(10000000, 99999999);
                 $OrderData['total_amount'] = $CartTotal;
                 $TheOrder = Order::create($OrderData);
                 //Create order-products record
-                $CartItems = Cart::where('user_id', auth()->user()->id)->where('status', 'active')->get();
+                $CartItems = Cart::where('user_id', getUserId())->where('status', 'active')->get();
                 $CartItems->map(function($item) use ($TheOrder){
                     OrderProduct::create([
                     'order_id' => $TheOrder->id,
@@ -144,9 +144,7 @@ class OrderController extends Controller{
                 return back()->withErrors('Payment method not available')->withInput();
             }
         }
-
     }
-  
     public function getOrderComplete($id){
         $TheOrder = Order::findOrFail($id);
         return view('orders.complete', compact('TheOrder'));

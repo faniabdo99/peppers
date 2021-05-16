@@ -129,7 +129,6 @@
                                     </a>
                                 </li>
                                 @empty
-                                    
                                 @endforelse
                             </ul>
                         </li>
@@ -176,13 +175,22 @@
                 </div>
             </li>
             <li class="nav-item"><a class="nav-link" href="{{route('products' , 'new')}}">WHAT'S NEW</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{route('sell.personalShopper')}}">PERSONAL SHOPPER</a></li>
             <li class="nav-item"><a class="nav-link btn btn-brand" href="{{route('sell.howToSellWithUs')}}">SELL WITH US</a></li>
-            @auth
-                <li class="nav-item"><a class="nav-link" href="{{route('cart.get')}}"><i class="fas fa-shopping-cart"></i> {{userCartCount(auth()->user()->id)}}</a></li>
-            @endauth
+            <li class="nav-item"><a class="nav-link" href="javascript:;" id="nav-search-toggler"><i class="fas fa-search"></i></a></li>
+            <li class="nav-item"><a class="nav-link" href="{{route('cart.get')}}"><i class="fas fa-shopping-cart"></i> {{userCartCount(getUserId())}}</a></li>
         </ul>
     </div>
 </nav>
+<div class="navbar-search-overlay">
+    <a href="javascript:;" id="close-search-form"><i class="fas fa-times"></i></a>
+    <div class="search-form-group">
+        <div class="d-flex mb-5">
+            <input type="text" id="search-box" name="search" placeholder="What are you looking for?" required>
+        </div>
+        <div id="navbar-search-results"></div>
+    </div>
+</div>
 @guest
 <section class="afterNav">
     <div class="container">

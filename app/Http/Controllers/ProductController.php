@@ -21,31 +21,37 @@ class ProductController extends Controller{
             $AllProducts = Product::where('status','!=','Hidden')->where('discount_id' , '!=' , null)->get();
             return view('product.sale', compact('AllProducts'));
         }else{
-            if(count($r->all()) > 0){
+            if(count($r->all()) > 0 && !$r->has('page')){
+
                 if($r->has('color') && $r->color != ''){
                     $Color = ['color' , $r->color];
-                }else{$Color=['color' , '!=' ,''];}
-                if($r->has('size') && $r->color != ''){
+                }else{$Color=['color' , '!=' ,'Test'];}
+
+                if($r->has('size') && $r->size != ''){
                     $Size = ['size' , $r->size];
-                }else{$Size=['size' , '!=' ,''];}
+                }else{$Size=['size' , '!=' ,'Test'];}
+
                 if($r->has('condition') && $r->condition != ''){
                     $Condition = ['condition' , $r->condition];
-                }else{$Condition=['condition' , '!=' ,''];}
+                }else{$Condition=['condition' , '!=' ,'Test'];}
+
                 if($r->has('price_from') && $r->price_from != ''){
-                    $PriceFrom = ['price' , '>' , $r->price_from];
-                }else{$PriceFrom=['price' , '>' ,0];}
+                    $PriceFrom = ['price' , '>=' , intval($r->price_from)];
+                }else{$PriceFrom=['price' , '>=' ,0];}
+
                 if($r->has('price_to') && $r->price_to != ''){
-                    $PriceTo = ['price' , '>' , $r->price_to];
-                }else{$PriceTo=['price' , '<' ,9999999999999];}
+                    $PriceTo = ['price' , '<=' , intval($r->price_to)];
+                }else{$PriceTo=['price' , '<=' ,9999999999999];}
                 //There is a filter
                 if(!$filter_type){
-                    $AllProducts = Product::where('status','!=','Hidden')->where([$Color,$Size,$Condition,$PriceFrom,$PriceTo])->latest()->get();
+                    $AllProducts = Product::where('status','!=','hidden')->where([$Color,$Size,$Condition,$PriceFrom,$PriceTo])->latest();
                     $TheFilter = null;
                 }else{
                     if($filter_type == 'brand'){
                         $TheFilter = Brand::where('slug' , $filter_value)->first();
                         if($TheFilter){
-                            $AllProducts = Product::where('status','!=','Hidden')->where([$Color,$Size,$Condition,$PriceFrom,$PriceTo])->where('brand_id',$TheFilter->id)->latest()->get();
+                            $Brand = ['brand_id','=',$TheFilter->id];
+                            $AllProducts = Product::where('status','!=','hidden')->where([$Color,$Size,$Condition,$PriceFrom,$PriceTo,$Brand])->latest();
                         }else{
                             $AllProducts = [];
                         }
@@ -53,22 +59,22 @@ class ProductController extends Controller{
                     if($filter_type == 'category'){
                         $TheFilter = Category::where('slug' , $filter_value)->first();
                         if($TheFilter){
-                            $AllProducts = Product::where('status','!=','Hidden')->where([$Color,$Size,$Condition,$PriceFrom,$PriceTo])->where('category_id',$TheFilter->id)->latest()->get();
+                            $AllProducts = Product::where('status','!=','hidden')->where([$Color,$Size,$Condition,$PriceFrom,$PriceTo])->where('category_id',$TheFilter->id)->latest();
                         }else{
                             $AllProducts = [];
                         }
                     }
-            }
+                }
             }else{
                 //No Filter
                 if(!$filter_type){
-                    $AllProducts = Product::where('status','!=','Hidden')->latest()->get();
+                    $AllProducts = Product::where('status','!=','hidden')->latest();
                     $TheFilter = null;
                 }else{
                     if($filter_type == 'brand'){
                         $TheFilter = Brand::where('slug' , $filter_value)->first();
                         if($TheFilter){
-                            $AllProducts = Product::where('status','!=','Hidden')->where('brand_id',$TheFilter->id)->get();
+                            $AllProducts = Product::where('status','!=','hidden')->where('brand_id',$TheFilter->id);
                         }else{
                             $AllProducts = [];
                         }
@@ -76,15 +82,16 @@ class ProductController extends Controller{
                     if($filter_type == 'category'){
                         $TheFilter = Category::where('slug' , $filter_value)->first();
                         if($TheFilter){
-                            $AllProducts = Product::where('status','!=','Hidden')->where('category_id',$TheFilter->id)->latest()->get();
+                            $AllProducts = Product::where('status','!=','hidden')->where('category_id',$TheFilter->id)->latest();
                         }else{
                             $AllProducts = [];
                         }
                     }
                 }
             }
-            $AllColors = Product::where('status','!=','Hidden')->pluck('color')->unique();
-            $AllSizes = Product::where('status','!=','Hidden')->pluck('size')->unique();
+            $AllColors = Product::where('status','!=','hidden')->pluck('color')->unique();
+            $AllSizes = Product::where('status','!=','hidden')->pluck('size')->unique();
+            $AllProducts = $AllProducts->get();
             return view('product.all', compact('AllProducts' , 'TheFilter' , 'AllColors' , 'AllSizes' , 'r'));
         }
     }
@@ -176,5 +183,26 @@ class ProductController extends Controller{
             }
             return back()->withSuccess('Product has been added.');
         }
+    }
+    public function getSearch(Request $r){
+        //Validate the request
+        $Rules = [
+            'search' => 'required'
+        ];
+        if(empty($r->search) || $r->search == null){
+            return response('The data you entered can not be processed' ,422);
+        }else{
+            $AllProducts = Product::with('Brand')->where('title' , 'LIKE' , '%'.$r->search.'%')->where('status' , '!=' , 'hidden')->get()->toArray();
+            if(count($AllProducts) > 0 ){
+                return response($AllProducts , 200);
+            }else{
+                return response('There is no products matchs your search' , 404);
+            }
+        }
+    }
+
+    public function getTest(){
+        $AllProducts = Product::orderBy('sku')->get();
+        return view('test' , compact('AllProducts'));
     }
 }

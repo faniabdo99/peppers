@@ -6,7 +6,7 @@ use App\Models\Product;
 use App\Models\Cart;
 class CartController extends Controller{
     public function getAll(){
-        $Cart = Cart::where('user_id' , auth()->user()->id)->where('status' , 'active')->get();
+        $Cart = Cart::where('user_id' , getUserId())->where('status' , 'active')->get();
         $CartSubTotalArray = $Cart->map(function($item) {
             return $item->Product->price;
         });
