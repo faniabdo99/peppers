@@ -204,5 +204,12 @@ class ProductController extends Controller{
     public function getTest(){
         $AllProducts = Product::orderBy('sku')->get();
         return view('test' , compact('AllProducts'));
-    }
+    
+}
+
+    public function getListPage(){
+        $productList = Product::latest()->get();
+        return view('product.list' , compact('productList'));
+}
+
 }
