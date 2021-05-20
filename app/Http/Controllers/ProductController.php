@@ -210,6 +210,6 @@ class ProductController extends Controller{
     public function getListPage(){
         $productList = Product::latest()->get();
         return view('product.list' , compact('productList'));
-}
+    }
 
 }

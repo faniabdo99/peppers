@@ -7,7 +7,6 @@
     <table class="table table-bordered table-striped" id="myTable">
         <thead class="thead-dark">
         <tr>
-            <th scope="col">ID</th>
             <th scope="col">Sku</th>
             <th scope="col">Brand</th>
             <th scope="col">Title</th>
@@ -22,13 +21,9 @@
             <th scope="col">Depth</th>
         </tr>
         </thead>
-        @php
-          $i = 0;  
-        @endphp
         <tbody>
             @foreach ($productList as $i => $item)
             <tr>
-                <th scope="row">{{$i}}</th>
                 <td>{{$item->sku}}</td>
                 <td>{{$item->Brand->title}}</td>
                 <td> <a href="{{route('product.single',$item->slug)}}" target="_blank">{{$item->title}}</a></td>
