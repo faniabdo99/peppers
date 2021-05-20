@@ -53,7 +53,7 @@ $('#search-box').keyup(function(){
                             </a>
                             <a class="search-result-data" href="${baseUrl}product/${item.slug}">
                                 <p>
-                                <b>${item.brand.title}</b>
+                                <b>${item.brand.title} - ${item.sku}</b>
                                 <br>
                                     ${item.title}
                                     <br>
