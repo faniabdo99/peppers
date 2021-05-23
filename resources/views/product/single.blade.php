@@ -63,6 +63,11 @@
                                             <i class="fab fa-twitter"></i>
                                         </a>
                                     </div>
+                                    <div class="social_shopping1">
+                                        <a href="https://api.whatsapp.com/send?text=Check%20this%20from%20Peppers%20Closet%20{{url()->current()}}" class="link-whatsapp faceognal" target="_blank">
+                                            <i class="fab fa-whatsapp"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                             <div class="easy_ways">
@@ -93,7 +98,7 @@
                                             <a class="btn btn-brand add-to-cart" data-target="{{route('cart.add')}}" data-id="{{$TheProduct->id}}" data-user="{{getUserId()}}" href="javascript:;"><i class="fas fa-cart-plus"></i> Add to cart</a>
                                         @endif
                                     @else
-                                        <a class="btn btn-brand" href="{{route('contact.get')}}"><i class="fas fa-cart-plus"></i> Pre Order</a>
+                                    <a class="btn btn-brand pre-oreder-modal-toggler" href="javascript:;" data-target="pre-oreder-modal" data-title="{{$TheProduct->title}}" data-sku="{{$TheProduct->sku}}"><i class="fas fa-cart-plus"></i> Pre Order</a>
                                     @endif
                             </div>
                         </div>

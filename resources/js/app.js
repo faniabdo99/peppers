@@ -72,6 +72,10 @@ $('#search-box').keyup(function(){
         }
     });
 });
+$('.pre-oreder-modal-toggler').click(function(){
+    //Show the modal
+    $('.pre-order-modal').fadeIn();
+});
 //Homepage Related
 $('#homeage-hero-slider').owlCarousel({
     loop:true,

@@ -24,7 +24,7 @@ class Product extends Model{
         return $this->belongsTo(Category::class , 'category_id');
     }
     public function getCartReadyAttribute(){
-        if($this->in_stock == 1 && $this->qty > 0 && $this->status == 'Available'){
+        if($this->qty > 0 && $this->status == 'Available'){
             return true;
         }else{
             return false;

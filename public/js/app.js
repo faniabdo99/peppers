@@ -64,6 +64,10 @@ $('#search-box').keyup(function () {
       $('#navbar-search-results').html('<p class="text-center text-white">' + data.responseText + '</p>');
     }
   });
+});
+$('.pre-oreder-modal-toggler').click(function () {
+  //Show the modal
+  $('.pre-order-modal').fadeIn();
 }); //Homepage Related
 
 $('#homeage-hero-slider').owlCarousel({

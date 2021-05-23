@@ -1,0 +1,27 @@
+.pre-order-modal{
+    display: none;
+    overflow-y: scroll;
+    position: fixed;
+    height: auto;
+    max-height: 800px;
+    width: 60%;
+    z-index: 99999;
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    top: 5%;
+    right: 20%;
+    left: 20%;
+    border-radius: 4px;
+    padding: 40px 60px; 
+    h5{
+        font-weight: bold;
+        color: $black;
+        span{
+            color: $brand;
+        }
+    }
+    p{
+        font-size: 0.9em;
+        color: $grey;
+    }
+}

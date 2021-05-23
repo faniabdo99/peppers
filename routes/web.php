@@ -66,8 +66,5 @@ Route::get('how-to-sell','SellController@getSellWithUs')->name('sell.howToSellWi
 Route::post('how-to-sell','SellController@postSellWithUs')->name('sell.postHowToSellWithUs');
 Route::get('personal-shopper','SellController@getPersonalShopper')->name('sell.personalShopper');
 Route::post('personal-shopper','SellController@postPersonalShopper')->name('sell.postPersonalShopper');
-Route::get('test' , 'ProductController@getTest');
-
-
 //List Page 
 Route::get('list', 'ProductController@getListPage')->name('product.list');

@@ -57,3 +57,17 @@
         </div>
     </div>
 </div>
+<div class="pre-order-modal">
+    <h5>Pre Order <span>Item Title</span></h5>
+    <p>Pre ordering an item may take 10-15 days, we require 60% down payment to start the process</p>
+    <form action="#" id="pre-order-form">
+        <label for="item_title">Item title</label>
+        <input class="form-control mb-3" type="text" placeholder="Enter item title here" required>
+        <label for="item_title">Your title</label>
+        <input class="form-control mb-3" type="text" placeholder="Enter item title here" required>
+        <label for="item_title">Message</label>
+        <textarea class="form-control mb-3" name="" id="" rows="4" placeholder="Additional Information"></textarea>
+        <button type="submit" class="btn btn-brand mb-3">Submit</button>
+        <p>By clicking submit, you agree to our <a href="{{route('static.privacy')}}" target="_blank">Privacy Policy</a></p>
+    </form>
+</div>
