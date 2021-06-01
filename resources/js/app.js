@@ -15,21 +15,31 @@ $('.mega-menu-trigger').click(function(){
 });
 $('.dark-overlay').click(function(){
     $('.mega-menu').fadeOut();
+    $('.pre-order-modal').fadeOut();
     $('body').css('overflow-y' , 'scroll');
     $(this).removeClass('active');
 });
-$('#nav-search-toggler').click(function(){
+$('#nav-search-toggler').on('click',function(){
     //Clear the search form
     $('#search-box').val('');
+    $('[autofocus]').focus();
     $('#navbar-search-results').html('').fadeOut();
     //Show the search form
     $('.navbar-search-overlay').fadeIn('fast');
     //Stop the body scroll
     $('body').css('overflow-y' , 'hidden');
 });
+//Hide the search box based on a icon click
 $('#close-search-form').click(function(){
     $('.navbar-search-overlay').fadeOut('fast');
     $('body').css('overflow-y' , 'scroll');
+});
+//Hide the search box when clicking escape button
+$(document).keyup(function(e) {
+    if (e.key === "Escape") { // escape key maps to keycode `27`
+        $('.navbar-search-overlay').fadeOut('fast');
+        $('body').css('overflow-y' , 'scroll');
+   }
 });
 $('#search-box').keyup(function(){
     //Validate the request and clean bad codes
@@ -73,8 +83,25 @@ $('#search-box').keyup(function(){
     });
 });
 $('.pre-oreder-modal-toggler').click(function(){
+    $('.dark-overlay').addClass('active');
+    $('body').css('overflow-y' , 'hidden');
+    //Inject the data
+    $('#pre-order-item-title').html($(this).data('title'));
+    $('#pre-order-item-input').val($(this).data('link'));
+    $('#pre-order-message').val(`Hello, I am intersted in this item: ${$(this).data('link')} Please give me a qoute and exptected arrival time.`);
     //Show the modal
     $('.pre-order-modal').fadeIn();
+});
+$('#submit-pre-order-form').click(function(e){
+    //Prevent Page Reload
+    e.preventDefault();
+    var NameValue = $('#pre-order-form').find('input[name="name"]').val();
+    var ItemValue = $('#pre-order-form').find('input[name="item"]').val();
+    var MessageValue = $('#pre-order-form').find('textarea').val();
+    //Generate Whatsapp Link
+    //Send to Zayed Branch WhatsApp
+    var WhatsappLink = "https://wa.me/00201155436626?text="+NameValue+"%20| %20%20 |%20"+ItemValue+"%20| %20%20 |%20"+MessageValue;
+    window.open(WhatsappLink);   
 });
 //Homepage Related
 $('#homeage-hero-slider').owlCarousel({
