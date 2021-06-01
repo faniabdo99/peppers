@@ -1,5 +1,5 @@
 <style>
-    td ,tr , th{ 
+    td ,tr , th{
         border: 1px solid #ccc;
         padding: 5px;
     }
@@ -8,6 +8,7 @@
     <thead>
         <th>ID</th>
         <th>Title</th>
+
         <th>Slug</th>
         <th>Status</th>
         <th>Image Link</th>
@@ -33,6 +34,7 @@
             <tr>
                 <td>{{$Product->id}}</td>
                 <td>{{$Product->title}}</td>
+
                 <td>{{$Product->slug}}</td>
                 <td>{{$Product->status}}</td>
                 <td>{{url('storage/app/products/thumb/'.$Product->image)}}</td>
