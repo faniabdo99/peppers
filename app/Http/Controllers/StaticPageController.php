@@ -46,6 +46,6 @@ class StaticPageController extends Controller{
     }
     public function getImportProducts(){
         Excel::import(new ProductsImport, 'products.xlsx');   
-        dd('categories imported');
+        dd('products imported');
     }
 }

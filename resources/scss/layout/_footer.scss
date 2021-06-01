@@ -24,4 +24,18 @@
         font-size: 0.9em;
         color: $grey;
     }
+    label{
+        font-weight: bold;
+    }
+}
+@media screen and (max-width:768px){
+    .pre-order-modal{
+        max-height: 600px;
+        width: 90%;
+        top: 5%;
+        right: 5%;
+        left: 5%;
+        padding: 25px 40px; 
+        p{font-size: 0.8em;}
+    }   
 }

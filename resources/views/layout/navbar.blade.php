@@ -186,7 +186,7 @@
     <a href="javascript:;" id="close-search-form"><i class="fas fa-times"></i></a>
     <div class="search-form-group">
         <div class="d-flex mb-5">
-            <input type="text" id="search-box" name="search" placeholder="What are you looking for?" required>
+            <input type="text" id="search-box" name="search" placeholder="What are you looking for?" autofocus required>
         </div>
         <div id="navbar-search-results"></div>
     </div>
