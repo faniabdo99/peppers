@@ -106,8 +106,8 @@ class ProductController extends Controller{
             return view('product.all', compact('AllProducts' , 'TheFilter' , 'AllColors' , 'AllSizes' , 'r'));
         }
     }
-    public function getSingle($slug){
-        $TheProduct = Product::where('status','!=','Hidden')->where('slug' , $slug)->first();
+    public function getSingle($slug , $id){
+        $TheProduct = Product::where('status','!=','Hidden')->where('id' , $id)->first();
         if(!$TheProduct){abort(404);}
         return view('product.single' , compact('TheProduct'));
     }
@@ -215,12 +215,20 @@ class ProductController extends Controller{
     public function getTest(){
         $AllProducts = Product::orderBy('sku')->get();
         return view('test' , compact('AllProducts'));
-    
+
 }
 
     public function getListPage(){
+        $AllCategories = Category::all();
         $productList = Product::latest()->get();
-        return view('product.list' , compact('productList'));
+        return view('product.list' , compact('productList' , 'AllCategories'));
     }
-
+    public function postUpdateCategory(Request $r){
+        //Update the product
+        $TheProduct = Product::find($r->product_id);
+        $TheProduct->update([
+            'category_id' => $r->category_id
+        ]);
+        return response("Category Updated" , 200);
+    }
 }

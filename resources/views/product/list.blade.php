@@ -29,8 +29,16 @@
                 <td>{{$item->id}}</td>
                 <td>{{$item->sku}}</td>
                 <td>{{$item->Brand->title}}</td>
-                <td>{{$item->Category->title ?? 'not avilable'}}</td>
-                <td> <a href="{{route('product.single',$item->slug)}}" target="_blank">{{$item->title}}</a></td>
+                <td>
+                    <select class="category_select" data-id="{{$item->id}}" data-action="{{route('admin.product.updateCategory')}}">
+                        @forelse($AllCategories as $Category)
+                            <option value="{{$Category->id}}" @if($item->category_id == $Category->id) selected @endif>{{$Category->title}}</option>
+                        @empty
+                            <option value="1">No Categories in System</option>
+                        @endforelse
+                    </select>
+                </td>
+                <td> <a href="{{route('product.single',[$item->slug , $item->id])}}" target="_blank">{{$item->title}}</a></td>
                 <td>{{$item->status}}</td>
                 <td><img src="{{$item->Thumb}}" alt="Product Image" height="150" width="150"> </td>
                 <td>{{$item->description}}</td>
@@ -63,6 +71,26 @@
                     'copy', 'csv', 'excel', 'pdf', 'print'
                 ]
             });
+        });
+        //Ajax Request to update the category
+        $('.category_select').change(function(){
+            var ProductId = $(this).data('id');
+            var CategoryId = $(this).val();
+            var ActionRoute = $(this).data('action');
+            $.ajax({
+                method: 'post',
+                url: ActionRoute,
+                data: {
+                    'product_id': ProductId,
+                    'category_id': CategoryId
+                },
+                success: function(response){
+                    alert(response);
+                },
+                error: function(response){
+                    alert(response);
+                }
+            })
         });
     </script>
 </body>

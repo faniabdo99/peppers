@@ -92,15 +92,15 @@
                                 {{-- <p class="no-rating"><a href="#product_tabs_product_review">Be the first to review this product</a></p> --}}
                                 @if($TheProduct->qty)
                                     <div class="price-box mb-4">{{convertCurrency($TheProduct->price , 'USD' , getCurrency()['code']) . getCurrency()['symbole']}}</div>
-                                @endif    
+                                @endif
                                 @if($TheProduct->CartReady)
                                     @if(isInUserCart(getUserId() , $TheProduct->id))
                                         <a class="btn btn-brand"><i class="fas fa-check"></i> Added to Cart</a>
-                                    @else  
+                                    @else
                                         <a class="btn btn-brand add-to-cart" data-target="{{route('cart.add')}}" data-id="{{$TheProduct->id}}" data-user="{{getUserId()}}" href="javascript:;"><i class="fas fa-cart-plus"></i> Add to cart</a>
                                     @endif
                                 @else
-                                    <a class="btn btn-brand pre-oreder-modal-toggler" href="javascript:;" data-target="pre-oreder-modal" data-title="{{$TheProduct->title}}" data-link="{{route('product.single' , $TheProduct->slug)}}"><i class="fas fa-cart-plus"></i> Pre Order</a>
+                                    <a class="btn btn-brand pre-oreder-modal-toggler" href="javascript:;" data-target="pre-oreder-modal" data-title="{{$TheProduct->title}}" data-link="{{route('product.single' , [$TheProduct->slug , $TheProduct->id])}}"><i class="fas fa-cart-plus"></i> Pre Order</a>
                                 @endif
                             </div>
                         </div>

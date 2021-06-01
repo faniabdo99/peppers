@@ -20,7 +20,7 @@ Route::get('contact' , 'ContactController@getContact')->name('contact.get');
 Route::post('contact' , 'ContactController@postContact')->name('contact.post');
 //Landing Page Stuff
 Route::get('products/{filter_type?}/{filter_value?}' , 'ProductController@getAll')->name('products');
-Route::get('product/{slug}' , 'ProductController@getSingle')->name('product.single');
+Route::get('product/{slug}/{id}' , 'ProductController@getSingle')->name('product.single');
 //Orders System
 Route::get('cart' , 'CartController@getAll')->name('cart.get');
 Route::get('delete/{id}' , 'CartController@delete')->name('cart.delete');
@@ -66,5 +66,5 @@ Route::get('how-to-sell','SellController@getSellWithUs')->name('sell.howToSellWi
 Route::post('how-to-sell','SellController@postSellWithUs')->name('sell.postHowToSellWithUs');
 Route::get('personal-shopper','SellController@getPersonalShopper')->name('sell.personalShopper');
 Route::post('personal-shopper','SellController@postPersonalShopper')->name('sell.postPersonalShopper');
-//List Page 
+//List Page
 Route::get('list', 'ProductController@getListPage')->name('product.list');

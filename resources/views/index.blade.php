@@ -80,7 +80,7 @@
                                 @if($NProduct == null)
                                 @else
                                     <li>
-                                        <a href="{{route('product.single' , $NProduct->slug)}}">
+                                        <a href="{{route('product.single' , [$NProduct->slug,$NProduct->id])}}">
                                             <img src="{{$NProduct->Thumb}}"
                                                 alt="{{$NProduct->title}}">
                                             <span class="slide-name">{{$NProduct->title}}</span>
@@ -104,7 +104,7 @@
                                 @if($Product == null)
                                 @else
                                     <li>
-                                        <a href="{{route('product.single' , $Product->slug)}}">
+                                        <a href="{{route('product.single' , [$Product->slug , $Product->id])}}">
                                             <img src="{{$Product->Thumb}}" alt="{{$Product->title}}">
                                             <span class="slide-name">{{$Product->title}}</span>
                                         </a>
