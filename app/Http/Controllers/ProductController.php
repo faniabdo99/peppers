@@ -219,16 +219,15 @@ class ProductController extends Controller{
 }
 
     public function getListPage(){
-        $AllCategories = Category::all();
-        $productList = Product::latest()->get();
-        return view('product.list' , compact('productList' , 'AllCategories'));
+        $productList = Product::orderBy('id' , 'asc')->get();
+        return view('product.list' , compact('productList'));
     }
-    public function postUpdateCategory(Request $r){
-        //Update the product
-        $TheProduct = Product::find($r->product_id);
-        $TheProduct->update([
-            'category_id' => $r->category_id
-        ]);
-        return response("Category Updated" , 200);
-    }
+    // public function postUpdateCategory(Request $r){
+    //     //Update the product
+    //     $TheProduct = Product::find($r->product_id);
+    //     $TheProduct->update([
+    //         'category_id' => $r->category_id
+    //     ]);
+    //     return response("Category Updated" , 200);
+    // }
 }

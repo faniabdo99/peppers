@@ -208,4 +208,8 @@ class UserController extends Controller{
             return redirect()->route('home')->withSuccess('You are already logged out');
         }
     }
-}
+
+    }
+
+
+

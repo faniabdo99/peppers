@@ -89,7 +89,7 @@
                                         @forelse (getCategories() as $Category)
                                             <option @if(old('category') == $Category->title ) selected @endif value="{{$Category->title}}">{{$Category->title}}</option>
                                         @empty
-                                            
+
                                         @endforelse
                                     </select>
                                 </div>
@@ -101,7 +101,7 @@
                                         @forelse (getAllBrands() as $Brand)
                                             <option @if(old('brand') == $Brand->title ) selected @endif value="{{$Brand->title}}">{{$Brand->title}}</option>
                                         @empty
-                                            
+
                                         @endforelse
                                     </select>
                                 </div>
@@ -111,7 +111,7 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label class="" for="images">Choose file(s)</label>
-                                    <input type="file" class="form-control" name="images[]" id="images" multiple required>
+                                    <input type="file" class="form-control p-1" name="images[]" id="images" multiple required>
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">Enter Your Phone Number</label>

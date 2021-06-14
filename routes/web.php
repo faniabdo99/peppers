@@ -56,6 +56,27 @@ Route::group(['prefix' => 'admin' , 'middleware' => 'admin'], function(){
         Route::get('new' , 'ProductController@getNew')->name('admin.products.getNew');
         Route::post('new' , 'ProductController@postNew')->name('admin.products.postNew');
     });
+    Route::prefix('blog')->group(function(){
+        Route::get('/' , 'BlogController@getBlog')->name('admin.blog.index');
+    });
+    // Route::prefix('user')->group(function(){
+    //     Route::get('/' , 'UserController@getUser')->name('admin.user.user');
+    // });
+    // Route::prefix('categories')->group(function(){
+    //     Route::get('/' , 'AdminController@getCategories')->name('admin.categories.index');
+    // });
+    Route::prefix('discount')->group(function(){
+        Route::get('/' , 'DiscountController@getDiscount')->name('admin.discount.index');
+        Route::get('create' , 'DiscountController@getCreateDiscount')->name('admin.discount.create');
+        Route::get('edit' , 'DiscountController@getEditDiscount')->name('admin.discount.edit');
+    });
+    // Route::prefix('newsletter')->group(function(){
+    //     Route::get('/' , 'AdminController@getNewsletter')->name('admin.newsletter.index');
+    // });
+    // Route::prefix('orders')->group(function(){
+    //     Route::get('/' , 'AdminController@getOrders')->name('admin.orders.index');
+    // });
+
 });
 Route::get('import-brands' , 'StaticPageController@getImportBrands');
 Route::get('import-categories' , 'StaticPageController@getImportCategories');
@@ -68,3 +89,5 @@ Route::get('personal-shopper','SellController@getPersonalShopper')->name('sell.p
 Route::post('personal-shopper','SellController@postPersonalShopper')->name('sell.postPersonalShopper');
 //List Page
 Route::get('list', 'ProductController@getListPage')->name('product.list');
+
+
