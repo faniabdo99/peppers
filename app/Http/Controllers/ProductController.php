@@ -62,13 +62,25 @@ class ProductController extends Controller{
                     }
                     if($filter_type == 'category'){
                         $TheFilter = Category::where('slug' , $filter_value)->first();
-                        if($TheFilter){
-                            $AvailableProducts = Product::where('status','!=','hidden')->where('qty' , 1)->inRandomOrder()->where([$Color,$Size,$Condition,$PriceFrom,$PriceTo])->where('category_id',$TheFilter->id)->get();
-                            $SoldProducts = Product::where('status','!=','hidden')->where('qty' , 0)->inRandomOrder()->where([$Color,$Size,$Condition,$PriceFrom,$PriceTo])->where('category_id',$TheFilter->id)->get();
-                            $AllProducts = $AvailableProducts->toBase()->merge($SoldProducts);
+                        $CategoryChildren = $TheFilter->Children->pluck('id')->toArray();
+                        if($TheFilter->type == 'main'){
+                            if($TheFilter){
+                                $AvailableProducts = Product::where('status','!=','hidden')->where('qty' , 1)->inRandomOrder()->where([$Color,$Size,$Condition,$PriceFrom,$PriceTo])->whereIn('category_id',$CategoryChildren)->get();
+                                $SoldProducts = Product::where('status','!=','hidden')->where('qty' , 0)->inRandomOrder()->where([$Color,$Size,$Condition,$PriceFrom,$PriceTo])->whereIn('category_id',$CategoryChildren)->get();
+                                $AllProducts = $AvailableProducts->toBase()->merge($SoldProducts);
+                            }else{
+                                $AllProducts = [];
+                            }
                         }else{
-                            $AllProducts = [];
+                            if($TheFilter){
+                                $AvailableProducts = Product::where('status','!=','hidden')->where('qty' , 1)->inRandomOrder()->where([$Color,$Size,$Condition,$PriceFrom,$PriceTo])->where('category_id',$TheFilter->id)->get();
+                                $SoldProducts = Product::where('status','!=','hidden')->where('qty' , 0)->inRandomOrder()->where([$Color,$Size,$Condition,$PriceFrom,$PriceTo])->where('category_id',$TheFilter->id)->get();
+                                $AllProducts = $AvailableProducts->toBase()->merge($SoldProducts);
+                            }else{
+                                $AllProducts = [];
+                            }
                         }
+
                     }
                 }
             }else{
@@ -91,13 +103,25 @@ class ProductController extends Controller{
                     }
                     if($filter_type == 'category'){
                         $TheFilter = Category::where('slug' , $filter_value)->first();
-                        if($TheFilter){
-                            $AvailableProducts = Product::where('status','!=','hidden')->where('qty' , 1)->where('category_id',$TheFilter->id)->inRandomOrder()->get();
-                            $SoldProducts = Product::where('status','!=','hidden')->where('qty' , 0)->where('category_id',$TheFilter->id)->inRandomOrder()->get();
-                            $AllProducts = $AvailableProducts->toBase()->merge($SoldProducts);
+                        if($TheFilter->type == 'main'){
+                            $CategoryChildren = $TheFilter->Children->pluck('id')->toArray();
+                            if($TheFilter){
+                                $AvailableProducts = Product::where('status','!=','hidden')->where('qty' , 1)->whereIn('category_id',$CategoryChildren)->inRandomOrder()->get();
+                                $SoldProducts = Product::where('status','!=','hidden')->where('qty' , 0)->whereIn('category_id',$CategoryChildren)->inRandomOrder()->get();
+                                $AllProducts = $AvailableProducts->toBase()->merge($SoldProducts);
+                            }else{
+                                $AllProducts = [];
+                            }
                         }else{
-                            $AllProducts = [];
+                            if($TheFilter){
+                                $AvailableProducts = Product::where('status','!=','hidden')->where('qty' , 1)->where('category_id',$TheFilter->id)->inRandomOrder()->get();
+                                $SoldProducts = Product::where('status','!=','hidden')->where('qty' , 0)->where('category_id',$TheFilter->id)->inRandomOrder()->get();
+                                $AllProducts = $AvailableProducts->toBase()->merge($SoldProducts);
+                            }else{
+                                $AllProducts = [];
+                            }
                         }
+
                     }
                 }
             }
@@ -203,7 +227,9 @@ class ProductController extends Controller{
         if(empty($r->search) || $r->search == null){
             return response('The data you entered can not be processed' ,422);
         }else{
-            $AllProducts = Product::with('Brand')->where('title' , 'LIKE' , '%'.$r->search.'%')->OrWhere('sku' , 'LIKE' , '%'.$r->search.'%')->where('status' , '!=' , 'hidden')->get()->toArray();
+            $AllProducts = Product::with('Brand')->where('status' , '!=' , 'hidden')->where('title' , 'LIKE' , '%'.$r->search.'%')->OrWhere('sku' , 'LIKE' , '%'.$r->search.'%')->OrWhereHas('Brand' , function($Brand) use ($r){
+                $Brand->where('title' , 'LIKE' , '%'.$r->search.'%');
+            })->where('status' , '!=' , 'hidden')->get()->toArray();
             if(count($AllProducts) > 0 ){
                 return response($AllProducts , 200);
             }else{

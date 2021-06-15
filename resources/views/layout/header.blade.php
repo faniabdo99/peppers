@@ -9,8 +9,8 @@
     <meta name="description" content="{{$PageDescription ?? "Pepper's is Egypt's first and only consignment store for Authentic luxury brands! Egypt's First Consignment Boutique bringing you premium designer brands up to 70% off retail price"}}" />
     <meta name="keywords" content="pre-owned, designer, closet, sell, buy, brands, consignment, authentic, store, premium, closet, boutique" />
     <meta name="robots" content="INDEX,FOLLOW" />
-    <meta name="currency" content="{{getCurrency()['code']}}">
-    <meta name="exchange" content="{{convertCurrency(1,'USD','EGP')}}">
+    {{-- <meta name="currency" content="{{getCurrency()['code']}}"> --}}
+    {{-- <meta name="exchange" content="{{convertCurrency(1,'USD','EGP')}}"> --}}
     <link rel="shortcut icon" href="{{url('public/icons/favicon.png')}}">
     <!--[if lt IE 7]>
     <script type="text/javascript">

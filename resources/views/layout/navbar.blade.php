@@ -62,11 +62,14 @@
                                         </a>
                                     </li>
                                     @forelse($Category->Children as $ChildCategory)
-                                        <li class="level2 nav-4-2-1 all-watches4-2-2 first">
-                                            <a href="{{route('products' , ['category' , $ChildCategory->slug])}}">
-                                                <span>{{$ChildCategory->title}}</span>
-                                            </a>
-                                        </li>
+                                        @if(count($ChildCategory->Products) > 0)
+                                            <li class="level2 nav-4-2-1 all-watches4-2-2 first">
+                                                <a href="{{route('products' , ['category' , $ChildCategory->slug])}}">
+                                                    <span>{{$ChildCategory->title}}</span>
+                                                </a>
+                                            </li>
+                                        @else
+                                        @endif
                                     @empty
                                     @endforelse
                                 </ul>

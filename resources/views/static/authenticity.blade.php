@@ -118,7 +118,7 @@
                                 adherence to the strict standards of authenticity.
                             </p>
                             <p>
-                                Mr Ahmed Halaby<br>
+                                Mr Ahmed Abbas<br>
                                 Director of Operations and Managing Director
                                 With more than 20 years of experience in Business Development and Strategic sales, Mr
                                 Halaby helped take

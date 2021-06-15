@@ -114,6 +114,7 @@
                                     @else
                                         <a class="btn btn-brand pre-oreder-modal-toggler" href="javascript:;"
                                             data-target="pre-oreder-modal" data-title="{{ $Product->title }}"
+                                            data-link="{{ route('product.single', [$Product->slug,$Product->id]) }}"
                                             data-sku="{{ $Product->sku }}"><i class="fas fa-cart-plus"></i> Pre
                                             Order</a>
                                     @endif
@@ -131,47 +132,6 @@
     @include('layout.footer')
     @include('layout.scripts')
     <script>
-        // var getParams = function (url) {
-        //     var params = {};
-        //     var parser = document.createElement('a');
-        //     parser.href = url;
-        //     var query = parser.search.substring(1);
-        //     var vars = query.split('&');
-        //     for (var i = 0; i < vars.length; i++) {
-        //         var pair = vars[i].split('=');
-        //         params[pair[0]] = decodeURIComponent(pair[1]);
-        //     }
-        //     return params;
-        // };
-        // var ClickCount = 0;
-        // $('.next-link').click(function(e){
-        //     $(this).html('<i class="fas fa-spinner fa-spin"></i>');
-        //     e.preventDefault();
-        //     var AjaxParameters = getParams($(this).attr('href'));
-        //     var AjaxLink = $(this).attr('href').substring('fsd', $(this).attr('href').indexOf("page"))
-        //     AjaxLink = AjaxLink + 'page=' + (parseInt(AjaxParameters.page)+ClickCount);
-        //     //Make Ajax Request
-        //     $.ajax({
-        //         url: AjaxLink,
-        //         method: 'get',
-        //         success: function(response){
-        //             //Grab the data and append it to the current div
-        //             ClickCount += 1;
-        //             if($('.ajax-products-list' , response).html().includes('<p>There is no products in this filters</p>')){
-        //                 $('.ajax-products-list').append('<div class="col-12"><p class="text-center">You have seen all the products in this filter</p></div>');
-        //                 $('.next-link').css('display' , 'none');
-        //             }else{
-        //                 $('.ajax-products-list').append($('.ajax-products-list' , response).html());
-        //                 $('.next-link').html('Load More Products');
-        //             }
-        //         },
-        //         error:function(response){
-        //             $('.ajax-products-list').append("<p class='text-center'>Something went wrong</p>");
-        //         }
-        //     });
-        // });
-
-
         //Modern Infinit Scroll
         var PageElements = $('.ajax-products-list').children();
         var ScrollCount = 1;
