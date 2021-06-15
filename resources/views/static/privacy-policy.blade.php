@@ -73,11 +73,18 @@
                     <h2>Terms & Conditions</h2>
                     <h2 class="static-title">Website Purchase Agreement:</h2>
                     <p>
-                        I here by confirm that I’m buying a preowned item from Pepper’s Luxury Closet as am authorized luxury resale reseller, and that I understand that the preowned items sold are unreturnable, non-refundable, and that I can only bring them back to the store to sell on your behalf.
+                        I hereby confirm that I’m buying a preowned item from Pepper’s Luxury Closet as an authorized luxury resale reseller, and I understand that the preowned items sold are unreturnable, non-refundable, and I can only bring them back to the store to sell on your behalf.
                         <br>
-                        I understand that im allowed to carefully inspect the item when receiving it to spot any flaws or defects on the spot, and by receiving the item I confirm the purchase and consent that the item is unreturnable.
+                        I understand that I'm allowed to carefully inspect the item when receiving it to spot any flaws or defects on the spot, and by receiving the item I confirm the purchase and consent that the item is unreturnable.
                         <br>
-                        I also confirm that I understand that once the seal, wrapping is removed or broken that the item can not be returned.
+                        I also confirm that I understand that once the seal wrapping is removed or broken that the item can not be returned.
+                    </p>
+                    <p class="text-right" dir="rtl">
+                        أؤكد بموجب هذا أنني أشتري عنصرًا مستعملاً من Pepper's Luxury Closet بصفتهم موزعًا معتمدًا لإعادة بيع المنتجات الفاخرة ، وأنا أفهم أن العناصر المباعة غير قابلة للإرجاع وغير قابلة للاسترداد ، ولا يمكنني إعادتها الى المتجر إلا لطلب بيعها نيابة عني
+                        <br>
+                        أفهم أنه يُسمح لي بفحص العنصر بعناية عند استلامه لاكتشاف أي عيوب على الفور ، ومن خلال استلام العنصر ، أؤكد الشراء وأوافق على أن العنصر غير قابل للإرجاع.
+                        <br>
+                        أؤكد أيضًا أنني أفهم أنه بمجرد إزالة الغلاف ، لا يمكن إرجاع العنصر. 
                     </p>
                     <h2>Consignment Agreement</h2>
                     <div class="fff">
