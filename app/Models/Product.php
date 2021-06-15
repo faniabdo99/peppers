@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 class Product extends Model{
     protected $guarded = [];
-    use HasFactory;    
+    use HasFactory;
     public function getSmallThumbAttribute(){
         return url('storage/app/products/small_thumb/'.$this->image);
     }
@@ -20,8 +20,13 @@ class Product extends Model{
     public function Brand(){
         return $this->belongsTo(Brand::class , 'brand_id');
     }
+    // public function Discount(){
+    //     return $this->belongsTo(Discount::class , 'product_id');
+    // }
     public function Category(){
-        return $this->belongsTo(Category::class , 'category_id');
+        return $this->belongsTo(Category::class , 'category_id')->withDefault([
+            'title' => 'Not Avilable'
+        ]);
     }
     public function getCartReadyAttribute(){
         if($this->qty > 0 && $this->status == 'Available'){

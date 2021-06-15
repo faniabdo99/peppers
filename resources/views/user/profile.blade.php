@@ -9,7 +9,7 @@
             <div class="col-lg-9 col-sm-12">
                 <p>
                     Hello, <b>{{auth()->user()->name}}</b><br>
-                    From your My Account Dashboard you have the ability to view your orders and update your account information.
+                    From your My Account Dashboard you have the ability to view your orders and update your account informations.
                 </p>
                 {{-- <ul class="profile-orders-statistics">
                     <li><i class="fas fa-shopping-cart"></i><br> (25) Completed Orders</li>

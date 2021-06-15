@@ -9,7 +9,7 @@
         <tr>
             <th scope="col">Id</th>
             <th scope="col">Sku</th>
-            <th >Brand</th>
+            <th>Brand</th>
             <th scope="col">Category</th>
             <th scope="col">Title</th>
             <th scope="col">Status</th>
@@ -25,6 +25,7 @@
         </thead>
         <tbody>
             @foreach ($productList as $i => $item)
+
             <tr>
                 <td>{{$item->id}}</td>
                 <td>{{$item->sku}}</td>
@@ -57,12 +58,12 @@
     <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
     <script>
         $(document).ready( function () {
-            $('#myTable').DataTable({
-                dom: 'Bfrtip',
-                buttons: [
-                    'copy', 'csv', 'excel', 'pdf', 'print'
-                ]
-            });
+            // $('#myTable').DataTable({
+            //     dom: 'Bfrtip',
+            //     buttons: [
+            //         'copy', 'csv', 'excel', 'pdf', 'print'
+            //     ]
+            // });
         });
     </script>
 </body>

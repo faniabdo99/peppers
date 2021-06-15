@@ -11,7 +11,7 @@
     <meta name="robots" content="INDEX,FOLLOW" />
     <meta name="currency" content="{{getCurrency()['code']}}">
     <meta name="exchange" content="{{convertCurrency(1,'USD','EGP')}}">
-    <link rel="shortcut icon" href="{{url('public/icons/favicon.png')}}">  
+    <link rel="shortcut icon" href="{{url('public/icons/favicon.png')}}">
     <!--[if lt IE 7]>
     <script type="text/javascript">
     //<![CDATA[
@@ -43,6 +43,6 @@
     <link rel="stylesheet" type="text/css" href="{{url('public/css')}}/print.css" media="print" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
     <link rel="stylesheet" type="text/css" href="{{url('public/css')}}/menu1.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="{{url('public/css')}}/app.css" />    
+    <link rel="stylesheet" type="text/css" href="{{url('public/css')}}/app.css" />
     <link rel="stylesheet" href="{{url('public/css')}}/datatable.css">
 </head>
