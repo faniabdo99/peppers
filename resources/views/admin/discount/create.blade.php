@@ -143,133 +143,26 @@
                                 <div class="card-header card-header-primary">
                                     <h4 class="card-title ">Discount Management</h4>
                                 </div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table" id="mytable">
-                                            <thead class=" text-primary">
-                                                <th>
-                                                    ID
-                                                </th>
-                                                <th>
-                                                    Name
-                                                </th>
-                                                <th>
-                                                    Country
-                                                </th>
-                                                <th>
-                                                    City
-                                                </th>
-                                                <th>
-                                                    Salary
-                                                </th>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        1
-                                                    </td>
-                                                    <td>
-                                                        Dakota Rice
-                                                    </td>
-                                                    <td>
-                                                        Niger
-                                                    </td>
-                                                    <td>
-                                                        Oud-Turnhout
-                                                    </td>
-                                                    <td class="text-primary">
-                                                        $36,738
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        2
-                                                    </td>
-                                                    <td>
-                                                        Minerva Hooper
-                                                    </td>
-                                                    <td>
-                                                        Curaçao
-                                                    </td>
-                                                    <td>
-                                                        Sinaai-Waas
-                                                    </td>
-                                                    <td class="text-primary">
-                                                        $23,789
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        3
-                                                    </td>
-                                                    <td>
-                                                        Sage Rodriguez
-                                                    </td>
-                                                    <td>
-                                                        Netherlands
-                                                    </td>
-                                                    <td>
-                                                        Baileux
-                                                    </td>
-                                                    <td class="text-primary">
-                                                        $56,142
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        4
-                                                    </td>
-                                                    <td>
-                                                        Philip Chaney
-                                                    </td>
-                                                    <td>
-                                                        Korea, South
-                                                    </td>
-                                                    <td>
-                                                        Overland Park
-                                                    </td>
-                                                    <td class="text-primary">
-                                                        $38,735
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        5
-                                                    </td>
-                                                    <td>
-                                                        Doris Greene
-                                                    </td>
-                                                    <td>
-                                                        Malawi
-                                                    </td>
-                                                    <td>
-                                                        Feldkirchen in Kärnten
-                                                    </td>
-                                                    <td class="text-primary">
-                                                        $63,542
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        6
-                                                    </td>
-                                                    <td>
-                                                        Mason Porter
-                                                    </td>
-                                                    <td>
-                                                        Chile
-                                                    </td>
-                                                    <td>
-                                                        Gloucester
-                                                    </td>
-                                                    <td class="text-primary">
-                                                        $78,615
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                            <form class="p-3" action="post" action="'{{route('admin.discount.postCreate')}}" enctype="multipart/form-data">
+                                @csrf
+                                <div class="form-group">
+                                    <label class="form-control-label">Title</label>
+                                    <input class="form-control" name="title" type="text" placeholder="Please Enter Title" required>
                                 </div>
+                                <div class="form-group">
+                                    <label class="form-control-label">Value</label>
+                                    <input class="form-control" name="value" type="text" placeholder="Please Enter Discount Value" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label">Type</label>
+                                    <input class="form-control" name="type" type="text" placeholder="Please Enter Discount Type" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label">Expire</label>
+                                    <input class="form-control" name="expire" type="date" placeholder="Please Add Expire Time" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Add New Discount</button>
+                            </form>
                             </div>
                         </div>
 

@@ -89,6 +89,7 @@
                                 </button>
                             </div>
                         </form>
+
                         <ul class="navbar-nav">
                             <li class="nav-item">
                                 <a class="nav-link" href="javascript:;">
@@ -140,8 +141,9 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card">
-                                <div class="card-header card-header-primary">
+                                <div class="card-header card-header-primary d-flex justify-content-between align-items-center">
                                     <h4 class="card-title ">Discount Management</h4>
+                                    <a href="{{route('admin.discount.create')}}" class="btn btn-success" > Create New Discount</a>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -189,7 +191,7 @@
                                                       </td>
                                                 </tr>
                                                 @endforeach
-                                                <tr>
+                                                {{-- <tr>
                                                     <td>
                                                         2
                                                     </td>
@@ -206,7 +208,7 @@
                                                         $23,789
                                                     </td>
                                                     <td>
-                                                        <a class="btn btn-primary"  href="{{route('admin.discount.edit' , $Dicount->$id)}}">Edit</a>
+                                                        <a class="btn btn-primary"  href="{{route('admin.discount.edit' , $AllDiscount)}}">Edit</a>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -226,7 +228,7 @@
                                                         $56,142
                                                     </td>
                                                     <td>
-                                                        <a class="btn btn-primary"  href="{{route('admin.discount.edit' , $Dicount->$id)}}">Edit</a>
+                                                        <a class="btn btn-primary"  href="{{route('admin.discount.edit' , $AllDiscount)}}">Edit</a>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -246,7 +248,7 @@
                                                         $38,735
                                                     </td>
                                                     <td>
-                                                        <a class="btn btn-primary"  href="{{route('admin.discount.edit' , $Dicount->$id)}}">Edit</a>
+                                                        <a class="btn btn-primary"  href="{{route('admin.discount.edit' , $AllDiscount)}}">Edit</a>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -266,7 +268,7 @@
                                                         $63,542
                                                     </td>
                                                     <td>
-                                                        <a class="btn btn-primary"  href="{{route('admin.discount.edit' , $Dicount->$id)}}">Edit</a>
+                                                        <a class="btn btn-primary"  href="{{route('admin.discount.edit' , $AllDiscount)}}">Edit</a>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -286,9 +288,9 @@
                                                         $78,615
                                                     </td>
                                                     <td>
-                                                        <a class="btn btn-primary"  href="{{route('admin.discount.edit' , $Dicount->$id)}}">Edit</a>
+                                                        <a class="btn btn-primary"  href="{{route('admin.discount.edit' , $AllDiscount)}}">Edit</a>
                                                     </td>
-                                                </tr>
+                                                </tr> --}}
                                             </tbody>
                                         </table>
                                     </div>
