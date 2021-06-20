@@ -67,9 +67,10 @@ Route::group(['prefix' => 'admin' , 'middleware' => 'admin'], function(){
     // });
     Route::prefix('discount')->group(function(){
         Route::get('/' , 'DiscountController@getDiscount')->name('admin.discount.index');
-        Route::get('create' , 'DiscountController@getCreateDiscount')->name('admin.discount.create');
-        Route::post('create' , 'DiscountController@postCreateDiscount')->name('admin.discount.postCreate');
-        Route::get('edit' , 'DiscountController@getEditDiscount')->name('admin.discount.edit');
+        Route::get('create' ,'DiscountController@getCreateDiscount')->name('admin.discount.create');
+        Route::post('create' ,'DiscountController@postCreateDiscount')->name('admin.discount.postCreate');
+        Route::get('edit/{id}' , 'DiscountController@getEditDiscount')->name('admin.discount.edit');
+        Route::post('edit/{id}' , 'DiscountController@postEditDiscount')->name('admin.discount.postEdit');
     });
     // Route::prefix('newsletter')->group(function(){
     //     Route::get('/' , 'AdminController@getNewsletter')->name('admin.newsletter.index');

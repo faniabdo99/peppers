@@ -10,10 +10,10 @@ class CreateDiscountTable extends Migration
     {
         Schema::create('discounts', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('value');
-            $table->string('type');
-            $table->string('expire');
+            $table->string('title')->nullable();
+            $table->string('value')->nullable();
+            $table->string('type')->nullable();
+            $table->string('expire')->nullable();
             $table->timestamps();
         });
     }

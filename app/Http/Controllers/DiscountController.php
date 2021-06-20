@@ -30,40 +30,45 @@ class DiscountController extends Controller
             'expire' => 'required',
         ];
         $Validator = Validator::make($r->all(),$Rules);
-        $NewDiscount = $r->all();
-        Discount::create($NewDiscount);
-        return redirect()->route('admin.discount.index')->withSuccess('Discount Added');
+        if($Validator->fails()){
+            return back()->withErrors('Error');
+        }
+        else{
+
+            $CategoryData = $r->all();
+            Discount::create($CategoryData);
+            return redirect()->route('admin.discount.index')->withSuccess("Discount Added Successfully");
+            }
 
     }
 
-
-    public function store(Request $request)
+    public function getEditDiscount($id)
     {
-        //
-    }
-
-
-    public function show($id)
-    {
-        //
-    }
-
-
-    public function getEditDiscount($discount_id)
-    {
-        $AllDiscount = Product::findOrFail($discount_id);
+        $AllDiscount = Discount::findOrFail($id);
         return view('admin.discount.edit', compact('AllDiscount'));
-
     }
-
-
-    public function update()
+    public function postEditDiscount(Request $r , $id)
     {
+        $Rules = [
+            'title' => 'required',
+            'value' => 'required',
+            'type' => 'required',
+            'expire' => 'required',
+        ];
+        $AllDiscount = Discount::findOrFail($id);
 
+        $Validator = Validator::make($r->all(),$Rules);
+        if($Validator->fails()){
+            return back()->withErrors('Error');
+        }
+        else{
+
+            $CategoryData = $r->all();
+            $AllDiscount->update($CategoryData);
+            return redirect()->route('admin.discount.index')->withSuccess("Discount Updated Successfully");
+        }
     }
-
-
-    public function destroy($id)
+    public function delete($id)
     {
         //
     }
