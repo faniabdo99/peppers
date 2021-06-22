@@ -35,11 +35,13 @@
                                     <div class="form-group">
                                         <label class="form-control-label">Title</label>
                                         <input class="form-control" name="title" type="text"
+                                        value="{{old('title') ?? '' }}"
                                             placeholder="Please Enter Title" >
                                     </div>
                                     <div class="form-group">
                                         <label class="form-control-label">Value</label>
                                         <input class="form-control" name="value" type="number"
+                                        value="{{old('value') ?? '' }}"
                                             placeholder="Please Enter Discount Value" >
                                     </div>
                                     <div class="form-group">
@@ -52,6 +54,7 @@
                                     <div class="form-group">
                                         <label class="form-control-label">Expire</label>
                                         <input class="form-control" name="expire" type="date"
+                                        value="{{old('expire') ?? '' }}"
                                             placeholder="Please Add Expire Time" >
                                     </div>
                                     <button type="submit" class="btn btn-primary">Add New Discount</button>

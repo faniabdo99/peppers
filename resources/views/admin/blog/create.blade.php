@@ -13,7 +13,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header card-header-primary">
-                                    <h4 class="card-title ">Discount Management</h4>
+                                    <h4 class="card-title ">Blog Management</h4>
                                 </div>
                                 @if (session()->has('success'))
                                     <div class="container alert alert-success mb-5 mt-3">
@@ -29,34 +29,46 @@
                                         @endforeach
                                     </div>
                                 @endif
-                                <form class="p-3" action="{{route('admin.discount.postEdit' , $AllDiscount->id)}}" method="post" enctype="multipart/form-data">
+                                <form class="p-3" action="{{ route('admin.blog.postCreate') }}" method="post"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
                                         <label class="form-control-label">Title</label>
                                         <input class="form-control" name="title" type="text"
-                                        value="{{old('title') ?? $AllDiscount->title }}"
+                                        value="{{old('title') ?? '' }}"
                                             placeholder="Please Enter Title" >
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-control-label">Value</label>
-                                        <input class="form-control" name="value" type="number"
-                                        value="{{old('value') ?? $AllDiscount->value }}"
-                                            placeholder="Please Enter Discount Value" >
+                                        <label class="form-control-label">Slug</label>
+                                        <input class="form-control" name="slug" type="text"
+                                        value="{{old('slug') ?? '' }}"
+                                            placeholder="Please Enter slug" >
                                     </div>
                                     <div class="form-group">
-                                        <select class="form-control" name="type">
-                                            <option value="">Discount Type</option>
-                                            <option value="USD">USD</option>
-                                            <option value="%">%</option>
-                                        </select>
+                                        <label class="form-control-label">Description</label>
+                                        <input class="form-control" name="description" type="text"
+                                        value="{{old('description') ?? '' }}"
+                                            placeholder="Please Enter Description" >
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-control-label">Expire</label>
-                                        <input class="form-control" name="expire" type="date"
-                                        value="{{old('expire') ?? $AllDiscount->expire }}"
-                                            placeholder="Please Add Expire Time" >
+                                        <label class="form-control-label">content</label>
+                                        <input class="form-control" name="content" type="text"
+                                        value="{{old('content') ?? '' }}"
+                                            placeholder="Please Enter Content" >
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Update Discount</button>
+                                    <div class="form-group">
+                                        <label class="form-control-label">Category</label>
+                                        <input class="form-control" name="category" type="text"
+                                        value="{{old('category') ?? '' }}"
+                                            placeholder="Please Enter Category" >
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-control-label">Keywords</label>
+                                        <input class="form-control" name="keywords" type="text"
+                                        value="{{old('keywords') ?? '' }}"
+                                            placeholder="Please Enter Blog Keywords" >
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Add New Blog</button>
                                 </form>
 
                             </div>
@@ -65,7 +77,7 @@
                     </div>
                 </div>
             </div>
-            @include('admin.layout.footer')
+            @include('admin.layout.scripts')
 
         </div>
     </div>

@@ -52,6 +52,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::group(['prefix' => 'admin' , 'middleware' => 'admin'], function(){
+    Route::get('/' , 'AdminController@getIndex')->name('admin.home');
     Route::prefix('products')->group(function(){
         Route::get('new' , 'ProductController@getNew')->name('admin.products.getNew');
         Route::post('new' , 'ProductController@postNew')->name('admin.products.postNew');
@@ -59,25 +60,46 @@ Route::group(['prefix' => 'admin' , 'middleware' => 'admin'], function(){
     Route::prefix('blog')->group(function(){
         Route::get('/' , 'BlogController@getBlog')->name('admin.blog.index');
     });
-    // Route::prefix('user')->group(function(){
-    //     Route::get('/' , 'UserController@getUser')->name('admin.user.user');
-    // });
-    // Route::prefix('categories')->group(function(){
-    //     Route::get('/' , 'AdminController@getCategories')->name('admin.categories.index');
-    // });
     Route::prefix('discount')->group(function(){
-        Route::get('/' , 'DiscountController@getDiscount')->name('admin.discount.index');
+        Route::get('/' , 'DiscountController@getDiscount')->name('admin.discount.all');
         Route::get('create' ,'DiscountController@getCreateDiscount')->name('admin.discount.create');
         Route::post('create' ,'DiscountController@postCreateDiscount')->name('admin.discount.postCreate');
-        Route::get('edit/{id}' , 'DiscountController@getEditDiscount')->name('admin.discount.edit');
+        Route::get('edit/{id}' , 'DiscountController@getEditDiscount')->name('admin.discount.getEdit');
         Route::post('edit/{id}' , 'DiscountController@postEditDiscount')->name('admin.discount.postEdit');
+        Route::get('delete/{id}' , 'DiscountController@deleteDiscount')->name('admin.discount.delete');
     });
-    // Route::prefix('newsletter')->group(function(){
-    //     Route::get('/' , 'AdminController@getNewsletter')->name('admin.newsletter.index');
-    // });
-    // Route::prefix('orders')->group(function(){
-    //     Route::get('/' , 'AdminController@getOrders')->name('admin.orders.index');
-    // });
+    Route::prefix('category')->group(function(){
+        Route::get('/' , 'CategoryController@getCategory')->name('admin.categories.all');
+        Route::get('create' ,'CategoryController@getCreateCategory')->name('admin.categories.create');
+        Route::post('create' ,'CategoryController@postCreateCategory')->name('admin.categories.postCreate');
+        Route::get('edit/{id}' , 'CategoryController@getEditCategory')->name('admin.categories.getEdit');
+        Route::post('edit/{id}' , 'CategoryController@postEditCategory')->name('admin.categories.postEdit');
+        Route::get('delete/{id}' , 'CategoryController@deleteCategory')->name('admin.categories.delete');
+    });
+    Route::prefix('coupon')->group(function(){
+        Route::get('/' , 'CouponController@getCoupon')->name('admin.coupons.all');
+        Route::get('create' ,'CouponController@getCreateCoupon')->name('admin.coupons.create');
+        Route::post('create' ,'CouponController@postCreateCoupon')->name('admin.coupons.postCreate');
+        Route::get('edit/{id}' , 'CouponController@getEditCoupon')->name('admin.coupons.getEdit');
+        Route::post('edit/{id}' , 'CouponController@postEditCoupon')->name('admin.coupons.postEdit');
+        Route::get('delete/{id}' , 'CouponController@deleteCoupon')->name('admin.coupons.delete');
+    });
+    Route::prefix('blog')->group(function(){
+        Route::get('/' , 'BlogController@getBlog')->name('admin.blog.all');
+        Route::get('create' ,'BlogController@getCreateBlog')->name('admin.blog.create');
+        Route::post('create' ,'BlogController@postCreateBlog')->name('admin.blog.postCreate');
+        Route::get('edit/{id}' , 'BlogController@getEditBlog')->name('admin.blog.getEdit');
+        Route::post('edit/{id}' , 'BlogController@postEditBlog')->name('admin.blog.postEdit');
+        Route::get('delete/{id}' , 'BlogController@deleteBlog')->name('admin.blog.delete');
+    });
+    Route::prefix('products')->group(function(){
+        Route::get('/' , 'ProductController@getProduct')->name('admin.products.all');
+        Route::get('create' ,'ProductController@getCreateProduct')->name('admin.products.create');
+        Route::post('create' ,'ProductController@postCreateProduct')->name('admin.products.postCreate');
+        Route::get('edit/{id}' , 'ProductController@getEditProduct')->name('admin.products.getEdit');
+        Route::post('edit/{id}' , 'ProductController@postEditProduct')->name('admin.products.postEdit');
+        Route::get('delete/{id}' , 'ProductController@deleteProduct')->name('admin.products.delete');
+    });
 
 });
 Route::get('import-brands' , 'StaticPageController@getImportBrands');

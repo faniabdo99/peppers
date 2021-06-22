@@ -1,7 +1,6 @@
 .wrapper{
     position: relative;
     top: 0;
-    height: 100vh;
 }
 
 .sidebar {
@@ -136,7 +135,7 @@
             & .dropdown-menu a:focus,
             &.active > [data-toggle="collapse"]{
                 background-color: rgba(200, 200, 200, 0.2);
-                color: $black-color;
+
                 box-shadow: none;
             }
 
@@ -195,7 +194,7 @@
     .nav li .dropdown-menu a{
           margin: 10px 15px 0;
           border-radius: $border-radius-base;
-          color: $black-color;
+
           padding-left: 10px;
           padding-right: 10px;
           text-transform: capitalize;
@@ -258,7 +257,6 @@
             padding: $padding-small-vertical $padding-zero;
             display: inline-block;
             font-size: 18px;
-            color: $black-color;
             white-space: nowrap;
             font-weight: $font-weight-default;
             line-height: 30px;

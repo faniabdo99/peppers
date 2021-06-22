@@ -25,7 +25,7 @@
                                 @if($Product->CartReady)
                                     <a class="btn btn-brand add-to-cart" data-target="{{route('cart.add')}}" data-id="{{$Product->id}}" data-user="{{getUserId()}}" href="javascript:;"><i class="fas fa-cart-plus"></i> Add to cart</a>
                                 @else
-                                     <a class="btn btn-brand" href="{{route('contact.get')}}"><i class="fas fa-cart-plus"></i> Pre Order</a>
+                                    <a class="btn btn-brand" href="{{route('contact.get')}}"><i class="fas fa-cart-plus"></i> Pre Order</a>
                                 @endif
                             @endif
                         </div>

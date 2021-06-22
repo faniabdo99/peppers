@@ -13,7 +13,7 @@ class DiscountController extends Controller
     public function getDiscount()
     {
         $AllDiscount = Discount::all();
-        return view('admin.discount.index' ,compact('AllDiscount'));
+        return view('admin.discount.all' ,compact('AllDiscount'));
     }
 
     public function getCreateDiscount()
@@ -35,9 +35,9 @@ class DiscountController extends Controller
         }
         else{
 
-            $CategoryData = $r->all();
-            Discount::create($CategoryData);
-            return redirect()->route('admin.discount.index')->withSuccess("Discount Added Successfully");
+            $DiscountData = $r->all();
+            Discount::create($DiscountData);
+            return redirect()->route('admin.discount.all')->withSuccess("Discount Added Successfully");
             }
 
     }
@@ -49,13 +49,13 @@ class DiscountController extends Controller
     }
     public function postEditDiscount(Request $r , $id)
     {
+        $AllDiscount = Discount::findOrFail($id);
         $Rules = [
             'title' => 'required',
             'value' => 'required',
             'type' => 'required',
             'expire' => 'required',
         ];
-        $AllDiscount = Discount::findOrFail($id);
 
         $Validator = Validator::make($r->all(),$Rules);
         if($Validator->fails()){
@@ -65,11 +65,16 @@ class DiscountController extends Controller
 
             $CategoryData = $r->all();
             $AllDiscount->update($CategoryData);
-            return redirect()->route('admin.discount.index')->withSuccess("Discount Updated Successfully");
+            return redirect()->route('admin.discount.all')->withSuccess("Discount Updated Successfully");
         }
     }
-    public function delete($id)
+ public function deleteDiscount($id)
     {
-        //
+        //Get the product
+        $Discount = Discount::findOrFail($id);
+        //Delete
+        $Discount->delete();
+        //Return with success
+        return redirect()->route('admin.discount.all')->withSuccess("Discount Deleted Successfully");
     }
 }

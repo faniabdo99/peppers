@@ -14,9 +14,9 @@
                             <div class="card">
                                 <div
                                     class="card-header card-header-primary d-flex justify-content-between align-items-center">
-                                    <h4 class="card-title ">Discount Management</h4>
-                                    <a href="{{ route('admin.discount.create') }}" class="btn btn-success"> Create New
-                                        Discount</a>
+                                    <h4 class="card-title ">Coupon Management</h4>
+                                    <a href="{{ route('admin.coupons.create') }}" class="btn btn-success"> Create New
+                                        Coupon</a>
                                 </div>
                                 @if (session()->has('success'))
                                     <div class="alert alert-success mb-5 mt-5">
@@ -32,9 +32,9 @@
                                         @endforeach
                                     </div>
                                 @endif
-                                <div class="card-body">
+                                <div class="card-body ">
                                     <div class="table-responsive">
-                                        <table class="table" id="mytable">
+                                        <table class="table table-striped" id="mytable">
                                             <thead class=" text-primary">
 
                                                 <th>
@@ -44,35 +44,36 @@
                                                     Title
                                                 </th>
                                                 <th>
+                                                    Status
+                                                </th>
+                                                <th>
                                                     Value
                                                 </th>
                                                 <th>
                                                     Type
                                                 </th>
                                                 <th>
-                                                    Expire
+                                                    Amount
                                                 </th>
-                                                <th>
-                                                    Management
-                                                </th>
+
                                             </thead>
                                             <tbody>
-                                                @foreach ($AllDiscount as $Single)
-
+                                                @foreach ($AllCoupons as $Single)
                                                     <tr>
                                                         <td>{{ $Single->id }}</td>
                                                         <td>{{ $Single->title }}</td>
+                                                        <td>{{ $Single->status }}</td>
                                                         <td>{{ $Single->value }}</td>
                                                         <td>{{ $Single->type }}</td>
-                                                        <td>{{ $Single->expire }}</td>
+                                                        <td>{{ $Single->amount }}</td>
                                                         <td class="">
                                                             <div class="dropdown">
                                                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                                                 Edit
                                                                 </button>
                                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                                                    <li><a class="dropdown-item" href="{{ route('admin.discount.edit', $Single->id) }}">Edit</a></li>
-                                                                    <li><a class="dropdown-item" href="#">Delete</a></li>
+                                                                    <li><a class="dropdown-item" href="{{ route('admin.coupons.getEdit', $Single->id) }}">Edit</a></li>
+                                                                    <li><a class="dropdown-item dropdown-item-delete" href="{{ route('admin.coupons.delete', $Single->id) }}">Delete</a></li>
                                                                 </ul>
                                                             </div>
                                                         </td>
