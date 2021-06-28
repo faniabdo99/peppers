@@ -58,10 +58,10 @@ $('#search-box').keyup(function(){
                 $('#navbar-search-results').append(`
                     <a href="${baseUrl}/product/${item.slug}">
                         <div class="single-search-result">
-                            <a class="search-result-image" href="${baseUrl}product/${item.slug}">
+                            <a class="search-result-image" href="${baseUrl}product/${item.slug}/${item.id}">
                                 <img src="${baseUrl}storage/app/products/thumb/${item.image}">
                             </a>
-                            <a class="search-result-data" href="${baseUrl}product/${item.slug}">
+                            <a class="search-result-data" href="${baseUrl}product/${item.slug}/${item.id}">
                                 <p>
                                 <b>${item.brand.title} - ${item.sku}</b>
                                 <br>
@@ -83,6 +83,16 @@ $('#search-box').keyup(function(){
     });
 });
 $('.pre-oreder-modal-toggler').click(function(){
+    $('.dark-overlay').addClass('active');
+    $('body').css('overflow-y' , 'hidden');
+    //Inject the data
+    $('#pre-order-item-title').html($(this).data('title'));
+    $('#pre-order-item-input').val($(this).data('link'));
+    $('#pre-order-message').val(`Hello, I am intersted in this item: ${$(this).data('link')} Please give me a qoute and exptected arrival time.`);
+    //Show the modal
+    $('.pre-order-modal').fadeIn();
+});
+$('.ajax-products-list').on('click' , 'a.pre-oreder-modal-toggler' , function(){
     $('.dark-overlay').addClass('active');
     $('body').css('overflow-y' , 'hidden');
     //Inject the data

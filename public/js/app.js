@@ -67,7 +67,7 @@ $('#search-box').keyup(function () {
     success: function success(response) {
       $('#navbar-search-results').html('');
       response.forEach(function (item) {
-        $('#navbar-search-results').append("\n                    <a href=\"".concat(baseUrl, "/product/").concat(item.slug, "\">\n                        <div class=\"single-search-result\">\n                            <a class=\"search-result-image\" href=\"").concat(baseUrl, "product/").concat(item.slug, "\">\n                                <img src=\"").concat(baseUrl, "storage/app/products/thumb/").concat(item.image, "\">\n                            </a>\n                            <a class=\"search-result-data\" href=\"").concat(baseUrl, "product/").concat(item.slug, "\">\n                                <p>\n                                <b>").concat(item.brand.title, " - ").concat(item.sku, "</b>\n                                <br>\n                                    ").concat(item.title, "\n                                    <br>\n                                    ").concat(item.price, "$\n                                    <br>\n                                </p>\n                            </a>\n                        </div>\n                    </a>\n                "));
+        $('#navbar-search-results').append("\n                    <a href=\"".concat(baseUrl, "/product/").concat(item.slug, "\">\n                        <div class=\"single-search-result\">\n                            <a class=\"search-result-image\" href=\"").concat(baseUrl, "product/").concat(item.slug, "/").concat(item.id, "\">\n                                <img src=\"").concat(baseUrl, "storage/app/products/thumb/").concat(item.image, "\">\n                            </a>\n                            <a class=\"search-result-data\" href=\"").concat(baseUrl, "product/").concat(item.slug, "/").concat(item.id, "\">\n                                <p>\n                                <b>").concat(item.brand.title, " - ").concat(item.sku, "</b>\n                                <br>\n                                    ").concat(item.title, "\n                                    <br>\n                                    ").concat(item.price, "$\n                                    <br>\n                                </p>\n                            </a>\n                        </div>\n                    </a>\n                "));
       });
       console.log(response);
     },
@@ -77,6 +77,16 @@ $('#search-box').keyup(function () {
   });
 });
 $('.pre-oreder-modal-toggler').click(function () {
+  $('.dark-overlay').addClass('active');
+  $('body').css('overflow-y', 'hidden'); //Inject the data
+
+  $('#pre-order-item-title').html($(this).data('title'));
+  $('#pre-order-item-input').val($(this).data('link'));
+  $('#pre-order-message').val("Hello, I am intersted in this item: ".concat($(this).data('link'), " Please give me a qoute and exptected arrival time.")); //Show the modal
+
+  $('.pre-order-modal').fadeIn();
+});
+$('.ajax-products-list').on('click', 'a.pre-oreder-modal-toggler', function () {
   $('.dark-overlay').addClass('active');
   $('body').css('overflow-y', 'hidden'); //Inject the data
 

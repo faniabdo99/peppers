@@ -62,11 +62,14 @@
                                         </a>
                                     </li>
                                     @forelse($Category->Children as $ChildCategory)
-                                        <li class="level2 nav-4-2-1 all-watches4-2-2 first">
-                                            <a href="{{route('products' , ['category' , $ChildCategory->slug])}}">
-                                                <span>{{$ChildCategory->title}}</span>
-                                            </a>
-                                        </li>
+                                        @if(count($ChildCategory->Products) > 0)
+                                            <li class="level2 nav-4-2-1 all-watches4-2-2 first">
+                                                <a href="{{route('products' , ['category' , $ChildCategory->slug])}}">
+                                                    <span>{{$ChildCategory->title}}</span>
+                                                </a>
+                                            </li>
+                                        @else
+                                        @endif
                                     @empty
                                     @endforelse
                                 </ul>
@@ -241,3 +244,20 @@
         </div>
     </div>
 </div>
+
+
+{{-- Errors and Notifications --}}
+@if(session()->has('success'))
+<div class="alert alert-success mb-5">
+        <b>Success</b>
+        <p class="mb-0">{{session('success')}}</p>
+</div>
+@endif
+@if ($errors->any())
+<div class="alert alert-danger mb-5">
+        <b>Error</b>
+        @foreach ($errors->all() as $error)
+        <p class="mb-0">{{$error}}</p>
+        @endforeach
+</div>
+@endif

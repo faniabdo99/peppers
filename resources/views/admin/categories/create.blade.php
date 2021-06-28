@@ -13,7 +13,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header card-header-primary">
-                                    <h4 class="card-title ">Discount Management</h4>
+                                    <h4 class="card-title ">Category Management</h4>
                                 </div>
                                 @if (session()->has('success'))
                                     <div class="container alert alert-success mb-5 mt-3">
@@ -29,43 +29,47 @@
                                         @endforeach
                                     </div>
                                 @endif
-                                <form class="p-3" action="{{route('admin.discount.postEdit' , $AllDiscount->id)}}" method="post" enctype="multipart/form-data">
+                                <form class="p-3" action="{{ route('admin.categories.postCreate') }}" method="post"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
                                         <label class="form-control-label">Title</label>
                                         <input class="form-control" name="title" type="text"
-                                        value="{{old('title') ?? $AllDiscount->title }}"
-                                            placeholder="Please Enter Title" >
+                                            placeholder="Please Enter Title">
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-control-label">Value</label>
-                                        <input class="form-control" name="value" type="number"
-                                        value="{{old('value') ?? $AllDiscount->value }}"
-                                            placeholder="Please Enter Discount Value" >
+                                        <label class="form-control-label">Slug</label>
+                                        <input class="form-control" name="slug" type="text"
+                                            placeholder="Please Enter Category Slug">
                                     </div>
+
                                     <div class="form-group">
                                         <select class="form-control" name="type">
-                                            <option value="">Discount Type</option>
-                                            <option value="USD">USD</option>
-                                            <option value="%">%</option>
+                                            <option value="">Category Type</option>
+                                            <option value="main">Main</option>
+                                            <option value="sub">Sub</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-control-label">Expire</label>
-                                        <input class="form-control" name="expire" type="date"
-                                        value="{{old('expire') ?? $AllDiscount->expire }}"
-                                            placeholder="Please Add Expire Time" >
+                                        <select class="form-control" name="gender">
+                                            <option value="">Gender</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                        </select>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Update Discount</button>
+                                    <div class="form-group">
+                                        <label>Image</label>
+                                        <input name="image" type="file" class="form-control">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Add New Category</button>
                                 </form>
-
                             </div>
                         </div>
 
                     </div>
                 </div>
             </div>
-            @include('admin.layout.footer')
+            @include('admin.layout.scripts')
 
         </div>
     </div>
@@ -75,7 +79,6 @@
         $(document).ready(function() {
             $('#mytable').DataTable();
         });
-
     </script>
 </body>
 

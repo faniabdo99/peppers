@@ -167,7 +167,7 @@
     &.bg-primary,
     &.card-rotate.bg-primary .front,
     &.card-rotate.bg-primary .back{
-      background: linear-gradient(60deg, $amber-700, $brand);
+      background: linear-gradient(60deg, $brand, $brand);
     }
     .card-header-info .card-icon,
     .card-header-info .card-text,
