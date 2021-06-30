@@ -45,7 +45,8 @@ class ProductsImport implements ToCollection{
             $DummyArray = [
                 1 => 'a',
                 2 => 'a',
-                3 => 'a'
+                3 => 'a',
+                4 => 'a',
             ];
             foreach($DummyArray as $key => $Item){
                 ProductImage::create([
