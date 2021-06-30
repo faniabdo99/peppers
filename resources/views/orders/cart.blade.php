@@ -21,13 +21,13 @@
                                 @forelse ($Cart as $CartItem)
                                 <tr>
                                     <td>
-                                        <a href="{{route('product.single' , $CartItem->Product->slug)}}" class="product-image">
+                                        <a href="{{route('product.single' , [$CartItem->Product->slug , $CartItem->Product->id])}}" class="product-image">
                                             <img src="{{$CartItem->Product->Thumb}}" width="75" height="75" alt="{{$CartItem->Product->title}}" />
                                         </a>
                                     </td>
                                     <td>
                                         <h2 class="product-name">
-                                            <a href="{{route('product.single' , $CartItem->Product->slug)}}">{{$CartItem->Product->title}}</a>
+                                            <a href="{{route('product.single' , [$CartItem->Product->slug , $CartItem->Product->id])}}">{{$CartItem->Product->title}}</a>
                                         </h2>
                                     </td>
                                     <td>{{$CartItem->Product->condition}}</td>

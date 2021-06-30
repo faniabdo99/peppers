@@ -100,6 +100,10 @@ Route::group(['prefix' => 'admin' , 'middleware' => 'admin'], function(){
         Route::post('edit/{id}' , 'ProductController@postEditProduct')->name('admin.products.postEdit');
         Route::get('delete/{id}' , 'ProductController@deleteProduct')->name('admin.products.delete');
     });
+    Route::prefix('orders')->group(function(){
+        Route::get('/' , 'OrderController@getAdmin')->name('admin.orders.all');
+        Route::get('/{id}' , 'OrderController@getSingle')->name('admin.orders.single');
+    });
 
 });
 Route::get('import-brands' , 'StaticPageController@getImportBrands');
