@@ -1,47 +1,45 @@
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="{{url('public/admin/js')}}/core/popper.min.js"></script>
-<script src="{{url('public/admin/js')}}/core/bootstrap-material-design.min.js"></script>
+<script src="{{url('public/js')}}/jquery.min.js"></script>
+<script src="{{url('public/js/admin')}}/core/popper.min.js"></script>
+<script src="{{url('public/js/admin')}}/core/bootstrap-material-design.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
-<script src="{{url('public/admin/js')}}/plugins/perfect-scrollbar.jquery.min.js"></script>
+<script src="{{url('public/js/admin')}}/plugins/perfect-scrollbar.jquery.min.js"></script>
 <!-- Plugin for the momentJs  -->
-<script src="{{url('public/admin/js')}}/plugins/moment.min.js"></script>
+<script src="{{url('public/js/admin')}}/plugins/moment.min.js"></script>
 <!--  Plugin for Sweet Alert -->
-<script src="{{url('public/admin/js')}}/plugins/sweetalert2.js"></script>
+<script src="{{url('public/js/admin')}}/plugins/sweetalert2.js"></script>
 <!-- Forms Validations Plugin -->
-<script src="{{url('public/admin/js')}}/plugins/jquery.validate.min.js"></script>
+<script src="{{url('public/js/admin')}}/plugins/jquery.validate.min.js"></script>
 <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
-<script src="{{url('public/admin/js')}}/plugins/jquery.bootstrap-wizard.js"></script>
+<script src="{{url('public/js/admin')}}/plugins/jquery.bootstrap-wizard.js"></script>
 <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
-<script src="{{url('public/admin/js')}}/plugins/bootstrap-selectpicker.js"></script>
+<script src="{{url('public/js/admin')}}/plugins/bootstrap-selectpicker.js"></script>
 <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
-<script src="{{url('public/admin/js')}}/plugins/bootstrap-datetimepicker.min.js"></script>
+<script src="{{url('public/js/admin')}}/plugins/bootstrap-datetimepicker.min.js"></script>
 <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
-<script src="{{url('public/admin/js')}}/plugins/jquery.dataTables.min.js"></script>
+<script src="{{url('public/js/admin')}}/plugins/jquery.dataTables.min.js"></script>
 <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
-<script src="{{url('public/admin/js')}}/plugins/bootstrap-tagsinput.js"></script>
+<script src="{{url('public/js/admin')}}/plugins/bootstrap-tagsinput.js"></script>
 <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-<script src="{{url('public/admin/js')}}/plugins/jasny-bootstrap.min.js"></script>
+<script src="{{url('public/js/admin')}}/plugins/jasny-bootstrap.min.js"></script>
 <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
-<script src="{{url('public/admin/js')}}/plugins/fullcalendar.min.js"></script>
+<script src="{{url('public/js/admin')}}/plugins/fullcalendar.min.js"></script>
 <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
-<script src="{{url('public/admin/js')}}/plugins/jquery-jvectormap.js"></script>
+<script src="{{url('public/js/admin')}}/plugins/jquery-jvectormap.js"></script>
 <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-<script src="{{url('public/admin/js')}}/plugins/nouislider.min.js"></script>
+<script src="{{url('public/js/admin')}}/plugins/nouislider.min.js"></script>
 <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 <!-- Library for adding dinamically elements -->
-<script src="{{url('public/admin/js')}}/plugins/arrive.min.js"></script>
+<script src="{{url('public/js/admin')}}/plugins/arrive.min.js"></script>
 <!--  Google Maps Plugin    -->
 <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 <!-- Chartist JS -->
-<script src="{{url('public/admin/js')}}/plugins/chartist.min.js"></script>
+<script src="{{url('public/js/admin')}}/plugins/chartist.min.js"></script>
 <!--  Notifications Plugin    -->
-<script src="{{url('public/admin/js')}}/plugins/bootstrap-notify.js"></script>
+<script src="{{url('public/js/admin')}}/plugins/bootstrap-notify.js"></script>
 <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="{{url('public/admin/js')}}/material-dashboard.js?v=2.1.2" type="text/javascript"></script>
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-<script src="{{url('public/admin/js')}}/demo/demo.js"></script>
 <script type="text/javascript" src="{{url('public/js')}}/datatable.js"></script>
 
 {{--

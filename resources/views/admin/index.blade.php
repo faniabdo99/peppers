@@ -50,6 +50,11 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
+=======
+        
+
+>>>>>>> f87d5fce8734834d767d7f1881705e6740ca282f
     </div>
     @include('admin.layout.scripts')
 </body>

@@ -15003,6 +15003,14 @@ html[dir=rtl] .form-check .form-check-sign .check:before {
   color: #e91e63;
 }
 
+#admin-header {
+  background-color: #c89a4d;
+}
+
+.admin-haeder-logo {
+  width: 30px;
+}
+
 .card-stats .card-header.card-header-icon, .card-stats .card-header.card-header-text {
   text-align: right;
 }

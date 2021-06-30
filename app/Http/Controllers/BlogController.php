@@ -24,13 +24,16 @@ class BlogController extends Controller
     public function postCreateBlog(Request $r)
     {
         $Rules = [
-            'title' => 'required',
+            'title' => 'required|max:255',
             'slug' => 'required',
             'description' => 'required',
             'content' => 'required',
             'category' => 'required',
             'keywords' => 'required',
-            // 'user_id' => 'required',
+            'status' => 'required',
+            'user_id' => 'required',
+            'image' => 'required',
+            'allow_comments' => 'required',
         ];
         $Validator = Validator::make($r->all(),$Rules);
 
@@ -63,7 +66,10 @@ class BlogController extends Controller
             'content' => 'required',
             'category' => 'required',
             'keywords' => 'required',
-            // 'user_id' => 'required',
+            'status' => 'required',
+            'user_id' => 'required',
+            'image' => 'required',
+            'allow_comments' => 'required',
         ];
 
         $Validator = Validator::make($r->all(),$Rules);
