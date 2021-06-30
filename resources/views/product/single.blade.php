@@ -90,9 +90,11 @@
                             </div>
                             <div class="product-shop">
                                 {{-- <p class="no-rating"><a href="#product_tabs_product_review">Be the first to review this product</a></p> --}}
-                                @if($TheProduct->qty)
-                                    <div class="price-box mb-4">{{convertCurrency($TheProduct->price , 'USD' , getCurrency()['code']) . getCurrency()['symbole']}}</div>
-                                @endif
+                                @if ($TheProduct->CartReady)
+                                <p class="price mt-2">
+                                    {{ convertCurrency($TheProduct->price, 'USD', getCurrency()['code']) . getCurrency()['symbole'] }}
+                                </p>
+                            @endif
                                 @if($TheProduct->CartReady)
                                     @if(isInUserCart(getUserId() , $TheProduct->id))
                                         <a class="btn btn-brand"><i class="fas fa-check"></i> Added to Cart</a>

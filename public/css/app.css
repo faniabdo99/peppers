@@ -1318,7 +1318,10 @@ body {
 }
 
 .single-product {
-  height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 450px;
   margin-bottom: 50px;
   position: relative;
 }

@@ -100,9 +100,11 @@
                                     <h2 class="product-name text-left"><a
                                             href="{{ route('product.single', [$Product->slug,$Product->id]) }}"
                                             title="{{ $Product->title }}">{{ $Product->title }}</a></h2>
-                                    <p class="price mt-2">
-                                        {{ convertCurrency($Product->price, 'USD', getCurrency()['code']) . getCurrency()['symbole'] }}
-                                    </p>
+                                        @if ($Product->CartReady)
+                                            <p class="price mt-2">
+                                                {{ convertCurrency($Product->price, 'USD', getCurrency()['code']) . getCurrency()['symbole'] }}
+                                            </p>
+                                        @endif
                                 </div>
                                 @if (isInUserCart(getUserId(), $Product->id))
                                     <a class="btn btn-brand"><i class="fas fa-check"></i> Added to Cart</a>
