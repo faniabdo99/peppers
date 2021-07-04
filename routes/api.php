@@ -6,3 +6,4 @@ Route::post('newsletter' , 'NewsletterController@postNewsletter')->name('newslet
 Route::post('add-to-cart' , 'CartController@addToCart')->name('cart.add');
 Route::post('search' , 'ProductController@getSearch')->name('search.api');
 Route::post('update-category' , 'ProductController@postUpdateCategory')->name('admin.product.updateCategory');
+Route::get('load-more-products' , 'ProductController@getAll')->name('products.loadMoreProducts');

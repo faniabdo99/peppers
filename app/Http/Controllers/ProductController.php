@@ -10,15 +10,93 @@ use App\Models\Product;
 use App\Models\ProductImage;
 class ProductController extends Controller{
     public function getAll(Request $r,$filter_type = null,$filter_value = null){
+        if($r->ajax()){
+            $filter_type = $r->filtertype;
+            if($filter_type){
+
+            }else{
+                //No Filters at all
+                $AllProducts = Product::where('status','!=','hidden')->orderBy('qty' , 'DESC')->orderBy('price' , 'DESC')->skip($r->current_data)->paginate(21);
+            }
+            return response($AllProducts , 200);
+            dd($r->all());
+            if(count($r->all()) > 0 && !$r->has('page')){
+
+                if($r->has('color') && $r->color != ''){
+                    $Color = ['color' , $r->color];
+                }else{$Color=['color' , '!=' ,'Test'];}
+
+                if($r->has('size') && $r->size != ''){
+                    $Size = ['size' , $r->size];
+                }else{$Size=['size' , '!=' ,'Test'];}
+
+                if($r->has('condition') && $r->condition != ''){
+                    $Condition = ['condition' , $r->condition];
+                }else{$Condition=['condition' , '!=' ,'Test'];}
+
+                if($r->has('price_from') && $r->price_from != ''){
+                    $PriceFrom = ['price' , '>=' , intval($r->price_from)];
+                }else{$PriceFrom=['price' , '>=' ,0];}
+
+                if($r->has('price_to') && $r->price_to != ''){
+                    $PriceTo = ['price' , '<=' , intval($r->price_to)];
+                }else{$PriceTo=['price' , '<=' ,9999999999999];}
+                //There is a filter
+                if(!$filter_type){
+                    $AllProducts = Product::where('status' , '!=' , 'hidden')->orderBy('qty' , 'DESC')->orderBy('price' , 'DESC')->paginate(21);
+                    $TheFilter = null;
+                }else{
+                    if($filter_type == 'brand'){
+                        $TheFilter = Brand::where('slug' , $filter_value)->first();
+                        if($TheFilter){
+                            $Brand = ['brand_id','=',$TheFilter->id];
+                            $AllProducts = Product::where('status','!=','hidden')->where([$Color,$Size,$Condition,$PriceFrom,$PriceTo,$Brand])->orderBy('qty' , 'DESC')->orderBy('price' , 'DESC')->paginate(21);
+                        }else{
+                            $AllProducts = [];
+                        }
+                    }
+                    if($filter_type == 'category'){
+                        $TheFilter = Category::where('slug' , $filter_value)->first();
+                        if($TheFilter){
+                            $AllProducts = Product::where('status','!=','hidden')->where([$Color,$Size,$Condition,$PriceFrom,$PriceTo])->where('category_id',$TheFilter->id)->orderBy('qty' , 'DESC')->orderBy('price' , 'DESC')->paginate(21);
+                        }else{
+                            $AllProducts = [];
+                        }
+                    }
+                }
+            }else{
+                //No Filter
+                if(!$filter_type){
+                    $AllProducts = Product::where('status','!=','hidden')->orderBy('qty' , 'DESC')->orderBy('price' , 'DESC')->paginate(21);
+                    $TheFilter = null;
+                }else{
+                    if($filter_type == 'brand'){
+                        $TheFilter = Brand::where('slug' , $filter_value)->first();
+                        if($TheFilter){
+                            $AllProducts = Product::where('status','!=','hidden')->where('brand_id',$TheFilter->id)->orderBy('qty' , 'DESC')->orderBy('price' , 'DESC')->paginate(21);
+                        }else{
+                            $AllProducts = [];
+                        }
+                    }
+                    if($filter_type == 'category'){
+                        $TheFilter = Category::where('slug' , $filter_value)->first();
+                        if($TheFilter){
+                            $AllProducts = Product::where('status','!=','hidden')->where('category_id',$TheFilter->id)->orderBy('qty' , 'DESC')->orderBy('price' , 'DESC')->paginate(21);
+                        }else{
+                            $AllProducts = [];
+                        }
+                    }
+                }
+            }
+            $AllColors = Product::where('status','!=','hidden')->pluck('color')->unique();
+            $AllSizes = Product::where('status','!=','hidden')->pluck('size')->unique();
+            return view('product.all', compact('AllProducts' , 'TheFilter' , 'AllColors' , 'AllSizes' , 'r'));
+        }
         if($filter_type == 'new'){
-            $AvailableProducts = Product::where('status','!=','Hidden')->where('qty' , 1)->orderBy('price' , 'DESC')->where('is_new' , 1)->get();
-            $SoldProducts = Product::where('status','!=','Hidden')->where('qty' , 0)->orderBy('price' , 'DESC')->where('is_new' , 1)->get();
-            $AllProducts = $AvailableProducts->toBase()->merge($SoldProducts);
+            $AllProducts = Product::where('status','!=','hidden')->where('is_new' , 1)->orderBy('qty' , 'DESC')->orderBy('price' , 'DESC')->paginate(21);
             return view('product.new', compact('AllProducts'));
         }elseif($filter_type == 'sale'){
-            $AvailableProducts = Product::where('status','!=','Hidden')->where('qty' , 1)->orderBy('price' , 'DESC')->where('discount_id' , '!=' , null)->get();
-            $SoldProducts = Product::where('status','!=','Hidden')->where('qty' , 0)->orderBy('price' , 'DESC')->where('discount_id' , '!=' , null)->get();
-            $AllProducts = $AvailableProducts->toBase()->merge($SoldProducts);
+            $AllProducts = Product::where('status','!=','hidden')->where('discount_id', '!=' , null)->orderBy('qty' , 'DESC')->orderBy('price' , 'DESC')->paginate(21);
             return view('product.sale', compact('AllProducts'));
         }else{
             if(count($r->all()) > 0 && !$r->has('page')){
@@ -44,18 +122,14 @@ class ProductController extends Controller{
                 }else{$PriceTo=['price' , '<=' ,9999999999999];}
                 //There is a filter
                 if(!$filter_type){
-                    $AvailableProducts = Product::where('status','!=','hidden')->where('qty' , 1)->orderBy('price' , 'DESC')->where([$Color,$Size,$Condition,$PriceFrom,$PriceTo])->get();
-                    $SoldProducts = Product::where('status','!=','hidden')->where('qty' , 0)->orderBy('price' , 'DESC')->where([$Color,$Size,$Condition,$PriceFrom,$PriceTo])->get();
-                    $AllProducts = $AvailableProducts->toBase()->merge($SoldProducts);
+                    $AllProducts = Product::where('status' , '!=' , 'hidden')->orderBy('qty' , 'DESC')->orderBy('price' , 'DESC')->paginate(21);
                     $TheFilter = null;
                 }else{
                     if($filter_type == 'brand'){
                         $TheFilter = Brand::where('slug' , $filter_value)->first();
                         if($TheFilter){
                             $Brand = ['brand_id','=',$TheFilter->id];
-                            $AvailableProducts = Product::where('status','!=','hidden')->where('qty' , 1)->orderBy('price' , 'DESC')->where([$Color,$Size,$Condition,$PriceFrom,$PriceTo,$Brand])->get();
-                            $SoldProducts = Product::where('status','!=','hidden')->where('qty' , 1)->orderBy('price' , 'DESC')->where([$Color,$Size,$Condition,$PriceFrom,$PriceTo,$Brand])->get();
-                            $AllProducts = $AvailableProducts->toBase()->merge($SoldProducts);
+                            $AllProducts = Product::where('status','!=','hidden')->where([$Color,$Size,$Condition,$PriceFrom,$PriceTo,$Brand])->orderBy('qty' , 'DESC')->orderBy('price' , 'DESC')->paginate(21);
                         }else{
                             $AllProducts = [];
                         }
@@ -63,9 +137,7 @@ class ProductController extends Controller{
                     if($filter_type == 'category'){
                         $TheFilter = Category::where('slug' , $filter_value)->first();
                         if($TheFilter){
-                            $AvailableProducts = Product::where('status','!=','hidden')->where('qty' , 1)->orderBy('price' , 'DESC')->where([$Color,$Size,$Condition,$PriceFrom,$PriceTo])->where('category_id',$TheFilter->id)->get();
-                            $SoldProducts = Product::where('status','!=','hidden')->where('qty' , 0)->orderBy('price' , 'DESC')->where([$Color,$Size,$Condition,$PriceFrom,$PriceTo])->where('category_id',$TheFilter->id)->get();
-                            $AllProducts = $AvailableProducts->toBase()->merge($SoldProducts);
+                            $AllProducts = Product::where('status','!=','hidden')->where([$Color,$Size,$Condition,$PriceFrom,$PriceTo])->where('category_id',$TheFilter->id)->orderBy('qty' , 'DESC')->orderBy('price' , 'DESC')->paginate(21);
                         }else{
                             $AllProducts = [];
                         }
@@ -74,17 +146,13 @@ class ProductController extends Controller{
             }else{
                 //No Filter
                 if(!$filter_type){
-                    $AvailableProducts = Product::where('status','!=','hidden')->where('qty' , 1)->orderBy('price' , 'DESC')->get();
-                    $SoldProducts = Product::where('status','!=','hidden')->where('qty' , 0)->orderBy('price' , 'DESC')->get();
-                    $AllProducts = $AvailableProducts->toBase()->merge($SoldProducts);
+                    $AllProducts = Product::where('status','!=','hidden')->orderBy('qty' , 'DESC')->orderBy('price' , 'DESC')->paginate(21);
                     $TheFilter = null;
                 }else{
                     if($filter_type == 'brand'){
                         $TheFilter = Brand::where('slug' , $filter_value)->first();
                         if($TheFilter){
-                            $AvailableProducts = Product::where('status','!=','hidden')->where('qty' , 1)->where('brand_id',$TheFilter->id)->orderBy('price' , 'DESC')->get();
-                            $SoldProducts = Product::where('status','!=','hidden')->where('qty' , 0)->where('brand_id',$TheFilter->id)->orderBy('price' , 'DESC')->get();
-                            $AllProducts = $AvailableProducts->toBase()->merge($SoldProducts);
+                            $AllProducts = Product::where('status','!=','hidden')->where('brand_id',$TheFilter->id)->orderBy('qty' , 'DESC')->orderBy('price' , 'DESC')->paginate(21);
                         }else{
                             $AllProducts = [];
                         }
@@ -92,9 +160,7 @@ class ProductController extends Controller{
                     if($filter_type == 'category'){
                         $TheFilter = Category::where('slug' , $filter_value)->first();
                         if($TheFilter){
-                            $AvailableProducts = Product::where('status','!=','hidden')->where('qty' , 1)->where('category_id',$TheFilter->id)->orderBy('price' , 'DESC')->get();
-                            $SoldProducts = Product::where('status','!=','hidden')->where('qty' , 0)->where('category_id',$TheFilter->id)->orderBy('price' , 'DESC')->get();
-                            $AllProducts = $AvailableProducts->toBase()->merge($SoldProducts);
+                            $AllProducts = Product::where('status','!=','hidden')->where('category_id',$TheFilter->id)->orderBy('qty' , 'DESC')->orderBy('price' , 'DESC')->paginate(21);
                         }else{
                             $AllProducts = [];
                         }
@@ -107,7 +173,7 @@ class ProductController extends Controller{
         }
     }
     public function getSingle($slug , $id){
-        $TheProduct = Product::where('status','!=','Hidden')->where('id' , $id)->first();
+        $TheProduct = Product::where('status','!=','hidden')->where('id' , $id)->first();
         if(!$TheProduct){abort(404);}
         return view('product.single' , compact('TheProduct'));
     }
@@ -211,12 +277,23 @@ class ProductController extends Controller{
             }
         }
     }
+
     public function getTest(){
         $AllProducts = Product::orderBy('sku')->get();
         return view('test' , compact('AllProducts'));
-    }
+
+}
+
     public function getListPage(){
         $productList = Product::orderBy('id' , 'asc')->get();
         return view('product.list' , compact('productList'));
     }
+    // public function postUpdateCategory(Request $r){
+    //     //Update the product
+    //     $TheProduct = Product::find($r->product_id);
+    //     $TheProduct->update([
+    //         'category_id' => $r->category_id
+    //     ]);
+    //     return response("Category Updated" , 200);
+    // }
 }
