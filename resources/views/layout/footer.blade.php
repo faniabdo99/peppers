@@ -14,7 +14,7 @@
                         </div>
                         <div class="col-lg-4 col-12">
                             <ul>
-                                <li><a href="{{route('static.returns')}}">Delivery & returns</a></li>
+                                <li><a href="{{route('static.returns')}}">Delivery & Returns</a></li>
                                 <li><a href="{{route('static.shipping')}}">Shipping and Delivery</a></li>
                                 <li><a href="{{route('sell.howToSellWithUs')}}">Sell With Us</a></li>
                                 <li><a href="{{route('static.consignmentForm')}}">Our Consignment Form</a></li>

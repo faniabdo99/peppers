@@ -17,9 +17,9 @@ class SellController extends Controller{
             'gender' => 'required',
             'category' => 'required',
             'brand' => 'required',
-            'phone' => 'required|integer',
+            'phone' => 'required',
             'toc' => 'required',
-            'images' => 'required|max:5'
+            'images' => 'required|max:5|min:1'
         ];
         $Validator = Validator::make($r->all(), $Rules);
         if($Validator->fails()){
@@ -46,7 +46,6 @@ class SellController extends Controller{
                     $file->storeAs('sell' , $ImageName);
                     array_push($EmailData['images'] ,$ImageName);
                 }
-                //Validate the size and ext
             }
             //Upload to Google Sheets
             $GSheetData = $EmailData;

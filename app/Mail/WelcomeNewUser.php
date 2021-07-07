@@ -13,6 +13,6 @@ class WelcomeNewUser extends Mailable{
     }
     public function build(){
         return $this->markdown('mails/user/welcome-new-user')
-                    ->subject('Welcome to Peppers!');
+                    ->subject('Welcome to Peppers! Please confirm your email account');
     }
 }
