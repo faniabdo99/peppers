@@ -8633,18 +8633,18 @@ a.text-dark:hover, a.text-dark:focus {
 }
 .btn.btn-primary {
   color: #fff;
-  background-color: #c89a4d;
+  background-color: #ffffff;
   border-color: #ffffff;
   box-shadow: 0 2px 2px 0 rgba(255, 255, 255, 0.14), 0 3px 1px -2px rgba(255, 255, 255, 0.2), 0 1px 5px 0 rgba(255, 255, 255, 0.12);
 }
 .btn.btn-primary:hover {
   color: #fff;
-  background-color: #b48a42;
+  background-color: #f7f7f7;
   border-color: #e0e0e0;
 }
 .btn.btn-primary:focus, .btn.btn-primary.focus, .btn.btn-primary:hover {
   color: #fff;
-  background-color: #b48a42;
+  background-color: #f7f7f7;
   border-color: #e0e0e0;
 }
 .btn.btn-primary:active, .btn.btn-primary.active, .open > .btn.btn-primary.dropdown-toggle, .show > .btn.btn-primary.dropdown-toggle {
@@ -10329,7 +10329,7 @@ fieldset[disabled] .is-focused .switch label:focus {
 }
 
 .form-control, .is-focused .form-control {
-  background-image: linear-gradient(to top, #c89a4d 2px, rgba(255, 255, 255, 0) 2px), linear-gradient(to top, #d2d2d2 1px, rgba(210, 210, 210, 0) 1px);
+  background-image: linear-gradient(to top, #ffffff 2px, rgba(255, 255, 255, 0) 2px), linear-gradient(to top, #d2d2d2 1px, rgba(210, 210, 210, 0) 1px);
 }
 .form-control:invalid {
   background-image: linear-gradient(to top, #f44336 2px, rgba(244, 67, 54, 0) 2px), linear-gradient(to top, #d2d2d2 1px, rgba(210, 210, 210, 0) 1px);
@@ -12175,7 +12175,7 @@ h2.title {
 }
 
 .text-primary {
-  color: Black !important;
+  color: #ffffff !important;
 }
 
 .text-danger {
@@ -12470,18 +12470,10 @@ h2.title {
 .dropdown-menu a:focus,
 .dropdown-menu a:active {
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 255, 255, 0.4);
-  background-color: #c89a4d;
+  background-color: #ffffff;
   color: #FFFFFF;
 }
-.dropdown-menu .dropdown-item-delete:hover,
-.dropdown-menu .dropdown-item-delete:focus,
-.dropdown-menu a:hover,
-.dropdown-menu a:focus,
-.dropdown-menu a:active {
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 255, 255, 0.4);
-  background-color: #921626;
-  color: #FFFFFF;
-}
+
 a[data-toggle=collapse][aria-expanded=true] .caret,
 a[aria-expanded=true] .caret,
 .dropdown.open .caret,

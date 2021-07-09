@@ -13,7 +13,7 @@
         content="pre-owned, designer, closet, sell, buy, brands, consignment, authentic, store, premium, closet, boutique" />
     <meta name="robots" content="INDEX,FOLLOW" />
     <meta name="currency" content="{{ getCurrency()['code'] }}">
-    <meta name="exchange" content="{{ convertCurrency(1, 'USD', 'EGP') }}">
+    {{-- <meta name="exchange" content="{{ convertCurrency(1, 'USD', 'EGP') }}"> --}}
     <link rel="stylesheet" type="text/css"
     href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link rel="shortcut icon" href="{{ url('public/icons/favicon.png') }}">
