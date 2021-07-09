@@ -65,26 +65,6 @@
             //     ]
             // });
         });
-        //Ajax Request to update the category
-        $('.category_select').change(function(){
-            var ProductId = $(this).data('id');
-            var CategoryId = $(this).val();
-            var ActionRoute = $(this).data('action');
-            $.ajax({
-                method: 'post',
-                url: ActionRoute,
-                data: {
-                    'product_id': ProductId,
-                    'category_id': CategoryId
-                },
-                success: function(response){
-                    alert(response);
-                },
-                error: function(response){
-                    alert(response);
-                }
-            })
-        });
     </script>
 </body>
 </html>

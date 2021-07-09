@@ -122,6 +122,7 @@ body {
 }
 .navbar .mega-menu .sub-items-list li a {
   color: #777;
+  text-transform: uppercase;
 }
 .navbar .navbar-currency-switcher a.active {
   color: #c89a4d !important;
@@ -1318,7 +1319,10 @@ body {
 }
 
 .single-product {
-  height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 450px;
   margin-bottom: 50px;
   position: relative;
 }

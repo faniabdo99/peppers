@@ -1,30 +1,29 @@
 <?php
-
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SellController;
 use Illuminate\Support\Facades\Route;
-Route::get('/','HomeController@getHomepage')->name('home');
-Route::get('switch-currency/{currency}/{currencyCode}' , 'CurrencyController@setCurrency')->name('currency.switch');
+Route::get('/','HomeController@getHomepage')->name('home'); //Tested
+Route::get('switch-currency/{currency}/{currencyCode}' , 'CurrencyController@setCurrency')->name('currency.switch'); //Tested
 //Static Pages
-Route::get('authenticity' , 'StaticPageController@getAutheticity')->name('static.authenticity');
-Route::get('faqs' , 'StaticPageController@getFaqs')->name('static.faqs');
-Route::get('returns' , 'StaticPageController@getReturns')->name('static.returns');
-Route::get('shipping-delivery' , 'StaticPageController@getShipping')->name('static.shipping');
-Route::get('consignment-form' , 'StaticPageController@getConsigmentForm')->name('static.consignmentForm');
-Route::get('who-we-are' , 'StaticPageController@getWhoWeAre')->name('static.whoWeAre');
-Route::get('privacy' , 'StaticPageController@getPrivacy')->name('static.privacy');
-Route::get('careers' , 'StaticPageController@getCareers')->name('static.careers');
-Route::get('how-it-works' , 'StaticPageController@getHowItWorks')->name('static.howItWorks');
-Route::get('payment-options' , 'StaticPageController@getPaymentOptions')->name('static.paymentOptions');
-Route::get('contact' , 'ContactController@getContact')->name('contact.get');
-Route::post('contact' , 'ContactController@postContact')->name('contact.post');
+Route::get('authenticity' , 'StaticPageController@getAutheticity')->name('static.authenticity'); //Tested
+Route::get('faqs' , 'StaticPageController@getFaqs')->name('static.faqs'); //Tested
+Route::get('returns' , 'StaticPageController@getReturns')->name('static.returns');//Tested
+Route::get('shipping-delivery' , 'StaticPageController@getShipping')->name('static.shipping'); //Tested
+Route::get('consignment-form' , 'StaticPageController@getConsigmentForm')->name('static.consignmentForm'); //Tested
+Route::get('who-we-are' , 'StaticPageController@getWhoWeAre')->name('static.whoWeAre'); //Tested
+Route::get('privacy' , 'StaticPageController@getPrivacy')->name('static.privacy'); //Tested
+Route::get('careers' , 'StaticPageController@getCareers')->name('static.careers'); //Tested
+Route::get('how-it-works' , 'StaticPageController@getHowItWorks')->name('static.howItWorks'); //Tested
+Route::get('payment-options' , 'StaticPageController@getPaymentOptions')->name('static.paymentOptions'); //Tested
+Route::get('contact' , 'ContactController@getContact')->name('contact.get'); //Tested
+Route::post('contact' , 'ContactController@postContact')->name('contact.post'); //Tested
 //Landing Page Stuff
 Route::get('products/{filter_type?}/{filter_value?}' , 'ProductController@getAll')->name('products');
-Route::get('product/{slug}/{id}' , 'ProductController@getSingle')->name('product.single');
+Route::get('product/{slug}/{id}' , 'ProductController@getSingle')->name('product.single'); //Tested
 //Orders System
-Route::get('cart' , 'CartController@getAll')->name('cart.get');
-Route::get('delete/{id}' , 'CartController@delete')->name('cart.delete');
-Route::get('checkout' , 'OrderController@getCheckout')->name('checkout.get');
+Route::get('cart' , 'CartController@getAll')->name('cart.get'); //Tested
+Route::get('delete/{id}' , 'CartController@delete')->name('cart.delete'); //Tested
+Route::get('checkout' , 'OrderController@getCheckout')->name('checkout.get'); //Tested
 Route::post('checkout' , 'OrderController@postCheckout')->name('checkout.post');
 Route::get('success/{id}' , 'OrderController@getOrderSuccess')->name('order.success');
 Route::get('complete/{id}' , 'OrderController@getOrderComplete')->name('order.complete');
@@ -99,6 +98,10 @@ Route::group(['prefix' => 'admin' , 'middleware' => 'admin'], function(){
         Route::get('edit/{id}' , 'ProductController@getEditProduct')->name('admin.products.getEdit');
         Route::post('edit/{id}' , 'ProductController@postEditProduct')->name('admin.products.postEdit');
         Route::get('delete/{id}' , 'ProductController@deleteProduct')->name('admin.products.delete');
+    });
+    Route::prefix('orders')->group(function(){
+        Route::get('/' , 'OrderController@getAdmin')->name('admin.orders.all');
+        Route::get('/{id}' , 'OrderController@getSingle')->name('admin.orders.single');
     });
 
 });

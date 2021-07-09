@@ -14,8 +14,8 @@
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-4 col-lg-4">
-                        <a href="{{route('sell.howToSellWithUs')}}"><img src="{{url('public/images')}}/homepage/sell-to-us-slide.jpg" class="w-100 h-auto mb-2" alt=""></a>
                         <a href="#"><img src="{{url('public/images')}}/homepage/installments-slide.jpg" class="w-100 h-auto mb-2" alt=""></a>
+                        <a href="{{route('sell.howToSellWithUs')}}"><img src="{{url('public/images')}}/homepage/sell-to-us-slide.jpg" class="w-100 h-auto mb-2" alt=""></a>
                         <a href="{{route('products')}}"><img src="{{url('public/images')}}/homepage/shop-now-slide.jpg" class="w-100 h-auto mb-2" alt=""></a>
                     </div>
                 </div>

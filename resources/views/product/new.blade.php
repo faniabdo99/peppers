@@ -17,8 +17,11 @@
                             <div class="moreinfo">
                                 <h4 class="brand-info text-left mt-1"><a href="{{route('products' , ['brand' , $Product->Brand->slug])}}">{{$Product->Brand->title}}</a></h4>
                                 <h2 class="product-name text-left"><a href="{{route('product.single' , $Product->slug)}}" title="{{$Product->title}}">{{$Product->title}}</a></h2>
-                                <p class="price mt-2">{{convertCurrency($Product->price , 'USD' , getCurrency()['code']) . getCurrency()['symbole']}}</p>
-                            </div>
+                                @if ($Product->CartReady)
+                                <p class="price mt-2">
+                                    {{ convertCurrency($Product->price, 'USD', getCurrency()['code']) . getCurrency()['symbole'] }}
+                                </p>
+                            @endif                            </div>
                             @if(isInUserCart(getUserId() , $Product->id))
                                 <a class="btn btn-brand"><i class="fas fa-check"></i> Added to Cart</a>
                             @else

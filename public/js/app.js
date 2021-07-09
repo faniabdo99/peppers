@@ -247,6 +247,29 @@ $('#cart-country').change(function () {
       $('#cart-total').html(OrderCost + ShippingCostINT);
     }
   }
+}); //Click to load more products
+
+$('#load-more-button').click(function () {
+  $(this).html('Loading <i class="fas fa-spinner fa-spin"></i>');
+  $.ajax({
+    method: 'get',
+    data: {
+      filtertype: null,
+      loadmore: true,
+      current_data: 21,
+      next_data: 42
+    },
+    url: $(this).data('action'),
+    success: function success(response) {
+      response.data.forEach(function (item) {
+        console.log(item.slug);
+        $('.ajax-products-list').append("\n                        <div class=\"col-lg-4 col-6\">\n                            <div class=\"single-product\">\n                                <a href=\"{{ route('product.single', [".concat(item.slug, ",").concat(item.id, "]) }}\" title=\"").concat(item.title, "\"\n                                    class=\"product-image\">\n                                    <img src=\"{{ $Product->Thumb }}\" alt=\"").concat(item.title, "\" />\n                                </a>\n                                <div class=\"moreinfo\">\n                                    <h4 class=\"brand-info text-left mt-1\"><a\n                                            href=\"{{ route('products', ['brand', $Product->Brand->slug]) }}\">{{ $Product->Brand->title }}</a>\n                                    </h4>\n                                    <h2 class=\"product-name text-left\"><a\n                                            href=\"{{ route('product.single', [$Product->slug,$Product->id]) }}\"\n                                            title=\"").concat(item.title, "\">").concat(item.title, "</a></h2>\n                                        @if ($Product->CartReady)\n                                            <p class=\"price mt-2\">\n                                                {{ convertCurrency($Product->price, 'USD', getCurrency()['code']) . getCurrency()['symbole'] }}\n                                            </p>\n                                        @endif\n                                </div>\n                                @if (isInUserCart(getUserId(), $Product->id))\n                                    <a class=\"btn btn-brand\"><i class=\"fas fa-check\"></i> Added to Cart</a>\n                                @else\n                                    @if ($Product->CartReady)\n                                        <a class=\"btn btn-brand add-to-cart\" data-target=\"{{ route('cart.add') }}\"\n                                            data-id=\"{{ $Product->id }}\" data-user=\"{{ getUserId() }}\"\n                                            href=\"javascript:;\"><i class=\"fas fa-cart-plus\"></i> Add to cart</a>\n                                    @else\n                                        <a class=\"btn btn-brand pre-oreder-modal-toggler\" href=\"javascript:;\"\n                                            data-target=\"pre-oreder-modal\" data-title=\"").concat(item.title, "\"\n                                            data-link=\"{{ route('product.single', [$Product->slug,$Product->id]) }}\"\n                                            data-sku=\"{{ $Product->sku }}\"><i class=\"fas fa-cart-plus\"></i> Pre\n                                            Order</a>\n                                    @endif\n                                @endif\n                            </div>\n                        </div>\n                    "));
+        console.log(item);
+      }); // console.log(response);
+    },
+    error: function error() {// console.log(response);
+    }
+  });
 });
 
 /***/ }),

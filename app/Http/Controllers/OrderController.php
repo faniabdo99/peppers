@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\Cart;
 use Mail;
 use App\Mail\OrderPlaceMail;
+use App\Mail\OrderReceipt;
 class OrderController extends Controller{
     public function getCheckout(){
         if(userCartCount(getUserId()) > 0){
@@ -78,7 +79,7 @@ class OrderController extends Controller{
                         ]);
                     }
                     $response = Http::post('https://accept.paymobsolutions.com/api/auth/tokens',[
-                        'api_key' => 'ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6VXhNaUo5LmV5SmpiR0Z6Y3lJNklrMWxjbU5vWVc1MElpd2ljSEp2Wm1sc1pWOXdheUk2TlRFME9Dd2libUZ0WlNJNkltbHVhWFJwWVd3aWZRLktzLW9SRUoyWUxLVGNVeUJJQm5oTWF2eG1sTVZTVWxlaXpLT1REZFQwTHlxaUVfNDlkLXVCZnc5LXBtdFRraGtvVzE1M2Zhc1JZeDBjenZGT0VCMmV3',
+                        'api_key' => 'ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SnVZVzFsSWpvaWFXNXBkR2xoYkNJc0ltTnNZWE56SWpvaVRXVnlZMmhoYm5RaUxDSndjbTltYVd4bFgzQnJJam8yTURjeU4zMC5WYXUwVXNKS1UwNHV5cXF0VTFtN1lUdUtUQ2NfNkxqQk9RNlVJOTdjQU15OFk4d0JJU0ZMVlE4QnlraU9nbURzMWJfVUxZNkpuam9XMVdsXzlaa2xjdw==',
                     ]);
                     $ParseJson = json_decode($response->body());
                     $Token = $ParseJson->token;
@@ -86,9 +87,10 @@ class OrderController extends Controller{
                     $OrderRequest = Http::post('https://accept.paymobsolutions.com/api/ecommerce/orders' , [
                         'auth_token' => $Token,
                         'delivery_needed' => true,
-                        'amount_cents' => convertCurrency(($TheOrder->FinalTotal+$TheOrder->total_shipping_cost) , 'USD' , 'EGP') * 100,
+                        'amount_cents' => convertCurrency(($TheOrder->FinalTotal) , 'USD' , 'EGP') * 100,
                         'currency' => 'EGP',
-                        'merchant_order_id'=> $TheOrder->id,
+                        // 'merchant_order_id'=> $TheOrder->id,
+                        'merchant_order_id'=> rand(1,500),
                         'items' => $OrderItems,
                         'shipping_data' => [
                             'email' => $TheOrder->email, 
@@ -103,17 +105,17 @@ class OrderController extends Controller{
                             'last_name' => ' Nicolas'
                         ]
                     ]);
-                    // dd(json_decode($OrderRequest));
-                    $PaymobOrderID = json_decode($OrderRequest)->id;
+                    $PaymobOrderIdRequest = json_decode($OrderRequest);
+                    $PaymobOrderID = $PaymobOrderIdRequest->id;
                     //Order Created
                     $PaymentRequest = Http::post('https://accept.paymobsolutions.com/api/acceptance/payment_keys' , [
                         'auth_token' => $Token,
                         'delivery_needed' => true,
                         'order_id' => $PaymobOrderID,
                         'expiration' => 3600, 
-                        'amount_cents' => convertCurrency(($TheOrder->FinalTotal+$TheOrder->total_shipping_cost) , 'USD' , 'EGP') * 100,
+                        'amount_cents' => convertCurrency(($TheOrder->FinalTotal) , 'USD' , 'EGP') * 100,
                         'currency' => 'EGP',
-                        'integration_id'=> 237719,
+                        'integration_id'=> 8508,
                         'billing_data' => [
                             'apartment' => 803, 
                             'floor' => 42, 
@@ -123,7 +125,7 @@ class OrderController extends Controller{
                             'first_name' => $TheOrder->name, 
                             'street' => $TheOrder->address, 
                             'phone_number' => $TheOrder->phone_number, 
-                            'postal_code' => 12511, 
+                            'postal_code' => 12511,
                             'city' => $TheOrder->city, 
                             'country' => 'EG', 
                             'state' => 'State',
@@ -137,7 +139,7 @@ class OrderController extends Controller{
                 //Send Order Mail to Admin
                 try{
                     Mail::to('info@peppersluxury.com')->send(new OrderPlaceMail());
-                    Mail::to($TheOrder->email)->send(new OrderPlaceMail());
+                    Mail::to($TheOrder->email)->send(new OrderReceipt($TheOrder));
                 }catch(Exception $e){}
                 return redirect()->route('order.complete' , $TheOrder->id);
             }else{
@@ -154,11 +156,19 @@ class OrderController extends Controller{
         if($r->success == 'true'){
             //Update the Order
             $TheOrder->update([
-            'status' => 'Paid',
-            'payment_id' => $r->id,
-            'is_paid' => 1
+                'status' => 'Paid',
+                'payment_id' => $r->id,
+                'is_paid' => 1
             ]);
         }
         return view('orders.complete', compact('TheOrder'));
+    }
+
+    public function getAdmin(){
+        $AllOrders = Order::latest()->get();
+    // return view('admin.')
+    }
+    public function getSingle(){
+
     }
 }

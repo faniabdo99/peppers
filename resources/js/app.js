@@ -254,3 +254,68 @@ $('#cart-country').change(function(){
         }
     }
 });
+
+
+       //Click to load more products
+       $('#load-more-button').click(function(){
+        $(this).html('Loading <i class="fas fa-spinner fa-spin"></i>');
+        $.ajax({
+            method: 'get',
+            data: {
+                filtertype: null,
+                loadmore: true,
+                current_data: 21,
+                next_data: 42
+            },
+            url: $(this).data('action'),
+            success: function(response){
+                response.data.forEach(function(item){
+                    console.log(item.slug);
+                    $('.ajax-products-list').append(`
+                        <div class="col-lg-4 col-6">
+                            <div class="single-product">
+                                <a href="{{ route('product.single', [${item.slug},${item.id}]) }}" title="${item.title}"
+                                    class="product-image">
+                                    <img src="{{ $Product->Thumb }}" alt="${item.title}" />
+                                </a>
+                                <div class="moreinfo">
+                                    <h4 class="brand-info text-left mt-1"><a
+                                            href="{{ route('products', ['brand', $Product->Brand->slug]) }}">{{ $Product->Brand->title }}</a>
+                                    </h4>
+                                    <h2 class="product-name text-left"><a
+                                            href="{{ route('product.single', [$Product->slug,$Product->id]) }}"
+                                            title="${item.title}">${item.title}</a></h2>
+                                        @if ($Product->CartReady)
+                                            <p class="price mt-2">
+                                                {{ convertCurrency($Product->price, 'USD', getCurrency()['code']) . getCurrency()['symbole'] }}
+                                            </p>
+                                        @endif
+                                </div>
+                                @if (isInUserCart(getUserId(), $Product->id))
+                                    <a class="btn btn-brand"><i class="fas fa-check"></i> Added to Cart</a>
+                                @else
+                                    @if ($Product->CartReady)
+                                        <a class="btn btn-brand add-to-cart" data-target="{{ route('cart.add') }}"
+                                            data-id="{{ $Product->id }}" data-user="{{ getUserId() }}"
+                                            href="javascript:;"><i class="fas fa-cart-plus"></i> Add to cart</a>
+                                    @else
+                                        <a class="btn btn-brand pre-oreder-modal-toggler" href="javascript:;"
+                                            data-target="pre-oreder-modal" data-title="${item.title}"
+                                            data-link="{{ route('product.single', [$Product->slug,$Product->id]) }}"
+                                            data-sku="{{ $Product->sku }}"><i class="fas fa-cart-plus"></i> Pre
+                                            Order</a>
+                                    @endif
+                                @endif
+                            </div>
+                        </div>
+                    `);
+                    console.log(item);
+                });
+                // console.log(response);
+            },
+            error: function(){
+                // console.log(response);
+            }
+        });
+    });
+   

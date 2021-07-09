@@ -152,7 +152,7 @@ class UserController extends Controller{
                 try{
                     Mail::to($TheUser->email)->send(new ResetPasswordMail($TheUser));
                 }catch(Exception $e){}
-                return back()->withSuccess("Please follow the instruction sent to you via email");
+                return back()->withSuccess("Please follow the instruction sent to you via email, Make sure to check your spam or junk mail");
             }else{
                 return back()->withErrors("This email dosen't exist");
             }
