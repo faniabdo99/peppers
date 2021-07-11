@@ -89,8 +89,8 @@ class OrderController extends Controller{
                         'delivery_needed' => true,
                         'amount_cents' => convertCurrency(($TheOrder->FinalTotal) , 'USD' , 'EGP') * 100,
                         'currency' => 'EGP',
-                        // 'merchant_order_id'=> $TheOrder->id,
-                        'merchant_order_id'=> rand(1,500),
+                        'merchant_order_id'=> $TheOrder->id,
+                        // 'merchant_order_id'=> rand(1,500),
                         'items' => $OrderItems,
                         'shipping_data' => [
                             'email' => $TheOrder->email, 
@@ -115,7 +115,7 @@ class OrderController extends Controller{
                         'expiration' => 3600, 
                         'amount_cents' => convertCurrency(($TheOrder->FinalTotal) , 'USD' , 'EGP') * 100,
                         'currency' => 'EGP',
-                        'integration_id'=> 8508,
+                        'integration_id'=> 11312,
                         'billing_data' => [
                             'apartment' => 803, 
                             'floor' => 42, 

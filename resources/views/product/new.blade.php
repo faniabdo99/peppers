@@ -11,12 +11,12 @@
                     @forelse ($AllProducts as $Product)
                     <div class="col-lg-3 col-6">
                         <div class="single-product">
-                            <a href="{{route('product.single' , $Product->slug)}}" title="{{$Product->title}}" class="product-image">
+                            <a href="{{route('product.single' , [$Product->slug , $Product->id])}}" title="{{$Product->title}}" class="product-image">
                                 <img src="{{$Product->Thumb}}" alt="{{$Product->title}}"/>
                             </a>
                             <div class="moreinfo">
                                 <h4 class="brand-info text-left mt-1"><a href="{{route('products' , ['brand' , $Product->Brand->slug])}}">{{$Product->Brand->title}}</a></h4>
-                                <h2 class="product-name text-left"><a href="{{route('product.single' , $Product->slug)}}" title="{{$Product->title}}">{{$Product->title}}</a></h2>
+                                <h2 class="product-name text-left"><a href="{{route('product.single' , [$Product->slug , $Product->id])}}" title="{{$Product->title}}">{{$Product->title}}</a></h2>
                                 @if ($Product->CartReady)
                                 <p class="price mt-2">
                                     {{ convertCurrency($Product->price, 'USD', getCurrency()['code']) . getCurrency()['symbole'] }}
