@@ -127,48 +127,42 @@
                         <p>There is no products in this filters</p>
                     @endforelse
                 </div>
-                <div class="text-center">
-                    <button class="btn btn-brand" id="load-more-button" data-action="{{route('products.loadMoreProducts')}}">Load More Products</button>
-                </div>
-                {{-- <div class="col-12 text-center" id="load-more"></div> --}}
+                <div class="col-12 text-center" id="load-more"></div>
             </div>
         </div>
     </div>
     @include('layout.footer')
     @include('layout.scripts')
     <script>
-
-        // //Modern Infinit Scroll
-        // var PageElements = $('.ajax-products-list').children();
-        // var ScrollCount = 1;
-        // //Clear the page
-        // $('.ajax-products-list').html('');
-        // //Show only 18 as a start
-        // PageElements.each(function(index, item) {
-        //     if ((ScrollCount * 18) > index) {
-        //         $('.ajax-products-list').append(item);
-        //     }
-        // });
-        // $(window).scroll(function() {
-        //     var scrollPercent = 100 * $(window).scrollTop() / ($(document).height() - $(window).height());
-        //     //Now , Dedect scroll action and act accordingally
-        //     if (scrollPercent > 90) {
-        //         $('#load-more').html('<i class="fas fa-spinner fa-spin fa-5x"></i>');
-        //         ScrollCount = ScrollCount + 1;
-        //         PageElements.each(function(index, item) {
-        //             if ((ScrollCount * 18) > index) {
-        //                 if (item == '') {
-        //                     alert('Done.');
-        //                 } else {
-        //                     $('.ajax-products-list').append(item);
-        //                 }
-        //             }
-        //         });
-        //         $('#load-more').html('');
-        //     }
-        // });
-
+        //Modern Infinit Scroll
+        var PageElements = $('.ajax-products-list').children();
+        var ScrollCount = 1;
+        //Clear the page
+        $('.ajax-products-list').html('');
+        //Show only 18 as a start
+        PageElements.each(function(index, item) {
+            if ((ScrollCount * 18) > index) {
+                $('.ajax-products-list').append(item);
+            }
+        });
+        $(window).scroll(function() {
+            var scrollPercent = 100 * $(window).scrollTop() / ($(document).height() - $(window).height());
+            //Now , Dedect scroll action and act accordingally
+            if (scrollPercent > 90) {
+                $('#load-more').html('<i class="fas fa-spinner fa-spin fa-5x"></i>');
+                ScrollCount = ScrollCount + 1;
+                PageElements.each(function(index, item) {
+                    if ((ScrollCount * 18) > index) {
+                        if (item == '') {
+                            alert('Done.');
+                        } else {
+                            $('.ajax-products-list').append(item);
+                        }
+                    }
+                });
+                $('#load-more').html('');
+            }
+        });   
     </script>
 </body>
-
 </html>
