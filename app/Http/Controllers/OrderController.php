@@ -115,7 +115,7 @@ class OrderController extends Controller{
                         'expiration' => 3600, 
                         'amount_cents' => convertCurrency(($TheOrder->FinalTotal) , 'USD' , 'EGP') * 100,
                         'currency' => 'EGP',
-                        'integration_id'=> 11312,
+                        'integration_id'=> 237719,
                         'billing_data' => [
                             'apartment' => 803, 
                             'floor' => 42, 
