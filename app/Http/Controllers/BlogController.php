@@ -5,8 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\Blog;
 use App\Models\Product;
 use Validator;
-
-
+use Image as ImageLib;
 class BlogController extends Controller
 {
 
@@ -24,27 +23,34 @@ class BlogController extends Controller
     public function postCreateBlog(Request $r)
     {
         $Rules = [
-            'title' => 'required|max:255',
+            'title' => 'required',
             'slug' => 'required',
             'description' => 'required',
             'content' => 'required',
             'category' => 'required',
             'keywords' => 'required',
-            'status' => 'required',
-            'user_id' => 'required',
+            'active' => 'required',
             'image' => 'required',
             'allow_comments' => 'required',
         ];
         $Validator = Validator::make($r->all(),$Rules);
-
         if($Validator->fails()){
             return back()->withErrors('Error');
         }
         else{
             $BlogData = $r->all();
-
             $BlogData['slug'] = strtolower(str_replace(' ' , '-' , $r->slug));
-            // $BlogData['user_id'] = auth()->user()->id;
+            $BlogData['user_id'] = auth()->user()->id;
+            //Upload Images to the server
+            if($r->has('image')){
+                $img = ImageLib::make($r->image);
+                // backup status
+                $img->backup();
+                // Cover Low Res
+                $img->fit(600, 600);
+                $img->save('storage/app/public/images/blogs/'.$BlogData['slug'].'.'.$r->image->getClientOriginalExtension());
+                $BlogData['image'] = $BlogData['slug'].'.'.$r->image->getClientOriginalExtension();
+            }
             Blog::create($BlogData);
             return redirect()->route('admin.blog.all')->withSuccess("Blog Added Successfully");
             }
@@ -66,21 +72,30 @@ class BlogController extends Controller
             'content' => 'required',
             'category' => 'required',
             'keywords' => 'required',
-            'status' => 'required',
-            'user_id' => 'required',
+            'active' => 'required',
             'image' => 'required',
             'allow_comments' => 'required',
         ];
 
         $Validator = Validator::make($r->all(),$Rules);
         if($Validator->fails()){
-            return back()->withErrors('Error');
+            return back()->withInput()->withErrors($Validator->errors()->all());
+
         }
         else{
-
             $BlogData = $r->all();
             $BlogData['slug'] = strtolower(str_replace(' ' , '-' , $r->slug));
-            // $BlogData['user_id'] = auth()->user()->id;
+            $BlogData['user_id'] = auth()->user()->id;
+            //Upload Images to the server
+            if($r->has('image')){
+                $img = ImageLib::make($r->image);
+                // backup status
+                $img->backup();
+                // Cover Low Res
+                $img->fit(600, 600);
+                $img->save('storage/app/public/images/blogs/'.$BlogData['slug'].'.'.$r->image->getClientOriginalExtension());
+                $BlogData['image'] = $BlogData['slug'].'.'.$r->image->getClientOriginalExtension();
+            }
             $AllBlogs->update($BlogData);
             return redirect()->route('admin.blog.all')->withSuccess("Blog Updated Successfully");
         }

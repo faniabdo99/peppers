@@ -18,20 +18,7 @@
                                     <a href="{{ route('admin.products.create') }}" class="btn btn-success"> Create New
                                         Product</a>
                                 </div>
-                                @if (session()->has('success'))
-                                    <div class="alert alert-success mb-5 mt-5">
-                                        <b>Success</b>
-                                        <p class="mb-0">{{ session('success') }}</p>
-                                    </div>
-                                @endif
-                                @if ($errors->any())
-                                    <div class="alert alert-danger mb-5 mt-5">
-                                        <b>Error</b>
-                                        @foreach ($errors->all() as $error)
-                                            <p class="mb-0">{{ $error }}</p>
-                                        @endforeach
-                                    </div>
-                                @endif
+                                                           @include('admin.layout.noto')
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <table class="table" id="mytable">

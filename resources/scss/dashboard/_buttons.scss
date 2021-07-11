@@ -2,24 +2,21 @@
   position: relative;
   padding: 12px 30px;
   margin: $bmd-btn-margin-bottom 1px;
-  font-size: .75rem; //  12px
-  font-weight: 400;
+  font-size: .75rem;
+  //12pxfont-weight: 400;
   line-height: $bmd-line-height;
   text-decoration: none;
   letter-spacing: 0;
   cursor: pointer;
-  background-color: transparent;
+  background-color: $brand;
   border: 0;
   border-radius: $border-radius-sm;
   outline: 0;
   transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: box-shadow, transform;
-  @include undo-bs-tab-focus();
-
-  //--
-  // Colors
-  @include bmd-raised-button-color();
-  &.btn-white {
+  //--//Colors@includebmd-raised-button-color():;
+  &.btn-white
+{
       &,
       &:focus,
       &:hover {
@@ -180,39 +177,7 @@
   }
 }
 
-// btn-group variations
-.btn-group,
-.btn-group-vertical {
-  position: relative;
-  margin: 10px 1px;
 
-  // spec: https://www.google.com/design/spec/components/buttons.html#buttons-toggle-buttons
-  //&.open {
-  //  .dropdown-toggle {
-  //  }
-  //
-  //  > .dropdown-toggle.btn {
-  //    @include bmd-raised-button-color-bg();
-  //  }
-  //}
-
-  .dropdown-menu {
-    border-radius: 0 0 $border-radius $border-radius;
-  }
-
-  &.btn-group-raised {
-    @include box-shadow($bmd-shadow-2dp);
-  }
-
-  .btn + .btn,
-  .btn,
-  .btn:active,
-  .btn-group {
-    margin: 0;
-  }
-
-  // remove margin from nested btn-group(s) to properly align them with the outer buttons
-  > .btn-group {
-    margin: 0;
-  }
+.btn-primary:hover,:focus{
+    background-color: $brand;
 }

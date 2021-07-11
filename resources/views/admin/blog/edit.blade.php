@@ -15,58 +15,66 @@
                                 <div class="card-header card-header-primary">
                                     <h4 class="card-title ">Blog Management</h4>
                                 </div>
-                                @if (session()->has('success'))
-                                    <div class="container alert alert-success mb-5 mt-3">
-                                        <b>Success</b>
-                                        <p class="mb-0">{{ session('success') }}</p>
-                                    </div>
-                                @endif
-                                @if ($errors->any())
-                                    <div class="container alert alert-danger mb-5 mt-3">
-                                        <b>Error</b>
-                                        @foreach ($errors->all() as $error)
-                                            <p class="mb-0">{{ $error }}</p>
-                                        @endforeach
-                                    </div>
-                                @endif
+                                @include('admin.layout.noto')
+
                                 <form class="p-3" action="{{ route('admin.blog.postEdit' , $AllBlogs->id) }}" method="post"
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                     <label class="form-control-label">Title</label>
                                     <input class="form-control" name="title" type="text"
-                                    value="{{old('title') ?? $AllBlogs->title }}"
-                                        placeholder="Please Enter Title" >
+                                    value="{{$AllBlogs->title ?? '' }}"
+                                        placeholder="Please Enter Title" required>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-control-label">Slug</label>
                                     <input class="form-control" name="slug" type="text"
-                                    value="{{old('slug') ?? $AllBlogs->slug }}"
-                                        placeholder="Please Enter slug" >
+                                    value="{{$AllBlogs->slug ?? '' }}"
+                                        placeholder="Please Enter slug" required>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-control-label">Description</label>
                                     <input class="form-control" name="description" type="text"
-                                    value="{{old('description') ?? $AllBlogs->description }}"
-                                        placeholder="Please Enter Description" >
+                                    value="{{$AllBlogs->description ?? '' }}"
+                                        placeholder="Please Enter Description" required>
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-control-label">content</label>
+                                    <label class="form-control-label">Content</label>
                                     <input class="form-control" name="content" type="text"
-                                    value="{{old('content') ?? $AllBlogs->content }}"
-                                        placeholder="Please Enter Content" >
+                                    value="{{$AllBlogs->content ?? '' }}"
+                                        placeholder="Please Enter Content" required>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-control-label">Category</label>
                                     <input class="form-control" name="category" type="text"
-                                    value="{{old('category') ?? $AllBlogs->category }}"
-                                        placeholder="Please Enter Category" >
+                                    value="{{$AllBlogs->category ?? '' }}"
+                                        placeholder="Please Enter Category" required>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-control-label">Keywords</label>
                                     <input class="form-control" name="keywords" type="text"
-                                    value="{{old('keywords') ?? $AllBlogs->keywords }}"
+                                    value="{{$AllBlogs->keywords ?? '' }}"
                                         placeholder="Please Enter Blog Keywords" >
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label">Image</label>
+                                    <input class="form-control" name="image" type="file"
+                                    value="{{$AllBlogs->image ?? '' }}"
+                                        placeholder="Please Upload Blog Image" >
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label">Active</label>
+                                    <select name="active" class="form-control">
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label">Allow Comments</label>
+                                    <select name="allow_comments" class="form-control">
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
+                                    </select>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Add New Coupon</button>
                             </form>

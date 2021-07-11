@@ -15,20 +15,7 @@
                                 <div class="card-header card-header-primary">
                                     <h4 class="card-title ">Blog Management</h4>
                                 </div>
-                                @if (session()->has('success'))
-                                    <div class="container alert alert-success mb-5 mt-3">
-                                        <b>Success</b>
-                                        <p class="mb-0">{{ session('success') }}</p>
-                                    </div>
-                                @endif
-                                @if ($errors->any())
-                                    <div class="container alert alert-danger mb-5 mt-3">
-                                        <b>Error</b>
-                                        @foreach ($errors->all() as $error)
-                                            <p class="mb-0">{{ $error }}</p>
-                                        @endforeach
-                                    </div>
-                                @endif
+                                @include('admin.layout.noto')
                                 <form class="p-3" action="{{ route('admin.blog.postCreate') }}" method="post"
                                     enctype="multipart/form-data">
                                     @csrf
@@ -36,31 +23,31 @@
                                         <label class="form-control-label">Title</label>
                                         <input class="form-control" name="title" type="text"
                                         value="{{old('title') ?? '' }}"
-                                            placeholder="Please Enter Title" >
+                                            placeholder="Please Enter Title" required>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-control-label">Slug</label>
                                         <input class="form-control" name="slug" type="text"
                                         value="{{old('slug') ?? '' }}"
-                                            placeholder="Please Enter slug" >
+                                            placeholder="Please Enter slug" required>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-control-label">Description</label>
                                         <input class="form-control" name="description" type="text"
                                         value="{{old('description') ?? '' }}"
-                                            placeholder="Please Enter Description" >
+                                            placeholder="Please Enter Description" required>
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-control-label">content</label>
+                                        <label class="form-control-label">Content</label>
                                         <input class="form-control" name="content" type="text"
                                         value="{{old('content') ?? '' }}"
-                                            placeholder="Please Enter Content" >
+                                            placeholder="Please Enter Content" required>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-control-label">Category</label>
                                         <input class="form-control" name="category" type="text"
                                         value="{{old('category') ?? '' }}"
-                                            placeholder="Please Enter Category" >
+                                            placeholder="Please Enter Category" required>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-control-label">Keywords</label>
@@ -68,26 +55,39 @@
                                         value="{{old('keywords') ?? '' }}"
                                             placeholder="Please Enter Blog Keywords" >
                                     </div>
+                                    <div class="form-group">
+                                        <label class="form-control-label">image</label>
+                                        <input class="form-control" name="image" type="file" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-control-label">Active</label>
+                                        <select name="active" class="form-control">
+                                            <option value="1">Yes</option>
+                                            <option value="0">No</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-control-label">Allow Comments</label>
+                                        <select name="allow_comments" class="form-control">
+                                            <option value="1">Yes</option>
+                                            <option value="0">No</option>
+                                        </select>
+                                    </div>
                                     <button type="submit" class="btn btn-primary">Add New Blog</button>
                                 </form>
-
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
             @include('admin.layout.scripts')
-
         </div>
     </div>
-
     @include('admin.layout.scripts')
     <script>
         $(document).ready(function() {
             $('#mytable').DataTable();
         });
-
     </script>
 </body>
 

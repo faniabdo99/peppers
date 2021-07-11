@@ -15,20 +15,7 @@
                                 <div class="card-header card-header-primary">
                                     <h4 class="card-title ">Category Management</h4>
                                 </div>
-                                @if (session()->has('success'))
-                                    <div class="container alert alert-success mb-5 mt-3">
-                                        <b>Success</b>
-                                        <p class="mb-0">{{ session('success') }}</p>
-                                    </div>
-                                @endif
-                                @if ($errors->any())
-                                    <div class="container alert alert-danger mb-5 mt-3">
-                                        <b>Error</b>
-                                        @foreach ($errors->all() as $error)
-                                            <p class="mb-0">{{ $error }}</p>
-                                        @endforeach
-                                    </div>
-                                @endif
+                                                            @include('admin.layout.noto')
                                 <form class="p-3" action="{{ route('admin.categories.postCreate') }}" method="post"
                                     enctype="multipart/form-data">
                                     @csrf

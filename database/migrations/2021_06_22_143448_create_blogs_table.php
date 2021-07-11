@@ -16,6 +16,9 @@ class CreateBlogsTable extends Migration
             $table->text('content');
             $table->string('category');
             $table->string('keywords');
+            $table->string('image');
+            $table->integer('active')->default(0);
+            $table->integer('allow_comments')->default(1);
             $table->integer('user_id')->default(0);
             $table->timestamps();
         });
