@@ -6,22 +6,16 @@ use App\Models\Blog;
 use App\Models\Product;
 use Validator;
 use Image as ImageLib;
-class BlogController extends Controller
-{
-
-    public function getBlog()
-    {
+class BlogController extends Controller{
+    public function getBlog(){
         $AllBlogs = Blog::all();
         return view('admin.blog.all' ,compact('AllBlogs'));
     }
-
-    public function getCreateBlog()
-    {
+    public function getCreateBlog(){
         $AllBlogs = Blog::all();
         return view('admin.blog.create' , compact('AllBlogs'));
     }
-    public function postCreateBlog(Request $r)
-    {
+    public function postCreateBlog(Request $r){
         $Rules = [
             'title' => 'required',
             'slug' => 'required',
@@ -53,12 +47,10 @@ class BlogController extends Controller
             }
             Blog::create($BlogData);
             return redirect()->route('admin.blog.all')->withSuccess("Blog Added Successfully");
-            }
-
+        }
     }
 
-    public function getEditBlog($id)
-    {
+    public function getEditBlog($id){
         $AllBlogs = Blog::findOrFail($id);
         return view('admin.blog.edit', compact('AllBlogs'));
     }

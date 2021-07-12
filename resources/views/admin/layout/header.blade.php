@@ -15,7 +15,7 @@
     <meta name="currency" content="{{ getCurrency()['code'] }}">
     {{-- <meta name="exchange" content="{{ convertCurrency(1, 'USD', 'EGP') }}"> --}}
     <link rel="stylesheet" type="text/css"
-    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700|Material+Icons" />
     <link rel="shortcut icon" href="{{ url('public/icons/favicon.png') }}">
     <link rel="stylesheet" href="{{ url('public/css') }}/admin.css">
     <link rel="stylesheet" href="{{ url('public/css') }}/demo.css">

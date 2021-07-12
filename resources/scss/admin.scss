@@ -53,3 +53,18 @@
 @import "dashboard/plugins/perfect-scrollbar";
 
 @import "dashboard/responsive";
+
+body,h5{
+    font-family: 'Poppins' !important;
+}
+.single-order-information{
+    padding: 10px;
+    h5{
+        font-weight: 400;
+        margin-bottom: 0;
+        font-size: 1.2em;
+    }
+    p{
+        margin-bottom: 0;
+    }
+}

@@ -102,6 +102,7 @@ Route::group(['prefix' => 'admin' , 'middleware' => 'admin'], function(){
     Route::prefix('orders')->group(function(){
         Route::get('/' , 'OrderController@getAdmin')->name('admin.orders.all');
         Route::get('/{id}' , 'OrderController@getSingle')->name('admin.orders.single');
+        Route::post('update-order-staus' , 'OrderController@postUpdateStatus')->name('admin.orders.updateStatus');
     });
 
 });

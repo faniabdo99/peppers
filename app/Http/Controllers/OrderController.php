@@ -168,7 +168,20 @@ class OrderController extends Controller{
         $AllOrders = Order::latest()->get();
     // return view('admin.')
     }
-    public function getSingle(){
-
+    public function getSingle($id){
+        //Get the order data
+        $TheOrder = Order::findOrFail($id);
+        return view('admin.orders.single', compact('TheOrder'));
+    }
+    public function postUpdateStatus(Request $r){
+        if(empty($r->status)){
+            return back()->withErrors('Please choose a status');
+        }else{
+            $TheOrder = Order::findOrFail($r->order_id);
+            $TheOrder->update([
+                'status' => $r->status
+            ]);
+            return back()->withSuccess('Status Updated');
+        }
     }
 }

@@ -15887,3 +15887,18 @@ body {
     display: none !important;
   }
 }
+body, h5 {
+  font-family: "Poppins" !important;
+}
+
+.single-order-information {
+  padding: 10px;
+}
+.single-order-information h5 {
+  font-weight: 400;
+  margin-bottom: 0;
+  font-size: 1.2em;
+}
+.single-order-information p {
+  margin-bottom: 0;
+}

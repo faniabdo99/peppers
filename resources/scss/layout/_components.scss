@@ -31,9 +31,10 @@
         .next-btn {
             display: inline;
             width: 100px;
-            background: $brand;
+            background: $black;
             border: 0;
             color: #fff;
+            text-transform:uppercase;
             transition: all ease 0.3s;
             &:hover{
                 background: $brand-hover;

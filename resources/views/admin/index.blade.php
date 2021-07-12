@@ -1,5 +1,4 @@
 @include('admin.layout.header')
-
 <body>
     <div class="wrapper ">
         @include('admin.layout.sidebar')
@@ -11,7 +10,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header card-header-primary">
-                                    <h4 class="card-title ">Latest Orders</h4>
+                                    <h4 class="card-title">Latest Orders</h4>
                                     <p class="card-category">Last 10 Orders Made in Peppers Closet</p>
                                 </div>
                                 <div class="card-body">
@@ -35,7 +34,7 @@
                                                         <td>{{$Order->status}}</td>
                                                         <td>{{$Order->payment_method}}</td>
                                                         <td>{{$Order->total}}$</td>
-                                                        <td><a href="#">Details</a></td>
+                                                        <td><a href="{{route('admin.orders.single' , $Order->id)}}">Details</a></td>
                                                     </tr>
                                                 @empty
                                                 @endforelse
@@ -45,18 +44,11 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-=======
-        
-
->>>>>>> f87d5fce8734834d767d7f1881705e6740ca282f
     </div>
     @include('admin.layout.scripts')
 </body>
-
 </html>

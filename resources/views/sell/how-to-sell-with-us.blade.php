@@ -114,6 +114,9 @@
                                     <input type="file" class="form-control p-1" name="images[]" id="images" multiple required>
                                 </div>
                                 <div class="form-group">
+                                    <label for="name">Enter Your Name</label>
+                                    <input class="form-control" type="text" name="name" placeholder="Please enter you name" required>
+                                    <br>
                                     <label for="phone">Enter Your Phone Number</label>
                                     <input class="form-control" name="phone" value="{{ old('phone') ?? ''}}" type="tel" placeholder="+2010000000" id="phone" required>
                                     <div class="form-check mt-3">

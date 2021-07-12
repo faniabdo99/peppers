@@ -11,6 +11,6 @@ class SellMail extends Mailable{
         $this->EmailData = $EmailData;
     }
     public function build(){
-        return $this->markdown('mails/sell/sell-mail');
+        return $this->markdown('mails/sell/sell-mail')->subject('Peppers Luxury Close - New Sell to us Request');
     }
 }
