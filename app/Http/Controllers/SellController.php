@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Validator;
 use Mail;
 use Sheets;
+use App\Notifications\OrderCreated;
 //Include the mailables
 use App\Mail\SellMail;
 class SellController extends Controller{
