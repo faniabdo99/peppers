@@ -1,10 +1,6 @@
-    <div class="sidebar text-white bg-dark">
-        <div class="logo"><a href="{{route('admin.home')}}" class="simple-text logo-normal " id="admin-header">
-            Pepper's Dashboard
-        </a>
-    </div>
+<div class="sidebar text-white bg-dark">
     <ul class="nav">
-        <li class="nav-item admin-item ">
+        <li class="nav-item admin-item">
             <a class="nav-link" href="./dashboard.html">
                 <i class="material-icons">category</i>
                 <p>Products</p>
@@ -16,7 +12,7 @@
                 <p>Categories</p>
             </a>
         </li>
-        <li class="nav-item admin-item ">
+        <li class="nav-item admin-item">
             <a class="nav-link" href="{{route('admin.discount.all')}}">
                 <i class="material-icons">content_paste</i>
                 <p>Discounts List</p>
@@ -29,7 +25,7 @@
             </a>
         </li>
         <li class="nav-item admin-item">
-            <a class="nav-link" href="./map.html">
+            <a class="nav-link" href="{{route('admin.orders.all')}}">
                 <i class="material-icons">list_alt</i>
                 <p>Orders</p>
             </a>
@@ -53,5 +49,4 @@
             </a>
         </li>
     </ul>
-        </div>
-    </div>
+</div>

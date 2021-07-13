@@ -15887,6 +15887,11 @@ body {
     display: none !important;
   }
 }
+@media print {
+  .no-print {
+    display: none;
+  }
+}
 body, h5 {
   font-family: "Poppins" !important;
 }

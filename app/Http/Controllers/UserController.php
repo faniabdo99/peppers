@@ -67,7 +67,7 @@ class UserController extends Controller{
         return Socialite::driver($provider)->redirect();
     }
     public function handleProviderCallback(Request $r , $driver){
-        $user = Socialite::driver($driver)->user();
+        $user = Socialite::driver($driver)->stateless()->user();
         if(!$user->email){
             $user->email = 'no@'.$user->id.'email.com';
         }

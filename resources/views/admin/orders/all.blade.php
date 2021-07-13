@@ -26,7 +26,7 @@
                                                 <th>Actions</th>
                                             </thead>
                                             <tbody>
-                                                @forelse ($LatestOrders as $Order)
+                                                @forelse ($AllOrders as $Order)
                                                     <tr>
                                                         <td>{{$Order->id}}</td>
                                                         <td>{{$Order->created_at->format('Y-m-d')}}</td>
@@ -34,7 +34,7 @@
                                                         <td>{{$Order->status}}</td>
                                                         <td>{{$Order->PaymentMethodText}}</td>
                                                         <td>{{$Order->FinalTotal}}$</td>
-                                                        <td><a href="{{route('admin.orders.single' , $Order->id)}}">Details</a></td>
+                                                        <td><a class="btn btn-primary text-white" href="{{route('admin.orders.single' , $Order->id)}}">Details</a></td>
                                                     </tr>
                                                 @empty
                                                 @endforelse

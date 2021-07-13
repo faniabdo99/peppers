@@ -11,6 +11,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             @include('admin.layout.noto')
+                            <button class="btn btn-primary no-print" onclick="window.print()"><i class="material-icons">print</i> Print / Save to PDF</button>
                             <div class="card mb-5">
                                 <div class="card-header card-header-primary">
                                     <h4 class="card-title">Order: #{{$TheOrder->tracking_number}}</h4>
@@ -35,11 +36,11 @@
                                     </div>
                                     <div class="single-order-information">
                                         <h5>Phone Number:</h5>
-                                        <p>{{$TheOrder->phone_number}}</p>
+                                        <p><a class="text-dark" href="tel:{{$TheOrder->phone_number}}">{{$TheOrder->phone_number}}</a></p>
                                     </div>
                                     <div class="single-order-information">
                                         <h5>Email:</h5>
-                                        <p>{{$TheOrder->email}}</p>
+                                        <p><a class="text-dark" href="mailto:{{$TheOrder->email}}">{{$TheOrder->email}}</a></p>
                                     </div>
                                     <div class="single-order-information">
                                         <h5>Order Notes:</h5>
@@ -102,6 +103,7 @@
                                         <thead>
                                             <th>Image</th>
                                             <th>SKU</th>
+                                            <th>Price</th>
                                             <th>Title</th>
                                         </thead>
                                         <tbody>
@@ -109,7 +111,8 @@
                                                 <tr>
                                                     <td width="15%"><img width="50" src="{{$Item->Product->Thumb}}"></td>
                                                     <td width="15%">{{$Item->Product->sku}}</td>
-                                                    <td width="70%"><a target="_blank" href="{{route('product.single' , [$Item->Product->slug , $Item->Product->id])}}">{{$Item->Product->title}}</a></td>
+                                                    <td width="15%">{{$Item->Product->price}}$</td>
+                                                    <td width="55%"><a target="_blank" href="{{route('product.single' , [$Item->Product->slug , $Item->Product->id])}}">{{$Item->Product->title}}</a></td>
                                                 </tr>
                                             @empty
                                                 <p>There are no products</p>
@@ -118,7 +121,7 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="card">
+                            <div class="card no-print">
                                 <div class="card-header card-header-primary">
                                     <h4 class="card-title">Update Order Status</h4>
                                 </div>
@@ -135,6 +138,8 @@
                                             <option value="Cancelled">Cancelled</option>
                                         </select>
                                         <br>
+                                        <input type="checkbox" name="notify_user" id="notify_user"> <label for="notify_user">Notify User By Email</label>
+                                        <br><br>
                                         <button class="btn btn-primary" type="submit">Update Status</button>
                                     </form>
                                 </div>

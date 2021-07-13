@@ -10,6 +10,7 @@ use App\Models\Cart;
 use Mail;
 use App\Mail\OrderPlaceMail;
 use App\Mail\OrderReceipt;
+use App\Mail\OrderStatusUpdated;
 class OrderController extends Controller{
     public function getCheckout(){
         if(userCartCount(getUserId()) > 0){
@@ -166,7 +167,7 @@ class OrderController extends Controller{
 
     public function getAdmin(){
         $AllOrders = Order::latest()->get();
-    // return view('admin.')
+        return view('admin.orders.all' , compact('AllOrders'));
     }
     public function getSingle($id){
         //Get the order data
@@ -181,7 +182,11 @@ class OrderController extends Controller{
             $TheOrder->update([
                 'status' => $r->status
             ]);
-            return back()->withSuccess('Status Updated');
+            if($r->has('notify_user')){
+                //Send Email to User About the Update.
+                Mail::to($TheOrder->email)->send(New OrderStatusUpdated($TheOrder));
+            }
+            return back()->withSuccess('Order Status Updated');
         }
     }
 }
