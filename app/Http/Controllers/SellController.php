@@ -59,14 +59,6 @@ class SellController extends Controller{
             Sheets::spreadsheet(env('POST_SPREADSHEET_ID'))->sheet('SellToUs')->append([$GSheetData]);
             //Send the email
             Mail::to('info@peppersluxury.com')->send(new SellMail($EmailData));
-            'title' => 'required',
-            'gender' => 'required',
-            'category' => 'required',
-            'brand' => 'required',
-            'name' => 'required',
-            'phone' => 'required',
-            'toc' => 'required',
-            'images' => 'required|max:5|min:1'
             // WhatsApp Noto
             $WhatsappMessage = "New Sell to us Request:
 Hello There, You have new \"Sell to us\" Request.
