@@ -59,6 +59,24 @@ class SellController extends Controller{
             Sheets::spreadsheet(env('POST_SPREADSHEET_ID'))->sheet('SellToUs')->append([$GSheetData]);
             //Send the email
             Mail::to('info@peppersluxury.com')->send(new SellMail($EmailData));
+            'title' => 'required',
+            'gender' => 'required',
+            'category' => 'required',
+            'brand' => 'required',
+            'name' => 'required',
+            'phone' => 'required',
+            'toc' => 'required',
+            'images' => 'required|max:5|min:1'
+            // WhatsApp Noto
+            $WhatsappMessage = "New Sell to us Request:
+Hello There, You have new \"Sell to us\" Request.
+=====================================
+Name:".$r->name."
+Phone Number:".$r->phone."
+Request ID:".$GSheetData['id']."
+=====================================
+You can always check your Sell to us requests from Google Sheets, Here is the link: https://shorturl.at/gDNPX";
+                        getAdminUserModel()->notify(new OrderCreated('+201151411867' , $WhatsappMessage));
             return back()->withSuccess('Your item has been recived, Thanke you.');
         }
     }
@@ -85,6 +103,17 @@ class SellController extends Controller{
             Sheets::spreadsheet(env('POST_SPREADSHEET_ID'))->sheet('PersonalShopper')->append([$GSheetData]);
             //Send the email
             // Mail::to('info@peppersluxury.com')->send(new SellMail($EmailData));
+            // WhatsApp Noto
+            $WhatsappMessage = "New Personal Shopper Request:
+Hello There, You have new \"Personal Shopper\" Request.
+=====================================
+Name:".$r->name."
+Phone Number:".$r->phone."
+Product Link:".$r->link."
+Request ID:".$GSheetData['id']."
+=====================================
+You can always check your Personal shopper requests from Google Sheets, Here is the link: https://shorturl.at/gDNPX";
+            getAdminUserModel()->notify(new OrderCreated('+201151411867' , $WhatsappMessage));
             return back()->withSuccess('Thank you, Our team will get in touch with you');
         }
     }
