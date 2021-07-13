@@ -25,7 +25,7 @@ Route::get('cart' , 'CartController@getAll')->name('cart.get'); //Tested
 Route::get('delete/{id}' , 'CartController@delete')->name('cart.delete'); //Tested
 Route::get('checkout' , 'OrderController@getCheckout')->name('checkout.get'); //Tested
 Route::post('checkout' , 'OrderController@postCheckout')->name('checkout.post');
-Route::get('success/{id}' , 'OrderController@getOrderSuccess')->name('order.success');
+Route::get('success' , 'OrderController@getOrderSuccess')->name('order.success');
 Route::get('complete/{id}' , 'OrderController@getOrderComplete')->name('order.complete');
 //User System
 Route::middleware('guest')->group(function () {

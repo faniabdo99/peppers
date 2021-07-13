@@ -152,6 +152,7 @@ class OrderController extends Controller{
         return view('orders.complete', compact('TheOrder'));
     }
     public function getOrderSuccess(Request $r){
+        dd($r->all());
         $TheOrder = Order::findOrFail($r->merchant_order_id);
         if($r->success == 'true'){
             //Update the Order
