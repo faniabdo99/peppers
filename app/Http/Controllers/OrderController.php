@@ -127,7 +127,10 @@ class OrderController extends Controller{
                             'phone_number' => $TheOrder->phone_number, 
                             'postal_code' => 12511,
                             'city' => $TheOrder->city, 
-                            'country' => 'EG', peppers
+                            'country' => 'EG', 
+                            'state' => 'State',
+                        ]
+                    ]);
                     $PaymentToken = json_decode($PaymentRequest->body());
                     $FrameID = 154258;
                     $PaymentID = $PaymentToken->token;
