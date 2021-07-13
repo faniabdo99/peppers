@@ -3,6 +3,10 @@ use Illuminate\Support\Facades\Cookie;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Cart;
+use App\Models\User;
+    function getAdminUserModel(){
+        return User::find(1);   
+    }
     function getUserId(){
         if(auth()->check()){
             return auth()->user()->id;

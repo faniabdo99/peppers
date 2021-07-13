@@ -117,5 +117,4 @@ Route::get('personal-shopper','SellController@getPersonalShopper')->name('sell.p
 Route::post('personal-shopper','SellController@postPersonalShopper')->name('sell.postPersonalShopper');
 //List Page
 Route::get('list', 'ProductController@getListPage')->name('product.list');
-
-
+Route::get('test-whatsapp' , 'StaticPageController@testWhatsapp');

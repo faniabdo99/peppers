@@ -38,4 +38,11 @@ class User extends Authenticatable
     public function Orders(){
         return $this->hasMany(Order::class , 'user_id');
     }
+    public function routeNotificationForWhatsApp(){
+        if(isset($this->phone_number) && $this->phone_number != ''){
+            return $this->phone_number;
+        }else{
+            return '+201151411867';
+        }
+    }
 }

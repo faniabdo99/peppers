@@ -19,6 +19,7 @@
                                 <li><a href="{{route('sell.howToSellWithUs')}}">Sell With Us</a></li>
                                 <li><a href="{{route('static.consignmentForm')}}">Our Consignment Form</a></li>
                                 <li><a href="{{route('static.howItWorks')}}">How It Works</a></li>
+                                <li><a href="{{route('contact.get')}}">Contact Us</a></li>
                             </ul>
                         </div>
                         <div class="col-lg-4 col-12">

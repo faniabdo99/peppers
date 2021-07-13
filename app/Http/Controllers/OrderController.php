@@ -11,6 +11,7 @@ use Mail;
 use App\Mail\OrderPlaceMail;
 use App\Mail\OrderReceipt;
 use App\Mail\OrderStatusUpdated;
+use App\Notifications\OrderCreated;
 class OrderController extends Controller{
     public function getCheckout(){
         if(userCartCount(getUserId()) > 0){
@@ -139,7 +140,10 @@ class OrderController extends Controller{
                 }
                 //Send Order Mail to Admin
                 try{
-                    Mail::to('info@peppersluxury.com')->send(new OrderPlaceMail());
+                    $WhatsappMessage = "Hello There, You have new order on Peppers Luxury Closet.
+Order From: ".$TheOrder->name."
+Order Total: ".$TheOrder->FinalTotal;
+                    $TheOrder->notify(new OrderCreated('+201151411867' , $WhatsappMessage));
                     Mail::to($TheOrder->email)->send(new OrderReceipt($TheOrder));
                 }catch(Exception $e){}
                 return redirect()->route('order.complete' , $TheOrder->id);

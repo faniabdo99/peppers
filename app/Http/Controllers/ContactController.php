@@ -5,6 +5,7 @@ use Mail;
 use Sheets;
 use Validator;
 use App\Mail\ContactUsMail;
+use App\Notifications\OrderCreated;
 class ContactController extends Controller{
     public function getContact(){
         return view('static.contact');
@@ -24,9 +25,13 @@ class ContactController extends Controller{
             $EmailData['created_at'] = date('Y-m-d');
             //Upload to google sheets
             Sheets::spreadsheet(env('POST_SPREADSHEET_ID'))->sheet('ContactUs')->append([$EmailData]);
-            //Send the mail
-            Mail::to('info@peppersluxury.com')->send(new ContactUsMail($EmailData));
-            return back()->withSuccess('Your email has been sent, thank you');
+            //Whatsapp Notification
+            $WhatsappMessage = "New Contact Us Request:
+".$r->message."
+Email:".$r->email."
+From:".$r->name;
+            getAdminUserModel()->notify(new OrderCreated('+201151411867' , $WhatsappMessage));
+            return back()->withSuccess('Your email has been recived, thank you');
         }
     }
 }

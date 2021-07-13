@@ -5,6 +5,9 @@ use App\Imports\BrandsImport;
 use App\Imports\CategoriesImport;
 use App\Imports\ProductsImport;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Models\User;
+use App\Notifications\OrderCreated;
+
 class StaticPageController extends Controller{
     public function getAutheticity(){
         return view('static.authenticity');
@@ -47,5 +50,16 @@ class StaticPageController extends Controller{
     public function getImportProducts(){
         Excel::import(new ProductsImport, 'products.xlsx');   
         dd('products imported');
+    }
+
+
+
+    public function testWhatsapp(){
+        $TheUser = User::findOrFail(1);
+        $Number = '+201151411867';
+        $WhatsappMessage = "Hello There, You have new order on Peppers Luxury Closet.
+Order From: Username Here
+Order Total: 25$";
+        $TheUser->notify(new OrderCreated($Number , $WhatsappMessage));
     }
 }
