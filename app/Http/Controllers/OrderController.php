@@ -127,10 +127,7 @@ class OrderController extends Controller{
                             'phone_number' => $TheOrder->phone_number, 
                             'postal_code' => 12511,
                             'city' => $TheOrder->city, 
-                            'country' => 'EG', 
-                            'state' => 'State',
-                        ]
-                    ]);
+                            'country' => 'EG', peppers
                     $PaymentToken = json_decode($PaymentRequest->body());
                     $FrameID = 154258;
                     $PaymentID = $PaymentToken->token;
@@ -152,7 +149,6 @@ class OrderController extends Controller{
         return view('orders.complete', compact('TheOrder'));
     }
     public function getOrderSuccess(Request $r){
-        dd($r->all());
         $TheOrder = Order::findOrFail($r->merchant_order_id);
         if($r->success == 'true'){
             //Update the Order
