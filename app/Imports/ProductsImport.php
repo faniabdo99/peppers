@@ -13,15 +13,14 @@ class ProductsImport implements ToCollection{
         foreach($rows as $TheKey => $row){
             $Status = ($row[1] > 0) ? 'Available' : 'Sold Out';
             $InStock = ($row[1] > 0) ? 1 : 0;
-            $Brand = $row[2];
             //Create the product
             $TheProduct = Product::create([
                 'title' => $row[3],
                 'slug' => strtolower(preg_replace('/[^A-Za-z0-9]+/' , '-' , $row[3])),
                 'status' => $Status,
-                'image' => $row[0].'.png',
+                'image' => strtolower($row[0]).'.png',
                 'sku' => strtoupper($row[0]),
-                'color' => $row[6],
+                'color' => strtoupper($row[6]),
                 'condition' => $row[4],
                 'description' => $row[3],
                 'buy_price' => 500,
@@ -35,11 +34,13 @@ class ProductsImport implements ToCollection{
                 'in_stock' => $InStock,
                 'for_gender' => 'Women',
                 'store_location' => 'Cairo',
-                'brand_id' => $Brand,
+                'brand_id' => $row[2],
                 'category_id' => $row[5],
                 'user_id' => 1,
                 'is_featured' => 0,
                 'is_new' => 0,
+                'batch_num' => 2,
+                'is_test' => 0
             ]);
             //Create the product gallery
             $DummyArray = [
