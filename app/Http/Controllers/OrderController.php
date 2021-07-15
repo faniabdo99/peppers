@@ -143,7 +143,7 @@ class OrderController extends Controller{
                     $WhatsappMessage = "Hello There, You have new order on Peppers Luxury Closet.
 Order From: ".$TheOrder->name."
 Order Total: ".$TheOrder->FinalTotal;
-                    $TheOrder->notify(new OrderCreated('+201151411867' , $WhatsappMessage));
+                    $TheOrder->notify(new OrderCreated('+201066615757' , $WhatsappMessage));
                     Mail::to($TheOrder->email)->send(new OrderReceipt($TheOrder));
                 }catch(Exception $e){}
                 return redirect()->route('order.complete' , $TheOrder->id);
@@ -192,5 +192,12 @@ Order Total: ".$TheOrder->FinalTotal;
             }
             return back()->withSuccess('Order Status Updated');
         }
+    }
+    public function resetOrders(){
+        //Delete all the Orders
+        Order::truncate();
+        //Delete all the carts
+        Cart::truncate();
+        return back()->withSuccess('Orders and Carts Reseted');
     }
 }

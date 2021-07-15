@@ -30,7 +30,7 @@ class ContactController extends Controller{
 ".$r->message."
 Email:".$r->email."
 From:".$r->name;
-            getAdminUserModel()->notify(new OrderCreated('+201151411867' , $WhatsappMessage));
+            getAdminUserModel()->notify(new OrderCreated('+201066615757' , $WhatsappMessage));
             return back()->withSuccess('Your email has been recived, thank you');
         }
     }

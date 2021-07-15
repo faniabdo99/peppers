@@ -104,7 +104,10 @@ Route::group(['prefix' => 'admin' , 'middleware' => 'admin'], function(){
         Route::get('/{id}' , 'OrderController@getSingle')->name('admin.orders.single');
         Route::post('update-order-staus' , 'OrderController@postUpdateStatus')->name('admin.orders.updateStatus');
     });
-
+    //Testing Phase Links
+    Route::get('reset-orders' , 'OrderController@resetOrders')->name('admin.resetOrder');
+    Route::get('reset-users' , 'UserController@resetUsers')->name('admin.resetUsers');
+    Route::get('reset-products' , 'ProductController@resetProducts')->name('admin.resetProducts');
 });
 Route::get('import-brands' , 'StaticPageController@getImportBrands');
 Route::get('import-categories' , 'StaticPageController@getImportCategories');

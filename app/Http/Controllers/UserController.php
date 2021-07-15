@@ -208,8 +208,14 @@ class UserController extends Controller{
             return redirect()->route('home')->withSuccess('You are already logged out');
         }
     }
-
+    public function resetUsers(){
+        $AllUsers = User::where('role' , '!=' , 2)->get();
+        $AllUsers->map(function($item){
+            $item->delete();
+        });
+        return back()->withSuccess('Users Rested');
     }
+}
 
 
 

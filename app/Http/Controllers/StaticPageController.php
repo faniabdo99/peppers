@@ -56,7 +56,7 @@ class StaticPageController extends Controller{
 
     public function testWhatsapp(){
         $TheUser = User::findOrFail(1);
-        $Number = '+201151411867';
+        $Number = '+201066615757';
         $WhatsappMessage = "Hello There, You have new order on Peppers Luxury Closet.
 Order From: Username Here
 Order Total: 25$";

@@ -42,7 +42,7 @@ class User extends Authenticatable
         if(isset($this->phone_number) && $this->phone_number != ''){
             return $this->phone_number;
         }else{
-            return '+201151411867';
+            return '+201066615757';
         }
     }
 }

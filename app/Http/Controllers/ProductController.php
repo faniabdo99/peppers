@@ -5,6 +5,7 @@ use Validator;
 use Image as ImageLib;
 //Models
 use App\Models\Brand;
+use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductImage;
@@ -296,4 +297,46 @@ class ProductController extends Controller{
     //     ]);
     //     return response("Category Updated" , 200);
     // }
+    public function resetProducts(){
+        //Delete all testing products
+        $TestingProducts = Product::where('is_test' , 1)->get();
+        $TestingProducts->map(function($item){
+            $item->delete();
+        });
+        //Craft the new 10 Products
+        for ($x = 1; $x <= 10; $x++) {
+            Product::create([
+                'title' => 'Test Product '.$x,
+                'slug' => 'test-product-'.$x,
+                'status' => 'Available',
+                'image' => 'test.png',
+                'sku' => 'TST-'.$x,
+                'color' => 'BLACK',
+                'condition' => 'New',
+                'description' => 'Test Product',
+                'buy_price' => 50,
+                'price' => 1,
+                'content' => 'Test Product',
+                'size' => 'LARGE',
+                'height' => 1,
+                'width' => 1,
+                'depth' => 1,
+                'qty' => 1,
+                'in_stock' => 1,
+                'for_gender' => 'Women',
+                'store_location' => 'Cairo',
+                'brand_id' => 1,
+                'category_id' => 1,
+                'user_id' => 1,
+                'discount_id' => null,
+                'is_featured' => 0,
+                'is_new' => 1,
+                'batch_num' => 1,
+                'is_test' => 1
+            ]);
+            //Clear Users Cart
+            Cart::truncate();
+        }
+        return back()->withSuccess('Test Products Generated');
+    }
 }

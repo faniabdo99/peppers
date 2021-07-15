@@ -69,7 +69,7 @@ Phone Number:".$r->phone."
 Request ID:".$GSheetData['id']."
 =====================================
 You can always check your Sell to us requests from Google Sheets, Here is the link: https://shorturl.at/gDNPX";
-                        getAdminUserModel()->notify(new OrderCreated('+201151411867' , $WhatsappMessage));
+                        getAdminUserModel()->notify(new OrderCreated('+201066615757' , $WhatsappMessage));
             return back()->withSuccess('Your item has been recived, Thanke you.');
         }
     }
@@ -106,7 +106,7 @@ Product Link:".$r->link."
 Request ID:".$GSheetData['id']."
 =====================================
 You can always check your Personal shopper requests from Google Sheets, Here is the link: https://shorturl.at/gDNPX";
-            getAdminUserModel()->notify(new OrderCreated('+201151411867' , $WhatsappMessage));
+            getAdminUserModel()->notify(new OrderCreated('+201066615757' , $WhatsappMessage));
             return back()->withSuccess('Thank you, Our team will get in touch with you');
         }
     }
